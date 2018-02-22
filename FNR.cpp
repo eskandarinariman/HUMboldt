@@ -52,14 +52,20 @@ ap_int <64> reverseEndian64(ap_int <64> X) {
 //}
 
 
-void  packetFormatter_hardcode_64(
+void  FNR(
 
-		hls::stream <ap_axis_dest> packetIn,
+		hls::stream <ap_axis_dest> stream_in,
 //		volatile ap_int <32> * packetHeader0_out,
 //		volatile ap_int <32> * packetHeader1_out,
-		hls::stream <ap_axis >  packetOut
+		hls::stream <ap_axis >  stream_out
 
 ){
+
+#pragma HLS INTERFACE ap_ctrl_none port=return
+#pragma HLS resource core=AXI4Stream variable=stream_out
+#pragma HLS resource core=AXI4Stream variable=stream_in
+#pragma HLS DATA_PACK variable  = stream_out
+#pragma HLS DATA_PACK variable  = stream_in
 
 	ap_axis_dest currPayloadIn;
 	ap_axis currPayloadOut,extraPayload;
@@ -79,7 +85,9 @@ void  packetFormatter_hardcode_64(
 	ap_uint<1> extra = 0;
 
 
-	currPayloadIn = packetIn.read();  
+	currPayloadIn = stream_in.read();
+
+	  
 
 	last = currPayloadIn.last;
 	if(currPayloadIn.user(7,4) == ENVLP){
@@ -110,23 +118,23 @@ void  packetFormatter_hardcode_64(
 
 	extraPayload.data = reverseEndian64(extraPayload.data);
 	if(currPayloadIn.user(7,4) == DATA){
-		packetOut.write(extraPayload);
+		stream_out.write(extraPayload);
 		currPayloadOut.data = reverseEndian64(currPayloadIn.data);
-		packetOut.write(currPayloadOut);
+		stream_out.write(currPayloadOut);
 	}else{	
-		packetOut.write(currPayloadOut);
+		stream_out.write(currPayloadOut);
 	}
 
 
 	while(!last){
 
-		currPayloadIn = packetIn.read();
+		currPayloadIn = stream_in.read();
 		currPayloadOut.data = reverseEndian64(currPayloadIn.data);
 		//currPayloadOut.data = currPayloadIn.data;
 		currPayloadOut.last = currPayloadIn.last;
 		currPayloadOut.keep = 0xff;
 		currPayloadOut.dest = currPayloadIn.dest;
-		packetOut.write(currPayloadOut);
+		stream_out.write(currPayloadOut);
 		last = currPayloadOut.last;
 
 	}
@@ -135,14 +143,14 @@ void  packetFormatter_hardcode_64(
 /*
 void  packetFormatter_hardcode(
 
-		hls::stream <ap_axis_dest> packetIn,
+		hls::stream <ap_axis_dest> stream_in,
 		ap_int <48> eth_dst,
 		ap_int <48> eth_src,
 		ap_int <32> * packetHeader0_out,
 		ap_int <32> * packetHeader1_out,
 		ap_int <32> * packetHeader2_out,
 		ap_int <32> * packetHeader3_out,
-		hls::stream <ap_axis >  packetOut
+		hls::stream <ap_axis >  stream_out
 
 
 
@@ -195,7 +203,7 @@ void  packetFormatter_hardcode(
 
 	packetFormatter_label1:do{
 			numPackets++;
-			packetPayload[numPackets -1] = packetIn.read();
+			packetPayload[numPackets -1] = stream_in.read();
 			tdest = packetPayload[numPackets -1].dest.concat(zero);
 			//tdest = 0x01;
 			//tdest = 0x0001;
@@ -209,16 +217,16 @@ void  packetFormatter_hardcode(
 				//packetHeader3.packet = kern_dst.concat(temp3);
 				packetHeader3.packet = kern_dst.concat(temp3);
 				*packetHeader3_out = packetHeader3.packet;
-				packetOut.write(packetHeader0);
-				packetOut.write(packetHeader1);
-				packetOut.write(packetHeader2);
-				packetOut.write(packetHeader3);
+				stream_out.write(packetHeader0);
+				stream_out.write(packetHeader1);
+				stream_out.write(packetHeader2);
+				stream_out.write(packetHeader3);
 
 
 				for (i=0; i<numPackets; i++){
 					currPayload.packet = reverseEndian32(packetPayload[i].packet);
 					currPayload.last = packetPayload[i].last;
-					packetOut.write(currPayload);
+					stream_out.write(currPayload);
 
 				}
 

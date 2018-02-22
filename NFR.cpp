@@ -47,11 +47,15 @@ ap_int <64> reverseEndian64(ap_int <64> X) {
 }
 
 
-void fireWall64(
+void NFR(
 		hls::stream <ap_axis_in> stream_in,
-		hls::stream <ap_axis_out> stream_out,
+		hls::stream <ap_axis_out> stream_out
 ){
-
+#pragma HLS INTERFACE ap_ctrl_none port=return
+#pragma HLS resource core=AXI4Stream variable=stream_out
+#pragma HLS resource core=AXI4Stream variable=stream_in
+#pragma HLS DATA_PACK variable  = stream_out
+#pragma HLS DATA_PACK variable  = stream_in
 	//ap_uint <48> eth_address = 0x010203040506;
 
 	ap_int <64> header[1];
@@ -118,13 +122,14 @@ void fireWall64(
 
 		//*dest_out = dest;
 
-		ap_int<64> envlp_packet_data = reverseEndian64(header[0]);
+		//ap_int<64> envlp_packet_data = reverseEndian64(header[0]);
+		ap_int<64> envlp_packet_data = header[0];
 
 		if(envlp_packet_data(15,8) == C_SYNC_ENV_PACKET || envlp_packet_data(15,8) == C_CLR2SND_PACKET
 			|| envlp_packet_data(15,8) == C_DATA_TRANSMISSION_DONE || envlp_packet_data(15,8) == C_RECV_ERROR){
 			ap_axis_out envlp_out;
 			envlp_out.data = envlp_packet_data;
-			envlp_out.dest = header[0].dest;
+			envlp_out.dest = packetIn.dest;
 			envlp_out.last = header_last;
 			id = envlp_packet_data(7,0);
 			envlp_out.id = id;
@@ -146,9 +151,9 @@ void fireWall64(
 		while(!last ){
 			packetIn = stream_in.read();
 			packetOut.last = packetIn.last;
-			packetOut.data = reverseEndian64(packetIn.data);
-			//packetOut.data = packetIn.data;
-			packetOut.dest = header[0].dest;
+			//packetOut.data = reverseEndian64(packetIn.data);
+			packetOut.data = packetIn.data;
+			packetOut.dest = packetIn.dest;
 			packetOut.id = id;
 			packetOut.user = user;
 			last = packetIn.last;
