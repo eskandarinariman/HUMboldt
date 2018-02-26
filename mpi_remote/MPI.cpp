@@ -5,6 +5,9 @@ list<envelope> clr2snd_list;
 list<data_packet> data_list;
 list<envelope> error_list;
 list<envelope> done_list;
+
+clock_t time_begin,time_end;
+
 int req_num = 0;
 int clr_num = 0;
 
@@ -54,7 +57,7 @@ void eth_receiver_func() {
 			envlp.buffer[1] = buffer[1+HEADER_OFFSET];
 			for(int i = 2; i < ENVELOPE_SIZE; i++){
 				envlp.buffer[i] = buffer[i+HEADER_OFFSET];
-				//cout << hex << (int)buffer[i+HEADER_OFFSET] <<endl;
+				//cout << hex << (int)envlp.buffer[i] <<endl;
 			}
 			// cout << "envlp" <<endl;
 			// for(int i = 0; i < ENVELOPE_SIZE; i++){
@@ -176,14 +179,14 @@ string find_mac_address (int dest){
 		TiXmlElement * kernel = fpga->FirstChild("kernel")->ToElement();
 		for(kernel;kernel;kernel = kernel->NextSiblingElement()){
 			const char * temp = kernel->GetText();
+			int int_temp = atoi(temp);
 			//cout << (int)(*temp - '0') << endl;
-			kernel_to_mac_ptrs[(int)(*temp - '0')] = &(mac_addresses[i]);
+			kernel_to_mac_ptrs[int_temp] = &(mac_addresses[i]);
 		}
 		i++;
 	}
 
-	//cout << "here" << endl;
-
+	// cout << "here" << endl;
 	// for(int i = 0 ; i < kernel_to_mac_ptrs.size();i++)
 	// {
 	// 	if(kernel_to_mac_ptrs[i])
@@ -191,7 +194,6 @@ string find_mac_address (int dest){
 	// }
 
 	// ----------------------------------------------------
-
 	return (*(kernel_to_mac_ptrs[dest]));
 
 }
@@ -218,7 +220,6 @@ bool check_packet_for_me(string mac_address, struct ether_header * eh){
 	// 	eh->ether_dhost[3],
 	// 	eh->ether_dhost[4],
 	// 	eh->ether_dhost[5]);
-		//cin.get();
 		return 0;
 	}
 }
@@ -315,7 +316,7 @@ int send_envelope(unsigned int dest, unsigned int count,MPI_DATA_TYPE dataType,i
 	//cout <<"sending to : "<< mac_address_hex <<endl;
 
 	send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_address_hex.c_str(),envlp.buffer,sizeof(envlp.buffer));
-
+	time_begin = clock();
 	//cout<< sizeof(envlp.buffer) <<endl;
 }
 
@@ -354,10 +355,6 @@ int recv_packet(char* iface, unsigned short proto, unsigned char * buffer, int b
 	repeat: //printf("listener: Waiting to recvfrom...\n");
 	numbytes = recvfrom(s, buffer, buffer_size, MSG_DONTWAIT, NULL, NULL);
 	//printf("listener: got packet %d bytes\n", numbytes);
-	if(numbytes!=-1){
-		//printf("hello");
-	 	//cin.get();
-	}
 
 	//cout << hex << (int) eh->ether_dhost[0] << endl;
 
@@ -367,13 +364,10 @@ int recv_packet(char* iface, unsigned short proto, unsigned char * buffer, int b
 	string my_mac_address_hex = mac_str_to_hex(my_mac_address);
 
 	if(check_packet_for_me(my_mac_address_hex,eh)){
-		//printf("yes");
 		return numbytes;
 	}
-	else{
-		//printf("No");
+	else
 		return -1;
-	}
 
   /* Check the packet is for me */
 	// if (eh->ether_dhost[0] == DEST_MAC0 &&
@@ -396,7 +390,7 @@ int recv_packet(char* iface, unsigned short proto, unsigned char * buffer, int b
 	// }
 }
 
-int wait_for_clr2snd(int dest,MPI_DATA_TYPE dataType){ // it needs a timeout mechanism
+int wait_for_clr2snd(unsigned int dest, unsigned int count,MPI_DATA_TYPE dataType,int tag){ // it needs a timeout mechanism
 	unsigned char buffer[ETH_FRAME_LEN];
 	union envelope envlp;
 
@@ -406,6 +400,11 @@ int wait_for_clr2snd(int dest,MPI_DATA_TYPE dataType){ // it needs a timeout mec
 		//while(lock);
 		//pthread_mutex_lock(&lock);
 		//cout<<"c";
+		time_end = clock();
+		if((double)(time_end - time_begin) / CLOCKS_PER_SEC >= TIMEOUT){
+			send_envelope(dest,count,dataType,tag);
+		}
+		//cout <<(double)(time_end - time_begin) / CLOCKS_PER_SEC<<endl;
 		for(list<envelope>::iterator it = clr2snd_list.begin(); it != clr2snd_list.end(); it++){
 			if((*it).field.PKT_TYPE == C_CLR2SND_PACKET
 			&& (*it).field.DEST == RANK
@@ -414,7 +413,7 @@ int wait_for_clr2snd(int dest,MPI_DATA_TYPE dataType){ // it needs a timeout mec
 					|| (dataType == MPI_INT && (*it).field.DATA_TYPE == INT)){
 					
 					
-					clr2snd_list.erase(it);
+					it = clr2snd_list.erase(it);
 					
 					return 1;
 				}
@@ -537,7 +536,7 @@ int send_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int de
 					if((dataType == MPI_FLOAT && (*it).field.DATA_TYPE == FLOAT)
 						|| (dataType == MPI_INT && (*it).field.DATA_TYPE == INT)){
 						
-						error_list.erase(it);
+						it = error_list.erase(it);
 						//send from error seq
 						seq_num = (*it).field.MSG_SIZE;
 					}
@@ -580,7 +579,7 @@ int send_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int de
 					if((dataType == MPI_FLOAT && (*it).field.DATA_TYPE == FLOAT)
 						|| (dataType == MPI_INT && (*it).field.DATA_TYPE == INT)){
 						//cout << "done" <<endl;
-						error_list.erase(it);
+						it = error_list.erase(it);
 						return 1;
 					}
 				}
@@ -624,7 +623,7 @@ int wait_for_envlp(int source, MPI_DATA_TYPE dataType){
 				if((dataType == MPI_FLOAT && (*it).field.DATA_TYPE == FLOAT)
 					|| (dataType == MPI_INT && (*it).field.DATA_TYPE == INT)){
 					
-					request_list.erase(it);
+					it = request_list.erase(it);
 					
 					return 1;
 				}
@@ -687,6 +686,7 @@ int send_clr2snd(int dest, MPI_DATA_TYPE dataType){
 	//cout <<"sending to : "<< mac_address_hex <<endl;
 
 	send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_address_hex.c_str(),envlp.buffer,sizeof(envlp.buffer));
+	time_begin = clock();
 }
 
 int receive_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int source){
@@ -715,6 +715,11 @@ int receive_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int
 		//mu.lock();
 		std::lock_guard<std::mutex> guard(myMutex);
 		//cout << "D";
+		time_end = clock();
+		if((double)(time_end - time_begin) / CLOCKS_PER_SEC >= TIMEOUT){
+			send_clr2snd(source, dataType);
+			cout << "fuck :D" <<endl;
+		}
 		for(list<data_packet>::iterator it = data_list.begin(); it != data_list.end(); it++){
 			//cout <<"1" <<endl;
 			if((*it).envlp.field.PKT_TYPE == C_DATA_PACKET	
@@ -769,6 +774,8 @@ int receive_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int
 						}
 						else{
 							if(!is_error_sent){
+								cout << "Error" <<endl;
+								cin.get();
 								union envelope envlp;
 								envlp.field.SRC = RANK;
 								envlp.field.DEST = source;
@@ -846,7 +853,7 @@ int MPI_Recv(void * buff,unsigned int count,MPI_DATA_TYPE dataType,
 	send_clr2snd(src,dataType);
 	cout << "receive data from " <<src<<endl;
 	receive_data(buff,count,dataType,src);//this function has problem
-	cout << "done " <<src<<endl;
+	cout << "recv done " <<src<<endl;
 
 	return 1;
 
@@ -857,9 +864,10 @@ int MPI_Send(void * buff,unsigned int count,MPI_DATA_TYPE dataType,
 	cout << "send envelope to " <<dest<<endl;
 	send_envelope(dest,count,dataType,tag);
 	cout << "wait for clr2snd from " <<dest<<endl;
-	wait_for_clr2snd(dest,dataType);
+	wait_for_clr2snd(dest,count,dataType,tag);
 	cout << "send data to " <<dest<<endl;
 	send_data(buff,count,dataType,dest,tag);
+	cout << "send done " <<dest<<endl;
 
 	return 1;
 }

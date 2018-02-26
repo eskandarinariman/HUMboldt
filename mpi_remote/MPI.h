@@ -23,6 +23,7 @@
 #include <list>
 #include <thread>
 #include <mutex>
+#include <time.h>
 
 #include "tinyxml.h"
 
@@ -50,6 +51,8 @@ using namespace std;
 #define ETH_DATA_FRAM_SIZE 1496
 
 #define MPI_SUCCESS 1
+
+#define TIMEOUT 4
 
 
 #define INT 0
@@ -107,7 +110,7 @@ int send_packet(char* iface, unsigned short proto,const char* dest,
 string mac_str_to_hex(string mac_address_str);
 int send_envelope(unsigned int dest, unsigned int count,MPI_DATA_TYPE dataType,int tag);
 int recv_packet(char* iface, unsigned short proto, unsigned char * buffer, int buffer_size);
-int wait_for_clr2snd(int dest,MPI_DATA_TYPE dataType);
+int wait_for_clr2snd(unsigned int dest, unsigned int count,MPI_DATA_TYPE dataType,int tag);
 int send_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int dest,int tag);
 int wait_for_envlp(int source, MPI_DATA_TYPE dataType);
 int send_clr2snd(int dest,MPI_DATA_TYPE dataType);
