@@ -1,0 +1,786 @@
+size: 15141500
+done
+done
+done
+done
+done
+done
+rank 0: setup complete running kmeans iteration:0 ...
+h_cluster_local_members: 1
+h_cluster_local_members: 1
+h_cluster_local_members: 1
+h_cluster_local_members: 1
+h_cluster_local_members: 1
+h_cluster_local_members: 1
+h_cluster_local_members: 1
+h_cluster_local_members: 1
+h_cluster_local_members: 1
+h_cluster_local_members: 61
+wait for envlp from 1
+send clr2snd to 1
+receive data from 1
+80break80
+done
+temp4.8928e-38
+temp0
+temp5.94827e-39
+temp0
+temp4.8928e-38
+temp0
+temp4.89387e-38
+temp0
+temp4.89392e-38
+temp0
+temp-5.61161e+22
+temp3.88468e-25
+temp4.89279e-38
+temp0
+temp-5.48541e+12
+temp4.59163e-41
+temp-3.72808e+06
+temp4.59009e-41
+temp-5.4851e+12
+temp4.59163e-41
+done 1
+itr: 0 h_clusters_local_sums: 0.000000
+itr: 0 h_clusters_local_sums: 1.000000
+itr: 0 h_clusters_local_sums: 2.000000
+itr: 0 h_clusters_local_sums: 3.000000
+itr: 0 h_clusters_local_sums: 4.000000
+itr: 0 h_clusters_local_sums: 5.000000
+itr: 0 h_clusters_local_sums: 6.000000
+itr: 0 h_clusters_local_sums: 7.000000
+itr: 0 h_clusters_local_sums: 8.000000
+itr: 0 h_clusters_local_sums: 9.000000
+itr: 0 h_clusters_local_sums: 10.000000
+itr: 0 h_clusters_local_sums: 11.000000
+itr: 0 h_clusters_local_sums: 12.000000
+itr: 0 h_clusters_local_sums: 13.000000
+itr: 0 h_clusters_local_sums: 14.000000
+itr: 0 h_clusters_local_sums: 15.000000
+itr: 0 h_clusters_local_sums: 16.000000
+itr: 0 h_clusters_local_sums: 17.000000
+itr: 0 h_clusters_local_sums: 4758.000000
+itr: 0 h_clusters_local_sums: 4819.000000
+wait for envlp from 2
+send clr2snd to 2
+receive data from 2
+80break80
+done
+temp4.8928e-38
+temp0
+temp5.94827e-39
+temp0
+temp4.8928e-38
+temp0
+temp4.89387e-38
+temp0
+temp4.89392e-38
+temp0
+temp-5.61161e+22
+temp3.88468e-25
+temp4.89279e-38
+temp0
+temp-5.48541e+12
+temp4.59163e-41
+temp-3.72808e+06
+temp4.59009e-41
+temp-5.4851e+12
+temp4.59163e-41
+done 2
+itr: 0 h_clusters_local_sums: 0.000000
+itr: 0 h_clusters_local_sums: 1.000000
+itr: 0 h_clusters_local_sums: 2.000000
+itr: 0 h_clusters_local_sums: 3.000000
+itr: 0 h_clusters_local_sums: 4.000000
+itr: 0 h_clusters_local_sums: 5.000000
+itr: 0 h_clusters_local_sums: 6.000000
+itr: 0 h_clusters_local_sums: 7.000000
+itr: 0 h_clusters_local_sums: 8.000000
+itr: 0 h_clusters_local_sums: 9.000000
+itr: 0 h_clusters_local_sums: 10.000000
+itr: 0 h_clusters_local_sums: 11.000000
+itr: 0 h_clusters_local_sums: 12.000000
+itr: 0 h_clusters_local_sums: 13.000000
+itr: 0 h_clusters_local_sums: 14.000000
+itr: 0 h_clusters_local_sums: 15.000000
+itr: 0 h_clusters_local_sums: 16.000000
+itr: 0 h_clusters_local_sums: 17.000000
+itr: 0 h_clusters_local_sums: 4758.000000
+itr: 0 h_clusters_local_sums: 4819.000000
+wait for envlp from 3
+send clr2snd to 3
+receive data from 3
+80break80
+done
+temp4.8928e-38
+temp0
+temp5.94827e-39
+temp0
+temp4.8928e-38
+temp0
+temp4.89387e-38
+temp0
+temp4.89392e-38
+temp0
+temp-5.61161e+22
+temp3.88468e-25
+temp4.89279e-38
+temp0
+temp-5.48541e+12
+temp4.59163e-41
+temp-3.72808e+06
+temp4.59009e-41
+temp-5.4851e+12
+temp4.59163e-41
+done 3
+itr: 0 h_clusters_local_sums: 0.000000
+itr: 0 h_clusters_local_sums: 1.000000
+itr: 0 h_clusters_local_sums: 2.000000
+itr: 0 h_clusters_local_sums: 3.000000
+itr: 0 h_clusters_local_sums: 4.000000
+itr: 0 h_clusters_local_sums: 5.000000
+itr: 0 h_clusters_local_sums: 6.000000
+itr: 0 h_clusters_local_sums: 7.000000
+itr: 0 h_clusters_local_sums: 8.000000
+itr: 0 h_clusters_local_sums: 9.000000
+itr: 0 h_clusters_local_sums: 10.000000
+itr: 0 h_clusters_local_sums: 11.000000
+itr: 0 h_clusters_local_sums: 12.000000
+itr: 0 h_clusters_local_sums: 13.000000
+itr: 0 h_clusters_local_sums: 14.000000
+itr: 0 h_clusters_local_sums: 15.000000
+itr: 0 h_clusters_local_sums: 16.000000
+itr: 0 h_clusters_local_sums: 17.000000
+itr: 0 h_clusters_local_sums: 4758.000000
+itr: 0 h_clusters_local_sums: 4819.000000
+wait for envlp from 1
+send clr2snd to 1
+receive data from 1
+seq: 0	byte 24 : 1 0
+seq: 0	byte 19 : 0 1
+seq: 0	byte 1a : 0 2
+seq: 0	byte 1b : 0 3
+seq: 0	byte 1c : 1 4
+seq: 0	byte 1d : 0 5
+seq: 0	byte 1e : 0 6
+seq: 0	byte 1f : 0 7
+seq: 0	byte 20 : 3d 8
+seq: 0	byte 21 : 0 9
+seq: 0	byte 22 : 0 a
+seq: 0	byte 23 : 0 b
+seq: 0	byte 24 : 3d c
+seq: 0	byte 25 : 0 d
+seq: 0	byte 26 : 0 e
+seq: 0	byte 27 : 0 f
+seq: 0	byte 28 : 3d 10
+seq: 0	byte 29 : 0 11
+seq: 0	byte 2a : 0 12
+seq: 0	byte 2b : 0 13
+seq: 0	byte 2c : 3d 14
+seq: 0	byte 2d : 0 15
+seq: 0	byte 2e : 0 16
+seq: 0	byte 2f : 0 17
+seq: 1	byte 18 : 3d 18
+seq: 1	byte 19 : 0 19
+seq: 1	byte 1a : 0 1a
+seq: 1	byte 1b : 0 1b
+seq: 1	byte 1c : 3d 1c
+seq: 1	byte 1d : 0 1d
+seq: 1	byte 1e : 0 1e
+seq: 1	byte 1f : 0 1f
+seq: 1	byte 20 : 3d 20
+seq: 1	byte 21 : 0 21
+seq: 1	byte 22 : 0 22
+seq: 1	byte 23 : 0 23
+seq: 1	byte 24 : 3d 24
+seq: 1	byte 25 : 0 25
+seq: 1	byte 26 : 0 26
+seq: 1	byte 27 : 0 27
+28break28
+done
+temp4.8928e-38
+temp0
+temp5.94827e-39
+temp0
+temp4.8928e-38
+temp0
+temp4.89387e-38
+temp0
+temp4.89392e-38
+temp0
+temp-5.61161e+22
+temp3.88468e-25
+temp4.89279e-38
+temp0
+temp-5.48541e+12
+temp4.59163e-41
+temp-3.72808e+06
+temp4.59009e-41
+temp-5.4851e+12
+temp4.59163e-41
+done 1
+h_cluster_local_members: 1
+h_cluster_local_members: 1
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+wait for envlp from 2
+send clr2snd to 2
+receive data from 2
+seq: 0	byte 18 : 1 0
+seq: 0	byte 19 : 0 1
+seq: 0	byte 1a : 0 2
+seq: 0	byte 1b : 0 3
+seq: 0	byte 1c : 1 4
+seq: 0	byte 1d : 0 5
+seq: 0	byte 1e : 0 6
+seq: 0	byte 1f : 0 7
+seq: 0	byte 20 : 3d 8
+seq: 0	byte 21 : 0 9
+seq: 0	byte 22 : 0 a
+seq: 0	byte 23 : 0 b
+seq: 0	byte 24 : 3d c
+seq: 0	byte 25 : 0 d
+seq: 0	byte 26 : 0 e
+seq: 0	byte 27 : 0 f
+seq: 0	byte 28 : 3d 10
+seq: 0	byte 29 : 0 11
+seq: 0	byte 2a : 0 12
+seq: 0	byte 2b : 0 13
+seq: 0	byte 2c : 3d 14
+seq: 0	byte 2d : 0 15
+seq: 0	byte 2e : 0 16
+seq: 0	byte 2f : 0 17
+seq: 1	byte 18 : 3d 18
+seq: 1	byte 19 : 0 19
+seq: 1	byte 1a : 0 1a
+seq: 1	byte 1b : 0 1b
+seq: 1	byte 1c : 3d 1c
+seq: 1	byte 1d : 0 1d
+seq: 1	byte 1e : 0 1e
+seq: 1	byte 1f : 0 1f
+seq: 1	byte 20 : 3d 20
+seq: 1	byte 21 : 0 21
+seq: 1	byte 22 : 0 22
+seq: 1	byte 23 : 0 23
+seq: 1	byte 24 : 3d 24
+seq: 1	byte 25 : 0 25
+seq: 1	byte 26 : 0 26
+seq: 1	byte 27 : 0 27
+28break28
+done
+temp4.8928e-38
+temp0
+temp5.94827e-39
+temp0
+temp4.8928e-38
+temp0
+temp4.89387e-38
+temp0
+temp4.89392e-38
+temp0
+temp-5.61161e+22
+temp3.88468e-25
+temp4.89279e-38
+temp0
+temp-5.48541e+12
+temp4.59163e-41
+temp-3.72808e+06
+temp4.59009e-41
+temp-5.4851e+12
+temp4.59163e-41
+done 2
+h_cluster_local_members: 1
+h_cluster_local_members: 1
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+wait for envlp from 3
+send clr2snd to 3
+receive data from 3
+seq: 0	byte 18 : 1 0
+seq: 0	byte 19 : 0 1
+seq: 0	byte 1a : 0 2
+seq: 0	byte 1b : 0 3
+seq: 0	byte 1c : 1 4
+seq: 0	byte 1d : 0 5
+seq: 0	byte 1e : 0 6
+seq: 0	byte 1f : 0 7
+seq: 0	byte 20 : 3d 8
+seq: 0	byte 21 : 0 9
+seq: 0	byte 22 : 0 a
+seq: 0	byte 23 : 0 b
+seq: 0	byte 24 : 3d c
+seq: 0	byte 25 : 0 d
+seq: 0	byte 26 : 0 e
+seq: 0	byte 27 : 0 f
+seq: 0	byte 28 : 3d 10
+seq: 0	byte 29 : 0 11
+seq: 0	byte 2a : 0 12
+seq: 0	byte 2b : 0 13
+seq: 0	byte 2c : 3d 14
+seq: 0	byte 2d : 0 15
+seq: 0	byte 2e : 0 16
+seq: 0	byte 2f : 0 17
+seq: 1	byte 18 : 3d 18
+seq: 1	byte 19 : 0 19
+seq: 1	byte 1a : 0 1a
+seq: 1	byte 1b : 0 1b
+seq: 1	byte 1c : 3d 1c
+seq: 1	byte 1d : 0 1d
+seq: 1	byte 1e : 0 1e
+seq: 1	byte 1f : 0 1f
+seq: 1	byte 20 : 3d 20
+seq: 1	byte 21 : 0 21
+seq: 1	byte 22 : 0 22
+seq: 1	byte 23 : 0 23
+seq: 1	byte 24 : 3d 24
+seq: 1	byte 25 : 0 25
+seq: 1	byte 26 : 0 26
+seq: 1	byte 27 : 0 27
+28break28
+done
+temp4.8928e-38
+temp0
+temp5.94827e-39
+temp0
+temp4.8928e-38
+temp0
+temp4.89387e-38
+temp0
+temp4.89392e-38
+temp0
+temp-5.61161e+22
+temp3.88468e-25
+temp4.89279e-38
+temp0
+temp-5.48541e+12
+temp4.59163e-41
+temp-3.72808e+06
+temp4.59009e-41
+temp-5.4851e+12
+temp4.59163e-41
+done 3
+h_cluster_local_members: 1
+h_cluster_local_members: 1
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+h_cluster_local_members: 3d
+done
+done
+done
+rank 0: setup complete running kmeans iteration:1 ...
+h_cluster_local_members: 1
+h_cluster_local_members: 14
+h_cluster_local_members: 0
+h_cluster_local_members: 0
+h_cluster_local_members: 0
+h_cluster_local_members: 0
+h_cluster_local_members: 0
+h_cluster_local_members: 0
+h_cluster_local_members: 0
+h_cluster_local_members: 31
+wait for envlp from 1
+send clr2snd to 1
+receive data from 1
+50break50
+done
+temp4.89224e-38
+temp0
+temp2.38221e-44
+temp0
+temp2.38221e-44
+temp0
+temp4.89484e-38
+temp0
+temp4.89489e-38
+temp0
+temp-5.61161e+22
+temp3.88468e-25
+temp4.89341e-38
+temp0
+temp-5.48541e+12
+temp4.59163e-41
+temp-3.72808e+06
+temp4.59009e-41
+temp-5.4851e+12
+temp4.59163e-41
+done 1
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 1.000000
+itr: 1 h_clusters_local_sums: 420.000000
+itr: 1 h_clusters_local_sums: 440.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 4410.000000
+itr: 1 h_clusters_local_sums: 4459.000000
+wait for envlp from 2
+send clr2snd to 2
+receive data from 2
+50break50
+done
+temp4.89438e-38
+temp0
+temp2.38221e-44
+temp0
+temp2.38221e-44
+temp0
+temp4.89484e-38
+temp0
+temp4.89489e-38
+temp0
+temp-5.61161e+22
+temp3.88468e-25
+temp4.89341e-38
+temp0
+temp-5.48541e+12
+temp4.59163e-41
+temp-3.72808e+06
+temp4.59009e-41
+temp-5.4851e+12
+temp4.59163e-41
+done 2
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 1.000000
+itr: 1 h_clusters_local_sums: 420.000000
+itr: 1 h_clusters_local_sums: 440.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 4410.000000
+itr: 1 h_clusters_local_sums: 4459.000000
+wait for envlp from 3
+send clr2snd to 3
+receive data from 3
+50break50
+done
+temp4.89224e-38
+temp0
+temp2.38221e-44
+temp0
+temp2.38221e-44
+temp0
+temp4.89484e-38
+temp0
+temp4.89489e-38
+temp0
+temp-5.61161e+22
+temp3.88468e-25
+temp4.89341e-38
+temp0
+temp-5.48541e+12
+temp4.59163e-41
+temp-3.72808e+06
+temp4.59009e-41
+temp-5.4851e+12
+temp4.59163e-41
+done 3
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 1.000000
+itr: 1 h_clusters_local_sums: 420.000000
+itr: 1 h_clusters_local_sums: 440.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 0.000000
+itr: 1 h_clusters_local_sums: 4410.000000
+itr: 1 h_clusters_local_sums: 4459.000000
+wait for envlp from 1
+send clr2snd to 1
+receive data from 1
+seq: 0	byte 18 : 1 0
+seq: 0	byte 19 : 0 1
+seq: 0	byte 1a : 0 2
+seq: 0	byte 1b : 0 3
+seq: 0	byte 1c : 14 4
+seq: 0	byte 1d : 0 5
+seq: 0	byte 1e : 0 6
+seq: 0	byte 1f : 0 7
+seq: 0	byte 20 : 31 8
+seq: 0	byte 21 : 0 9
+seq: 0	byte 22 : 0 a
+seq: 0	byte 23 : 0 b
+seq: 0	byte 24 : 31 c
+seq: 0	byte 25 : 0 d
+seq: 0	byte 26 : 0 e
+seq: 0	byte 27 : 0 f
+seq: 0	byte 28 : 31 10
+seq: 0	byte 29 : 0 11
+seq: 0	byte 2a : 0 12
+seq: 0	byte 2b : 0 13
+seq: 0	byte 2c : 31 14
+seq: 0	byte 2d : 0 15
+seq: 0	byte 2e : 0 16
+seq: 0	byte 2f : 0 17
+seq: 1	byte 18 : 31 18
+seq: 1	byte 19 : 0 19
+seq: 1	byte 1a : 0 1a
+seq: 1	byte 1b : 0 1b
+seq: 1	byte 1c : 31 1c
+seq: 1	byte 1d : 0 1d
+seq: 1	byte 1e : 0 1e
+seq: 1	byte 1f : 0 1f
+seq: 1	byte 20 : 31 20
+seq: 1	byte 21 : 0 21
+seq: 1	byte 22 : 0 22
+seq: 1	byte 23 : 0 23
+seq: 1	byte 24 : 31 24
+seq: 1	byte 25 : 0 25
+seq: 1	byte 26 : 0 26
+seq: 1	byte 27 : 0 27
+28break28
+done
+temp4.89438e-38
+temp0
+temp2.38221e-44
+temp0
+temp2.38221e-44
+temp0
+temp4.89484e-38
+temp0
+temp4.89489e-38
+temp0
+temp-5.61161e+22
+temp3.88468e-25
+temp4.89341e-38
+temp0
+temp-5.48541e+12
+temp4.59163e-41
+temp-3.72808e+06
+temp4.59009e-41
+temp-5.4851e+12
+temp4.59163e-41
+done 1
+h_cluster_local_members: 1
+h_cluster_local_members: 14
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+wait for envlp from 2
+send clr2snd to 2
+receive data from 2
+seq: 0	byte 18 : 1 0
+seq: 0	byte 19 : 0 1
+seq: 0	byte 1a : 0 2
+seq: 0	byte 1b : 0 3
+seq: 0	byte 1c : 14 4
+seq: 0	byte 1d : 0 5
+seq: 0	byte 1e : 0 6
+seq: 0	byte 1f : 0 7
+seq: 0	byte 20 : 31 8
+seq: 0	byte 21 : 0 9
+seq: 0	byte 22 : 0 a
+seq: 0	byte 23 : 0 b
+seq: 0	byte 24 : 31 c
+seq: 0	byte 25 : 0 d
+seq: 0	byte 26 : 0 e
+seq: 0	byte 27 : 0 f
+seq: 0	byte 28 : 31 10
+seq: 0	byte 29 : 0 11
+seq: 0	byte 2a : 0 12
+seq: 0	byte 2b : 0 13
+seq: 0	byte 2c : 31 14
+seq: 0	byte 2d : 0 15
+seq: 0	byte 2e : 0 16
+seq: 0	byte 2f : 0 17
+seq: 1	byte 18 : 31 18
+seq: 1	byte 19 : 0 19
+seq: 1	byte 1a : 0 1a
+seq: 1	byte 1b : 0 1b
+seq: 1	byte 1c : 31 1c
+seq: 1	byte 1d : 0 1d
+seq: 1	byte 1e : 0 1e
+seq: 1	byte 1f : 0 1f
+seq: 1	byte 20 : 31 20
+seq: 1	byte 21 : 0 21
+seq: 1	byte 22 : 0 22
+seq: 1	byte 23 : 0 23
+seq: 1	byte 24 : 31 24
+seq: 1	byte 25 : 0 25
+seq: 1	byte 26 : 0 26
+seq: 1	byte 27 : 0 27
+28break28
+done
+temp4.89224e-38
+temp0
+temp2.38221e-44
+temp0
+temp2.38221e-44
+temp0
+temp4.89484e-38
+temp0
+temp4.89489e-38
+temp0
+temp-5.61161e+22
+temp3.88468e-25
+temp4.89341e-38
+temp0
+temp-5.48541e+12
+temp4.59163e-41
+temp-3.72808e+06
+temp4.59009e-41
+temp-5.4851e+12
+temp4.59163e-41
+done 2
+h_cluster_local_members: 1
+h_cluster_local_members: 14
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+wait for envlp from 3
+send clr2snd to 3
+receive data from 3
+seq: 0	byte 18 : 1 0
+seq: 0	byte 19 : 0 1
+seq: 0	byte 1a : 0 2
+seq: 0	byte 1b : 0 3
+seq: 0	byte 1c : 14 4
+seq: 0	byte 1d : 0 5
+seq: 0	byte 1e : 0 6
+seq: 0	byte 1f : 0 7
+seq: 0	byte 20 : 31 8
+seq: 0	byte 21 : 0 9
+seq: 0	byte 22 : 0 a
+seq: 0	byte 23 : 0 b
+seq: 0	byte 24 : 31 c
+seq: 0	byte 25 : 0 d
+seq: 0	byte 26 : 0 e
+seq: 0	byte 27 : 0 f
+seq: 0	byte 28 : 31 10
+seq: 0	byte 29 : 0 11
+seq: 0	byte 2a : 0 12
+seq: 0	byte 2b : 0 13
+seq: 0	byte 2c : 31 14
+seq: 0	byte 2d : 0 15
+seq: 0	byte 2e : 0 16
+seq: 0	byte 2f : 0 17
+seq: 1	byte 18 : 31 18
+seq: 1	byte 19 : 0 19
+seq: 1	byte 1a : 0 1a
+seq: 1	byte 1b : 0 1b
+seq: 1	byte 1c : 31 1c
+seq: 1	byte 1d : 0 1d
+seq: 1	byte 1e : 0 1e
+seq: 1	byte 1f : 0 1f
+seq: 1	byte 20 : 31 20
+seq: 1	byte 21 : 0 21
+seq: 1	byte 22 : 0 22
+seq: 1	byte 23 : 0 23
+seq: 1	byte 24 : 31 24
+seq: 1	byte 25 : 0 25
+seq: 1	byte 26 : 0 26
+seq: 1	byte 27 : 0 27
+28break28
+done
+temp4.89438e-38
+temp0
+temp2.38221e-44
+temp0
+temp2.38221e-44
+temp0
+temp4.89484e-38
+temp0
+temp4.89489e-38
+temp0
+temp-5.61161e+22
+temp3.88468e-25
+temp4.89341e-38
+temp0
+temp-5.48541e+12
+temp4.59163e-41
+temp-3.72808e+06
+temp4.59009e-41
+temp-5.4851e+12
+temp4.59163e-41
+done 3
+h_cluster_local_members: 1
+h_cluster_local_members: 14
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+h_cluster_local_members: 31
+clusters[0]:
+0.000000, 1.000000
+clusters[1]:
+21.000000, 22.000000
+clusters[2]:
+0.000000, 0.000000
+clusters[3]:
+0.000000, 0.000000
+clusters[4]:
+0.000000, 0.000000
+clusters[5]:
+0.000000, 0.000000
+clusters[6]:
+0.000000, 0.000000
+clusters[7]:
+0.000000, 0.000000
+clusters[8]:
+0.000000, 0.000000
+clusters[9]:
+90.000000, 91.000000
+time :0.027943
+Finished ...
