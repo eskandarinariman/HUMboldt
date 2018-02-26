@@ -54,7 +54,7 @@ void eth_receiver_func() {
 			envlp.buffer[1] = buffer[1+HEADER_OFFSET];
 			for(int i = 2; i < ENVELOPE_SIZE; i++){
 				envlp.buffer[i] = buffer[i+HEADER_OFFSET];
-				//cout << hex << (int)envlp.buffer[i] <<endl;
+				//cout << hex << (int)buffer[i+HEADER_OFFSET] <<endl;
 			}
 			// cout << "envlp" <<endl;
 			// for(int i = 0; i < ENVELOPE_SIZE; i++){
@@ -176,14 +176,14 @@ string find_mac_address (int dest){
 		TiXmlElement * kernel = fpga->FirstChild("kernel")->ToElement();
 		for(kernel;kernel;kernel = kernel->NextSiblingElement()){
 			const char * temp = kernel->GetText();
-			int int_temp = atoi(temp);
 			//cout << (int)(*temp - '0') << endl;
-			kernel_to_mac_ptrs[int_temp] = &(mac_addresses[i]);
+			kernel_to_mac_ptrs[(int)(*temp - '0')] = &(mac_addresses[i]);
 		}
 		i++;
 	}
 
-	// cout << "here" << endl;
+	//cout << "here" << endl;
+
 	// for(int i = 0 ; i < kernel_to_mac_ptrs.size();i++)
 	// {
 	// 	if(kernel_to_mac_ptrs[i])
@@ -191,6 +191,7 @@ string find_mac_address (int dest){
 	// }
 
 	// ----------------------------------------------------
+
 	return (*(kernel_to_mac_ptrs[dest]));
 
 }
@@ -217,6 +218,7 @@ bool check_packet_for_me(string mac_address, struct ether_header * eh){
 	// 	eh->ether_dhost[3],
 	// 	eh->ether_dhost[4],
 	// 	eh->ether_dhost[5]);
+		//cin.get();
 		return 0;
 	}
 }
@@ -352,6 +354,10 @@ int recv_packet(char* iface, unsigned short proto, unsigned char * buffer, int b
 	repeat: //printf("listener: Waiting to recvfrom...\n");
 	numbytes = recvfrom(s, buffer, buffer_size, MSG_DONTWAIT, NULL, NULL);
 	//printf("listener: got packet %d bytes\n", numbytes);
+	if(numbytes!=-1){
+		//printf("hello");
+	 	//cin.get();
+	}
 
 	//cout << hex << (int) eh->ether_dhost[0] << endl;
 
@@ -361,10 +367,13 @@ int recv_packet(char* iface, unsigned short proto, unsigned char * buffer, int b
 	string my_mac_address_hex = mac_str_to_hex(my_mac_address);
 
 	if(check_packet_for_me(my_mac_address_hex,eh)){
+		//printf("yes");
 		return numbytes;
 	}
-	else
+	else{
+		//printf("No");
 		return -1;
+	}
 
   /* Check the packet is for me */
 	// if (eh->ether_dhost[0] == DEST_MAC0 &&
@@ -831,19 +840,13 @@ done:
 
 int MPI_Recv(void * buff,unsigned int count,MPI_DATA_TYPE dataType,
 	unsigned int src,int tag,MPI_COMM comm){
-
-	if(dataType == MPI_INT)
-		cout << "INT" <<endl;
-	else if(dataType == MPI_FLOAT)
-		cout << "FLOAT" <<endl;
-	
 	cout << "wait for envlp from " <<src<<endl;
 	wait_for_envlp(src,dataType);
 	cout << "send clr2snd to " <<src<<endl;
 	send_clr2snd(src,dataType);
 	cout << "receive data from " <<src<<endl;
 	receive_data(buff,count,dataType,src);//this function has problem
-	cout << "recv done " <<src<<endl;
+	cout << "done " <<src<<endl;
 
 	return 1;
 
@@ -851,19 +854,12 @@ int MPI_Recv(void * buff,unsigned int count,MPI_DATA_TYPE dataType,
 
 int MPI_Send(void * buff,unsigned int count,MPI_DATA_TYPE dataType,
 	unsigned int dest,int tag,MPI_COMM comm){
-
-	if(dataType == MPI_INT)
-		cout << "INT" <<endl;
-	else if(dataType == MPI_FLOAT)
-		cout << "FLOAT" <<endl;
-
 	cout << "send envelope to " <<dest<<endl;
 	send_envelope(dest,count,dataType,tag);
 	cout << "wait for clr2snd from " <<dest<<endl;
 	wait_for_clr2snd(dest,dataType);
 	cout << "send data to " <<dest<<endl;
 	send_data(buff,count,dataType,dest,tag);
-	cout << "send done " <<dest<<endl;
 
 	return 1;
 }
