@@ -1,3 +1,6 @@
+#define MODULE_RANK 0
+#define MPI_SIZE 1
+
 /*
  * Program to compute Molecular Dynamics and determine the potential energy of a collection 
  * of atoms as a function of the physical properties and positions of all atoms in the simulation.
@@ -13,11 +16,13 @@
  */
 
 #include <math.h>
-#include <mpi.h>
+#include "MPI.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "common.h"
+
 
 
 // Define MD simulation parameters
@@ -28,6 +33,12 @@
 #define DT 0.02
 #define BOLTZMAN 0.001987191
 #define RAND_MAX 2048
+
+int world_rank = MODULE_RANK;
+int processorCount = MPI_SIZE;
+
+clock_t start_time,end_time;
+
 
 static int rnd_seed = 1;
 
@@ -45,9 +56,6 @@ int rand()
 }
 
 
-int rank;
-int processorCount;
-
 //------------------------------
 // Actual MD calculation
 void
@@ -55,43 +63,24 @@ doMD(int atomCount, int stepCount)
 {
     int i, j;
     int stepIndex = 0;
-    float *forceSum = NULL;
-    float *vel = NULL;
+    //float *forceSum = NULL;
+    //float *vel = NULL;
 
-    float *pos = (float*) malloc(atomCount * 3 * sizeof(float));
-    if (pos == NULL)
-    {
-        PRINT("Cannot allocate memory for atoms\n");
-        return;
-    }
-    float *force = (float*) malloc(atomCount * 3 * sizeof(float));
-    if (force == NULL)
-    {
-        PRINT("Cannot allocate memory for forces\n");
-        free (pos);
-        return;
-    }
-    
-    if (!rank)
-    {
-        forceSum = (float*) malloc(atomCount * 3 * sizeof(float));
-        if (forceSum == NULL)
-        {
-            PRINT("Cannot allocate memory for force summation buffer\n");
-            free(pos);
-            free(force);
-            return;
-        }
+    //float *pos = (float*) malloc(atomCount * 3 * sizeof(float));
+    float pos[atomCount * 3 * sizeof(float)];
 
-        vel = (float*) malloc(atomCount * 3 * sizeof(float));
-        if (vel == NULL)
-        {
-            PRINT("Cannot allocate memory for velocity buffer\n");
-            free(forceSum);
-            free(pos);
-            free(force);
-            return;
-        }
+    //float *force = (float*) malloc(atomCount * 3 * sizeof(float));
+    float force[atomCount * 3 * sizeof(float)];
+
+    //forceSum = (float*) malloc(atomCount * 3 * sizeof(float));
+    float forceSum[atomCount * 3 * sizeof(float)];
+
+    //vel = (float*) malloc(atomCount * 3 * sizeof(float));
+    float vel[atomCount * 3 * sizeof(float)];
+
+
+    if (!world_rank)
+    {
 
         float boltzmanTemp = 298. * BOLTZMAN;
         float tempOverMass = sqrt(boltzmanTemp / 40.0);
@@ -137,9 +126,22 @@ doMD(int atomCount, int stepCount)
     while (stepIndex++ < stepCount)
     {
         // Distribute atoms using broadcast.
-        MPI_Bcast(pos, atomCount * 3, MPI_FLOAT, 0, MPI_COMM_WORLD);
-        memset(force, 0, sizeof(float) * 3 * atomCount);
-        for (i = rank * localAtomCount; i != rank * localAtomCount + localAtomCount; ++i)
+        //MPI_Bcast(pos, atomCount * 3, MPI_FLOAT, 0, MPI_COMM_WORLD);
+        if(world_rank == 0){
+            for(i = 1; i < processorCount ;i++)
+                MPI_Send(pos,atomCount * 3, MPI_FLOAT,i,i,MPI_COMM_WORLD);
+        }
+        else{
+            MPI_Recv(pos, atomCount * 3, MPI_FLOAT,0,i,MPI_COMM_WORLD);
+        }
+
+        
+        //memset(force, 0, sizeof(float) * 3 * atomCount);
+        for(i = 0; i < sizeof(float) * 3 * atomCount ;i++){
+            force[i] = 0;
+        }
+
+        for (i = world_rank * localAtomCount; i != world_rank * localAtomCount + localAtomCount; ++i)
         {
             for (j = 0; j != atomCount; ++j)
             {
@@ -175,13 +177,28 @@ doMD(int atomCount, int stepCount)
         }
 
         // Reduce forces on root.
-        MPI_Reduce(force, forceSum, atomCount * 3, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
+        //MPI_Reduce(force, forceSum, atomCount * 3, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
+        for(i = 0 ; i < atomCount*3 ;i++){
+            forceSum[i] = 0;
+        }
+        if(world_rank == 0){
+            for(i = 1; i < processorCount ;i++){
+                MPI_Recv(pos, atomCount * 3, MPI_FLOAT,i,0,MPI_COMM_WORLD);
+            }
+
+            for(i = 0; i < atomCount * 3; i++){
+                forceSum[i] += force[i];
+            }
+        }
+        else{
+            MPI_Send(pos, atomCount * 3, MPI_FLOAT,0,0,MPI_COMM_WORLD);
+        }
 
         // Integrate.
-        if (!rank)
+        if (!world_rank)
         {
             // Add force to velocity and velocity to position.
-            for (i = rank * localAtomCount; i != rank * localAtomCount + localAtomCount; ++i)
+            for (i = world_rank * localAtomCount; i != world_rank * localAtomCount + localAtomCount; ++i)
             {
                 vel[i * 3] += forceSum[i * 3] * DT * INVMASS;
                 pos[i * 3] += fmod(vel[i * 3] * DT, CUBELENGTH);
@@ -193,15 +210,15 @@ doMD(int atomCount, int stepCount)
         }
     }
 
-    MPI_Barrier(MPI_COMM_WORLD);
+    //MPI_Barrier(MPI_COMM_WORLD);
 
-    free(pos);
-    free(force);
+    // free(pos);
+    // free(force);
     
-    if (!rank)
-    {
-        free(forceSum);
-    }
+    // if (!world_rank)
+    // {
+    //     free(forceSum);
+    // }
 }
 
 
@@ -215,9 +232,9 @@ main(int argc, char* argv[])
     
 
     // Setup network.
-    MPI_Init(&argc, &argv);
-    MPI_Comm_size(MPI_COMM_WORLD, &processorCount);
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Init();
+    // MPI_Comm_size(MPI_COMM_WORLD, &processorCount);
+    // MPI_Comm_rank(MPI_COMM_WORLD, &world_ra);
 
     PRINT("PROC:%d, ATOMS:%d, STEPS:%d\r\n", processorCount, ATOMCOUNT, STEPCOUNT);
 
@@ -228,23 +245,26 @@ main(int argc, char* argv[])
 
     if (atomCount % processorCount)
     {
-        if (!rank)
+        if (!world_rank)
             PRINT("Error. Atom count must be a multiple of processor count\n");
     }
     else
     {
-        double start_time = 0.0, end_time=0.0;
-        start_time = TIME_STAMP();
+        start_time = clock();
         doMD(atomCount, stepCount);
-        end_time = TIME_STAMP();
+        end_time = clock();
 
-        if (rank == 0)
-            PRINT( "Time: %f\r\n", ((float)(end_time-start_time)));
+        if (world_rank == 0)
+            PRINT( "Time: %f\r\n", (double)(end_time - start_time) / CLOCKS_PER_SEC);
     }
 
 
-    PRINT("Rank %d done\n", rank);
+    PRINT("Rank %d done\n", world_rank);
     MPI_Finalize();
 
     return 0;
 }
+
+
+
+
