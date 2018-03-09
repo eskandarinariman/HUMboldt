@@ -67,16 +67,16 @@ doMD(int atomCount, int stepCount)
     //float *vel = NULL;
 
     //float *pos = (float*) malloc(atomCount * 3 * sizeof(float));
-    float pos[atomCount * 3 * sizeof(float)];
+    float pos[atomCount * 3 ];
 
     //float *force = (float*) malloc(atomCount * 3 * sizeof(float));
-    float force[atomCount * 3 * sizeof(float)];
+    float force[atomCount * 3 ];
 
     //forceSum = (float*) malloc(atomCount * 3 * sizeof(float));
-    float forceSum[atomCount * 3 * sizeof(float)];
+    float forceSum[atomCount * 3 ];
 
     //vel = (float*) malloc(atomCount * 3 * sizeof(float));
-    float vel[atomCount * 3 * sizeof(float)];
+    float vel[atomCount * 3 ];
 
 
     if (!world_rank)
@@ -137,7 +137,7 @@ doMD(int atomCount, int stepCount)
 
         
         //memset(force, 0, sizeof(float) * 3 * atomCount);
-        for(i = 0; i < sizeof(float) * 3 * atomCount ;i++){
+        for(i = 0; i < 3 * atomCount ;i++){
             force[i] = 0;
         }
 
