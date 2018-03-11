@@ -137,7 +137,7 @@ free_matrix(float matrix[][MAXCOL], int nrows)
 // ----------------------------------------------------------------------
 int main( int argc, char* argv[] )
 {
-    int         world_rank, size, i, j, itcnt;
+    int         world_rank, size, i, j, itcnt, r;
     float       diffnorm, gdiffnorm;
     //float       **xlocal, **xnew;
     int         nrows;
@@ -267,22 +267,21 @@ int main( int argc, char* argv[] )
             }
         }
 
-        gdiffnorm = 0;
         //MPI_Allreduce( &diffnorm, &gdiffnorm, 1, MPI_FLOAT, MPI_SUM, MPI_COMM_WORLD );
-
         if(world_rank == 0){
-            for(i = 1; i < size ;i++){
-                MPI_Recv(&diffnorm, 1, MPI_FLOAT,i,0,MPI_COMM_WORLD);
+            gdiffnorm = diffnorm;
+            for(r = 1; r < size ;r++){
+                MPI_Recv(&diffnorm, 1, MPI_FLOAT,r,0,MPI_COMM_WORLD);
+                gdiffnorm+= diffnorm;
             }
-            gdiffnorm+= diffnorm;
         }
         else{
             MPI_Send(&diffnorm, 1, MPI_FLOAT,0,0,MPI_COMM_WORLD);
         }
 
         if(world_rank == 0){
-            for(i = 1; i < size ;i++){
-                MPI_Send(&gdiffnorm, 1, MPI_FLOAT,i,0,MPI_COMM_WORLD);
+            for(r = 1; r < size ;r++){
+                MPI_Send(&gdiffnorm, 1, MPI_FLOAT,r,0,MPI_COMM_WORLD);
             }
         }
         else{

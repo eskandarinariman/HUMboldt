@@ -27,7 +27,7 @@ RANLIB := ranlib
 IDIR = ../common/
 
 DEBUG_CFLAGS     := -Wall -Wno-format -g -DDEBUG -std=c++11 
-RELEASE_CFLAGS   := -Wall -Wno-unknown-pragmas -Wno-format -O3 -std=c++11 -DVERBOSE -DPRINT_MATRIX_EN
+RELEASE_CFLAGS   := -Wall -Wno-unknown-pragmas -Wno-format -O3 -std=c++11 -DVERBOSE
 
 LIBS		 := -lpthread
 
@@ -82,7 +82,7 @@ CXXFLAGS := ${CXXFLAGS} ${DEFS}
 # Targets of the build
 #****************************************************************************
 
-OUTPUT := HMPI_jacobi_parallel_simple
+OUTPUT := HMPI_integrate
 
 all: ${OUTPUT}
 
@@ -91,7 +91,7 @@ all: ${OUTPUT}
 # Source files
 #****************************************************************************
 
-SRCS := tinyxml.cpp tinyxmlparser.cpp tinyxmlerror.cpp tinystr.cpp MPI.cpp jacobi_parallel_simple.c util.c
+SRCS := tinyxml.cpp tinyxmlparser.cpp tinyxmlerror.cpp tinystr.cpp MPI.cpp integrate.c util.c
 
 # Add on the sources for libraries
 SRCS := ${SRCS}

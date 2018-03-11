@@ -10,7 +10,10 @@
  *
  */
 
-#include "mpi.h"
+#define MODULE_RANK 0
+#define MPI_SIZE 1
+
+#include "MPI.h"
 #include <stdio.h>
 #include <math.h>
 #include "common.h"
@@ -21,6 +24,8 @@
 #define f(x) (0.05*((x)*(x)*(x))-3*(x*x)-23*x)
 
 #define N_INT 600
+
+clock_t start_time,end_time;
 
 // Trapezoid rule
 float 
@@ -41,23 +46,26 @@ Trap(float a, float b, int n, float h)
 int 
 main(int argc, char** argv) 
 {
-    int me, nproc, n, local_n, i;
+    int me, nproc, n, local_n, i, r, q;
     int root = 0;
     float h, a, b, local_a, local_b;
     float integral[N_INT], total[N_INT]; 
     double t;
 
     PRINT("Starting MPI...\r\n");
-    MPI_Init ( &argc, &argv );
-    MPI_Comm_size ( MPI_COMM_WORLD, &nproc);
-    MPI_Comm_rank ( MPI_COMM_WORLD, &me );
+    MPI_Init ();
+    // MPI_Comm_size ( MPI_COMM_WORLD, &nproc);
+    // MPI_Comm_rank ( MPI_COMM_WORLD, &me );
+
+    nproc = MPI_SIZE;
+    me = MODULE_RANK;
 
     #ifdef VERBOSE
     PRINT("------------ R%d ----------------\r\n",me);
     PRINT("Here we go!\r\n"); 
     #endif
 
-    t = TIME_STAMP();
+    start_time = clock();
     if ( me == root )
     {
         a = 0;
@@ -67,9 +75,32 @@ main(int argc, char** argv)
 
     for(i=0; i<N_INT; i++)
     {
-        MPI_Bcast(&a, 1, MPI_FLOAT, root, MPI_COMM_WORLD);
-        MPI_Bcast(&b, 1, MPI_FLOAT, root, MPI_COMM_WORLD);
-        MPI_Bcast(&n, 1, MPI_INT, root, MPI_COMM_WORLD);
+        //MPI_Bcast(&a, 1, MPI_FLOAT, root, MPI_COMM_WORLD);
+        if(me == 0){
+            for(r = 1; r < nproc ;r++)
+                MPI_Send(&a,1, MPI_FLOAT,r,0,MPI_COMM_WORLD);
+        }
+        else{
+            MPI_Recv(&a,1, MPI_FLOAT,0,0,MPI_COMM_WORLD);
+        }
+
+        //MPI_Bcast(&b, 1, MPI_FLOAT, root, MPI_COMM_WORLD);
+        if(me == 0){
+            for(r = 1; r < nproc ;r++)
+                MPI_Send(&b,1, MPI_FLOAT,r,0,MPI_COMM_WORLD);
+        }
+        else{
+            MPI_Recv(&b,1, MPI_FLOAT,0,0,MPI_COMM_WORLD);
+        }
+
+        //MPI_Bcast(&n, 1, MPI_INT, root, MPI_COMM_WORLD);
+        if(me == 0){
+            for(r = 1; r < nproc ;r++)
+                MPI_Send(&n,1, MPI_FLOAT,r,0,MPI_COMM_WORLD);
+        }
+        else{
+            MPI_Recv(&n,1, MPI_FLOAT,0,0,MPI_COMM_WORLD);
+        }
 
         h = (b-a)/n;
         local_n = n/nproc;  
@@ -78,10 +109,28 @@ main(int argc, char** argv)
         integral[i] = Trap(local_a, local_b, local_n, h);
     }
 
-    MPI_Barrier(MPI_COMM_WORLD);
-    MPI_Reduce(integral, total, N_INT, MPI_FLOAT, MPI_SUM, root, MPI_COMM_WORLD);
-    t = TIME_STAMP() - t;
+    //MPI_Reduce(integral, total, Ns_INT, MPI_FLOAT, MPI_SUM, root, MPI_COMM_WORLD);
+    if(me == 0){
+        for(r = 0 ; r < N_INT ;r++){
+            total[r] = integral[r];
+        }
 
+        for(r = 1; i < nproc ;i++){
+            MPI_Recv(integral, N_INT, MPI_FLOAT,r,0,MPI_COMM_WORLD);
+
+            for(q = 0; q < N_INT; q++){
+                total[q] += integral[q];
+            }
+        }
+    }
+    else{
+        MPI_Send(integral, N_INT, MPI_FLOAT,0,0,MPI_COMM_WORLD);
+    }
+
+
+    end_time = clock();
+
+    PRINT("Execution Time = %f\r\n", (double)(end_time - start_time) / CLOCKS_PER_SEC);
 
     #ifdef VERBOSE
     if (me == 0)
@@ -94,9 +143,7 @@ main(int argc, char** argv)
         }
     }
     #endif
-
-    PRINT("Execution Time = %f\r\n", t);
-
+    PRINT("Execution Time = %f\r\n", (double)(end_time - start_time) / CLOCKS_PER_SEC);
 
     MPI_Finalize();
     return 0;

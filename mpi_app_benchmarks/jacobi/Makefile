@@ -2,7 +2,7 @@ PROGNAME = jacobi_parallel_simple
 
 IDIR = ../common/
 CC = mpicc.mpich
-CFLAGS = -I$(IDIR)
+CFLAGS = -I$(IDIR) -DVERBOSE -DPRINT_MATRIX_EN
 
 ODIR = ./
 LDIR = ./
