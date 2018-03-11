@@ -61,7 +61,7 @@ int rand()
 void
 doMD(int atomCount, int stepCount)
 {
-    int i, j;
+    int i, j, r, q;
     int stepIndex = 0;
     //float *forceSum = NULL;
     //float *vel = NULL;
@@ -128,11 +128,11 @@ doMD(int atomCount, int stepCount)
         // Distribute atoms using broadcast.
         //MPI_Bcast(pos, atomCount * 3, MPI_FLOAT, 0, MPI_COMM_WORLD);
         if(world_rank == 0){
-            for(i = 1; i < processorCount ;i++)
-                MPI_Send(pos,atomCount * 3, MPI_FLOAT,i,i,MPI_COMM_WORLD);
+            for(r = 1; r < processorCount ;r++)
+                MPI_Send(pos,atomCount * 3, MPI_FLOAT,r,0,MPI_COMM_WORLD);
         }
         else{
-            MPI_Recv(pos, atomCount * 3, MPI_FLOAT,0,i,MPI_COMM_WORLD);
+            MPI_Recv(pos, atomCount * 3, MPI_FLOAT,0,0,MPI_COMM_WORLD);
         }
 
         
@@ -178,20 +178,19 @@ doMD(int atomCount, int stepCount)
 
         // Reduce forces on root.
         //MPI_Reduce(force, forceSum, atomCount * 3, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
-        for(i = 0 ; i < atomCount*3 ;i++){
-            forceSum[i] = 0;
-        }
         if(world_rank == 0){
-            for(i = 1; i < processorCount ;i++){
-                MPI_Recv(pos, atomCount * 3, MPI_FLOAT,i,0,MPI_COMM_WORLD);
+            for(r = 0 ; r < atomCount*3 ;r++){
+                forceSum[r] = force[r];
             }
-
-            for(i = 0; i < atomCount * 3; i++){
-                forceSum[i] += force[i];
+            for(i = r; r < processorCount ;r++){
+                MPI_Recv(force, atomCount * 3, MPI_FLOAT,r,0,MPI_COMM_WORLD);
+                for(q = 0; q < atomCount * 3; q++){
+                    forceSum[q] += force[q];
+                }
             }
         }
         else{
-            MPI_Send(pos, atomCount * 3, MPI_FLOAT,0,0,MPI_COMM_WORLD);
+            MPI_Send(force, atomCount * 3, MPI_FLOAT,0,0,MPI_COMM_WORLD);
         }
 
         // Integrate.

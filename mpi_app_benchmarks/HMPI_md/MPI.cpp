@@ -15,6 +15,8 @@ pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 mutex myMutex;
 thread t;
 
+bool is_receiving = 1;
+
 //pthread_t threads[NUM_THREADS];
 //struct thread_data td[NUM_THREADS];
 
@@ -26,7 +28,8 @@ int receiving_size;
 	unsigned char source[ETH_ALEN];
 
 int MPI_Finalize(){
-	//t.join();
+	is_receiving = 0;
+	t.join();
 	cout << "Finished ..." <<endl;
 	//pthread_exit(NULL);
 	return 0;
@@ -42,7 +45,7 @@ void eth_receiver_func() {
 
 	int numbytes;
 
-   	while(1){
+   	while(is_receiving){
    		//cout << "#"<<endl;
   //  		for(int i = 0; i < ENVELOPE_SIZE; i++){
 		// 	cout << hex << (int)envlp.buffer[i] <<endl;
