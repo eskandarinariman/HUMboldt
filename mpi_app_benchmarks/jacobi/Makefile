@@ -1,7 +1,7 @@
 PROGNAME = jacobi_parallel_simple
 
 IDIR = ../common/
-CC = mpicc
+CC = mpicc.mpich
 CFLAGS = -I$(IDIR)
 
 ODIR = ./

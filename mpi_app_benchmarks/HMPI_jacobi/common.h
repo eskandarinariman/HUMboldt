@@ -3,11 +3,11 @@
 
 // Enable or disable TIME_STAMP calculation, which might not be needed
 // in simulation when testing 
-#if defined(SIM)
-#define TIME_STAMP() 0
-#else
-#define TIME_STAMP() MPI_Wtime()
-#endif
+// #if defined(SIM)
+// #define TIME_STAMP() 0
+// #else
+// #define TIME_STAMP() MPI_Wtime()
+// #endif
 
 // We don't want to simulate the stdout. The STDOUT_ENABLED flag is defined
 // in the configuration .cfg file when compiling with ArchES-MPI flow. If using
