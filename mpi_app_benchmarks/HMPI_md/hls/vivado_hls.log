@@ -1,0 +1,335 @@
+INFO: [HLS 200-10] Running '/opt/Xilinx/Vivado_HLS/2016.3/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'eskand38' on host 'localhost' (Linux_x86_64 version 4.4.0-83-generic) on Mon Mar 12 22:42:37 UTC 2018
+INFO: [HLS 200-10] On os Ubuntu 16.04.2 LTS
+INFO: [HLS 200-10] In directory '/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls'
+INFO: [HLS 200-10] Opening project '/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md'.
+INFO: [HLS 200-10] Adding design file 'MPI.h' to the project
+INFO: [HLS 200-10] Adding design file 'common.h' to the project
+INFO: [HLS 200-10] Adding design file 'md.cpp' to the project
+INFO: [HLS 200-10] Opening solution '/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [HLS 200-10] Setting target device to 'xcku115-flva1517-2-e'
+INFO: [HLS 200-10] Analyzing design file 'md.cpp' ... 
+WARNING: [HLS 200-40] In file included from md.cpp:19:
+./MPI.h:287:7: warning: expression result unused [-Wunused-value]
+                for(i ; i < count*dataType ; i+= DATA_SIZE ){
+                    ^
+./MPI.h:748:7: warning: expression result unused [-Wunused-value]
+                for(i ; i <= (count/2)+1 ; i++){
+                    ^
+./MPI.h:583:9: warning: enumeration value 'SEND_DATA_FAILURE' not handled in switch [-Wswitch]
+        switch(state){
+               ^
+md.cpp:33:9: warning: 'RAND_MAX' macro redefined
+#define RAND_MAX 2048
+        ^
+/usr/include/stdlib.h:128:9: note: previous definition is here
+#define RAND_MAX        2147483647
+        ^
+4 warnings generated.
+WARNING: [HLS 200-40] 
+WARNING: [HLS 200-40] md.cpp:33:9: warning: 'RAND_MAX' macro redefined
+#define RAND_MAX 2048
+        ^
+/usr/include/stdlib.h:128:9: note: previous definition is here
+#define RAND_MAX        2147483647
+        ^
+1 warning generated.
+WARNING: [HLS 200-40] 
+WARNING: [HLS 200-41] Resource core 'AXI4Stream' on port '&stream_out' is deprecated. Please use the interface directive to specify the AXI interface.
+WARNING: [HLS 200-41] Resource core 'AXI4Stream' on port '&stream_in' is deprecated. Please use the interface directive to specify the AXI interface.
+INFO: [HLS 200-10] Validating synthesis directives ...
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:43 ; elapsed = 00:00:12 . Memory (MB): peak = 324.793 ; gain = 12.586 ; free physical = 19936 ; free virtual = 116813
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:49 ; elapsed = 00:00:18 . Memory (MB): peak = 324.793 ; gain = 12.586 ; free physical = 19826 ; free virtual = 116804
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:58 ; elapsed = 00:00:28 . Memory (MB): peak = 658.867 ; gain = 346.660 ; free physical = 19484 ; free virtual = 116536
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'envelope_to_packet' into 'MPI_Send' (./MPI.h:603) automatically.
+INFO: [XFORM 203-602] Inlining function 'packet_to_envelope' into 'MPI_Recv' (./MPI.h:1428) automatically.
+INFO: [XFORM 203-602] Inlining function 'envelope_to_packet' into 'MPI_Recv' (./MPI.h:1513) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::__isnan' into '__isnanf' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/lib_hlsm.cpp:303) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::data' into 'fp_struct<double>::to_double' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:506) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::to_double' into 'fp_struct<double>::to_ieee' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:520) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::to_ieee' into 'hls::copysign' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls_math.h:256) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::__signbit' into 'hls::floor' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:99) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::copysign' into 'hls::floor' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:102) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::data' into 'hls::floor' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:115) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::to_ieee' into 'hls::floor' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:119) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::__signbit' into 'hls::ceil' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:170) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::copysign' into 'hls::ceil' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:173) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::data' into 'hls::ceil' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:186) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::to_ieee' into 'hls::ceil' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:190) automatically.
+INFO: [XFORM 203-602] Inlining function '__isnanf' into 'rint' (md.cpp:54) automatically.
+INFO: [XFORM 203-602] Inlining function 'floor' into 'rint' (md.cpp:89) automatically.
+INFO: [XFORM 203-602] Inlining function 'ceil' into 'rint' (md.cpp:119) automatically.
+INFO: [XFORM 203-602] Inlining function 'floor' into 'floatMod' (md.cpp:45) automatically.
+INFO: [XFORM 203-602] Inlining function 'rand' into 'doMD' (md.cpp:172) automatically.
+INFO: [XFORM 203-602] Inlining function 'floatMod' into 'doMD' (md.cpp:289) automatically.
+INFO: [XFORM 203-602] Inlining function 'MPI_Init' into 'md' (md.cpp:323) automatically.
+INFO: [XFORM 203-602] Inlining function 'MPI_Finalize' into 'md' (md.cpp:352) automatically.
+WARNING: [SYNCHK 200-23] ./MPI.h:1619: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:01:00 ; elapsed = 00:00:30 . Memory (MB): peak = 713.059 ; gain = 400.852 ; free physical = 19427 ; free virtual = 116488
+INFO: [XFORM 203-602] Inlining function 'envelope_to_packet' into 'MPI_Send' (./MPI.h:603) automatically.
+INFO: [XFORM 203-602] Inlining function 'packet_to_envelope' into 'MPI_Send' (./MPI.h:649) automatically.
+INFO: [XFORM 203-602] Inlining function 'packet_to_envelope' into 'MPI_Recv' (./MPI.h:1428) automatically.
+INFO: [XFORM 203-602] Inlining function 'envelope_to_packet' into 'MPI_Recv' (./MPI.h:1513) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::__isnan' into '__isnanf' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/lib_hlsm.cpp:303) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::data' into 'fp_struct<double>::to_double' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:506) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::to_double' into 'fp_struct<double>::to_ieee' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:520) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::to_ieee' into 'hls::copysign' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls_math.h:256) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::__signbit' into 'hls::floor' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:99) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::copysign' into 'hls::floor' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:102) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::data' into 'hls::floor' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:115) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::to_ieee' into 'hls::floor' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:119) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::__signbit' into 'hls::ceil' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:170) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::copysign' into 'hls::ceil' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:173) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::data' into 'hls::ceil' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:186) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::to_ieee' into 'hls::ceil' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:190) automatically.
+INFO: [XFORM 203-602] Inlining function '__isnanf' into 'rint' (md.cpp:54) automatically.
+INFO: [XFORM 203-602] Inlining function 'floor' into 'rint' (md.cpp:89) automatically.
+INFO: [XFORM 203-602] Inlining function 'ceil' into 'rint' (md.cpp:119) automatically.
+INFO: [XFORM 203-602] Inlining function 'floor' into 'floatMod' (md.cpp:45) automatically.
+INFO: [XFORM 203-602] Inlining function 'rand' into 'doMD' (md.cpp:172) automatically.
+INFO: [XFORM 203-602] Inlining function 'floatMod' into 'doMD' (md.cpp:289) automatically.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (md.cpp:354:5) in function 'md'... converting 2 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:93:21) to (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:121:1) in function 'hls::floor'... converting 9 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:163:20) to (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:192:1) in function 'hls::ceil'... converting 9 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (md.cpp:215:17) in function 'doMD'... converting 2 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (./MPI.h:1607:8) to (./MPI.h:1616:8) in function 'MPI_Recv'... converting 3 basic blocks.
+INFO: [XFORM 203-602] Inlining function 'hls::floor' into 'rint' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/lib_hlsm.cpp:142->md.cpp:89) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::ceil' into 'rint' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/lib_hlsm.cpp:150->md.cpp:119) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::floor' into 'doMD' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/lib_hlsm.cpp:142->md.cpp:45->md.cpp:289) automatically.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:05 ; elapsed = 00:00:35 . Memory (MB): peak = 841.051 ; gain = 528.844 ; free physical = 19220 ; free virtual = 116346
+INFO: [XFORM 203-603] Evaluating the output(s) of a call to function '_ssdm_op_PartSet.i40.i40.i8.i32.i32' (./MPI.h:1516:4) in function 'MPI_Recv' and propagating its result(s) since all actual argument(s) to the function are constants.
+INFO: [XFORM 203-603] Evaluating the output(s) of a call to function '_ssdm_op_PartSet.i40.i40.i8.i32.i32' (./MPI.h:606:3) in function 'MPI_Send' and propagating its result(s) since all actual argument(s) to the function are constants.
+WARNING: [XFORM 203-562] Loop 'Loop-1' (./MPI.h:619) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-4' (./MPI.h:663) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-5' (./MPI.h:677) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-6' (./MPI.h:695) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-7' (./MPI.h:708) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-8.1.2' (./MPI.h:786) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-8.1.3' (./MPI.h:805) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-8.1.4' (./MPI.h:827) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-8.1.5' (./MPI.h:845) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'send' (./MPI.h:748) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-8.2.2' (./MPI.h:977) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-8.2.3' (./MPI.h:996) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-8.2.4' (./MPI.h:1018) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-8.2.5' (./MPI.h:1036) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-8.2' (./MPI.h:944) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-8' (./MPI.h:748) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-1' (./MPI.h:1401) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-4.4' (./MPI.h:1636) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-4.5' (./MPI.h:1649) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-4.6' (./MPI.h:1668) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-4.7' (./MPI.h:1681) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-4' (./MPI.h:1540) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:08 ; elapsed = 00:00:39 . Memory (MB): peak = 868.793 ; gain = 556.586 ; free physical = 19104 ; free virtual = 116247
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'md' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'MPI_Recv' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 39.23 seconds; current allocated memory: 533.589 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.51 seconds; current allocated memory: 535.461 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'MPI_Send' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.51 seconds; current allocated memory: 539.779 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.12 seconds; current allocated memory: 543.148 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'rint' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.17 seconds; current allocated memory: 544.706 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.29 seconds; current allocated memory: 545.878 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'doMD' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2.07 seconds; current allocated memory: 549.964 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] After resource sharing, estimated clock period (5.01ns) exceeds the target (target clock period: 5ns, clock uncertainty: 0.625ns, effective delay budget: 4.38ns).
+INFO: [BIND 205-100] The critical path consists of the following:
+	'fdiv' operation ('tmp_57', md.cpp:241) (5.01 ns)
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.81 seconds; current allocated memory: 554.062 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'md' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.95 seconds; current allocated memory: 554.822 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.47 seconds; current allocated memory: 555.197 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'MPI_Recv' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'state_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'envlp_SRC_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'envlp_DEST_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'envlp_MSG_SIZE_V' is power-on initialization.
+INFO: [SYN 201-210] Renamed object name 'MPI_Recv_float_request_array_6' to 'MPI_Recv_float_rebkb' due to the length limit 20
+WARNING: [RTGEN 206-101] Register 'clr2snd_error' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'time_V' is power-on initialization.
+INFO: [SYN 201-210] Renamed object name 'md_srem_32ns_10ns_10_36_seq' to 'md_srem_32ns_10nscud' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'md_srem_32ns_10nscud': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'MPI_Recv'.
+INFO: [HLS 200-111]  Elapsed time: 1.36 seconds; current allocated memory: 558.656 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'MPI_Send' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'state' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'time_V_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'envlp_DATA_TYPE_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'envlp_DATA_OR_ENVLP_s' is power-on initialization.
+INFO: [SYN 201-210] Renamed object name 'MPI_Send_float_clr2snd_array_6' to 'MPI_Send_float_cldEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'md_mul_32ns_10ns_33_5' to 'md_mul_32ns_10ns_eOg' due to the length limit 20
+WARNING: [RTGEN 206-101] RTL name 'md_srem_32ns_10nscud' is changed to 'md_srem_32ns_10nscud_x' due to conflict.
+INFO: [RTGEN 206-100] Generating core module 'md_mul_32ns_10ns_eOg': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_srem_32ns_10nscud': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'MPI_Send'.
+INFO: [HLS 200-111]  Elapsed time: 1.26 seconds; current allocated memory: 571.135 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'rint' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'md_fadd_32ns_32ns_32_7_full_dsp' to 'md_fadd_32ns_32nsfYi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'md_fptrunc_64ns_32_1' to 'md_fptrunc_64ns_3g8j' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'md_fcmp_32ns_32ns_1_1' to 'md_fcmp_32ns_32nshbi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'md_dadd_64ns_64ns_64_8_full_dsp' to 'md_dadd_64ns_64nsibs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'md_dmul_64ns_64ns_64_8_max_dsp' to 'md_dmul_64ns_64nsjbC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'md_dcmp_64ns_64ns_1_1' to 'md_dcmp_64ns_64nskbM' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'md_dadd_64ns_64nsibs': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_dcmp_64ns_64nskbM': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_dmul_64ns_64nsjbC': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_fadd_32ns_32nsfYi': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_fcmp_32ns_32nshbi': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_fpext_32ns_64_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_fptrunc_64ns_3g8j': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'rint'.
+INFO: [HLS 200-111]  Elapsed time: 1.77 seconds; current allocated memory: 587.125 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'doMD' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'world_rank' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'rnd_seed' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'processorCount' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'float_clr_num' is power-on initialization.
+INFO: [SYN 201-210] Renamed object name 'doMD_float_clr2snd_array_4' to 'doMD_float_clr2snlbW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_float_clr2snd_array_1' to 'doMD_float_clr2snmb6' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_float_clr2snd_array_5' to 'doMD_float_clr2snncg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_float_clr2snd_array_7' to 'doMD_float_clr2snocq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_float_clr2snd_array_3' to 'doMD_float_clr2snpcA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_float_clr2snd_array_s' to 'doMD_float_clr2snqcK' due to the length limit 20
+WARNING: [RTGEN 206-101] Register 'int_req_num' is power-on initialization.
+INFO: [SYN 201-210] Renamed object name 'doMD_int_request_array_SR' to 'doMD_int_request_rcU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_int_request_array_DE' to 'doMD_int_request_sc4' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_int_request_array_PK' to 'doMD_int_request_tde' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_int_request_array_MS' to 'doMD_int_request_udo' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_int_request_array_TA' to 'doMD_int_request_vdy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_int_request_array_DA' to 'doMD_int_request_wdI' due to the length limit 20
+WARNING: [RTGEN 206-101] Register 'int_clr_num' is power-on initialization.
+INFO: [SYN 201-210] Renamed object name 'doMD_int_clr2snd_array_SR' to 'doMD_int_clr2snd_xdS' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_int_clr2snd_array_DE' to 'doMD_int_clr2snd_yd2' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_int_clr2snd_array_PK' to 'doMD_int_clr2snd_zec' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_int_clr2snd_array_MS' to 'doMD_int_clr2snd_Aem' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_int_clr2snd_array_TA' to 'doMD_int_clr2snd_Bew' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_int_clr2snd_array_DA' to 'doMD_int_clr2snd_CeG' due to the length limit 20
+WARNING: [RTGEN 206-101] Register 'float_req_num' is power-on initialization.
+INFO: [SYN 201-210] Renamed object name 'doMD_float_request_array_5' to 'doMD_float_requesDeQ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_float_request_array_1' to 'doMD_float_requesEe0' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_float_request_array_4' to 'doMD_float_requesFfa' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_float_request_array_3' to 'doMD_float_requesGfk' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_float_request_array_s' to 'doMD_float_requesHfu' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'doMD_float_request_array_7' to 'doMD_float_requesIfE' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'md_faddfsub_32ns_32ns_32_7_full_dsp' to 'md_faddfsub_32ns_JfO' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'md_fmul_32ns_32ns_32_4_max_dsp' to 'md_fmul_32ns_32nsKfY' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'md_fdiv_32ns_32ns_32_12' to 'md_fdiv_32ns_32nsLf8' due to the length limit 20
+WARNING: [RTGEN 206-101] RTL name 'md_fptrunc_64ns_3g8j' is changed to 'md_fptrunc_64ns_3g8j_x' due to conflict.
+WARNING: [RTGEN 206-101] RTL name 'md_fpext_32ns_64_1' is changed to 'md_fpext_32ns_64_1_x' due to conflict.
+INFO: [SYN 201-210] Renamed object name 'md_dadddsub_64ns_64ns_64_8_full_dsp' to 'md_dadddsub_64ns_Mgi' due to the length limit 20
+WARNING: [RTGEN 206-101] RTL name 'md_dmul_64ns_64nsjbC' is changed to 'md_dmul_64ns_64nsjbC_x' due to conflict.
+INFO: [SYN 201-210] Renamed object name 'md_mul_32s_34ns_65_7' to 'md_mul_32s_34ns_6Ngs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'md_sdiv_9ns_32ns_32_13_seq' to 'md_sdiv_9ns_32ns_OgC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'md_mul_32s_16ns_32_5' to 'md_mul_32s_16ns_3PgM' due to the length limit 20
+ERROR: [RTLGEN 200-403] The assignment of RTL signal mask_table1_address0 is invalid
+ERROR: [RTLGEN 200-403] The assignment of RTL signal mask_table1_ce0 is invalid
+INFO: [RTGEN 206-100] Generating core module 'md_dadddsub_64ns_Mgi': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_dmul_64ns_64nsjbC': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_faddfsub_32ns_JfO': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_fdiv_32ns_32nsLf8': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_fmul_32ns_32nsKfY': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_fpext_32ns_64_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_fptrunc_64ns_3g8j': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_mul_18s_13s_32_3': 6 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_mul_18s_18s_32_3': 6 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_mul_32s_16ns_3PgM': 6 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_mul_32s_32s_32_7': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_mul_32s_34ns_6Ngs': 6 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_sdiv_9ns_32ns_OgC': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'md_sitofp_32ns_32_6': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'doMD'.
+INFO: [HLS 200-111]  Elapsed time: 1.48 seconds; current allocated memory: 598.711 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'md' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'md/stream_out_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'md/stream_in_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'md' to 'ap_ctrl_hs'.
+WARNING: [RTGEN 206-101] Global scalar 'world_rank' will not be exposed as RTL port.
+WARNING: [RTGEN 206-101] Global scalar 'processorCount' will not be exposed as RTL port.
+WARNING: [RTGEN 206-101] Global scalar 'stream_out_V' will be exposed as RTL port.
+WARNING: [RTGEN 206-101] Global scalar 'stream_in_V' will be exposed as RTL port.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'md'.
+INFO: [HLS 200-111]  Elapsed time: 3.24 seconds; current allocated memory: 610.049 MB.
+INFO: [RTMG 210-282] Generating pipelined core: 'md_srem_32ns_10nscud_div'
+INFO: [RTMG 210-278] Implementing memory 'MPI_Recv_float_rebkb_ram' using block RAMs with power-on initialization.
+INFO: [RTMG 210-282] Generating pipelined core: 'md_mul_32ns_10ns_eOg_MulnS_0'
+INFO: [RTMG 210-279] Implementing memory 'rint_mask_table1_rom' using auto ROMs.
+INFO: [RTMG 210-282] Generating pipelined core: 'md_mul_32s_34ns_6Ngs_MulnS_1'
+INFO: [RTMG 210-282] Generating pipelined core: 'md_sdiv_9ns_32ns_OgC_div'
+INFO: [RTMG 210-282] Generating pipelined core: 'md_mul_18s_18s_32_3_MulnS_2'
+INFO: [RTMG 210-282] Generating pipelined core: 'md_mul_32s_16ns_3PgM_MulnS_3'
+INFO: [RTMG 210-282] Generating pipelined core: 'md_mul_18s_13s_32_3_MulnS_4'
+INFO: [RTMG 210-282] Generating pipelined core: 'md_mul_32s_32s_32_7_MulnS_5'
+INFO: [RTMG 210-278] Implementing memory 'doMD_float_clr2snlbW_ram' using distributed RAMs with power-on initialization.
+INFO: [RTMG 210-278] Implementing memory 'doMD_float_clr2snmb6_ram' using block RAMs with power-on initialization.
+INFO: [RTMG 210-278] Implementing memory 'doMD_float_clr2snncg_ram' using block RAMs with power-on initialization.
+INFO: [RTMG 210-278] Implementing memory 'doMD_float_clr2snpcA_ram' using block RAMs with power-on initialization.
+INFO: [RTMG 210-279] Implementing memory 'doMD_mask_table1_rom' using auto ROMs.
+INFO: [RTMG 210-278] Implementing memory 'doMD_pos1_ram' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'doMD_forceSum3_ram' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:29 ; elapsed = 00:01:02 . Memory (MB): peak = 996.793 ; gain = 684.586 ; free physical = 19005 ; free virtual = 116187
+INFO: [SYSC 207-301] Generating SystemC RTL for md.
+INFO: [VHDL 208-304] Generating VHDL RTL for md.
+INFO: [VLOG 209-307] Generating Verilog RTL for md.
+INFO: [HLS 200-112] Total elapsed time: 61.8 seconds; peak allocated memory: 610.049 MB.

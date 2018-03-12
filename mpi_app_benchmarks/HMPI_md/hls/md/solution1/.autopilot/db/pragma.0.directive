@@ -1,0 +1,26 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+<sourceFile name="">
+<directive functionLabel="" functionName="md" label="">
+<pragma name="RESOURCE">
+<option name="variable" positionalBoolean="4" value="stream_out"/>
+<option name="core" value="AXI4Stream"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="md" label="">
+<pragma name="RESOURCE">
+<option name="variable" positionalBoolean="4" value="stream_in"/>
+<option name="core" value="AXI4Stream"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="md" label="">
+<pragma name="DATA_PACK">
+<option name="variable" positionalBoolean="4" value="stream_out"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="md" label="">
+<pragma name="DATA_PACK">
+<option name="variable" positionalBoolean="4" value="stream_in"/>
+</pragma>
+</directive>
+</sourceFile>
+</AutoPilot:ProjectResources>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog>
+        <logs message="ERROR: [RTLGEN 200-403] The assignment of RTL signal mask_table1_ce0 is invalid" projectName="md" solutionName="solution1" date="2018-03-12T22:43:33.371+0000"/>
+        <logs message="ERROR: [RTLGEN 200-403] The assignment of RTL signal mask_table1_address0 is invalid" projectName="md" solutionName="solution1" date="2018-03-12T22:43:33.368+0000"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Global scalar 'stream_in_V' will be exposed as RTL port." projectName="md" solutionName="solution1" date="2018-03-12T22:43:36.619+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global scalar 'stream_out_V' will be exposed as RTL port." projectName="md" solutionName="solution1" date="2018-03-12T22:43:36.612+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global scalar 'processorCount' will not be exposed as RTL port." projectName="md" solutionName="solution1" date="2018-03-12T22:43:36.608+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global scalar 'world_rank' will not be exposed as RTL port." projectName="md" solutionName="solution1" date="2018-03-12T22:43:36.603+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] RTL name 'md_dmul_64ns_64nsjbC' is changed to 'md_dmul_64ns_64nsjbC_x' due to conflict." projectName="md" solutionName="solution1" date="2018-03-12T22:43:33.019+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] RTL name 'md_fpext_32ns_64_1' is changed to 'md_fpext_32ns_64_1_x' due to conflict." projectName="md" solutionName="solution1" date="2018-03-12T22:43:33.015+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] RTL name 'md_fptrunc_64ns_3g8j' is changed to 'md_fptrunc_64ns_3g8j_x' due to conflict." projectName="md" solutionName="solution1" date="2018-03-12T22:43:33.009+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'float_req_num' is power-on initialization." projectName="md" solutionName="solution1" date="2018-03-12T22:43:32.781+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'int_clr_num' is power-on initialization." projectName="md" solutionName="solution1" date="2018-03-12T22:43:32.758+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'int_req_num' is power-on initialization." projectName="md" solutionName="solution1" date="2018-03-12T22:43:32.734+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'float_clr_num' is power-on initialization." projectName="md" solutionName="solution1" date="2018-03-12T22:43:32.724+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'processorCount' is power-on initialization." projectName="md" solutionName="solution1" date="2018-03-12T22:43:32.719+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'rnd_seed' is power-on initialization." projectName="md" solutionName="solution1" date="2018-03-12T22:43:32.715+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'world_rank' is power-on initialization." projectName="md" solutionName="solution1" date="2018-03-12T22:43:32.708+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] RTL name 'md_srem_32ns_10nscud' is changed to 'md_srem_32ns_10nscud_x' due to conflict." projectName="md" solutionName="solution1" date="2018-03-12T22:43:30.122+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'envlp_DATA_OR_ENVLP_s' is power-on initialization." projectName="md" solutionName="solution1" date="2018-03-12T22:43:29.768+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'envlp_DATA_TYPE_V' is power-on initialization." projectName="md" solutionName="solution1" date="2018-03-12T22:43:29.765+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'time_V_1' is power-on initialization." projectName="md" solutionName="solution1" date="2018-03-12T22:43:29.763+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'state' is power-on initialization." projectName="md" solutionName="solution1" date="2018-03-12T22:43:29.759+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'time_V' is power-on initialization." projectName="md" solutionName="solution1" date="2018-03-12T22:43:28.786+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'clr2snd_error' is power-on initialization." projectName="md" solutionName="solution1" date="2018-03-12T22:43:28.709+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'envlp_MSG_SIZE_V' is power-on initialization." projectName="md" solutionName="solution1" date="2018-03-12T22:43:28.706+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'envlp_DEST_V' is power-on initialization." projectName="md" solutionName="solution1" date="2018-03-12T22:43:28.703+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'envlp_SRC_V' is power-on initialization." projectName="md" solutionName="solution1" date="2018-03-12T22:43:28.701+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'state_1' is power-on initialization." projectName="md" solutionName="solution1" date="2018-03-12T22:43:28.697+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-4' (./MPI.h:1540) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.998+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-4.7' (./MPI.h:1681) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.086+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-4.6' (./MPI.h:1668) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.084+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-4.5' (./MPI.h:1649) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.081+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-4.4' (./MPI.h:1636) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.063+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-1' (./MPI.h:1401) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.061+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-8' (./MPI.h:748) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.058+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-8.2' (./MPI.h:944) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.056+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-8.2.5' (./MPI.h:1036) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.054+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-8.2.4' (./MPI.h:1018) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.052+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-8.2.3' (./MPI.h:996) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.049+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-8.2.2' (./MPI.h:977) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.047+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'send' (./MPI.h:748) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.045+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-8.1.5' (./MPI.h:845) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.043+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-8.1.4' (./MPI.h:827) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.041+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-8.1.3' (./MPI.h:805) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.027+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-8.1.2' (./MPI.h:786) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.025+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-7' (./MPI.h:708) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.023+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-6' (./MPI.h:695) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.021+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-5' (./MPI.h:677) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.019+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-4' (./MPI.h:663) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.017+0000" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-562] Loop 'Loop-1' (./MPI.h:619) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks." projectName="md" solutionName="solution1" date="2018-03-12T22:43:15.015+0000" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-23] ./MPI.h:1619: variable-indexed range selection may cause suboptimal QoR." projectName="md" solutionName="solution1" date="2018-03-12T22:43:06.878+0000" type="Warning"/>
+        <logs message="WARNING: [HLS 200-41] Resource core 'AXI4Stream' on port '&amp;stream_in' is deprecated. Please use the interface directive to specify the AXI interface." projectName="md" solutionName="solution1" date="2018-03-12T22:42:49.459+0000" type="Warning"/>
+        <logs message="WARNING: [HLS 200-41] Resource core 'AXI4Stream' on port '&amp;stream_out' is deprecated. Please use the interface directive to specify the AXI interface." projectName="md" solutionName="solution1" date="2018-03-12T22:42:48.207+0000" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] " projectName="md" solutionName="solution1" date="2018-03-12T22:42:48.204+0000" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] md.cpp:33:9: warning: 'RAND_MAX' macro redefined&#xA;#define RAND_MAX 2048&#xA;        ^&#xA;/usr/include/stdlib.h:128:9: note: previous definition is here&#xA;#define RAND_MAX        2147483647&#xA;        ^&#xA;1 warning generated." projectName="md" solutionName="solution1" date="2018-03-12T22:42:39.249+0000" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] " projectName="md" solutionName="solution1" date="2018-03-12T22:42:39.248+0000" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] In file included from md.cpp:19:&#xA;./MPI.h:287:7: warning: expression result unused [-Wunused-value]&#xA;                for(i ; i &lt; count*dataType ; i+= DATA_SIZE ){&#xA;                    ^&#xA;./MPI.h:748:7: warning: expression result unused [-Wunused-value]&#xA;                for(i ; i &lt;= (count/2)+1 ; i++){&#xA;                    ^&#xA;./MPI.h:583:9: warning: enumeration value 'SEND_DATA_FAILURE' not handled in switch [-Wswitch]&#xA;        switch(state){&#xA;               ^&#xA;md.cpp:33:9: warning: 'RAND_MAX' macro redefined&#xA;#define RAND_MAX 2048&#xA;        ^&#xA;/usr/include/stdlib.h:128:9: note: previous definition is here&#xA;#define RAND_MAX        2147483647&#xA;        ^&#xA;4 warnings generated." projectName="md" solutionName="solution1" date="2018-03-12T22:42:39.006+0000" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

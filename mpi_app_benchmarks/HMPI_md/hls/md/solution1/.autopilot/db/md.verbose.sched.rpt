@@ -1,0 +1,134 @@
+
+
+================================================================
+== Vivado HLS Report for 'md'
+================================================================
+* Date:           Mon Mar 12 22:43:27 2018
+
+* Version:        2016.3 (Build 1682563 on Mon Oct 10 19:41:59 MDT 2016)
+* Project:        md
+* Solution:       solution1
+* Product family: kintexu
+* Target device:  xcku115-flva1517-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|      5.01|        0.62|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 2
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+* FSM state operations: 
+
+ <State 1>: 0.00ns
+ST_1: StgValue_3 (53)  [2/2] 0.00ns  loc: md.cpp:343
+_ifconv:5  call fastcc void @doMD()
+
+
+ <State 2>: 0.00ns
+ST_2: empty (48)  [1/1] 0.00ns
+_ifconv:0  %empty = call i32 (...)* @_ssdm_op_SpecInterface(i121* @stream_in_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str221, i32 0, i32 0, [1 x i8]* @p_str222, [1 x i8]* @p_str223, [1 x i8]* @p_str224, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str225, [1 x i8]* @p_str226) nounwind
+
+ST_2: empty_21 (49)  [1/1] 0.00ns
+_ifconv:1  %empty_21 = call i32 (...)* @_ssdm_op_SpecInterface(i121* @stream_out_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str215, i32 0, i32 0, [1 x i8]* @p_str216, [1 x i8]* @p_str217, [1 x i8]* @p_str218, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str219, [1 x i8]* @p_str220) nounwind
+
+ST_2: StgValue_6 (50)  [1/1] 0.00ns
+_ifconv:2  call void (...)* @_ssdm_op_SpecTopModule([3 x i8]* @md_str) nounwind
+
+ST_2: StgValue_7 (51)  [1/1] 0.00ns
+_ifconv:3  call void (...)* @_ssdm_op_SpecIFCore(i121* @stream_out_V, [1 x i8]* @p_str9, [11 x i8]* @p_str10, [1 x i8]* @p_str9, i32 -1, [1 x i8]* @p_str9, [1 x i8]* @p_str9, [1 x i8]* @p_str9, [1 x i8]* @p_str9, [1 x i8]* @p_str9) nounwind
+
+ST_2: StgValue_8 (52)  [1/1] 0.00ns
+_ifconv:4  call void (...)* @_ssdm_op_SpecIFCore(i121* @stream_in_V, [1 x i8]* @p_str9, [11 x i8]* @p_str10, [1 x i8]* @p_str9, i32 -1, [1 x i8]* @p_str9, [1 x i8]* @p_str9, [1 x i8]* @p_str9, [1 x i8]* @p_str9, [1 x i8]* @p_str9) nounwind
+
+ST_2: StgValue_9 (53)  [1/2] 0.00ns  loc: md.cpp:343
+_ifconv:5  call fastcc void @doMD()
+
+ST_2: StgValue_10 (54)  [1/1] 0.00ns  loc: md.cpp:354
+_ifconv:6  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

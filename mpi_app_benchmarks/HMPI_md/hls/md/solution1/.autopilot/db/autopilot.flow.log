@@ -1,0 +1,1215 @@
+@I [HLS-0] Workspace /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1 opened at Mon Mar 12 22:42:37 UTC 2018
+@I [HLS-100] Execute     config_clock -quiet -name default -period 5 -default=false 
+@I [SYN-201] Setting up clock 'default' with a period of 5ns.
+@I [HLS-100] Command     config_clock returned 0; 0 sec.
+@I [HLS-100] Execute     open_platform DefaultPlatform 
+@I [HLS-100] Command     open_platform returned 0; 0 sec.
+@I [HLS-100] Execute     import_lib /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/kintexu/kintexu 
+@I [HLS-100] Execute       source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx.lib 
+@I [HLS-100] Execute         source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/xilinx_interface.lib 
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/plb46.lib 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/fsl.lib 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/axi4.lib 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/maxi.lib 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/saxilite.lib 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
+@I [HLS-100] Execute         source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/dsp48.lib 
+@I [HLS-100] Command         ap_source returned 0; 0.01 sec.
+@I [HLS-100] Execute         source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/xfft.lib 
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
+@I [HLS-100] Execute         source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/xfir.lib 
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
+@I [HLS-100] Execute         source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/dds_compiler.lib 
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.01 sec.
+@I [HLS-100] Execute       source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx_old.lib 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx_vivado.lib 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx.hlp 
+@I [HLS-100] Execute         source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/target_info.tcl 
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
+@I [HLS-100] Execute         source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/xilinx_interface.hlp 
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/maxi.hlp 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/saxilite.hlp 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.01 sec.
+@I [HLS-100] Execute         source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/dsp48.hlp 
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.01 sec.
+@I [HLS-100] Execute       source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/kintexu/dsp48e2.hlp 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       get_default_platform 
+@I [HLS-100] Command       get_default_platform returned 0; 0 sec.
+@I [HLS-100] Execute       config_chip_info -quiet -resource  {SLICE 30300} {LUT 242400}    {FF 484800} {DSP48E 1920}   {BRAM 1200}  
+@I [HLS-100] Command       config_chip_info returned 0; 0 sec.
+@I [HLS-100] Execute       config_chip_info -quiet -speed medium 
+@I [HLS-100] Command       config_chip_info returned 0; 0 sec.
+@I [HLS-100] Command     import_lib returned 0; 0.03 sec.
+@I [HLS-100] Execute     source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/kintexu/kintexu.gen 
+@I [HLS-100] Execute       source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/virtex.gen 
+@I [HLS-100] Execute         source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx.gen 
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/plb46.gen 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/fsl.gen 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/axi4.gen 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/nativeAXI4.gen 
+@I [HLS-100] Execute             source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/saxilite.gen 
+@I [HLS-100] Command             ap_source returned 0; 0.01 sec.
+@I [HLS-100] Execute             source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/maxi.gen 
+@I [HLS-100] Command             ap_source returned 0; 0.01 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.02 sec.
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/scripts/xilinxcoregen.gen 
+@I [HLS-100] Command           ap_source returned 0; 0.01 sec.
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+@I [HLS-100] Command           ap_source returned 0; 0.01 sec.
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/xfir.gen 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/xfft.gen 
+@I [HLS-100] Command           ap_source returned 0; 0.1 sec.
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/util.gen 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/dds_compiler.gen 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.14 sec.
+@I [HLS-100] Execute         source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/dsp48.gen 
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.14 sec.
+@I [HLS-100] Command     ap_source returned 0; 0.14 sec.
+@I [HLS-100] Execute     open_platform DefaultPlatform 
+@I [HLS-100] Command     open_platform returned 0; 0 sec.
+@I [HLS-100] Execute     import_lib /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/kintexu/kintexu_fpv7 
+@I [HLS-100] Execute       source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx_fpv7.lib 
+@I [HLS-100] Execute         source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx_hp.lib 
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.01 sec.
+@I [HLS-100] Execute       source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx_fpv.hlp 
+@I [HLS-100] Execute         source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx.hlp 
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/target_info.tcl 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/xilinx_interface.hlp 
+@I [HLS-100] Execute             source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/maxi.hlp 
+@I [HLS-100] Command             ap_source returned 0; 0 sec.
+@I [HLS-100] Execute             source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/saxilite.hlp 
+@I [HLS-100] Command             ap_source returned 0; 0 sec.
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/dsp48.hlp 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.01 sec.
+@I [HLS-100] Execute       source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/kintexu/kintexu_hp.hlp 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Command     import_lib returned 0; 0.02 sec.
+@I [HLS-100] Execute     source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/kintexu/kintexu_fpv7.gen 
+@I [HLS-100] Execute       source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx_fpv6.gen 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Command     ap_source returned 0; 0 sec.
+@I [HLS-100] Execute     set_part xcku115-flva1517-2-e 
+@I [HLS-100] Execute       add_library xilinx/kintexu/kintexu:xcku115:-flva1517:-2-e 
+@I [HLS-100] Execute         get_default_platform 
+@I [HLS-100] Command         get_default_platform returned 0; 0 sec.
+@I [HLS-100] Execute         license_isbetapart xcku115 
+@I [HLS-100] Command         license_isbetapart returned 1; 0 sec.
+@I [HLS-100] Execute         get_default_platform 
+@I [HLS-100] Command         get_default_platform returned 0; 0 sec.
+@I [HLS-100] Execute         config_chip_info -quiet -resource  {SLICE 82920} {LUT 663360}    {FF 1326720} {DSP48E 5520}  {BRAM 4320} {SLR 2}  
+@I [HLS-100] Command         config_chip_info returned 0; 0 sec.
+@I [HLS-100] Execute         config_chip_info -quiet -speed medium 
+@I [HLS-100] Command         config_chip_info returned 0; 0 sec.
+@I [HLS-100] Command       add_library returned 0; 0.01 sec.
+@I [HLS-100] Execute       add_library xilinx/kintexu/kintexu_fpv7 
+@I [HLS-100] Execute         get_default_platform 
+@I [HLS-100] Command         get_default_platform returned 0; 0 sec.
+@I [HLS-100] Command       add_library returned 0; 0 sec.
+@I [HLS-10] Setting target device to 'xcku115-flva1517-2-e'
+@I [HLS-100] Command     set_part returned 0; 0.02 sec.
+@I [HLS-100] Execute     get_default_platform 
+@I [HLS-100] Command     get_default_platform returned 0; 0 sec.
+@I [HLS-100] Execute     config_chip_info -quiet -resource  {SLICE 82920} {LUT 663360}    {FF 1326720} {DSP48E 5520}  {BRAM 4320} {SLR 2}  
+@I [HLS-100] Command     config_chip_info returned 0; 0 sec.
+@I [HLS-100] Execute     config_chip_info -quiet -speed medium 
+@I [HLS-100] Command     config_chip_info returned 0; 0 sec.
+@I [HLS-100] Command   open_solution returned 0; 0.22 sec.
+@I [HLS-100] Execute   set_part xcku115-flva1517-2-e -tool vivado 
+@I [HLS-100] Execute     add_library xilinx/kintexu/kintexu:xcku115:-flva1517:-2-e 
+@I [HLS-100] Execute       get_default_platform 
+@I [HLS-100] Command       get_default_platform returned 0; 0 sec.
+@I [HLS-100] Execute       license_isbetapart xcku115 
+@I [HLS-100] Command       license_isbetapart returned 1; 0 sec.
+@I [HLS-100] Execute       get_default_platform 
+@I [HLS-100] Command       get_default_platform returned 0; 0 sec.
+@I [HLS-100] Execute       config_chip_info -quiet -resource  {SLICE 82920} {LUT 663360}    {FF 1326720} {DSP48E 5520}  {BRAM 4320} {SLR 2}  
+@I [HLS-100] Command       config_chip_info returned 0; 0 sec.
+@I [HLS-100] Execute       config_chip_info -quiet -speed medium 
+@I [HLS-100] Command       config_chip_info returned 0; 0 sec.
+@I [HLS-100] Command     add_library returned 0; 0 sec.
+@I [HLS-100] Execute     add_library xilinx/kintexu/kintexu_fpv7 
+@I [HLS-100] Execute       get_default_platform 
+@I [HLS-100] Command       get_default_platform returned 0; 0 sec.
+@I [HLS-100] Command     add_library returned 0; 0 sec.
+@I [HLS-100] Command   set_part returned 0; 0 sec.
+@I [HLS-100] Execute   create_clock -period 5 -name default 
+@I [HLS-100] Command   create_clock returned 0; 0 sec.
+@I [HLS-100] Execute   csynth_design 
+@I [HLS-100] Execute     elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -lm=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 
+@I [HLS-10] Analyzing design file 'md.cpp' ... 
+@I [HLS-0] Compiling one TU...
+@I [HLS-0] Handling md.cpp as C++
+@I [HLS-0] Syntax Checking before pre-processing...
+@I [HLS-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "/opt/Xilinx/Vivado_HLS/2016.3/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -Wno-attributes -Wno-gcc-compat   -I "/opt/Xilinx/Vivado_HLS/2016.3/lnx64/tools/systemc/include" -I "/opt/Xilinx/Vivado_HLS/2016.3/include" -I "/opt/Xilinx/Vivado_HLS/2016.3/include/ap_sysc" -fexceptions -I "/opt/Xilinx/Vivado_HLS/2016.3/common/technology/autopilot" -include etc/autopilot_ssdm_op.h "md.cpp"  -o "/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.pp.00.o" 
+@W [HLS-40] In file included from md.cpp:19:
+./MPI.h:287:7: warning: expression result unused [-Wunused-value]
+                for(i ; i < count*dataType ; i+= DATA_SIZE ){
+                    ^
+./MPI.h:748:7: warning: expression result unused [-Wunused-value]
+                for(i ; i <= (count/2)+1 ; i++){
+                    ^
+./MPI.h:583:9: warning: enumeration value 'SEND_DATA_FAILURE' not handled in switch [-Wswitch]
+        switch(state){
+               ^
+md.cpp:33:9: warning: 'RAND_MAX' macro redefined
+#define RAND_MAX 2048
+        ^
+/usr/include/stdlib.h:128:9: note: previous definition is here
+#define RAND_MAX        2147483647
+        ^
+4 warnings generated.
+
+@I [HLS-100] Command       clang returned 0; 1.12 sec.
+@I [HLS-100] Execute       is_encrypted /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.pp.00.o 
+@I [HLS-100] Command       is_encrypted returned 0; 0 sec.
+@I [HLS-0] Source preprocessing
+@I [HLS-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "/opt/Xilinx/Vivado_HLS/2016.3/lnx64/tools/gcc" -hls -fno-exceptions  -D__llvm__  -CC -E "md.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -Wno-attributes -Wno-gcc-compat -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2016.3/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2016.3/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.pp.0.cpp" 
+@W [HLS-40] md.cpp:33:9: warning: 'RAND_MAX' macro redefined
+#define RAND_MAX 2048
+        ^
+/usr/include/stdlib.h:128:9: note: previous definition is here
+#define RAND_MAX        2147483647
+        ^
+1 warning generated.
+
+@I [HLS-100] Command       clang returned 0; 0.25 sec.
+@I [HLS-0] GCC PP time: 0 seconds per iteration
+@I [HLS-100] Execute       list_core -type functional_unit 
+@I [HLS-100] Command       list_core returned 0; 0 sec.
+@I [HLS-0] CDT Preprocessing...
+@I [HLS-0] Marker-Pragma convertor: /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.pp.0.cpp /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.pp.0.cpp.ap-line.cpp /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.pp.0.cpp.ap-line.cpp.CXX 1
+@I [HLS-0] Converting Markers to Pragmas...
+@I [HLS-100] Execute       cdt  "/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.pp.0.cpp.ap-line.cpp"  -m "md" -o "/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.pp.0.cpp.ap-cdt.cpp" --pp --directive /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/solution1.directive --source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md.cpp --error /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db --funcunit "AddSub AddSub_DSP AddSubnS DAddSub_fulldsp DAddSub_nodsp DDiv DExp_fulldsp DExp_meddsp DExp_nodsp DLog_fulldsp DLog_meddsp DLog_nodsp DMul_fulldsp DMul_maxdsp DMul_meddsp DMul_nodsp DRSqrt DRecip DSqrt DivnS FAddSub_fulldsp FAddSub_nodsp FDiv FExp_fulldsp FExp_meddsp FExp_nodsp FLog_fulldsp FLog_meddsp FLog_nodsp FMul_fulldsp FMul_maxdsp FMul_meddsp FMul_nodsp FRSqrt_fulldsp FRSqrt_nodsp FRecip_fulldsp FRecip_nodsp FSqrt HAddSub_nodsp HDiv HMul_fulldsp HMul_maxdsp HMul_nodsp HSqrt Mul Mul2S Mul3S Mul4S Mul5S Mul6S Mul_LUT MulnS MuxnS" --ve --vetcl /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db --ca --es --gf --pd --p2d /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db --sd --scff /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/.systemc_flag --ad 
+@I [HLS-0] Error:Syntax error in source:for (__decltype(__n + 0) __niter = __n;
+Error:Missing ; in source:t
+Error:Syntax error in source:)
+ *__first = __value;
+Error:Syntax error in source:for (__decltype(__n + 0) __niter = __n;
+Error:Missing ; in source:t
+Error:Syntax error in source:)
+ *__first = __tmp;
+@I [HLS-100] Command       cdt returned 0; 7.39 sec.
+@I [HLS-0] Marker-Pragma convertor: /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.pp.0.cpp.ap-cdt.cpp /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.pragma.0.cpp /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.pragma.0.cpp.ap-line.CXX 0
+@I [HLS-0] Converting Pragmas to Markers...
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/pragma.status.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-0] Pragma Handling...
+@W [HLS-41] Resource core 'AXI4Stream' on port '&stream_out' is deprecated. Please use the interface directive to specify the AXI interface.
+@W [HLS-41] Resource core 'AXI4Stream' on port '&stream_in' is deprecated. Please use the interface directive to specify the AXI interface.
+@I [HLS-0] Source preprocessing
+@I [HLS-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "/opt/Xilinx/Vivado_HLS/2016.3/lnx64/tools/gcc" -hls -fno-exceptions  -D__llvm__  -CC -E "/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.pragma.1.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -Wno-attributes -Wno-gcc-compat -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2016.3/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2016.3/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.pragma.2.cpp" 
+@I [HLS-100] Command       clang returned 0; 0.22 sec.
+@I [HLS-0] Processing labels
+@I [HLS-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain /opt/Xilinx/Vivado_HLS/2016.3/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2016.3/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2016.3/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -g -o "/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.g.bc" 
+@I [HLS-100] Command       clang returned 0; 1.02 sec.
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/ve_warning.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-10] Validating synthesis directives ...
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/pragma.status.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-111] Finished Checking Pragmas Time (s): cpu = 00:00:43 ; elapsed = 00:00:12 . Memory (MB): peak = 324.793 ; gain = 12.586 ; free physical = 19936 ; free virtual = 116813
+@I [HLS-0] Linking Release ...
+@I [HLS-100] Execute       llvm-ld /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.bc -disable-opt -L/opt/Xilinx/Vivado_HLS/2016.3/lnx64/lib -lm_basic -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.o 
+@I [HLS-100] Command       llvm-ld returned 0; 1.84 sec.
+@I [HLS-100] Execute       disassemble /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.o 
+@I [HLS-100] Execute         is_encrypted /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.o.bc 
+@I [HLS-100] Command         is_encrypted returned 0; 0 sec.
+@I [HLS-100] Command       disassemble returned 0; 1.26 sec.
+@I [HLS-0] Disassemble time: 1 seconds per iteration
+@I [HLS-0] Linking Debug ...
+@I [HLS-100] Execute       llvm-ld /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.g.bc -disable-opt -L/opt/Xilinx/Vivado_HLS/2016.3/lnx64/lib -lm_basic -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.g 
+@I [HLS-100] Command       llvm-ld returned 0; 1.88 sec.
+@I [HLS-100] Execute       disassemble /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.g /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.g 
+@I [HLS-100] Execute         is_encrypted /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.g.bc 
+@I [HLS-100] Command         is_encrypted returned 0; 0 sec.
+@I [HLS-100] Command       disassemble returned 0; 1.2 sec.
+@I [HLS-0] Disassemble time: 1 seconds per iteration
+@I [HLS-111] Finished Linking Time (s): cpu = 00:00:49 ; elapsed = 00:00:18 . Memory (MB): peak = 324.793 ; gain = 12.586 ; free physical = 19826 ; free virtual = 116804
+@I [HLS-100] Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
+@I [HLS-100] Execute         cleanup_all_models 
+@I [HLS-100] Command         cleanup_all_models returned 0; 0 sec.
+@I [HLS-10] Starting code transformations ...
+@I [HLS-100] Execute         transform -promote-dbg-pointer /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.pp.bc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.pp.0.bc -f 
+@I [HLS-100] Command         transform returned 0; 0.88 sec.
+@I [HLS-100] Execute         llvm-ld /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.pp.0.bc -disable-opt -L/opt/Xilinx/Vivado_HLS/2016.3/lnx64/lib -lfloatconversion -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.g.0 
+@I [HLS-100] Command         llvm-ld returned 0; 3.08 sec.
+@I [HLS-0] Running Standard Transforms...
+@I [HLS-100] Execute         transform -hls -share-std-xform -always-inline -promote-dbg-pointer -interface-preproc -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top md -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -promote-dbg-pointer -norm-name /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.g.0.bc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
+@I [HLS-100] Command         transform returned 0; 4.13 sec.
+@I [HLS-100] Execute         disassemble /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.g.1 /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.g.1 
+@I [HLS-100] Execute           is_encrypted /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.g.1.bc 
+@I [HLS-100] Command           is_encrypted returned 0; 0 sec.
+@I [HLS-100] Command         disassemble returned 0; 1.23 sec.
+@I [HLS-111] Finished Standard Transforms Time (s): cpu = 00:00:58 ; elapsed = 00:00:28 . Memory (MB): peak = 658.867 ; gain = 346.660 ; free physical = 19484 ; free virtual = 116536
+@I [HLS-10] Checking synthesizability ...
+@I [HLS-0] Checking Synthesizability 1/2..
+@I [HLS-100] Execute         transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -array-normalize -instcombine -dce -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.g.1.bc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.g.2.prechk.bc -f 
+@I [XFORM-602] Inlining function 'envelope_to_packet' into 'MPI_Send' (./MPI.h:603) automatically.
+@I [XFORM-602] Inlining function 'packet_to_envelope' into 'MPI_Recv' (./MPI.h:1428) automatically.
+@I [XFORM-602] Inlining function 'envelope_to_packet' into 'MPI_Recv' (./MPI.h:1513) automatically.
+@I [XFORM-602] Inlining function 'hls::__isnan' into '__isnanf' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/lib_hlsm.cpp:303) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::data' into 'fp_struct<double>::to_double' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:506) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::to_double' into 'fp_struct<double>::to_ieee' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:520) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::to_ieee' into 'hls::copysign' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls_math.h:256) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::__signbit' into 'hls::floor' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:99) automatically.
+@I [XFORM-602] Inlining function 'hls::copysign' into 'hls::floor' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:102) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::data' into 'hls::floor' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:115) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::to_ieee' into 'hls::floor' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:119) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::__signbit' into 'hls::ceil' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:170) automatically.
+@I [XFORM-602] Inlining function 'hls::copysign' into 'hls::ceil' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:173) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::data' into 'hls::ceil' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:186) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::to_ieee' into 'hls::ceil' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:190) automatically.
+@I [XFORM-602] Inlining function '__isnanf' into 'rint' (md.cpp:54) automatically.
+@I [XFORM-602] Inlining function 'floor' into 'rint' (md.cpp:89) automatically.
+@I [XFORM-602] Inlining function 'ceil' into 'rint' (md.cpp:119) automatically.
+@I [XFORM-602] Inlining function 'floor' into 'floatMod' (md.cpp:45) automatically.
+@I [XFORM-602] Inlining function 'rand' into 'doMD' (md.cpp:172) automatically.
+@I [XFORM-602] Inlining function 'floatMod' into 'doMD' (md.cpp:289) automatically.
+@I [XFORM-602] Inlining function 'MPI_Init' into 'md' (md.cpp:323) automatically.
+@I [XFORM-602] Inlining function 'MPI_Finalize' into 'md' (md.cpp:352) automatically.
+@I [HLS-100] Command         transform returned 0; 1.53 sec.
+@I [HLS-0] Checking Synthesizability 2/2..
+@I [HLS-100] Execute         transform -syn-check /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.g.2.prechk.bc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
+@W [SYNCHK-23] ./MPI.h:1619: variable-indexed range selection may cause suboptimal QoR.
+@I [SYNCHK-10] 0 error(s), 1 warning(s).
+@I [HLS-100] Command         transform returned 0; 0.45 sec.
+@I [HLS-111] Finished Checking Synthesizability Time (s): cpu = 00:01:00 ; elapsed = 00:00:30 . Memory (MB): peak = 713.059 ; gain = 400.852 ; free physical = 19427 ; free virtual = 116488
+@I [HLS-0] Compiler optimizing ...
+@I [HLS-0] Share syncheck's 1.bc for syn flow: copy /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.g.1.bc to /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.o.1.bc
+@I [HLS-0] Presyn 1...
+@I [HLS-100] Execute         transform -hls -tmp /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -auto-rom-infer -dce -function-uniquify -resource-proc -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -clib-intrinsic-prepare -dce -func-buffer -dce -array-normalize -func-legal -instcombine -gvn -constprop -dce -ptrArgReplace -mem2reg -instcombine -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -simplifycfg -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -instcombine -dce -global-constprop -deadargelim -mem2reg -instcombine -simplifycfg -dce -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -mem-intrinsic-preproc -dce -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -instcombine -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -inst-simplify -dce -norm-name -function-inline -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.o.1.bc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.o.1.tmp.bc -f 
+@I [XFORM-602] Inlining function 'envelope_to_packet' into 'MPI_Send' (./MPI.h:603) automatically.
+@I [XFORM-602] Inlining function 'packet_to_envelope' into 'MPI_Send' (./MPI.h:649) automatically.
+@I [XFORM-602] Inlining function 'packet_to_envelope' into 'MPI_Recv' (./MPI.h:1428) automatically.
+@I [XFORM-602] Inlining function 'envelope_to_packet' into 'MPI_Recv' (./MPI.h:1513) automatically.
+@I [XFORM-602] Inlining function 'hls::__isnan' into '__isnanf' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/lib_hlsm.cpp:303) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::data' into 'fp_struct<double>::to_double' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:506) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::to_double' into 'fp_struct<double>::to_ieee' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:520) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::to_ieee' into 'hls::copysign' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls_math.h:256) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::__signbit' into 'hls::floor' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:99) automatically.
+@I [XFORM-602] Inlining function 'hls::copysign' into 'hls::floor' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:102) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::data' into 'hls::floor' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:115) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::to_ieee' into 'hls::floor' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:119) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::__signbit' into 'hls::ceil' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:170) automatically.
+@I [XFORM-602] Inlining function 'hls::copysign' into 'hls::ceil' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:173) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::data' into 'hls::ceil' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:186) automatically.
+@I [XFORM-602] Inlining function 'fp_struct<double>::to_ieee' into 'hls::ceil' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:190) automatically.
+@I [XFORM-602] Inlining function '__isnanf' into 'rint' (md.cpp:54) automatically.
+@I [XFORM-602] Inlining function 'floor' into 'rint' (md.cpp:89) automatically.
+@I [XFORM-602] Inlining function 'ceil' into 'rint' (md.cpp:119) automatically.
+@I [XFORM-602] Inlining function 'floor' into 'floatMod' (md.cpp:45) automatically.
+@I [XFORM-602] Inlining function 'rand' into 'doMD' (md.cpp:172) automatically.
+@I [XFORM-602] Inlining function 'floatMod' into 'doMD' (md.cpp:289) automatically.
+@I [HLS-100] Command         transform returned 0; 2.97 sec.
+@I [HLS-0] Presyn 2...
+@I [HLS-100] Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.o.1.tmp.bc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
+@I [XFORM-401] Performing if-conversion on hyperblock to (md.cpp:354:5) in function 'md'... converting 2 basic blocks.
+@I [XFORM-401] Performing if-conversion on hyperblock from (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:93:21) to (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:121:1) in function 'hls::floor'... converting 9 basic blocks.
+@I [XFORM-401] Performing if-conversion on hyperblock from (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:163:20) to (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/hls/hls_round.h:192:1) in function 'hls::ceil'... converting 9 basic blocks.
+@I [XFORM-401] Performing if-conversion on hyperblock from (md.cpp:215:17) in function 'doMD'... converting 2 basic blocks.
+@I [XFORM-401] Performing if-conversion on hyperblock from (./MPI.h:1607:8) to (./MPI.h:1616:8) in function 'MPI_Recv'... converting 3 basic blocks.
+@I [XFORM-602] Inlining function 'hls::floor' into 'rint' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/lib_hlsm.cpp:142->md.cpp:89) automatically.
+@I [XFORM-602] Inlining function 'hls::ceil' into 'rint' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/lib_hlsm.cpp:150->md.cpp:119) automatically.
+@I [XFORM-602] Inlining function 'hls::floor' into 'doMD' (/wrk/2016.3/continuous/2016_10_10_1682563/src/products/hls/hls_lib/src/lib_hlsm.cpp:142->md.cpp:45->md.cpp:289) automatically.
+@I [HLS-100] Command         transform returned 0; 1.68 sec.
+@I [HLS-100] Execute         disassemble /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.o.2 /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.o.2 
+@I [HLS-100] Execute           is_encrypted /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.o.2.bc 
+@I [HLS-100] Command           is_encrypted returned 0; 0 sec.
+@I [HLS-100] Command         disassemble returned 0; 0.57 sec.
+@I [HLS-111] Finished Pre-synthesis Time (s): cpu = 00:01:05 ; elapsed = 00:00:35 . Memory (MB): peak = 841.051 ; gain = 528.844 ; free physical = 19220 ; free virtual = 116346
+@I [HLS-0] Building ssdm...
+@I [HLS-100] Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -instcombine -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -interface-preproc -interface-gen -deadargelim -directive-preproc -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -read-loop-dep -dce -bitwidth -loop-dep -norm-name -legalize -cdfg-build /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.o.2.bc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+@I [XFORM-603] Evaluating the output(s) of a call to function '_ssdm_op_PartSet.i40.i40.i8.i32.i32' (./MPI.h:1516:4) in function 'MPI_Recv' and propagating its result(s) since all actual argument(s) to the function are constants.
+@I [XFORM-603] Evaluating the output(s) of a call to function '_ssdm_op_PartSet.i40.i40.i8.i32.i32' (./MPI.h:606:3) in function 'MPI_Send' and propagating its result(s) since all actual argument(s) to the function are constants.
+@W [XFORM-562] Loop 'Loop-1' (./MPI.h:619) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-4' (./MPI.h:663) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-5' (./MPI.h:677) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-6' (./MPI.h:695) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-7' (./MPI.h:708) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-8.1.2' (./MPI.h:786) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-8.1.3' (./MPI.h:805) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-8.1.4' (./MPI.h:827) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-8.1.5' (./MPI.h:845) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'send' (./MPI.h:748) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-8.2.2' (./MPI.h:977) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-8.2.3' (./MPI.h:996) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-8.2.4' (./MPI.h:1018) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-8.2.5' (./MPI.h:1036) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-8.2' (./MPI.h:944) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-8' (./MPI.h:748) in function 'MPI_Send' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-1' (./MPI.h:1401) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-4.4' (./MPI.h:1636) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-4.5' (./MPI.h:1649) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-4.6' (./MPI.h:1668) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-4.7' (./MPI.h:1681) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+@W [XFORM-562] Loop 'Loop-4' (./MPI.h:1540) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+@I [HLS-100] Command         transform returned 0; 3.22 sec.
+@I [HLS-100] Execute         disassemble /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.o.3 /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.o.3 
+@I [HLS-100] Execute           is_encrypted /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.o.3.bc 
+@I [HLS-100] Command           is_encrypted returned 0; 0 sec.
+@I [HLS-100] Command         disassemble returned 0; 0.55 sec.
+@I [HLS-111] Finished Architecture Synthesis Time (s): cpu = 00:01:08 ; elapsed = 00:00:39 . Memory (MB): peak = 868.793 ; gain = 556.586 ; free physical = 19104 ; free virtual = 116247
+@I [HLS-0] Finish building internal data model.
+@I [HLS-100] Command       opt_and_import_c returned 0; 20.34 sec.
+@I [HLS-100] Command     elaborate returned 0; 38.12 sec.
+@I [HLS-100] Execute     autosyn 
+@I [HLS-10] Starting hardware synthesis ...
+@I [HLS-0] Synthesizing C/C++ design ...
+@I [HLS-10] Synthesizing 'md' ...
+@I [HLS-100] Execute       ap_set_top_model md 
+@I [HLS-100] Command       ap_set_top_model returned 0; 0.01 sec.
+@I [HLS-100] Execute       get_model_list md -filter all-wo-channel -topdown 
+@I [HLS-100] Command       get_model_list returned 0; 0 sec.
+@I [HLS-100] Execute       preproc_iomode -model md 
+@I [HLS-100] Command       preproc_iomode returned 0; 0 sec.
+@I [HLS-100] Execute       preproc_iomode -model doMD 
+@I [HLS-100] Command       preproc_iomode returned 0; 0 sec.
+@I [HLS-100] Execute       preproc_iomode -model rint 
+@I [HLS-100] Command       preproc_iomode returned 0; 0 sec.
+@I [HLS-100] Execute       preproc_iomode -model MPI_Send 
+@I [HLS-100] Command       preproc_iomode returned 0; 0 sec.
+@I [HLS-100] Execute       preproc_iomode -model MPI_Recv 
+@I [HLS-100] Command       preproc_iomode returned 0; 0 sec.
+@I [HLS-100] Execute       get_model_list md -filter all-wo-channel 
+@I [HLS-100] Command       get_model_list returned 0; 0 sec.
+@I [HLS-0] Model list for configure: MPI_Recv MPI_Send rint doMD md
+@I [HLS-0] Configuring Module : MPI_Recv ...
+@I [HLS-100] Execute       set_default_model MPI_Recv 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       apply_spec_resource_limit MPI_Recv 
+@I [HLS-100] Command       apply_spec_resource_limit returned 0; 0 sec.
+@I [HLS-0] Configuring Module : MPI_Send ...
+@I [HLS-100] Execute       set_default_model MPI_Send 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       apply_spec_resource_limit MPI_Send 
+@I [HLS-100] Command       apply_spec_resource_limit returned 0; 0 sec.
+@I [HLS-0] Configuring Module : rint ...
+@I [HLS-100] Execute       set_default_model rint 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       apply_spec_resource_limit rint 
+@I [HLS-100] Command       apply_spec_resource_limit returned 0; 0 sec.
+@I [HLS-0] Configuring Module : doMD ...
+@I [HLS-100] Execute       set_default_model doMD 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       apply_spec_resource_limit doMD 
+@I [HLS-100] Command       apply_spec_resource_limit returned 0; 0 sec.
+@I [HLS-0] Configuring Module : md ...
+@I [HLS-100] Execute       set_default_model md 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       apply_spec_resource_limit md 
+@I [HLS-100] Command       apply_spec_resource_limit returned 0; 0 sec.
+@I [HLS-0] Model list for preprocess: MPI_Recv MPI_Send rint doMD md
+@I [HLS-0] Preprocessing Module: MPI_Recv ...
+@I [HLS-100] Execute       set_default_model MPI_Recv 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       cdfg_preprocess -model MPI_Recv 
+@I [HLS-100] Command       cdfg_preprocess returned 0; 0.01 sec.
+@I [HLS-100] Execute       rtl_gen_preprocess MPI_Recv 
+@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+@I [HLS-0] Preprocessing Module: MPI_Send ...
+@I [HLS-100] Execute       set_default_model MPI_Send 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       cdfg_preprocess -model MPI_Send 
+@I [HLS-100] Command       cdfg_preprocess returned 0; 0.03 sec.
+@I [HLS-100] Execute       rtl_gen_preprocess MPI_Send 
+@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+@I [HLS-0] Preprocessing Module: rint ...
+@I [HLS-100] Execute       set_default_model rint 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       cdfg_preprocess -model rint 
+@I [HLS-100] Command       cdfg_preprocess returned 0; 0 sec.
+@I [HLS-100] Execute       rtl_gen_preprocess rint 
+@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+@I [HLS-0] Preprocessing Module: doMD ...
+@I [HLS-100] Execute       set_default_model doMD 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       cdfg_preprocess -model doMD 
+@I [HLS-100] Command       cdfg_preprocess returned 0; 0.01 sec.
+@I [HLS-100] Execute       rtl_gen_preprocess doMD 
+@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+@I [HLS-0] Preprocessing Module: md ...
+@I [HLS-100] Execute       set_default_model md 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       cdfg_preprocess -model md 
+@I [HLS-100] Command       cdfg_preprocess returned 0; 0 sec.
+@I [HLS-100] Execute       rtl_gen_preprocess md 
+@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+@I [HLS-0] Model list for synthesis: MPI_Recv MPI_Send rint doMD md
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Implementing module 'MPI_Recv' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-100] Execute       set_default_model MPI_Recv 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       schedule -model MPI_Recv 
+@I [SCHED-11] Starting scheduling ...
+@I [SCHED-11] Finished scheduling.
+@I [HLS-100] Command       schedule returned 0; 0.55 sec.
+@I [HLS-111]  Elapsed time: 39.23 seconds; current allocated memory: 533.589 MB.
+@I [HLS-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Recv.verbose.sched.rpt -verbose -f 
+@I [HLS-100] Command       report returned 0; 0.2 sec.
+@I [HLS-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Recv.sched.adb -f 
+@I [HLS-100] Command       db_write returned 0; 0.21 sec.
+@I [HLS-0] Finish scheduling MPI_Recv.
+@I [HLS-100] Execute       set_default_model MPI_Recv 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       bind -model MPI_Recv 
+@I [BIND-110] clear=
+@I [BIND-110] debug=
+@I [BIND-110] drf=
+@I [BIND-110] effort=
+@I [BIND-110] fast_refine=
+@I [BIND-110] fu_weight=[ 0.0 -- 1.0 ]
+@I [BIND-110] global_opt=
+@I [BIND-110] gsearch=
+@I [BIND-110] help=
+@I [BIND-110] help-hidden=
+@I [BIND-110] min_mem_port=
+@I [BIND-110] min_op=
+@I [BIND-110] minreg=
+@I [BIND-110] ml=
+@I [BIND-110] model=MPI_Recv
+@I [BIND-110] no_false_path=
+@I [BIND-110] no_min_op=
+@I [BIND-110] normalize=
+@I [BIND-110] quiet=
+@I [BIND-110] refine=
+@I [BIND-110] reg_weight=[ 0.0 -- 1.0 ]
+@I [BIND-110] search=
+@I [BIND-110] tight_delay=
+@I [BIND-110] verbose=
+@I [BIND-110] wFF=
+@I [BIND-110] wFU=
+@I [BIND-110] wMUX=
+@I [BIND-110] wNET=
+@I [BIND-100] Starting micro-architecture generation ...
+@I [BIND-101] Performing variable lifetime analysis.
+@I [BIND-101] Exploring resource sharing.
+@I [BIND-101] Binding ...
+@I [BIND-100] Finished micro-architecture generation.
+@I [HLS-100] Command       bind returned 0; 0.1 sec.
+@I [HLS-111]  Elapsed time: 0.51 seconds; current allocated memory: 535.461 MB.
+@I [HLS-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Recv.verbose.bind.rpt -verbose -f 
+@I [HLS-100] Command       report returned 0; 0.32 sec.
+@I [HLS-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Recv.bind.adb -f 
+@I [HLS-100] Command       db_write returned 0; 0.21 sec.
+@I [HLS-0] Finish binding MPI_Recv.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Implementing module 'MPI_Send' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-100] Execute       set_default_model MPI_Send 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       schedule -model MPI_Send 
+@I [SCHED-11] Starting scheduling ...
+@I [SCHED-11] Finished scheduling.
+@I [HLS-100] Command       schedule returned 0; 0.98 sec.
+@I [HLS-111]  Elapsed time: 1.51 seconds; current allocated memory: 539.779 MB.
+@I [HLS-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Send.verbose.sched.rpt -verbose -f 
+@I [HLS-100] Command       report returned 0; 0.43 sec.
+@I [HLS-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Send.sched.adb -f 
+@I [HLS-100] Command       db_write returned 0; 0.38 sec.
+@I [HLS-0] Finish scheduling MPI_Send.
+@I [HLS-100] Execute       set_default_model MPI_Send 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       bind -model MPI_Send 
+@I [BIND-110] clear=
+@I [BIND-110] debug=
+@I [BIND-110] drf=
+@I [BIND-110] effort=
+@I [BIND-110] fast_refine=
+@I [BIND-110] fu_weight=[ 0.0 -- 1.0 ]
+@I [BIND-110] global_opt=
+@I [BIND-110] gsearch=
+@I [BIND-110] help=
+@I [BIND-110] help-hidden=
+@I [BIND-110] min_mem_port=
+@I [BIND-110] min_op=
+@I [BIND-110] minreg=
+@I [BIND-110] ml=
+@I [BIND-110] model=MPI_Send
+@I [BIND-110] no_false_path=
+@I [BIND-110] no_min_op=
+@I [BIND-110] normalize=
+@I [BIND-110] quiet=
+@I [BIND-110] refine=
+@I [BIND-110] reg_weight=[ 0.0 -- 1.0 ]
+@I [BIND-110] search=
+@I [BIND-110] tight_delay=
+@I [BIND-110] verbose=
+@I [BIND-110] wFF=
+@I [BIND-110] wFU=
+@I [BIND-110] wMUX=
+@I [BIND-110] wNET=
+@I [BIND-100] Starting micro-architecture generation ...
+@I [BIND-101] Performing variable lifetime analysis.
+@I [BIND-101] Exploring resource sharing.
+@I [BIND-101] Binding ...
+@I [BIND-100] Finished micro-architecture generation.
+@I [HLS-100] Command       bind returned 0; 0.31 sec.
+@I [HLS-111]  Elapsed time: 1.12 seconds; current allocated memory: 543.148 MB.
+@I [HLS-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Send.verbose.bind.rpt -verbose -f 
+@I [HLS-100] Command       report returned 0; 0.6 sec.
+@I [HLS-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Send.bind.adb -f 
+@I [HLS-100] Command       db_write returned 0; 0.42 sec.
+@I [HLS-0] Finish binding MPI_Send.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Implementing module 'rint' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-100] Execute       set_default_model rint 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       schedule -model rint 
+@I [SCHED-11] Starting scheduling ...
+@I [SCHED-11] Finished scheduling.
+@I [HLS-100] Command       schedule returned 0; 0.15 sec.
+@I [HLS-111]  Elapsed time: 1.17 seconds; current allocated memory: 544.706 MB.
+@I [HLS-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/rint.verbose.sched.rpt -verbose -f 
+@I [HLS-100] Command       report returned 0; 0.11 sec.
+@I [HLS-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/rint.sched.adb -f 
+@I [HLS-100] Command       db_write returned 0; 0.1 sec.
+@I [HLS-0] Finish scheduling rint.
+@I [HLS-100] Execute       set_default_model rint 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       bind -model rint 
+@I [BIND-110] clear=
+@I [BIND-110] debug=
+@I [BIND-110] drf=
+@I [BIND-110] effort=
+@I [BIND-110] fast_refine=
+@I [BIND-110] fu_weight=[ 0.0 -- 1.0 ]
+@I [BIND-110] global_opt=
+@I [BIND-110] gsearch=
+@I [BIND-110] help=
+@I [BIND-110] help-hidden=
+@I [BIND-110] min_mem_port=
+@I [BIND-110] min_op=
+@I [BIND-110] minreg=
+@I [BIND-110] ml=
+@I [BIND-110] model=rint
+@I [BIND-110] no_false_path=
+@I [BIND-110] no_min_op=
+@I [BIND-110] normalize=
+@I [BIND-110] quiet=
+@I [BIND-110] refine=
+@I [BIND-110] reg_weight=[ 0.0 -- 1.0 ]
+@I [BIND-110] search=
+@I [BIND-110] tight_delay=
+@I [BIND-110] verbose=
+@I [BIND-110] wFF=
+@I [BIND-110] wFU=
+@I [BIND-110] wMUX=
+@I [BIND-110] wNET=
+@I [BIND-100] Starting micro-architecture generation ...
+@I [BIND-101] Performing variable lifetime analysis.
+@I [BIND-101] Exploring resource sharing.
+@I [BIND-101] Binding ...
+@I [BIND-100] Finished micro-architecture generation.
+@I [HLS-100] Command       bind returned 0; 0.08 sec.
+@I [HLS-111]  Elapsed time: 0.29 seconds; current allocated memory: 545.878 MB.
+@I [HLS-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/rint.verbose.bind.rpt -verbose -f 
+@I [HLS-100] Command       report returned 0; 0.28 sec.
+@I [HLS-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/rint.bind.adb -f 
+@I [HLS-100] Command       db_write returned 0; 0.11 sec.
+@I [HLS-0] Finish binding rint.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Implementing module 'doMD' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-100] Execute       set_default_model doMD 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       schedule -model doMD 
+@I [SCHED-11] Starting scheduling ...
+@I [SCHED-11] Finished scheduling.
+@I [HLS-100] Command       schedule returned 0; 1.68 sec.
+@I [HLS-111]  Elapsed time: 2.07 seconds; current allocated memory: 549.964 MB.
+@I [HLS-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/doMD.verbose.sched.rpt -verbose -f 
+@I [HLS-100] Command       report returned 0; 0.4 sec.
+@I [HLS-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/doMD.sched.adb -f 
+@I [HLS-100] Command       db_write returned 0; 0.37 sec.
+@I [HLS-0] Finish scheduling doMD.
+@I [HLS-100] Execute       set_default_model doMD 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       bind -model doMD 
+@I [BIND-110] clear=
+@I [BIND-110] debug=
+@I [BIND-110] drf=
+@I [BIND-110] effort=
+@I [BIND-110] fast_refine=
+@I [BIND-110] fu_weight=[ 0.0 -- 1.0 ]
+@I [BIND-110] global_opt=
+@I [BIND-110] gsearch=
+@I [BIND-110] help=
+@I [BIND-110] help-hidden=
+@I [BIND-110] min_mem_port=
+@I [BIND-110] min_op=
+@I [BIND-110] minreg=
+@I [BIND-110] ml=
+@I [BIND-110] model=doMD
+@I [BIND-110] no_false_path=
+@I [BIND-110] no_min_op=
+@I [BIND-110] normalize=
+@I [BIND-110] quiet=
+@I [BIND-110] refine=
+@I [BIND-110] reg_weight=[ 0.0 -- 1.0 ]
+@I [BIND-110] search=
+@I [BIND-110] tight_delay=
+@I [BIND-110] verbose=
+@I [BIND-110] wFF=
+@I [BIND-110] wFU=
+@I [BIND-110] wMUX=
+@I [BIND-110] wNET=
+@I [BIND-100] Starting micro-architecture generation ...
+@I [BIND-101] Performing variable lifetime analysis.
+@I [BIND-101] Exploring resource sharing.
+@I [BIND-101] Binding ...
+@I [BIND-100] After resource sharing, estimated clock period (5.01ns) exceeds the target (target clock period: 5ns, clock uncertainty: 0.625ns, effective delay budget: 4.38ns).
+@I [BIND-100] The critical path consists of the following:
+	'fdiv' operation ('tmp_57', md.cpp:241) (5.01 ns)
+@I [BIND-100] Finished micro-architecture generation.
+@I [HLS-100] Command       bind returned 0; 1.04 sec.
+@I [HLS-111]  Elapsed time: 1.81 seconds; current allocated memory: 554.062 MB.
+@I [HLS-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/doMD.verbose.bind.rpt -verbose -f 
+@I [HLS-100] Command       report returned 0; 1.54 sec.
+@I [HLS-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/doMD.bind.adb -f 
+@I [HLS-100] Command       db_write returned 0; 0.41 sec.
+@I [HLS-0] Finish binding doMD.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Implementing module 'md' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-100] Execute       set_default_model md 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       schedule -model md 
+@I [SCHED-11] Starting scheduling ...
+@I [SCHED-11] Finished scheduling.
+@I [HLS-100] Command       schedule returned 0; 0 sec.
+@I [HLS-111]  Elapsed time: 1.95 seconds; current allocated memory: 554.822 MB.
+@I [HLS-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.verbose.sched.rpt -verbose -f 
+@I [HLS-100] Command       report returned 0; 0 sec.
+@I [HLS-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.sched.adb -f 
+@I [HLS-100] Command       db_write returned 0; 0.01 sec.
+@I [HLS-0] Finish scheduling md.
+@I [HLS-100] Execute       set_default_model md 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       bind -model md 
+@I [BIND-110] clear=
+@I [BIND-110] debug=
+@I [BIND-110] drf=
+@I [BIND-110] effort=
+@I [BIND-110] fast_refine=
+@I [BIND-110] fu_weight=[ 0.0 -- 1.0 ]
+@I [BIND-110] global_opt=
+@I [BIND-110] gsearch=
+@I [BIND-110] help=
+@I [BIND-110] help-hidden=
+@I [BIND-110] min_mem_port=
+@I [BIND-110] min_op=
+@I [BIND-110] minreg=
+@I [BIND-110] ml=
+@I [BIND-110] model=md
+@I [BIND-110] no_false_path=
+@I [BIND-110] no_min_op=
+@I [BIND-110] normalize=
+@I [BIND-110] quiet=
+@I [BIND-110] refine=
+@I [BIND-110] reg_weight=[ 0.0 -- 1.0 ]
+@I [BIND-110] search=
+@I [BIND-110] tight_delay=
+@I [BIND-110] verbose=
+@I [BIND-110] wFF=
+@I [BIND-110] wFU=
+@I [BIND-110] wMUX=
+@I [BIND-110] wNET=
+@I [BIND-100] Starting micro-architecture generation ...
+@I [BIND-101] Performing variable lifetime analysis.
+@I [BIND-101] Exploring resource sharing.
+@I [BIND-101] Binding ...
+@I [BIND-100] Finished micro-architecture generation.
+@I [HLS-100] Command       bind returned 0; 0.46 sec.
+@I [HLS-111]  Elapsed time: 0.47 seconds; current allocated memory: 555.197 MB.
+@I [HLS-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.verbose.bind.rpt -verbose -f 
+@I [HLS-100] Command       report returned 0; 1.18 sec.
+@I [HLS-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.bind.adb -f 
+@I [HLS-100] Command       db_write returned 0; 0.01 sec.
+@I [HLS-0] Finish binding md.
+@I [HLS-100] Execute       get_model_list md -filter all-wo-channel 
+@I [HLS-100] Command       get_model_list returned 0; 0 sec.
+@I [HLS-0] Preprocessing for RTLGen ...
+@I [HLS-100] Execute       rtl_gen_preprocess MPI_Recv 
+@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+@I [HLS-100] Execute       rtl_gen_preprocess MPI_Send 
+@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+@I [HLS-100] Execute       rtl_gen_preprocess rint 
+@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+@I [HLS-100] Execute       rtl_gen_preprocess doMD 
+@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+@I [HLS-100] Execute       rtl_gen_preprocess md 
+@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+@I [HLS-0] Model list for RTL generation: MPI_Recv MPI_Send rint doMD md
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Generating RTL for module 'MPI_Recv' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-100] Execute       create_rtl_model MPI_Recv -vendor xilinx -mg_file /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Recv.compgen.tcl 
+@W [RTGEN-101] Register 'state_1' is power-on initialization.
+@W [RTGEN-101] Register 'envlp_SRC_V' is power-on initialization.
+@W [RTGEN-101] Register 'envlp_DEST_V' is power-on initialization.
+@W [RTGEN-101] Register 'envlp_MSG_SIZE_V' is power-on initialization.
+@I [SYN-210] Renamed object name 'MPI_Recv_float_request_array_6' to 'MPI_Recv_float_rebkb' due to the length limit 20
+@W [RTGEN-101] Register 'clr2snd_error' is power-on initialization.
+@W [RTGEN-101] Register 'time_V' is power-on initialization.
+@I [SYN-210] Renamed object name 'md_srem_32ns_10ns_10_36_seq' to 'md_srem_32ns_10nscud' due to the length limit 20
+@I [RTGEN-100] Generating core module 'md_srem_32ns_10nscud': 1 instance(s).
+@I [RTGEN-100] Finished creating RTL model for 'MPI_Recv'.
+@I [HLS-100] Command       create_rtl_model returned 0; 0.17 sec.
+@I [HLS-111]  Elapsed time: 1.36 seconds; current allocated memory: 558.656 MB.
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.rtl_wrap.cfg.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       gen_rtl MPI_Recv -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/systemc/MPI_Recv -synmodules MPI_Recv MPI_Send rint doMD md 
+@I [HLS-100] Command       gen_rtl returned 0; 0.01 sec.
+@I [HLS-100] Execute       gen_rtl MPI_Recv -style xilinx -f -lang vhdl -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/vhdl/MPI_Recv 
+@I [HLS-100] Command       gen_rtl returned 0; 0.01 sec.
+@I [HLS-100] Execute       gen_rtl MPI_Recv -style xilinx -f -lang vlog -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/verilog/MPI_Recv 
+@I [HLS-100] Command       gen_rtl returned 0; 0.01 sec.
+@I [HLS-100] Execute       gen_tb_info MPI_Recv -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Recv -p /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db 
+@I [HLS-100] Command       gen_tb_info returned 0; 0.04 sec.
+@I [HLS-100] Execute       report -model MPI_Recv -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/report/MPI_Recv_csynth.rpt -f 
+@I [HLS-100] Command       report returned 0; 0.06 sec.
+@I [HLS-100] Execute       report -model MPI_Recv -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/report/MPI_Recv_csynth.xml -f -x 
+@I [HLS-100] Command       report returned 0; 0.05 sec.
+@I [HLS-100] Execute       report -model MPI_Recv -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Recv.verbose.rpt -verbose -f 
+@I [HLS-100] Command       report returned 0; 0.35 sec.
+@I [HLS-100] Execute       db_write -model MPI_Recv -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Recv.adb -f 
+@I [HLS-100] Command       db_write returned 0; 0.26 sec.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Generating RTL for module 'MPI_Send' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-100] Execute       create_rtl_model MPI_Send -vendor xilinx -mg_file /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Send.compgen.tcl 
+@W [RTGEN-101] Register 'state' is power-on initialization.
+@W [RTGEN-101] Register 'time_V_1' is power-on initialization.
+@W [RTGEN-101] Register 'envlp_DATA_TYPE_V' is power-on initialization.
+@W [RTGEN-101] Register 'envlp_DATA_OR_ENVLP_s' is power-on initialization.
+@I [SYN-210] Renamed object name 'MPI_Send_float_clr2snd_array_6' to 'MPI_Send_float_cldEe' due to the length limit 20
+@I [SYN-210] Renamed object name 'md_mul_32ns_10ns_33_5' to 'md_mul_32ns_10ns_eOg' due to the length limit 20
+@W [RTGEN-101] RTL name 'md_srem_32ns_10nscud' is changed to 'md_srem_32ns_10nscud_x' due to conflict.
+@I [RTGEN-100] Generating core module 'md_mul_32ns_10ns_eOg': 2 instance(s).
+@I [RTGEN-100] Generating core module 'md_srem_32ns_10nscud': 1 instance(s).
+@I [RTGEN-100] Finished creating RTL model for 'MPI_Send'.
+@I [HLS-100] Command       create_rtl_model returned 0; 0.37 sec.
+@I [HLS-111]  Elapsed time: 1.26 seconds; current allocated memory: 571.135 MB.
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.rtl_wrap.cfg.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       gen_rtl MPI_Send -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/systemc/MPI_Send -synmodules MPI_Recv MPI_Send rint doMD md 
+@I [HLS-100] Command       gen_rtl returned 0; 0.03 sec.
+@I [HLS-100] Execute       gen_rtl MPI_Send -style xilinx -f -lang vhdl -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/vhdl/MPI_Send 
+@I [HLS-100] Command       gen_rtl returned 0; 0.01 sec.
+@I [HLS-100] Execute       gen_rtl MPI_Send -style xilinx -f -lang vlog -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/verilog/MPI_Send 
+@I [HLS-100] Command       gen_rtl returned 0; 0.02 sec.
+@I [HLS-100] Execute       gen_tb_info MPI_Send -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Send -p /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db 
+@I [HLS-100] Command       gen_tb_info returned 0; 0.08 sec.
+@I [HLS-100] Execute       report -model MPI_Send -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/report/MPI_Send_csynth.rpt -f 
+@I [HLS-100] Command       report returned 0; 0.09 sec.
+@I [HLS-100] Execute       report -model MPI_Send -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/report/MPI_Send_csynth.xml -f -x 
+@I [HLS-100] Command       report returned 0; 0.08 sec.
+@I [HLS-100] Execute       report -model MPI_Send -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Send.verbose.rpt -verbose -f 
+@I [HLS-100] Command       report returned 0; 0.68 sec.
+@I [HLS-100] Execute       db_write -model MPI_Send -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Send.adb -f 
+@I [HLS-100] Command       db_write returned 0; 0.5 sec.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Generating RTL for module 'rint' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-100] Execute       create_rtl_model rint -vendor xilinx -mg_file /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/rint.compgen.tcl 
+@I [SYN-210] Renamed object name 'md_fadd_32ns_32ns_32_7_full_dsp' to 'md_fadd_32ns_32nsfYi' due to the length limit 20
+@I [SYN-210] Renamed object name 'md_fptrunc_64ns_32_1' to 'md_fptrunc_64ns_3g8j' due to the length limit 20
+@I [SYN-210] Renamed object name 'md_fcmp_32ns_32ns_1_1' to 'md_fcmp_32ns_32nshbi' due to the length limit 20
+@I [SYN-210] Renamed object name 'md_dadd_64ns_64ns_64_8_full_dsp' to 'md_dadd_64ns_64nsibs' due to the length limit 20
+@I [SYN-210] Renamed object name 'md_dmul_64ns_64ns_64_8_max_dsp' to 'md_dmul_64ns_64nsjbC' due to the length limit 20
+@I [SYN-210] Renamed object name 'md_dcmp_64ns_64ns_1_1' to 'md_dcmp_64ns_64nskbM' due to the length limit 20
+@I [RTGEN-100] Generating core module 'md_dadd_64ns_64nsibs': 1 instance(s).
+@I [RTGEN-100] Generating core module 'md_dcmp_64ns_64nskbM': 1 instance(s).
+@I [RTGEN-100] Generating core module 'md_dmul_64ns_64nsjbC': 1 instance(s).
+@I [RTGEN-100] Generating core module 'md_fadd_32ns_32nsfYi': 1 instance(s).
+@I [RTGEN-100] Generating core module 'md_fcmp_32ns_32nshbi': 2 instance(s).
+@I [RTGEN-100] Generating core module 'md_fpext_32ns_64_1': 1 instance(s).
+@I [RTGEN-100] Generating core module 'md_fptrunc_64ns_3g8j': 1 instance(s).
+@I [RTGEN-100] Finished creating RTL model for 'rint'.
+@I [HLS-100] Command       create_rtl_model returned 0; 0.08 sec.
+@I [HLS-111]  Elapsed time: 1.77 seconds; current allocated memory: 587.125 MB.
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.rtl_wrap.cfg.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       gen_rtl rint -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/systemc/rint -synmodules MPI_Recv MPI_Send rint doMD md 
+@I [HLS-100] Command       gen_rtl returned 0; 0 sec.
+@I [HLS-100] Execute       gen_rtl rint -style xilinx -f -lang vhdl -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/vhdl/rint 
+@I [HLS-100] Command       gen_rtl returned 0; 0.01 sec.
+@I [HLS-100] Execute       gen_rtl rint -style xilinx -f -lang vlog -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/verilog/rint 
+@I [HLS-100] Command       gen_rtl returned 0; 0 sec.
+@I [HLS-100] Execute       gen_tb_info rint -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/rint -p /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db 
+@I [HLS-100] Command       gen_tb_info returned 0; 0.07 sec.
+@I [HLS-100] Execute       report -model rint -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/report/rint_csynth.rpt -f 
+@I [HLS-100] Command       report returned 0; 0.07 sec.
+@I [HLS-100] Execute       report -model rint -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/report/rint_csynth.xml -f -x 
+@I [HLS-100] Command       report returned 0; 0.06 sec.
+@I [HLS-100] Execute       report -model rint -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/rint.verbose.rpt -verbose -f 
+@I [HLS-100] Command       report returned 0; 0.35 sec.
+@I [HLS-100] Execute       db_write -model rint -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/rint.adb -f 
+@I [HLS-100] Command       db_write returned 0; 0.18 sec.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Generating RTL for module 'doMD' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-100] Execute       create_rtl_model doMD -vendor xilinx -mg_file /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/doMD.compgen.tcl 
+@W [RTGEN-101] Register 'world_rank' is power-on initialization.
+@W [RTGEN-101] Register 'rnd_seed' is power-on initialization.
+@W [RTGEN-101] Register 'processorCount' is power-on initialization.
+@W [RTGEN-101] Register 'float_clr_num' is power-on initialization.
+@I [SYN-210] Renamed object name 'doMD_float_clr2snd_array_4' to 'doMD_float_clr2snlbW' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_float_clr2snd_array_1' to 'doMD_float_clr2snmb6' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_float_clr2snd_array_5' to 'doMD_float_clr2snncg' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_float_clr2snd_array_7' to 'doMD_float_clr2snocq' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_float_clr2snd_array_3' to 'doMD_float_clr2snpcA' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_float_clr2snd_array_s' to 'doMD_float_clr2snqcK' due to the length limit 20
+@W [RTGEN-101] Register 'int_req_num' is power-on initialization.
+@I [SYN-210] Renamed object name 'doMD_int_request_array_SR' to 'doMD_int_request_rcU' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_int_request_array_DE' to 'doMD_int_request_sc4' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_int_request_array_PK' to 'doMD_int_request_tde' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_int_request_array_MS' to 'doMD_int_request_udo' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_int_request_array_TA' to 'doMD_int_request_vdy' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_int_request_array_DA' to 'doMD_int_request_wdI' due to the length limit 20
+@W [RTGEN-101] Register 'int_clr_num' is power-on initialization.
+@I [SYN-210] Renamed object name 'doMD_int_clr2snd_array_SR' to 'doMD_int_clr2snd_xdS' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_int_clr2snd_array_DE' to 'doMD_int_clr2snd_yd2' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_int_clr2snd_array_PK' to 'doMD_int_clr2snd_zec' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_int_clr2snd_array_MS' to 'doMD_int_clr2snd_Aem' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_int_clr2snd_array_TA' to 'doMD_int_clr2snd_Bew' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_int_clr2snd_array_DA' to 'doMD_int_clr2snd_CeG' due to the length limit 20
+@W [RTGEN-101] Register 'float_req_num' is power-on initialization.
+@I [SYN-210] Renamed object name 'doMD_float_request_array_5' to 'doMD_float_requesDeQ' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_float_request_array_1' to 'doMD_float_requesEe0' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_float_request_array_4' to 'doMD_float_requesFfa' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_float_request_array_3' to 'doMD_float_requesGfk' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_float_request_array_s' to 'doMD_float_requesHfu' due to the length limit 20
+@I [SYN-210] Renamed object name 'doMD_float_request_array_7' to 'doMD_float_requesIfE' due to the length limit 20
+@I [SYN-210] Renamed object name 'md_faddfsub_32ns_32ns_32_7_full_dsp' to 'md_faddfsub_32ns_JfO' due to the length limit 20
+@I [SYN-210] Renamed object name 'md_fmul_32ns_32ns_32_4_max_dsp' to 'md_fmul_32ns_32nsKfY' due to the length limit 20
+@I [SYN-210] Renamed object name 'md_fdiv_32ns_32ns_32_12' to 'md_fdiv_32ns_32nsLf8' due to the length limit 20
+@W [RTGEN-101] RTL name 'md_fptrunc_64ns_3g8j' is changed to 'md_fptrunc_64ns_3g8j_x' due to conflict.
+@W [RTGEN-101] RTL name 'md_fpext_32ns_64_1' is changed to 'md_fpext_32ns_64_1_x' due to conflict.
+@I [SYN-210] Renamed object name 'md_dadddsub_64ns_64ns_64_8_full_dsp' to 'md_dadddsub_64ns_Mgi' due to the length limit 20
+@W [RTGEN-101] RTL name 'md_dmul_64ns_64nsjbC' is changed to 'md_dmul_64ns_64nsjbC_x' due to conflict.
+@I [SYN-210] Renamed object name 'md_mul_32s_34ns_65_7' to 'md_mul_32s_34ns_6Ngs' due to the length limit 20
+@I [SYN-210] Renamed object name 'md_sdiv_9ns_32ns_32_13_seq' to 'md_sdiv_9ns_32ns_OgC' due to the length limit 20
+@I [SYN-210] Renamed object name 'md_mul_32s_16ns_32_5' to 'md_mul_32s_16ns_3PgM' due to the length limit 20
+@E [RTLGEN-403] The assignment of RTL signal mask_table1_address0 is invalid
+@E [RTLGEN-403] The assignment of RTL signal mask_table1_ce0 is invalid
+@I [RTGEN-100] Generating core module 'md_dadddsub_64ns_Mgi': 2 instance(s).
+@I [RTGEN-100] Generating core module 'md_dmul_64ns_64nsjbC': 2 instance(s).
+@I [RTGEN-100] Generating core module 'md_faddfsub_32ns_JfO': 2 instance(s).
+@I [RTGEN-100] Generating core module 'md_fdiv_32ns_32nsLf8': 2 instance(s).
+@I [RTGEN-100] Generating core module 'md_fmul_32ns_32nsKfY': 3 instance(s).
+@I [RTGEN-100] Generating core module 'md_fpext_32ns_64_1': 2 instance(s).
+@I [RTGEN-100] Generating core module 'md_fptrunc_64ns_3g8j': 2 instance(s).
+@I [RTGEN-100] Generating core module 'md_mul_18s_13s_32_3': 6 instance(s).
+@I [RTGEN-100] Generating core module 'md_mul_18s_18s_32_3': 6 instance(s).
+@I [RTGEN-100] Generating core module 'md_mul_32s_16ns_3PgM': 6 instance(s).
+@I [RTGEN-100] Generating core module 'md_mul_32s_32s_32_7': 1 instance(s).
+@I [RTGEN-100] Generating core module 'md_mul_32s_34ns_6Ngs': 6 instance(s).
+@I [RTGEN-100] Generating core module 'md_sdiv_9ns_32ns_OgC': 1 instance(s).
+@I [RTGEN-100] Generating core module 'md_sitofp_32ns_32_6': 1 instance(s).
+@I [RTGEN-100] Finished creating RTL model for 'doMD'.
+@I [HLS-100] Command       create_rtl_model returned 0; 0.67 sec.
+@I [HLS-111]  Elapsed time: 1.48 seconds; current allocated memory: 598.711 MB.
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.rtl_wrap.cfg.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       gen_rtl doMD -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/systemc/doMD -synmodules MPI_Recv MPI_Send rint doMD md 
+@I [HLS-100] Command       gen_rtl returned 0; 0.03 sec.
+@I [HLS-100] Execute       gen_rtl doMD -style xilinx -f -lang vhdl -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/vhdl/doMD 
+@I [HLS-100] Command       gen_rtl returned 0; 0.02 sec.
+@I [HLS-100] Execute       gen_rtl doMD -style xilinx -f -lang vlog -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/verilog/doMD 
+@I [HLS-100] Command       gen_rtl returned 0; 0.03 sec.
+@I [HLS-100] Execute       gen_tb_info doMD -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/doMD -p /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db 
+@I [HLS-100] Command       gen_tb_info returned 0; 0.2 sec.
+@I [HLS-100] Execute       report -model doMD -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/report/doMD_csynth.rpt -f 
+@I [HLS-100] Command       report returned 0; 0.21 sec.
+@I [HLS-100] Execute       report -model doMD -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/report/doMD_csynth.xml -f -x 
+@I [HLS-100] Command       report returned 0; 0.2 sec.
+@I [HLS-100] Execute       report -model doMD -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/doMD.verbose.rpt -verbose -f 
+@I [HLS-100] Command       report returned 0; 1.75 sec.
+@I [HLS-100] Execute       db_write -model doMD -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/doMD.adb -f 
+@I [HLS-100] Command       db_write returned 0; 0.64 sec.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Generating RTL for module 'md' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-100] Execute       create_rtl_model md -vendor xilinx -mg_file /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.compgen.tcl 
+@I [RTGEN-500] Setting interface mode on port 'md/stream_out_V' to 'ap_fifo'.
+@I [RTGEN-500] Setting interface mode on port 'md/stream_in_V' to 'ap_fifo'.
+@I [RTGEN-500] Setting interface mode on function 'md' to 'ap_ctrl_hs'.
+@W [RTGEN-101] Global scalar 'world_rank' will not be exposed as RTL port.
+@W [RTGEN-101] Global scalar 'processorCount' will not be exposed as RTL port.
+@W [RTGEN-101] Global scalar 'stream_out_V' will be exposed as RTL port.
+@W [RTGEN-101] Global scalar 'stream_in_V' will be exposed as RTL port.
+@I [RTGEN-100] Finished creating RTL model for 'md'.
+@I [HLS-100] Command       create_rtl_model returned 0; 0.02 sec.
+@I [HLS-111]  Elapsed time: 3.24 seconds; current allocated memory: 610.049 MB.
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.rtl_wrap.cfg.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       gen_rtl md -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/systemc/md -synmodules MPI_Recv MPI_Send rint doMD md 
+@I [HLS-100] Command       gen_rtl returned 0; 0 sec.
+@I [HLS-100] Execute       gen_rtl md -istop -style xilinx -f -lang vhdl -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/vhdl/md 
+@I [HLS-100] Command       gen_rtl returned 0; 0 sec.
+@I [HLS-100] Execute       gen_rtl md -istop -style xilinx -f -lang vlog -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/verilog/md 
+@I [HLS-100] Command       gen_rtl returned 0; 0 sec.
+@I [HLS-100] Execute       export_constraint_db -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.constraint.tcl -f -tool general 
+@I [HLS-100] Command       export_constraint_db returned 0; 0 sec.
+@I [HLS-100] Execute       report -model md -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.design.xml -verbose -f -dv 
+@I [HLS-100] Command       report returned 0; 0.79 sec.
+@I [HLS-100] Execute       report -model md -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.sdaccel.xml -verbose -f -sdaccel 
+@I [HLS-100] Command       report returned 0; 0.01 sec.
+@I [HLS-100] Execute       gen_tb_info md -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md -p /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db 
+@I [HLS-100] Command       gen_tb_info returned 0; 0 sec.
+@I [HLS-100] Execute       report -model md -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/report/md_csynth.rpt -f 
+@I [HLS-100] Command       report returned 0; 0 sec.
+@I [HLS-100] Execute       report -model md -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/syn/report/md_csynth.xml -f -x 
+@I [HLS-100] Command       report returned 0; 0 sec.
+@I [HLS-100] Execute       report -model md -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.verbose.rpt -verbose -f 
+@I [HLS-100] Command       report returned 0; 1.19 sec.
+@I [HLS-100] Execute       db_write -model md -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.adb -f 
+@I [HLS-100] Command       db_write returned 0; 0.01 sec.
+@I [HLS-100] Execute       sc_get_clocks md 
+@I [HLS-100] Command       sc_get_clocks returned 0; 0 sec.
+@I [HLS-100] Execute       sc_get_portdomain md 
+@I [HLS-100] Command       sc_get_portdomain returned 0; 0 sec.
+@I [HLS-0] Model list for RTL component generation: MPI_Recv MPI_Send rint doMD md
+@I [HLS-0] Handling components in module [MPI_Recv] ... 
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Recv.compgen.tcl 
+@I [HLS-0] Found component md_srem_32ns_10nscud.
+@I [HLS-0] Append model md_srem_32ns_10nscud
+@I [HLS-0] Found component MPI_Recv_float_rebkb.
+@I [HLS-0] Append model MPI_Recv_float_rebkb
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-0] Handling components in module [MPI_Send] ... 
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Send.compgen.tcl 
+@I [HLS-0] Found component md_mul_32ns_10ns_eOg.
+@I [HLS-0] Append model md_mul_32ns_10ns_eOg
+@I [HLS-100] Command       ap_source returned 0; 0.01 sec.
+@I [HLS-0] Handling components in module [rint] ... 
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/rint.compgen.tcl 
+@I [HLS-0] Found component md_fadd_32ns_32nsfYi.
+@I [HLS-0] Append model md_fadd_32ns_32nsfYi
+@I [HLS-0] Found component md_fptrunc_64ns_3g8j.
+@I [HLS-0] Append model md_fptrunc_64ns_3g8j
+@I [HLS-0] Found component md_fpext_32ns_64_1.
+@I [HLS-0] Append model md_fpext_32ns_64_1
+@I [HLS-0] Found component md_fcmp_32ns_32nshbi.
+@I [HLS-0] Append model md_fcmp_32ns_32nshbi
+@I [HLS-0] Found component md_dadd_64ns_64nsibs.
+@I [HLS-0] Append model md_dadd_64ns_64nsibs
+@I [HLS-0] Found component md_dmul_64ns_64nsjbC.
+@I [HLS-0] Append model md_dmul_64ns_64nsjbC
+@I [HLS-0] Found component md_dcmp_64ns_64nskbM.
+@I [HLS-0] Append model md_dcmp_64ns_64nskbM
+@I [HLS-0] Found component rint_mask_table1.
+@I [HLS-0] Append model rint_mask_table1
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-0] Handling components in module [doMD] ... 
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/doMD.compgen.tcl 
+@I [HLS-0] Found component md_faddfsub_32ns_JfO.
+@I [HLS-0] Append model md_faddfsub_32ns_JfO
+@I [HLS-0] Found component md_fmul_32ns_32nsKfY.
+@I [HLS-0] Append model md_fmul_32ns_32nsKfY
+@I [HLS-0] Found component md_fdiv_32ns_32nsLf8.
+@I [HLS-0] Append model md_fdiv_32ns_32nsLf8
+@I [HLS-0] Found component md_sitofp_32ns_32_6.
+@I [HLS-0] Append model md_sitofp_32ns_32_6
+@I [HLS-0] Found component md_dadddsub_64ns_Mgi.
+@I [HLS-0] Append model md_dadddsub_64ns_Mgi
+@I [HLS-0] Found component md_mul_32s_34ns_6Ngs.
+@I [HLS-0] Append model md_mul_32s_34ns_6Ngs
+@I [HLS-0] Found component md_sdiv_9ns_32ns_OgC.
+@I [HLS-0] Append model md_sdiv_9ns_32ns_OgC
+@I [HLS-0] Found component md_mul_18s_18s_32_3.
+@I [HLS-0] Append model md_mul_18s_18s_32_3
+@I [HLS-0] Found component md_mul_32s_16ns_3PgM.
+@I [HLS-0] Append model md_mul_32s_16ns_3PgM
+@I [HLS-0] Found component md_mul_18s_13s_32_3.
+@I [HLS-0] Append model md_mul_18s_13s_32_3
+@I [HLS-0] Found component md_mul_32s_32s_32_7.
+@I [HLS-0] Append model md_mul_32s_32s_32_7
+@I [HLS-0] Found component doMD_float_clr2snlbW.
+@I [HLS-0] Append model doMD_float_clr2snlbW
+@I [HLS-0] Found component doMD_float_clr2snmb6.
+@I [HLS-0] Append model doMD_float_clr2snmb6
+@I [HLS-0] Found component doMD_float_clr2snncg.
+@I [HLS-0] Append model doMD_float_clr2snncg
+@I [HLS-0] Found component doMD_float_clr2snpcA.
+@I [HLS-0] Append model doMD_float_clr2snpcA
+@I [HLS-0] Found component doMD_mask_table1.
+@I [HLS-0] Append model doMD_mask_table1
+@I [HLS-0] Found component doMD_pos1.
+@I [HLS-0] Append model doMD_pos1
+@I [HLS-0] Found component doMD_forceSum3.
+@I [HLS-0] Append model doMD_forceSum3
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-0] Handling components in module [md] ... 
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.compgen.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-0] Append model MPI_Recv
+@I [HLS-0] Append model MPI_Send
+@I [HLS-0] Append model rint
+@I [HLS-0] Append model doMD
+@I [HLS-0] Append model md
+@I [HLS-0] Generating RTL model list ...
+@I [HLS-0] All models in this session: md_srem_32ns_10nscud MPI_Recv_float_rebkb md_mul_32ns_10ns_eOg md_fadd_32ns_32nsfYi md_fptrunc_64ns_3g8j md_fpext_32ns_64_1 md_fcmp_32ns_32nshbi md_dadd_64ns_64nsibs md_dmul_64ns_64nsjbC md_dcmp_64ns_64nskbM rint_mask_table1 md_faddfsub_32ns_JfO md_fmul_32ns_32nsKfY md_fdiv_32ns_32nsLf8 md_sitofp_32ns_32_6 md_dadddsub_64ns_Mgi md_mul_32s_34ns_6Ngs md_sdiv_9ns_32ns_OgC md_mul_18s_18s_32_3 md_mul_32s_16ns_3PgM md_mul_18s_13s_32_3 md_mul_32s_32s_32_7 doMD_float_clr2snlbW doMD_float_clr2snmb6 doMD_float_clr2snncg doMD_float_clr2snpcA doMD_mask_table1 doMD_pos1 doMD_forceSum3 MPI_Recv MPI_Send rint doMD md
+@I [HLS-0] To file: write model md_srem_32ns_10nscud
+@I [HLS-0] To file: write model MPI_Recv_float_rebkb
+@I [HLS-0] To file: write model md_mul_32ns_10ns_eOg
+@I [HLS-0] To file: write model md_fadd_32ns_32nsfYi
+@I [HLS-0] To file: write model md_fptrunc_64ns_3g8j
+@I [HLS-0] To file: write model md_fpext_32ns_64_1
+@I [HLS-0] To file: write model md_fcmp_32ns_32nshbi
+@I [HLS-0] To file: write model md_dadd_64ns_64nsibs
+@I [HLS-0] To file: write model md_dmul_64ns_64nsjbC
+@I [HLS-0] To file: write model md_dcmp_64ns_64nskbM
+@I [HLS-0] To file: write model rint_mask_table1
+@I [HLS-0] To file: write model md_faddfsub_32ns_JfO
+@I [HLS-0] To file: write model md_fmul_32ns_32nsKfY
+@I [HLS-0] To file: write model md_fdiv_32ns_32nsLf8
+@I [HLS-0] To file: write model md_sitofp_32ns_32_6
+@I [HLS-0] To file: write model md_dadddsub_64ns_Mgi
+@I [HLS-0] To file: write model md_mul_32s_34ns_6Ngs
+@I [HLS-0] To file: write model md_sdiv_9ns_32ns_OgC
+@I [HLS-0] To file: write model md_mul_18s_18s_32_3
+@I [HLS-0] To file: write model md_mul_32s_16ns_3PgM
+@I [HLS-0] To file: write model md_mul_18s_13s_32_3
+@I [HLS-0] To file: write model md_mul_32s_32s_32_7
+@I [HLS-0] To file: write model doMD_float_clr2snlbW
+@I [HLS-0] To file: write model doMD_float_clr2snmb6
+@I [HLS-0] To file: write model doMD_float_clr2snncg
+@I [HLS-0] To file: write model doMD_float_clr2snpcA
+@I [HLS-0] To file: write model doMD_mask_table1
+@I [HLS-0] To file: write model doMD_pos1
+@I [HLS-0] To file: write model doMD_forceSum3
+@I [HLS-0] To file: write model MPI_Recv
+@I [HLS-0] To file: write model MPI_Send
+@I [HLS-0] To file: write model rint
+@I [HLS-0] To file: write model doMD
+@I [HLS-0] To file: write model md
+@I [HLS-0] Finished generating RTL model list.
+
+
+@I [HLS-0] RTL Generation done.
+@I [HLS-0] CAS Generation done.
+@I [HLS-0] CBC Generation done.
+@I [HLS-100] Execute       export_ssdm /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/a.export.ll 
+@I [HLS-100] Command       export_ssdm returned 0; 0 sec.
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/global.setting.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/generic/autopilot/common.gen 
+@I [HLS-100] Execute         source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/generic/autopilot/APCoreGen.gen 
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/generic/autopilot/op.gen 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/generic/autopilot/op_simcore.gen 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/generic/autopilot/interface.gen 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/global.setting.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/kintexu/kintexu.gen 
+@I [HLS-100] Execute         source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/virtex.gen 
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx.gen 
+@I [HLS-100] Execute             source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/plb46.gen 
+@I [HLS-100] Command             ap_source returned 0; 0 sec.
+@I [HLS-100] Execute             source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/fsl.gen 
+@I [HLS-100] Command             ap_source returned 0; 0 sec.
+@I [HLS-100] Execute             source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/axi4.gen 
+@I [HLS-100] Command             ap_source returned 0; 0 sec.
+@I [HLS-100] Execute             source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/nativeAXI4.gen 
+@I [HLS-100] Execute               source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/saxilite.gen 
+@I [HLS-100] Command               ap_source returned 0; 0.01 sec.
+@I [HLS-100] Execute               source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/maxi.gen 
+@I [HLS-100] Command               ap_source returned 0; 0 sec.
+@I [HLS-100] Command             ap_source returned 0; 0.01 sec.
+@I [HLS-100] Execute             source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/scripts/xilinxcoregen.gen 
+@I [HLS-100] Command             ap_source returned 0; 0.01 sec.
+@I [HLS-100] Execute             source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+@I [HLS-100] Command             ap_source returned 0; 0.01 sec.
+@I [HLS-100] Execute             source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/xfir.gen 
+@I [HLS-100] Command             ap_source returned 0; 0 sec.
+@I [HLS-100] Execute             source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/xfft.gen 
+@I [HLS-100] Command             ap_source returned 0; 0.08 sec.
+@I [HLS-100] Execute             source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/util.gen 
+@I [HLS-100] Command             ap_source returned 0; 0 sec.
+@I [HLS-100] Execute             source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/dds_compiler.gen 
+@I [HLS-100] Command             ap_source returned 0; 0 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.11 sec.
+@I [HLS-100] Execute           source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/dsp48.gen 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.12 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.12 sec.
+@I [HLS-100] Execute       source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/kintexu/kintexu_fpv7.gen 
+@I [HLS-100] Execute         source /opt/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx_fpv6.gen 
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/global.setting.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/global.setting.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/global.setting.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/global.setting.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Recv.compgen.tcl 
+@I [RTMG-282] Generating pipelined core: 'md_srem_32ns_10nscud_div'
+@I [RTMG-278] Implementing memory 'MPI_Recv_float_rebkb_ram' using block RAMs with power-on initialization.
+@I [HLS-100] Command       ap_source returned 0; 0.02 sec.
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/MPI_Send.compgen.tcl 
+@I [RTMG-282] Generating pipelined core: 'md_mul_32ns_10ns_eOg_MulnS_0'
+@I [HLS-100] Command       ap_source returned 0; 0.01 sec.
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/rint.compgen.tcl 
+@I [RTMG-279] Implementing memory 'rint_mask_table1_rom' using auto ROMs.
+@I [HLS-100] Command       ap_source returned 0; 0.08 sec.
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/doMD.compgen.tcl 
+@I [RTMG-282] Generating pipelined core: 'md_mul_32s_34ns_6Ngs_MulnS_1'
+@I [RTMG-282] Generating pipelined core: 'md_sdiv_9ns_32ns_OgC_div'
+@I [RTMG-282] Generating pipelined core: 'md_mul_18s_18s_32_3_MulnS_2'
+@I [RTMG-282] Generating pipelined core: 'md_mul_32s_16ns_3PgM_MulnS_3'
+@I [RTMG-282] Generating pipelined core: 'md_mul_18s_13s_32_3_MulnS_4'
+@I [RTMG-282] Generating pipelined core: 'md_mul_32s_32s_32_7_MulnS_5'
+@I [RTMG-278] Implementing memory 'doMD_float_clr2snlbW_ram' using distributed RAMs with power-on initialization.
+@I [RTMG-278] Implementing memory 'doMD_float_clr2snmb6_ram' using block RAMs with power-on initialization.
+@I [RTMG-278] Implementing memory 'doMD_float_clr2snncg_ram' using block RAMs with power-on initialization.
+@I [RTMG-278] Implementing memory 'doMD_float_clr2snpcA_ram' using block RAMs with power-on initialization.
+@I [RTMG-279] Implementing memory 'doMD_mask_table1_rom' using auto ROMs.
+@I [RTMG-278] Implementing memory 'doMD_pos1_ram' using block RAMs.
+@I [RTMG-278] Implementing memory 'doMD_forceSum3_ram' using block RAMs.
+@I [HLS-100] Command       ap_source returned 0; 0.17 sec.
+@I [HLS-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md/solution1/.autopilot/db/md.compgen.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-111] Finished generating all RTL models Time (s): cpu = 00:01:29 ; elapsed = 00:01:02 . Memory (MB): peak = 996.793 ; gain = 684.586 ; free physical = 19005 ; free virtual = 116187
+@I [SYSC-301] Generating SystemC RTL for md.
+@I [VHDL-304] Generating VHDL RTL for md.
+@I [VLOG-307] Generating Verilog RTL for md.
+@I [HLS-100] Command     autosyn returned 0; 23.08 sec.
+@I [HLS-100] Command   csynth_design returned 0; 61.2 sec.
+@I [HLS-100] Command ap_source returned 0; 61.43 sec.
+@I [HLS-100] Execute cleanup_all 
+@I [HLS-100] Command cleanup_all returned 0; 0.09 sec.

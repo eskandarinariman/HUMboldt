@@ -42,6 +42,52 @@ clock_t start_time,end_time;
 
 static int rnd_seed = 1;
 
+float floatMod(float a, float b)
+{
+    return (a - b * floor(a / b));
+}
+
+float roundInt(float x)
+{
+    float      x_orig;
+    float      r;
+
+    if (isnan(x))
+        return x;
+
+    if (x <= 0.0)
+    {
+        if (x == 0.0)
+            return x;
+
+        x_orig = x;
+        x += 0.5;
+       
+        if (x >= 0.0)
+            return -0.0;
+ 
+        if (x == x_orig + 1.0)
+            return x_orig;
+        r = floor(x);
+        if (r != x)
+            return r;
+
+        return floor(x * 0.5) * 2.0;
+    }
+    else
+    {
+        x_orig = x;
+        x -= 0.5;
+        if (x <= 0.0)
+            return 0.0;
+        if (x == x_orig - 1.0)
+            return x_orig;
+        r = ceil(x);
+        if (r != x)
+            return r;
+        return ceil(x * 0.5) * 2.0;
+    }
+}
 int rand()
 {
     int k1;
@@ -131,12 +177,13 @@ doMD(int atomCount, int stepCount)
         if(world_rank == 0){
             for(r = 1; r < processorCount ;r++)
                 MPI_Send(pos,atomCount * 3, MPI_FLOAT,r,0,MPI_COMM_WORLD);
-        }
-        else{
-            MPI_Recv(pos, atomCount * 3, MPI_FLOAT,0,0,MPI_COMM_WORLD);
             for(q = 0; q < atomCount*3 ; q++){
                 printf("pos: %f\n",pos[q]);
             }
+        }
+        else{
+            MPI_Recv(pos, atomCount * 3, MPI_FLOAT,0,0,MPI_COMM_WORLD);
+
         }
 
         
@@ -156,11 +203,11 @@ doMD(int atomCount, int stepCount)
                 if ((i > j) &! (i & 0x01)) continue;
                 // Calc distance.
                 float dx = pos[i * 3] - pos[j * 3];
-                dx = dx - rint(dx/CUBELENGTH) * CUBELENGTH;
+                dx = dx - roundInt(dx/CUBELENGTH) * CUBELENGTH;
                 float dy = pos[i * 3 + 1] - pos[j * 3 + 1];
-                dy = dy - rint(dy/CUBELENGTH) * CUBELENGTH;
+                dy = dy - roundInt(dy/CUBELENGTH) * CUBELENGTH;
                 float dz = pos[i * 3 + 2] - pos[j * 3 + 2];
-                dz = dz - rint(dz/CUBELENGTH) * CUBELENGTH;
+                dz = dz - roundInt(dz/CUBELENGTH) * CUBELENGTH;
                 float r2inv = 1.0 / (dx*dx + dy*dy + dz*dz);
                 float r6inv = r2inv * r2inv * r2inv;
                 float r12inv = r6inv * r6inv;
@@ -186,7 +233,7 @@ doMD(int atomCount, int stepCount)
             for(r = 0 ; r < atomCount*3 ;r++){
                 forceSum[r] = force[r];
             }
-            for(i = r; r < processorCount ;r++){
+            for(r = 1; r < processorCount ;r++){
                 MPI_Recv(force, atomCount * 3, MPI_FLOAT,r,0,MPI_COMM_WORLD);
                 for(q = 0; q < atomCount * 3; q++){
                     forceSum[q] += force[q];
@@ -204,11 +251,11 @@ doMD(int atomCount, int stepCount)
             for (i = world_rank * localAtomCount; i != world_rank * localAtomCount + localAtomCount; ++i)
             {
                 vel[i * 3] += forceSum[i * 3] * DT * INVMASS;
-                pos[i * 3] += fmod(vel[i * 3] * DT, CUBELENGTH);
+                pos[i * 3] += floatMod(vel[i * 3] * DT, CUBELENGTH);
                 vel[i * 3 + 1] += forceSum[i * 3 + 1] * DT * INVMASS;
-                pos[i * 3 + 1] += fmod(vel[i * 3 + 1] * DT, CUBELENGTH);
+                pos[i * 3 + 1] += floatMod(vel[i * 3 + 1] * DT, CUBELENGTH);
                 vel[i * 3 + 2] += forceSum[i * 3 + 2] * DT * INVMASS;
-                pos[i * 3 + 2] += fmod(vel[i * 3 + 2] * DT, CUBELENGTH);
+                pos[i * 3 + 2] += floatMod(vel[i * 3 + 2] * DT, CUBELENGTH);
             }
         }
     }
