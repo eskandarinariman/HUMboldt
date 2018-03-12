@@ -1,4 +1,4 @@
-#define MODULE_RANK 0
+#define MODULE_RANK 1
 #define MPI_SIZE 2
 
 /*
@@ -131,13 +131,12 @@ doMD(int atomCount, int stepCount)
         if(world_rank == 0){
             for(r = 1; r < processorCount ;r++)
                 MPI_Send(pos,atomCount * 3, MPI_FLOAT,r,0,MPI_COMM_WORLD);
-            for(q = 0; q < atomCount*3 ; q++){
-                printf("pos: %f\n",pos[q]);
-            }
         }
         else{
             MPI_Recv(pos, atomCount * 3, MPI_FLOAT,0,0,MPI_COMM_WORLD);
-
+            for(q = 0; q < atomCount*3 ; q++){
+                printf("pos: %f\n",pos[q]);
+            }
         }
 
         
@@ -187,7 +186,7 @@ doMD(int atomCount, int stepCount)
             for(r = 0 ; r < atomCount*3 ;r++){
                 forceSum[r] = force[r];
             }
-            for(r = 1; r < processorCount ;r++){
+            for(i = r; r < processorCount ;r++){
                 MPI_Recv(force, atomCount * 3, MPI_FLOAT,r,0,MPI_COMM_WORLD);
                 for(q = 0; q < atomCount * 3; q++){
                     forceSum[q] += force[q];
