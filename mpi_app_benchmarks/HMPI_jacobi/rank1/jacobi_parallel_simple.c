@@ -1,5 +1,5 @@
-#define MODULE_RANK 0
-#define MPI_SIZE 1
+#define MODULE_RANK 1
+#define MPI_SIZE 2
 /*
  * This program computes the Jacobi iterations to approximate the solution to a linear system of equations.
  * The code is a modification from the exercise described in the following site where further information can 
@@ -33,8 +33,8 @@
 #define DX (fabs(X_LOW-X_HIGH)/MAXCOL);
 #define DY (fabs(Y_LOW-Y_HIGH)/MAXROW);
 
-#define MAXCOL  23
-#define MAXROW  120
+#define MAXCOL  10
+#define MAXROW  10
 
 clock_t start_time,end_time;
 
@@ -58,7 +58,7 @@ init_matrix(float matrix[][MAXCOL], int nrows, int rank, int proc)
     int i, j;
     y = Y_LOW+rank*(Y_HIGH-Y_LOW)/proc;
     // nrows includes the exchange rows, which should not be initialized
-    for(i=1; i<nrows-1; i++)
+    for(i=1; i<nrows; i++)
     {
         x = X_LOW;
         for(j=0; j<MAXCOL; j++)
@@ -80,7 +80,7 @@ print_matrix(float matrix[][MAXCOL], int nrows, int rank, int proc)
     int i, j;
     y = Y_LOW+rank*(Y_HIGH-Y_LOW)/proc;
     // nrows includes the exchange rows, which should not be printed
-    for(i=1; i<nrows-1; i++)
+    for(i=1; i<nrows; i++)
     {
         x = X_LOW;
         for(j=0; j<MAXCOL; j++)
@@ -137,7 +137,7 @@ free_matrix(float matrix[][MAXCOL], int nrows)
 // ----------------------------------------------------------------------
 int main( int argc, char* argv[] )
 {
-    int         world_rank, size, i, j, itcnt, r;
+    int         world_rank, size, i, j, itcnt, r, q;
     float       diffnorm, gdiffnorm;
     //float       **xlocal, **xnew;
     int         nrows;
@@ -193,7 +193,7 @@ int main( int argc, char* argv[] )
             int slave_nrows = (MAXROW/size) + (i<(MAXROW % size) ? 1 : 0) + 2; // I need to compute again nrows for each rank
             init_matrix(xlocal, slave_nrows, i, size);
             #ifdef VERBOSE
-            print_matrix(xlocal, slave_nrows, i, size);
+            //print_matrix(xlocal, slave_nrows, i, size);
             #endif
 
             // Send one row at a time because there is no guarantee that the memory has been allocated contiguously between rows
@@ -212,13 +212,17 @@ int main( int argc, char* argv[] )
     else
     {
         int ii;
-        for(ii=0; ii<nrows; ii++)
+        for(ii=0; ii<nrows; ii++){
             MPI_Recv(xlocal[ii], MAXCOL, MPI_FLOAT, 0, DATA_TAG, MPI_COMM_WORLD);
+        }
+
     }
     
     //-----------------------------
     // OK. All the matrices are initialized and the initial matrix has been printed to the terminal
     // Now, let's synchronize and compute!
+    // if(world_rank == 1)
+    //     print_matrix(xlocal, nrows, world_rank, size);
     PRINT("computing...\r\n");
     //MPI_Barrier(MPI_COMM_WORLD);
 
@@ -233,18 +237,22 @@ int main( int argc, char* argv[] )
         // Send down unless I'm at the bottom
         if (world_rank < size - 1) 
             MPI_Send( xlocal[nrows-2], MAXCOL, MPI_FLOAT, world_rank + 1, DATA_TAG, MPI_COMM_WORLD );
+  
 
         // receive from above 
         if (world_rank > 0)
             MPI_Recv( xlocal[0], MAXCOL, MPI_FLOAT, world_rank - 1, DATA_TAG, MPI_COMM_WORLD);
+       
 
         // Send up unless I'm at the top
         if (world_rank > 0) 
             MPI_Send( xlocal[1], MAXCOL, MPI_FLOAT, world_rank - 1, 1, MPI_COMM_WORLD );
+      
 
         // 
         if (world_rank < size - 1) 
             MPI_Recv( xlocal[nrows-1], MAXCOL, MPI_FLOAT, world_rank + 1, 1, MPI_COMM_WORLD);
+       
         
         // Compute new values (but not on boundary)
         itcnt ++;
@@ -266,7 +274,7 @@ int main( int argc, char* argv[] )
                 xlocal[i][j] = xnew[i][j];
             }
         }
-
+        
         //MPI_Allreduce( &diffnorm, &gdiffnorm, 1, MPI_FLOAT, MPI_SUM, MPI_COMM_WORLD );
         if(world_rank == 0){
             gdiffnorm = diffnorm;
@@ -309,9 +317,7 @@ int main( int argc, char* argv[] )
     // We are done, now let's collect and print the results
     if ( world_rank == 0 )
     {       
-        PRINT("----- Results ----\r\n");
-        PRINT ( "At iteration %d, diff is %f, Time: %f\r\n", itcnt, gdiffnorm, (double)(end_time - start_time) / CLOCKS_PER_SEC);
-        
+       
 
         // Read back the final matrix
         PRINT("----- Final Matrix ----\r\n");
@@ -325,6 +331,10 @@ int main( int argc, char* argv[] )
                 MPI_Recv(xlocal[ii], MAXCOL, MPI_FLOAT, i, DATA_TAG, MPI_COMM_WORLD);
             print_matrix(xlocal, slave_nrows, i, size);
         }
+
+        PRINT("----- Results ----\r\n");
+        PRINT ( "At iteration %d, diff is %f, Time: %f\r\n", itcnt, gdiffnorm, (double)(end_time - start_time) / CLOCKS_PER_SEC);
+        
 
         // Now rank 0 re-initializes its own xlocal using the temporary assignment of xnew
         for(i=0; i<nrows; i++)
