@@ -190,9 +190,9 @@ struct MPI_Send : public sc_module {
 
     sc_trace_file* mVcdFile;
 
-    jacobi_mul_32ns_1jbC<1,2,32,10,33>* jacobi_mul_32ns_1jbC_x_U130;
-    jacobi_srem_32ns_kbM<1,36,32,10,10>* jacobi_srem_32ns_kbM_x_U131;
-    jacobi_mul_32ns_1jbC<1,2,32,10,33>* jacobi_mul_32ns_1jbC_x_U132;
+    jacobi_mul_32ns_1jbC<1,2,32,10,33>* jacobi_mul_32ns_1jbC_x_U131;
+    jacobi_srem_32ns_kbM<1,36,32,10,10>* jacobi_srem_32ns_kbM_x_U132;
+    jacobi_mul_32ns_1jbC<1,2,32,10,33>* jacobi_mul_32ns_1jbC_x_U133;
     sc_signal< sc_lv<131> > ap_CS_fsm;
     sc_signal< sc_logic > ap_CS_fsm_state1;
     sc_signal< sc_logic > stream_out_V_blk_n;

@@ -10,7 +10,7 @@
 
 module jacobi_dcmp_64ns_Ngs
 #(parameter
-    ID         = 173,
+    ID         = 174,
     NUM_STAGE  = 1,
     din0_WIDTH = 64,
     din1_WIDTH = 64,

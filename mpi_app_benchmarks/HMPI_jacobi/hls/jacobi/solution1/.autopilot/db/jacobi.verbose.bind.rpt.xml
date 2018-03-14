@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'jacobi'" level="0">
-<item name = "Date">Wed Mar 14 01:38:59 2018
+<item name = "Date">Wed Mar 14 18:12:13 2018
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">jacobi</item>
@@ -35,8 +35,8 @@
 <column name="grp_MPI_Send_fu_536">MPI_Send, ?, ?, ?, ?, none</column>
 <column name="grp_init_matrix_fu_611">init_matrix, 3714, 3714, 3714, 3714, none</column>
 <column name="grp_init_matrix_fu_619">init_matrix, 3714, 3714, 3714, 3714, none</column>
-<column name="grp_MPI_Recv_1_fu_627">MPI_Recv_1, ?, ?, ?, ?, none</column>
-<column name="grp_MPI_Recv_fu_708">MPI_Recv, ?, ?, ?, ?, none</column>
+<column name="grp_MPI_Recv_fu_627">MPI_Recv, ?, ?, ?, ?, none</column>
+<column name="grp_MPI_Recv_1_fu_707">MPI_Recv_1, ?, ?, ?, ?, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

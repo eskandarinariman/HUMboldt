@@ -10,7 +10,7 @@ use ieee.std_logic_1164.all;
 
 entity jacobi_fsqrt_32nsMgi is
     generic (
-        ID         : integer := 172;
+        ID         : integer := 173;
         NUM_STAGE  : integer := 12;
         din0_WIDTH : integer := 32;
         din1_WIDTH : integer := 32;

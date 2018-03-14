@@ -1,11 +1,11 @@
 INFO: [HLS 200-10] Running '/opt/Xilinx/Vivado_HLS/2017.2/bin/unwrapped/lnx64.o/vivado_hls'
-INFO: [HLS 200-10] For user 'eskand38' on host 'localhost' (Linux_x86_64 version 4.4.0-83-generic) on Wed Mar 14 01:37:23 UTC 2018
+INFO: [HLS 200-10] For user 'eskand38' on host 'localhost' (Linux_x86_64 version 4.4.0-83-generic) on Wed Mar 14 18:10:39 UTC 2018
 INFO: [HLS 200-10] On os Ubuntu 16.04.2 LTS
 INFO: [HLS 200-10] In directory '/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls'
 INFO: [HLS 200-10] Opening project '/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi'.
-INFO: [HLS 200-10] Adding design file 'MPI.h' to the project
-INFO: [HLS 200-10] Adding design file 'common.h' to the project
 INFO: [HLS 200-10] Adding design file 'jacobi_parallel_simple.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'common.h' to the project
+INFO: [HLS 200-10] Adding design file 'MPI.h' to the project
 INFO: [HLS 200-10] Opening solution '/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1'.
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
 INFO: [HLS 200-10] Setting target device to 'xcku115-flva1517-2-e'
@@ -27,10 +27,10 @@ jacobi_parallel_simple.cpp:149:5: warning: expression result unused [-Wunused-va
 WARNING: [HLS 200-41] Resource core 'AXI4Stream' on port '&stream_out' is deprecated. Please use the interface directive to specify the AXI interface.
 WARNING: [HLS 200-41] Resource core 'AXI4Stream' on port '&stream_in' is deprecated. Please use the interface directive to specify the AXI interface.
 INFO: [HLS 200-10] Validating synthesis directives ...
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:43 ; elapsed = 00:00:12 . Memory (MB): peak = 348.105 ; gain = 12.586 ; free physical = 6015 ; free virtual = 122887
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:01:11 ; elapsed = 00:00:41 . Memory (MB): peak = 348.105 ; gain = 12.586 ; free physical = 5524 ; free virtual = 122880
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:43 ; elapsed = 00:00:11 . Memory (MB): peak = 348.102 ; gain = 12.586 ; free physical = 5955 ; free virtual = 123062
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:01:11 ; elapsed = 00:00:41 . Memory (MB): peak = 348.102 ; gain = 12.586 ; free physical = 5454 ; free virtual = 123044
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:01:38 ; elapsed = 00:01:09 . Memory (MB): peak = 1316.695 ; gain = 981.176 ; free physical = 4493 ; free virtual = 122059
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:01:38 ; elapsed = 00:01:09 . Memory (MB): peak = 1316.691 ; gain = 981.176 ; free physical = 4427 ; free virtual = 122228
 INFO: [HLS 200-10] Checking synthesizability ...
 INFO: [XFORM 203-602] Inlining function 'initial_cond' into 'init_matrix' (jacobi_parallel_simple.cpp:67) automatically.
 INFO: [XFORM 203-602] Inlining function 'envelope_to_packet' into 'MPI_Send.1' (./MPI.h:603) automatically.
@@ -40,20 +40,20 @@ INFO: [XFORM 203-602] Inlining function 'packet_to_envelope' into 'MPI_Recv' (./
 INFO: [XFORM 203-602] Inlining function 'envelope_to_packet' into 'MPI_Recv' (./MPI.h:1513) automatically.
 INFO: [XFORM 203-602] Inlining function 'envelope_to_packet' into 'MPI_Send' (./MPI.h:603) automatically.
 INFO: [XFORM 203-602] Inlining function 'MPI_Init' into 'jacobi' (jacobi_parallel_simple.cpp:155) automatically.
-INFO: [XFORM 203-602] Inlining function 'MPI_Finalize' into 'jacobi' (jacobi_parallel_simple.cpp:355) automatically.
+INFO: [XFORM 203-602] Inlining function 'MPI_Finalize' into 'jacobi' (jacobi_parallel_simple.cpp:357) automatically.
 WARNING: [SYNCHK 200-23] ./MPI.h:1619: variable-indexed range selection may cause suboptimal QoR.
 INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:01:41 ; elapsed = 00:01:12 . Memory (MB): peak = 1316.695 ; gain = 981.176 ; free physical = 4483 ; free virtual = 122050
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:01:41 ; elapsed = 00:01:11 . Memory (MB): peak = 1316.691 ; gain = 981.176 ; free physical = 4419 ; free virtual = 122220
 INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-1' (jacobi_parallel_simple.cpp:197) in function 'jacobi' automatically.
 INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-3.3' (jacobi_parallel_simple.cpp:280) in function 'jacobi' automatically.
-INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-3.4' (jacobi_parallel_simple.cpp:291) in function 'jacobi' automatically.
-INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-4' (jacobi_parallel_simple.cpp:326) in function 'jacobi' automatically.
+INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-3.4' (jacobi_parallel_simple.cpp:292) in function 'jacobi' automatically.
+INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-4' (jacobi_parallel_simple.cpp:328) in function 'jacobi' automatically.
 INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (jacobi_parallel_simple.cpp:197) in function 'jacobi' completely.
 INFO: [XFORM 203-501] Unrolling loop 'Loop-3.3' (jacobi_parallel_simple.cpp:280) in function 'jacobi' completely.
-INFO: [XFORM 203-501] Unrolling loop 'Loop-3.4' (jacobi_parallel_simple.cpp:291) in function 'jacobi' completely.
-INFO: [XFORM 203-501] Unrolling loop 'Loop-4' (jacobi_parallel_simple.cpp:326) in function 'jacobi' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-3.4' (jacobi_parallel_simple.cpp:292) in function 'jacobi' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-4' (jacobi_parallel_simple.cpp:328) in function 'jacobi' completely.
 INFO: [XFORM 203-102] Partitioning array 'diffnorm_array' (jacobi_parallel_simple.cpp:277) automatically.
-INFO: [XFORM 203-102] Partitioning array 'gdiffnorm_array' (jacobi_parallel_simple.cpp:289) automatically.
+INFO: [XFORM 203-102] Partitioning array 'gdiffnorm_array' (jacobi_parallel_simple.cpp:290) automatically.
 INFO: [XFORM 203-602] Inlining function 'initial_cond' into 'init_matrix' (jacobi_parallel_simple.cpp:67) automatically.
 INFO: [XFORM 203-602] Inlining function 'envelope_to_packet' into 'MPI_Send.1' (./MPI.h:603) automatically.
 INFO: [XFORM 203-602] Inlining function 'packet_to_envelope' into 'MPI_Send.1' (./MPI.h:649) automatically.
@@ -66,8 +66,9 @@ INFO: [XFORM 203-602] Inlining function 'packet_to_envelope' into 'MPI_Send' (./
 WARNING: [XFORM 203-561] Updating loop upper bound from 2147483646 to 6 for loop 'Loop-0' in function 'init_matrix'.
 WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 6 for loop 'Loop-0' in function 'init_matrix'.
 INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (./MPI.h:1607:8) to (./MPI.h:1616:8) in function 'MPI_Recv.1'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (./MPI.h:1618:7) to (./MPI.h:1617:30) in function 'MPI_Recv'... converting 3 basic blocks.
 INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (./MPI.h:1607:8) to (./MPI.h:1616:8) in function 'MPI_Recv'... converting 3 basic blocks.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:46 ; elapsed = 00:01:19 . Memory (MB): peak = 1316.695 ; gain = 981.176 ; free physical = 4367 ; free virtual = 122026
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:46 ; elapsed = 00:01:17 . Memory (MB): peak = 1316.691 ; gain = 981.176 ; free physical = 4298 ; free virtual = 122192
 INFO: [XFORM 203-603] Evaluating the output(s) of a call to function '_ssdm_op_PartSet.i40.i40.i8.i32.i32' (./MPI.h:606:3) in function 'MPI_Send' and propagating its result(s) since all actual argument(s) to the function are constants.
 INFO: [XFORM 203-603] Evaluating the output(s) of a call to function '_ssdm_op_PartSet.i40.i40.i8.i32.i32' (./MPI.h:1516:4) in function 'MPI_Recv' and propagating its result(s) since all actual argument(s) to the function are constants.
 INFO: [XFORM 203-603] Evaluating the output(s) of a call to function '_ssdm_op_PartSet.i40.i40.i8.i32.i32' (./MPI.h:1516:4) in function 'MPI_Recv.1' and propagating its result(s) since all actual argument(s) to the function are constants.
@@ -111,12 +112,12 @@ WARNING: [XFORM 203-562] Loop 'Loop-4.6' (./MPI.h:1668) in function 'MPI_Recv.1'
 WARNING: [XFORM 203-562] Loop 'Loop-4.7' (./MPI.h:1681) in function 'MPI_Recv.1' has unknown bound because it has multiple exiting blocks.
 WARNING: [XFORM 203-562] Loop 'Loop-4' (./MPI.h:1540) in function 'MPI_Recv.1' has unknown bound because it has multiple exiting blocks.
 WARNING: [XFORM 203-562] Loop 'Loop-1' (./MPI.h:1401) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
-WARNING: [XFORM 203-562] Loop 'Loop-4.3' (./MPI.h:1636) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
-WARNING: [XFORM 203-562] Loop 'Loop-4.4' (./MPI.h:1649) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
-WARNING: [XFORM 203-562] Loop 'Loop-4.5' (./MPI.h:1668) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
-WARNING: [XFORM 203-562] Loop 'Loop-4.6' (./MPI.h:1681) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-4.4' (./MPI.h:1636) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-4.5' (./MPI.h:1649) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-4.6' (./MPI.h:1668) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-4.7' (./MPI.h:1681) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
 WARNING: [XFORM 203-562] Loop 'Loop-4' (./MPI.h:1540) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:48 ; elapsed = 00:01:21 . Memory (MB): peak = 1316.695 ; gain = 981.176 ; free physical = 4313 ; free virtual = 121975
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:48 ; elapsed = 00:01:19 . Memory (MB): peak = 1316.691 ; gain = 981.176 ; free physical = 4247 ; free virtual = 122143
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO: [HLS 200-10] Synthesizing 'jacobi' ...
 WARNING: [SYN 201-103] Legalizing function name 'MPI_Send.1' to 'MPI_Send_1'.
@@ -126,73 +127,73 @@ INFO: [HLS 200-10] -- Implementing module 'init_matrix'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 81.05 seconds; current allocated memory: 910.440 MB.
+INFO: [HLS 200-111]  Elapsed time: 79.35 seconds; current allocated memory: 910.880 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.27 seconds; current allocated memory: 911.066 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.26 seconds; current allocated memory: 911.507 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'MPI_Send_1' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 1.07 seconds; current allocated memory: 914.951 MB.
+INFO: [HLS 200-111]  Elapsed time: 1.04 seconds; current allocated memory: 915.393 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 1.82 seconds; current allocated memory: 918.418 MB.
+INFO: [HLS 200-111]  Elapsed time: 1.77 seconds; current allocated memory: 918.876 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'MPI_Recv_1' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 2.09 seconds; current allocated memory: 920.612 MB.
+INFO: [HLS 200-111]  Elapsed time: 2.07 seconds; current allocated memory: 921.069 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.9 seconds; current allocated memory: 922.480 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.9 seconds; current allocated memory: 922.940 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'MPI_Recv' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 1.23 seconds; current allocated memory: 924.524 MB.
+INFO: [HLS 200-111]  Elapsed time: 1.4 seconds; current allocated memory: 925.081 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.81 seconds; current allocated memory: 926.164 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.91 seconds; current allocated memory: 926.964 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'MPI_Send' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 1.52 seconds; current allocated memory: 930.259 MB.
+INFO: [HLS 200-111]  Elapsed time: 1.6 seconds; current allocated memory: 931.111 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 1.74 seconds; current allocated memory: 933.587 MB.
+INFO: [HLS 200-111]  Elapsed time: 1.75 seconds; current allocated memory: 934.449 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'jacobi' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 1.8 seconds; current allocated memory: 934.698 MB.
+INFO: [HLS 200-111]  Elapsed time: 1.81 seconds; current allocated memory: 935.547 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 1.73 seconds; current allocated memory: 936.419 MB.
+INFO: [HLS 200-111]  Elapsed time: 1.67 seconds; current allocated memory: 937.224 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'init_matrix' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -213,7 +214,7 @@ INFO: [RTGEN 206-100] Generating core module 'jacobi_fpext_32nseOg': 2 instance(
 INFO: [RTGEN 206-100] Generating core module 'jacobi_fptrunc_64dEe': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'jacobi_sitodp_32nhbi': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'init_matrix'.
-INFO: [HLS 200-111]  Elapsed time: 1.28 seconds; current allocated memory: 938.150 MB.
+INFO: [HLS 200-111]  Elapsed time: 1.28 seconds; current allocated memory: 938.962 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'MPI_Send_1' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -222,21 +223,21 @@ INFO: [SYN 201-210] Renamed object name 'jacobi_srem_32ns_10ns_10_36_seq' to 'ja
 INFO: [RTGEN 206-100] Generating core module 'jacobi_mul_32ns_1jbC': 2 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'jacobi_srem_32ns_kbM': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'MPI_Send_1'.
-INFO: [HLS 200-111]  Elapsed time: 0.62 seconds; current allocated memory: 944.481 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.63 seconds; current allocated memory: 945.330 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'MPI_Recv_1' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 WARNING: [RTGEN 206-101] RTL name 'jacobi_srem_32ns_kbM' is changed to 'jacobi_srem_32ns_kbM_x' due to conflict.
 INFO: [RTGEN 206-100] Generating core module 'jacobi_srem_32ns_kbM': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'MPI_Recv_1'.
-INFO: [HLS 200-111]  Elapsed time: 2.46 seconds; current allocated memory: 961.688 MB.
+INFO: [HLS 200-111]  Elapsed time: 2.48 seconds; current allocated memory: 962.516 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'MPI_Recv' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 WARNING: [RTGEN 206-101] RTL name 'jacobi_srem_32ns_kbM' is changed to 'jacobi_srem_32ns_kbM_x' due to conflict.
 INFO: [RTGEN 206-100] Generating core module 'jacobi_srem_32ns_kbM': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'MPI_Recv'.
-INFO: [HLS 200-111]  Elapsed time: 1.42 seconds; current allocated memory: 971.956 MB.
+INFO: [HLS 200-111]  Elapsed time: 1.45 seconds; current allocated memory: 973.033 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'MPI_Send' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -245,7 +246,7 @@ WARNING: [RTGEN 206-101] RTL name 'jacobi_srem_32ns_kbM' is changed to 'jacobi_s
 INFO: [RTGEN 206-100] Generating core module 'jacobi_mul_32ns_1jbC': 2 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'jacobi_srem_32ns_kbM': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'MPI_Send'.
-INFO: [HLS 200-111]  Elapsed time: 1.43 seconds; current allocated memory: 984.150 MB.
+INFO: [HLS 200-111]  Elapsed time: 1.81 seconds; current allocated memory: 985.964 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'jacobi' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -305,7 +306,7 @@ INFO: [RTGEN 206-100] Generating core module 'jacobi_fmul_32ns_cud': 1 instance(
 INFO: [RTGEN 206-100] Generating core module 'jacobi_fpext_32nseOg': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'jacobi_fsqrt_32nsMgi': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'jacobi'.
-INFO: [HLS 200-111]  Elapsed time: 2.77 seconds; current allocated memory: 1002.701 MB.
+INFO: [HLS 200-111]  Elapsed time: 2.67 seconds; current allocated memory: 1004.396 MB.
 INFO: [RTMG 210-282] Generating pipelined core: 'jacobi_mul_32ns_1jbC_MulnS_0'
 INFO: [RTMG 210-282] Generating pipelined core: 'jacobi_srem_32ns_kbM_div'
 INFO: [RTMG 210-278] Implementing memory 'jacobi_float_clr2lbW_ram' using block RAMs with power-on initialization.
@@ -315,8 +316,8 @@ INFO: [RTMG 210-278] Implementing memory 'jacobi_float_clr2qcK_ram' using block 
 INFO: [RTMG 210-278] Implementing memory 'jacobi_int_requesudo_ram' using distributed RAMs with power-on initialization.
 INFO: [RTMG 210-278] Implementing memory 'jacobi_xlocal_ram' using block RAMs.
 INFO: [RTMG 210-278] Implementing memory 'jacobi_xnew_ram' using block RAMs.
-INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:02:14 ; elapsed = 00:01:50 . Memory (MB): peak = 1405.750 ; gain = 1070.230 ; free physical = 4173 ; free virtual = 121883
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:02:14 ; elapsed = 00:01:48 . Memory (MB): peak = 1405.746 ; gain = 1070.230 ; free physical = 4099 ; free virtual = 122044
 INFO: [SYSC 207-301] Generating SystemC RTL for jacobi.
 INFO: [VHDL 208-304] Generating VHDL RTL for jacobi.
 INFO: [VLOG 209-307] Generating Verilog RTL for jacobi.
-INFO: [HLS 200-112] Total elapsed time: 109.68 seconds; peak allocated memory: 1002.701 MB.
+INFO: [HLS 200-112] Total elapsed time: 108.42 seconds; peak allocated memory: 1004.396 MB.

@@ -279,6 +279,7 @@ int jacobi()
             gdiffnorm = diffnorm;
             for(r = 1; r < size ;r++){
                 MPI_Recv(diffnorm_array, 1, MPI_FLOAT,r,0,MPI_COMM_WORLD);
+                diffnorm = diffnorm_array[0];
                 gdiffnorm+= diffnorm;
             }
         }
@@ -294,6 +295,7 @@ int jacobi()
         }
         else{
             MPI_Recv(gdiffnorm_array, 1, MPI_FLOAT,0,0,MPI_COMM_WORLD);
+            gdiffnorm = gdiffnorm_array[0];
         }
         
 

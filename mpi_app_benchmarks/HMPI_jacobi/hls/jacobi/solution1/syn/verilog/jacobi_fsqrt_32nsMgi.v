@@ -10,7 +10,7 @@
 
 module jacobi_fsqrt_32nsMgi
 #(parameter
-    ID         = 172,
+    ID         = 173,
     NUM_STAGE  = 12,
     din0_WIDTH = 32,
     din1_WIDTH = 32,

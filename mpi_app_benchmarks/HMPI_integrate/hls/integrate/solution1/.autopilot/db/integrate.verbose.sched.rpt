@@ -1,0 +1,1182 @@
+
+
+================================================================
+== Vivado HLS Report for 'integrate'
+================================================================
+* Date:           Wed Mar 14 18:09:44 2018
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        integrate
+* Solution:       solution1
+* Product family: kintexu
+* Target device:  xcku115-flva1517-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|      4.37|        0.62|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-------+-------+----------+-----------+-----------+------+----------+
+        |             |    Latency    | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |  min  |  max  |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-------+-------+----------+-----------+-----------+------+----------+
+        |- Loop 1     |      ?|      ?|         ?|          -|          -|  1000|    no    |
+        | + Loop 1.1  |  47952|  47952|        48|          -|          -|   999|    no    |
+        |- Loop 2     |   2000|   2000|         2|          -|          -|  1000|    no    |
+        |- Loop 3     |  10000|  10000|        10|          -|          -|  1000|    no    |
+        +-------------+-------+-------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 73
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond6)
+	61  / (exitcond6)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / (!exitcond_i)
+	56  / (exitcond_i)
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+	41  / true
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	44  / true
+44 --> 
+	45  / true
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	48  / true
+48 --> 
+	49  / true
+49 --> 
+	50  / true
+50 --> 
+	51  / true
+51 --> 
+	52  / true
+52 --> 
+	53  / true
+53 --> 
+	54  / true
+54 --> 
+	55  / true
+55 --> 
+	8  / true
+56 --> 
+	57  / true
+57 --> 
+	58  / true
+58 --> 
+	59  / true
+59 --> 
+	60  / true
+60 --> 
+	2  / true
+61 --> 
+	62  / (!exitcond2)
+	63  / (exitcond2)
+62 --> 
+	61  / true
+63 --> 
+	64  / true
+64 --> 
+	65  / (!exitcond)
+65 --> 
+	66  / true
+66 --> 
+	67  / true
+67 --> 
+	68  / true
+68 --> 
+	69  / true
+69 --> 
+	70  / true
+70 --> 
+	71  / true
+71 --> 
+	72  / true
+72 --> 
+	73  / true
+73 --> 
+	64  / true
+* FSM state operations: 
+
+ <State 1>: 0.54ns
+ST_1: empty (48)  [1/1] 0.00ns
+:0  %empty = call i32 (...)* @_ssdm_op_SpecInterface(i121* @stream_in_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str234, i32 0, i32 0, [1 x i8]* @p_str235, [1 x i8]* @p_str236, [1 x i8]* @p_str237, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str238, [1 x i8]* @p_str239) nounwind
+
+ST_1: empty_15 (49)  [1/1] 0.00ns
+:1  %empty_15 = call i32 (...)* @_ssdm_op_SpecInterface(i121* @stream_out_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str228, i32 0, i32 0, [1 x i8]* @p_str229, [1 x i8]* @p_str230, [1 x i8]* @p_str231, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str232, [1 x i8]* @p_str233) nounwind
+
+ST_1: StgValue_76 (50)  [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i32 0) nounwind, !map !202
+
+ST_1: StgValue_77 (51)  [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecTopModule([10 x i8]* @integrate_str) nounwind
+
+ST_1: integral (52)  [1/1] 0.00ns  loc: integrate.cpp:57
+:4  %integral = alloca [1000 x float], align 16
+
+ST_1: total (53)  [1/1] 0.00ns  loc: integrate.cpp:57
+:5  %total = alloca [1000 x float], align 16
+
+ST_1: n_array (54)  [1/1] 0.00ns  loc: integrate.cpp:106
+:6  %n_array = alloca [1 x i12], align 2
+
+ST_1: StgValue_81 (55)  [1/1] 0.00ns
+:7  call void (...)* @_ssdm_op_SpecIFCore(i121* @stream_out_V, [1 x i8]* @p_str7, [11 x i8]* @p_str8, [1 x i8]* @p_str7, i32 -1, [1 x i8]* @p_str7, [1 x i8]* @p_str7, [1 x i8]* @p_str7, [1 x i8]* @p_str7, [1 x i8]* @p_str7) nounwind
+
+ST_1: StgValue_82 (56)  [1/1] 0.00ns
+:8  call void (...)* @_ssdm_op_SpecIFCore(i121* @stream_in_V, [1 x i8]* @p_str7, [11 x i8]* @p_str8, [1 x i8]* @p_str7, i32 -1, [1 x i8]* @p_str7, [1 x i8]* @p_str7, [1 x i8]* @p_str7, [1 x i8]* @p_str7, [1 x i8]* @p_str7) nounwind
+
+ST_1: n_array_addr (57)  [1/1] 0.00ns  loc: integrate.cpp:106
+:9  %n_array_addr = getelementptr [1 x i12]* %n_array, i64 0, i64 0
+
+ST_1: StgValue_84 (58)  [1/1] 0.54ns  loc: integrate.cpp:81
+:10  br label %1
+
+
+ <State 2>: 1.29ns
+ST_2: i (60)  [1/1] 0.00ns
+:0  %i = phi i10 [ 0, %0 ], [ %i_1, %Trap.exit ]
+
+ST_2: exitcond6 (61)  [1/1] 0.81ns  loc: integrate.cpp:81
+:1  %exitcond6 = icmp eq i10 %i, -24
+
+ST_2: empty_16 (62)  [1/1] 0.00ns
+:2  %empty_16 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1000, i64 1000, i64 1000) nounwind
+
+ST_2: i_1 (63)  [1/1] 1.29ns  loc: integrate.cpp:81
+:3  %i_1 = add i10 %i, 1
+
+ST_2: StgValue_89 (64)  [1/1] 0.00ns  loc: integrate.cpp:81
+:4  br i1 %exitcond6, label %.preheader7.preheader, label %2
+
+ST_2: StgValue_90 (66)  [2/2] 0.54ns  loc: integrate.cpp:87
+:0  call fastcc void @MPI_Send.1(float 0.000000e+00) nounwind
+
+ST_2: StgValue_91 (68)  [1/1] 0.70ns  loc: integrate.cpp:106
+:2  store i12 2000, i12* %n_array_addr, align 2
+
+ST_2: StgValue_92 (102)  [1/1] 0.54ns  loc: integrate.cpp:125
+.preheader7.preheader:0  br label %.preheader7
+
+
+ <State 3>: 0.00ns
+ST_3: StgValue_93 (66)  [1/2] 0.00ns  loc: integrate.cpp:87
+:0  call fastcc void @MPI_Send.1(float 0.000000e+00) nounwind
+
+
+ <State 4>: 0.54ns
+ST_4: StgValue_94 (67)  [2/2] 0.54ns  loc: integrate.cpp:98
+:1  call fastcc void @MPI_Send.1(float 1.000000e+02) nounwind
+
+
+ <State 5>: 0.00ns
+ST_5: StgValue_95 (67)  [1/2] 0.00ns  loc: integrate.cpp:98
+:1  call fastcc void @MPI_Send.1(float 1.000000e+02) nounwind
+
+
+ <State 6>: 0.00ns
+ST_6: StgValue_96 (69)  [2/2] 0.00ns  loc: integrate.cpp:109
+:3  call fastcc void @MPI_Send([1 x i12]* %n_array) nounwind
+
+
+ <State 7>: 0.54ns
+ST_7: StgValue_97 (69)  [1/2] 0.00ns  loc: integrate.cpp:109
+:3  call fastcc void @MPI_Send([1 x i12]* %n_array) nounwind
+
+ST_7: StgValue_98 (70)  [1/1] 0.54ns  loc: integrate.cpp:39->integrate.cpp:120
+:4  br label %3
+
+
+ <State 8>: 4.09ns
+ST_8: integral_0_in_i (72)  [1/1] 0.00ns  loc: integrate.cpp:42->integrate.cpp:120
+:0  %integral_0_in_i = phi double [ -1.200000e+03, %2 ], [ %tmp_12_i, %4 ]
+
+ST_8: x_i (73)  [1/1] 0.00ns
+:1  %x_i = phi float [ 0.000000e+00, %2 ], [ %x, %4 ]
+
+ST_8: i_i (74)  [1/1] 0.00ns
+:2  %i_i = phi i10 [ 1, %2 ], [ %i_2, %4 ]
+
+ST_8: integral_1 (75)  [1/1] 3.61ns  loc: integrate.cpp:37->integrate.cpp:120
+:3  %integral_1 = fptrunc double %integral_0_in_i to float
+
+ST_8: exitcond_i (76)  [1/1] 0.81ns  loc: integrate.cpp:39->integrate.cpp:120
+:4  %exitcond_i = icmp eq i10 %i_i, -24
+
+ST_8: empty_17 (77)  [1/1] 0.00ns
+:5  %empty_17 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 999, i64 999, i64 999) nounwind
+
+ST_8: StgValue_105 (78)  [1/1] 0.00ns  loc: integrate.cpp:39->integrate.cpp:120
+:6  br i1 %exitcond_i, label %Trap.exit, label %4
+
+ST_8: x (80)  [7/7] 4.09ns  loc: integrate.cpp:41->integrate.cpp:120
+:0  %x = fadd float %x_i, 0x3FA99999A0000000
+
+ST_8: i_2 (93)  [1/1] 1.29ns  loc: integrate.cpp:39->integrate.cpp:120
+:13  %i_2 = add i10 %i_i, 1
+
+
+ <State 9>: 4.09ns
+ST_9: x (80)  [6/7] 4.09ns  loc: integrate.cpp:41->integrate.cpp:120
+:0  %x = fadd float %x_i, 0x3FA99999A0000000
+
+
+ <State 10>: 4.09ns
+ST_10: x (80)  [5/7] 4.09ns  loc: integrate.cpp:41->integrate.cpp:120
+:0  %x = fadd float %x_i, 0x3FA99999A0000000
+
+
+ <State 11>: 4.09ns
+ST_11: x (80)  [4/7] 4.09ns  loc: integrate.cpp:41->integrate.cpp:120
+:0  %x = fadd float %x_i, 0x3FA99999A0000000
+
+
+ <State 12>: 4.09ns
+ST_12: x (80)  [3/7] 4.09ns  loc: integrate.cpp:41->integrate.cpp:120
+:0  %x = fadd float %x_i, 0x3FA99999A0000000
+
+
+ <State 13>: 4.09ns
+ST_13: x (80)  [2/7] 4.09ns  loc: integrate.cpp:41->integrate.cpp:120
+:0  %x = fadd float %x_i, 0x3FA99999A0000000
+
+
+ <State 14>: 4.09ns
+ST_14: x (80)  [1/7] 4.09ns  loc: integrate.cpp:41->integrate.cpp:120
+:0  %x = fadd float %x_i, 0x3FA99999A0000000
+
+
+ <State 15>: 3.79ns
+ST_15: tmp_1_i (81)  [4/4] 3.79ns  loc: integrate.cpp:42->integrate.cpp:120
+:1  %tmp_1_i = fmul float %x, %x
+
+
+ <State 16>: 3.79ns
+ST_16: tmp_1_i (81)  [3/4] 3.79ns  loc: integrate.cpp:42->integrate.cpp:120
+:1  %tmp_1_i = fmul float %x, %x
+
+
+ <State 17>: 3.79ns
+ST_17: tmp_1_i (81)  [2/4] 3.79ns  loc: integrate.cpp:42->integrate.cpp:120
+:1  %tmp_1_i = fmul float %x, %x
+
+
+ <State 18>: 3.79ns
+ST_18: tmp_1_i (81)  [1/4] 3.79ns  loc: integrate.cpp:42->integrate.cpp:120
+:1  %tmp_1_i = fmul float %x, %x
+
+
+ <State 19>: 3.79ns
+ST_19: tmp_2_i (82)  [4/4] 3.79ns  loc: integrate.cpp:42->integrate.cpp:120
+:2  %tmp_2_i = fmul float %tmp_1_i, %x
+
+
+ <State 20>: 3.79ns
+ST_20: tmp_2_i (82)  [3/4] 3.79ns  loc: integrate.cpp:42->integrate.cpp:120
+:2  %tmp_2_i = fmul float %tmp_1_i, %x
+
+
+ <State 21>: 3.79ns
+ST_21: tmp_2_i (82)  [2/4] 3.79ns  loc: integrate.cpp:42->integrate.cpp:120
+:2  %tmp_2_i = fmul float %tmp_1_i, %x
+
+
+ <State 22>: 3.79ns
+ST_22: tmp_2_i (82)  [1/4] 3.79ns  loc: integrate.cpp:42->integrate.cpp:120
+:2  %tmp_2_i = fmul float %tmp_1_i, %x
+
+
+ <State 23>: 2.88ns
+ST_23: tmp_3_i (83)  [1/1] 2.88ns  loc: integrate.cpp:42->integrate.cpp:120
+:3  %tmp_3_i = fpext float %tmp_2_i to double
+
+
+ <State 24>: 4.06ns
+ST_24: tmp_4_i (84)  [8/8] 4.06ns  loc: integrate.cpp:42->integrate.cpp:120
+:4  %tmp_4_i = fmul double %tmp_3_i, 5.000000e-02
+
+
+ <State 25>: 4.06ns
+ST_25: tmp_4_i (84)  [7/8] 4.06ns  loc: integrate.cpp:42->integrate.cpp:120
+:4  %tmp_4_i = fmul double %tmp_3_i, 5.000000e-02
+
+
+ <State 26>: 4.06ns
+ST_26: tmp_4_i (84)  [6/8] 4.06ns  loc: integrate.cpp:42->integrate.cpp:120
+:4  %tmp_4_i = fmul double %tmp_3_i, 5.000000e-02
+
+
+ <State 27>: 4.06ns
+ST_27: tmp_4_i (84)  [5/8] 4.06ns  loc: integrate.cpp:42->integrate.cpp:120
+:4  %tmp_4_i = fmul double %tmp_3_i, 5.000000e-02
+
+ST_27: tmp_5_i (85)  [4/4] 3.79ns  loc: integrate.cpp:42->integrate.cpp:120
+:5  %tmp_5_i = fmul float %tmp_1_i, 3.000000e+00
+
+
+ <State 28>: 4.06ns
+ST_28: tmp_4_i (84)  [4/8] 4.06ns  loc: integrate.cpp:42->integrate.cpp:120
+:4  %tmp_4_i = fmul double %tmp_3_i, 5.000000e-02
+
+ST_28: tmp_5_i (85)  [3/4] 3.79ns  loc: integrate.cpp:42->integrate.cpp:120
+:5  %tmp_5_i = fmul float %tmp_1_i, 3.000000e+00
+
+
+ <State 29>: 4.06ns
+ST_29: tmp_4_i (84)  [3/8] 4.06ns  loc: integrate.cpp:42->integrate.cpp:120
+:4  %tmp_4_i = fmul double %tmp_3_i, 5.000000e-02
+
+ST_29: tmp_5_i (85)  [2/4] 3.79ns  loc: integrate.cpp:42->integrate.cpp:120
+:5  %tmp_5_i = fmul float %tmp_1_i, 3.000000e+00
+
+
+ <State 30>: 4.06ns
+ST_30: tmp_4_i (84)  [2/8] 4.06ns  loc: integrate.cpp:42->integrate.cpp:120
+:4  %tmp_4_i = fmul double %tmp_3_i, 5.000000e-02
+
+ST_30: tmp_5_i (85)  [1/4] 3.79ns  loc: integrate.cpp:42->integrate.cpp:120
+:5  %tmp_5_i = fmul float %tmp_1_i, 3.000000e+00
+
+
+ <State 31>: 4.06ns
+ST_31: tmp_4_i (84)  [1/8] 4.06ns  loc: integrate.cpp:42->integrate.cpp:120
+:4  %tmp_4_i = fmul double %tmp_3_i, 5.000000e-02
+
+ST_31: tmp_6_i (86)  [1/1] 2.88ns  loc: integrate.cpp:42->integrate.cpp:120
+:6  %tmp_6_i = fpext float %tmp_5_i to double
+
+
+ <State 32>: 3.71ns
+ST_32: tmp_7_i (87)  [8/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:7  %tmp_7_i = fsub double %tmp_4_i, %tmp_6_i
+
+
+ <State 33>: 3.71ns
+ST_33: tmp_7_i (87)  [7/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:7  %tmp_7_i = fsub double %tmp_4_i, %tmp_6_i
+
+
+ <State 34>: 3.71ns
+ST_34: tmp_7_i (87)  [6/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:7  %tmp_7_i = fsub double %tmp_4_i, %tmp_6_i
+
+
+ <State 35>: 3.79ns
+ST_35: tmp_7_i (87)  [5/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:7  %tmp_7_i = fsub double %tmp_4_i, %tmp_6_i
+
+ST_35: tmp_8_i (88)  [4/4] 3.79ns  loc: integrate.cpp:42->integrate.cpp:120
+:8  %tmp_8_i = fmul float %x, 2.300000e+01
+
+
+ <State 36>: 3.79ns
+ST_36: tmp_7_i (87)  [4/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:7  %tmp_7_i = fsub double %tmp_4_i, %tmp_6_i
+
+ST_36: tmp_8_i (88)  [3/4] 3.79ns  loc: integrate.cpp:42->integrate.cpp:120
+:8  %tmp_8_i = fmul float %x, 2.300000e+01
+
+
+ <State 37>: 3.79ns
+ST_37: tmp_7_i (87)  [3/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:7  %tmp_7_i = fsub double %tmp_4_i, %tmp_6_i
+
+ST_37: tmp_8_i (88)  [2/4] 3.79ns  loc: integrate.cpp:42->integrate.cpp:120
+:8  %tmp_8_i = fmul float %x, 2.300000e+01
+
+
+ <State 38>: 3.79ns
+ST_38: tmp_7_i (87)  [2/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:7  %tmp_7_i = fsub double %tmp_4_i, %tmp_6_i
+
+ST_38: tmp_8_i (88)  [1/4] 3.79ns  loc: integrate.cpp:42->integrate.cpp:120
+:8  %tmp_8_i = fmul float %x, 2.300000e+01
+
+
+ <State 39>: 3.71ns
+ST_39: tmp_7_i (87)  [1/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:7  %tmp_7_i = fsub double %tmp_4_i, %tmp_6_i
+
+ST_39: tmp_9_i (89)  [1/1] 2.88ns  loc: integrate.cpp:42->integrate.cpp:120
+:9  %tmp_9_i = fpext float %tmp_8_i to double
+
+
+ <State 40>: 3.71ns
+ST_40: tmp_10_i (90)  [8/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:10  %tmp_10_i = fsub double %tmp_7_i, %tmp_9_i
+
+
+ <State 41>: 3.71ns
+ST_41: tmp_10_i (90)  [7/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:10  %tmp_10_i = fsub double %tmp_7_i, %tmp_9_i
+
+
+ <State 42>: 3.71ns
+ST_42: tmp_10_i (90)  [6/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:10  %tmp_10_i = fsub double %tmp_7_i, %tmp_9_i
+
+
+ <State 43>: 3.71ns
+ST_43: tmp_10_i (90)  [5/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:10  %tmp_10_i = fsub double %tmp_7_i, %tmp_9_i
+
+
+ <State 44>: 3.71ns
+ST_44: tmp_10_i (90)  [4/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:10  %tmp_10_i = fsub double %tmp_7_i, %tmp_9_i
+
+
+ <State 45>: 3.71ns
+ST_45: tmp_10_i (90)  [3/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:10  %tmp_10_i = fsub double %tmp_7_i, %tmp_9_i
+
+
+ <State 46>: 3.71ns
+ST_46: tmp_10_i (90)  [2/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:10  %tmp_10_i = fsub double %tmp_7_i, %tmp_9_i
+
+
+ <State 47>: 3.71ns
+ST_47: tmp_10_i (90)  [1/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:10  %tmp_10_i = fsub double %tmp_7_i, %tmp_9_i
+
+ST_47: tmp_11_i (91)  [1/1] 2.88ns  loc: integrate.cpp:42->integrate.cpp:120
+:11  %tmp_11_i = fpext float %integral_1 to double
+
+
+ <State 48>: 3.71ns
+ST_48: tmp_12_i (92)  [8/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:12  %tmp_12_i = fadd double %tmp_11_i, %tmp_10_i
+
+
+ <State 49>: 3.71ns
+ST_49: tmp_12_i (92)  [7/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:12  %tmp_12_i = fadd double %tmp_11_i, %tmp_10_i
+
+
+ <State 50>: 3.71ns
+ST_50: tmp_12_i (92)  [6/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:12  %tmp_12_i = fadd double %tmp_11_i, %tmp_10_i
+
+
+ <State 51>: 3.71ns
+ST_51: tmp_12_i (92)  [5/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:12  %tmp_12_i = fadd double %tmp_11_i, %tmp_10_i
+
+
+ <State 52>: 3.71ns
+ST_52: tmp_12_i (92)  [4/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:12  %tmp_12_i = fadd double %tmp_11_i, %tmp_10_i
+
+
+ <State 53>: 3.71ns
+ST_53: tmp_12_i (92)  [3/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:12  %tmp_12_i = fadd double %tmp_11_i, %tmp_10_i
+
+
+ <State 54>: 3.71ns
+ST_54: tmp_12_i (92)  [2/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:12  %tmp_12_i = fadd double %tmp_11_i, %tmp_10_i
+
+
+ <State 55>: 3.71ns
+ST_55: tmp_12_i (92)  [1/8] 3.71ns  loc: integrate.cpp:42->integrate.cpp:120
+:12  %tmp_12_i = fadd double %tmp_11_i, %tmp_10_i
+
+ST_55: StgValue_166 (94)  [1/1] 0.00ns  loc: integrate.cpp:39->integrate.cpp:120
+:14  br label %3
+
+
+ <State 56>: 3.79ns
+ST_56: tmp_i (96)  [4/4] 3.79ns  loc: integrate.cpp:44->integrate.cpp:120
+Trap.exit:0  %tmp_i = fmul float %integral_1, 0x3FA99999A0000000
+
+
+ <State 57>: 3.79ns
+ST_57: tmp_i (96)  [3/4] 3.79ns  loc: integrate.cpp:44->integrate.cpp:120
+Trap.exit:0  %tmp_i = fmul float %integral_1, 0x3FA99999A0000000
+
+
+ <State 58>: 3.79ns
+ST_58: tmp_i (96)  [2/4] 3.79ns  loc: integrate.cpp:44->integrate.cpp:120
+Trap.exit:0  %tmp_i = fmul float %integral_1, 0x3FA99999A0000000
+
+
+ <State 59>: 3.79ns
+ST_59: tmp_i (96)  [1/4] 3.79ns  loc: integrate.cpp:44->integrate.cpp:120
+Trap.exit:0  %tmp_i = fmul float %integral_1, 0x3FA99999A0000000
+
+
+ <State 60>: 1.77ns
+ST_60: tmp_s (97)  [1/1] 0.00ns  loc: integrate.cpp:120
+Trap.exit:1  %tmp_s = zext i10 %i to i64
+
+ST_60: integral_addr (98)  [1/1] 0.00ns  loc: integrate.cpp:120
+Trap.exit:2  %integral_addr = getelementptr inbounds [1000 x float]* %integral, i64 0, i64 %tmp_s
+
+ST_60: StgValue_173 (99)  [1/1] 1.77ns  loc: integrate.cpp:120
+Trap.exit:3  store float %tmp_i, float* %integral_addr, align 4
+
+ST_60: StgValue_174 (100)  [1/1] 0.00ns  loc: integrate.cpp:81
+Trap.exit:4  br label %1
+
+
+ <State 61>: 1.77ns
+ST_61: r_3 (104)  [1/1] 0.00ns
+.preheader7:0  %r_3 = phi i10 [ %r, %5 ], [ 0, %.preheader7.preheader ]
+
+ST_61: exitcond2 (105)  [1/1] 0.81ns  loc: integrate.cpp:125
+.preheader7:1  %exitcond2 = icmp eq i10 %r_3, -24
+
+ST_61: empty_18 (106)  [1/1] 0.00ns
+.preheader7:2  %empty_18 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1000, i64 1000, i64 1000) nounwind
+
+ST_61: r (107)  [1/1] 1.29ns  loc: integrate.cpp:125
+.preheader7:3  %r = add i10 %r_3, 1
+
+ST_61: StgValue_179 (108)  [1/1] 0.00ns  loc: integrate.cpp:125
+.preheader7:4  br i1 %exitcond2, label %.preheader.0, label %5
+
+ST_61: tmp (110)  [1/1] 0.00ns  loc: integrate.cpp:126
+:0  %tmp = zext i10 %r_3 to i64
+
+ST_61: integral_addr_1 (111)  [1/1] 0.00ns  loc: integrate.cpp:126
+:1  %integral_addr_1 = getelementptr inbounds [1000 x float]* %integral, i64 0, i64 %tmp
+
+ST_61: integral_load (112)  [2/2] 1.77ns  loc: integrate.cpp:126
+:2  %integral_load = load float* %integral_addr_1, align 4
+
+ST_61: StgValue_183 (117)  [2/2] 0.00ns  loc: integrate.cpp:130
+.preheader.0:0  call fastcc void @MPI_Recv([1000 x float]* %integral) nounwind
+
+
+ <State 62>: 3.54ns
+ST_62: integral_load (112)  [1/2] 1.77ns  loc: integrate.cpp:126
+:2  %integral_load = load float* %integral_addr_1, align 4
+
+ST_62: total_addr (113)  [1/1] 0.00ns  loc: integrate.cpp:126
+:3  %total_addr = getelementptr inbounds [1000 x float]* %total, i64 0, i64 %tmp
+
+ST_62: StgValue_186 (114)  [1/1] 1.77ns  loc: integrate.cpp:126
+:4  store float %integral_load, float* %total_addr, align 4
+
+ST_62: StgValue_187 (115)  [1/1] 0.00ns  loc: integrate.cpp:125
+:5  br label %.preheader7
+
+
+ <State 63>: 0.54ns
+ST_63: StgValue_188 (117)  [1/2] 0.00ns  loc: integrate.cpp:130
+.preheader.0:0  call fastcc void @MPI_Recv([1000 x float]* %integral) nounwind
+
+ST_63: StgValue_189 (118)  [1/1] 0.54ns  loc: integrate.cpp:132
+.preheader.0:1  br label %6
+
+
+ <State 64>: 1.77ns
+ST_64: q (120)  [1/1] 0.00ns  loc: integrate.cpp:132
+:0  %q = phi i10 [ 0, %.preheader.0 ], [ %q_1, %7 ]
+
+ST_64: exitcond (121)  [1/1] 0.81ns  loc: integrate.cpp:132
+:1  %exitcond = icmp eq i10 %q, -24
+
+ST_64: empty_19 (122)  [1/1] 0.00ns
+:2  %empty_19 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1000, i64 1000, i64 1000) nounwind
+
+ST_64: q_1 (123)  [1/1] 1.29ns  loc: integrate.cpp:132
+:3  %q_1 = add i10 %q, 1
+
+ST_64: StgValue_194 (124)  [1/1] 0.00ns  loc: integrate.cpp:132
+:4  br i1 %exitcond, label %.preheader.1, label %7
+
+ST_64: tmp_6 (126)  [1/1] 0.00ns  loc: integrate.cpp:133
+:0  %tmp_6 = zext i10 %q to i64
+
+ST_64: integral_addr_2 (127)  [1/1] 0.00ns  loc: integrate.cpp:133
+:1  %integral_addr_2 = getelementptr inbounds [1000 x float]* %integral, i64 0, i64 %tmp_6
+
+ST_64: integral_load_1 (128)  [2/2] 1.77ns  loc: integrate.cpp:133
+:2  %integral_load_1 = load float* %integral_addr_2, align 4
+
+ST_64: total_addr_1 (129)  [1/1] 0.00ns  loc: integrate.cpp:133
+:3  %total_addr_1 = getelementptr inbounds [1000 x float]* %total, i64 0, i64 %tmp_6
+
+ST_64: total_load (130)  [2/2] 1.77ns  loc: integrate.cpp:133
+:4  %total_load = load float* %total_addr_1, align 4
+
+ST_64: StgValue_200 (135)  [1/1] 0.00ns  loc: integrate.cpp:160
+.preheader.1:0  ret i32 0
+
+
+ <State 65>: 1.77ns
+ST_65: integral_load_1 (128)  [1/2] 1.77ns  loc: integrate.cpp:133
+:2  %integral_load_1 = load float* %integral_addr_2, align 4
+
+ST_65: total_load (130)  [1/2] 1.77ns  loc: integrate.cpp:133
+:4  %total_load = load float* %total_addr_1, align 4
+
+
+ <State 66>: 4.09ns
+ST_66: tmp_7 (131)  [7/7] 4.09ns  loc: integrate.cpp:133
+:5  %tmp_7 = fadd float %total_load, %integral_load_1
+
+
+ <State 67>: 4.09ns
+ST_67: tmp_7 (131)  [6/7] 4.09ns  loc: integrate.cpp:133
+:5  %tmp_7 = fadd float %total_load, %integral_load_1
+
+
+ <State 68>: 4.09ns
+ST_68: tmp_7 (131)  [5/7] 4.09ns  loc: integrate.cpp:133
+:5  %tmp_7 = fadd float %total_load, %integral_load_1
+
+
+ <State 69>: 4.09ns
+ST_69: tmp_7 (131)  [4/7] 4.09ns  loc: integrate.cpp:133
+:5  %tmp_7 = fadd float %total_load, %integral_load_1
+
+
+ <State 70>: 4.09ns
+ST_70: tmp_7 (131)  [3/7] 4.09ns  loc: integrate.cpp:133
+:5  %tmp_7 = fadd float %total_load, %integral_load_1
+
+
+ <State 71>: 4.09ns
+ST_71: tmp_7 (131)  [2/7] 4.09ns  loc: integrate.cpp:133
+:5  %tmp_7 = fadd float %total_load, %integral_load_1
+
+
+ <State 72>: 4.09ns
+ST_72: tmp_7 (131)  [1/7] 4.09ns  loc: integrate.cpp:133
+:5  %tmp_7 = fadd float %total_load, %integral_load_1
+
+
+ <State 73>: 1.77ns
+ST_73: StgValue_210 (132)  [1/1] 1.77ns  loc: integrate.cpp:133
+:6  store float %tmp_7, float* %total_addr_1, align 4
+
+ST_73: StgValue_211 (133)  [1/1] 0.00ns  loc: integrate.cpp:132
+:7  br label %6
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 0.538ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', integrate.cpp:81) [60]  (0.538 ns)
+
+ <State 2>: 1.29ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', integrate.cpp:81) [60]  (0 ns)
+	'add' operation ('i', integrate.cpp:81) [63]  (1.29 ns)
+
+ <State 3>: 0ns
+The critical path consists of the following:
+
+ <State 4>: 0.538ns
+The critical path consists of the following:
+	'call' operation (integrate.cpp:98) to 'MPI_Send.1' [67]  (0.538 ns)
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+ <State 6>: 0ns
+The critical path consists of the following:
+
+ <State 7>: 0.538ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('integral_0_in_i', integrate.cpp:42->integrate.cpp:120) with incoming values : ('tmp_12_i', integrate.cpp:42->integrate.cpp:120) [72]  (0.538 ns)
+
+ <State 8>: 4.09ns
+The critical path consists of the following:
+	'phi' operation ('x') with incoming values : ('x', integrate.cpp:41->integrate.cpp:120) [73]  (0 ns)
+	'fadd' operation ('x', integrate.cpp:41->integrate.cpp:120) [80]  (4.09 ns)
+
+ <State 9>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('x', integrate.cpp:41->integrate.cpp:120) [80]  (4.09 ns)
+
+ <State 10>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('x', integrate.cpp:41->integrate.cpp:120) [80]  (4.09 ns)
+
+ <State 11>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('x', integrate.cpp:41->integrate.cpp:120) [80]  (4.09 ns)
+
+ <State 12>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('x', integrate.cpp:41->integrate.cpp:120) [80]  (4.09 ns)
+
+ <State 13>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('x', integrate.cpp:41->integrate.cpp:120) [80]  (4.09 ns)
+
+ <State 14>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('x', integrate.cpp:41->integrate.cpp:120) [80]  (4.09 ns)
+
+ <State 15>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_1_i', integrate.cpp:42->integrate.cpp:120) [81]  (3.79 ns)
+
+ <State 16>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_1_i', integrate.cpp:42->integrate.cpp:120) [81]  (3.79 ns)
+
+ <State 17>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_1_i', integrate.cpp:42->integrate.cpp:120) [81]  (3.79 ns)
+
+ <State 18>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_1_i', integrate.cpp:42->integrate.cpp:120) [81]  (3.79 ns)
+
+ <State 19>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_2_i', integrate.cpp:42->integrate.cpp:120) [82]  (3.79 ns)
+
+ <State 20>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_2_i', integrate.cpp:42->integrate.cpp:120) [82]  (3.79 ns)
+
+ <State 21>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_2_i', integrate.cpp:42->integrate.cpp:120) [82]  (3.79 ns)
+
+ <State 22>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_2_i', integrate.cpp:42->integrate.cpp:120) [82]  (3.79 ns)
+
+ <State 23>: 2.88ns
+The critical path consists of the following:
+	'fpext' operation ('tmp_3_i', integrate.cpp:42->integrate.cpp:120) [83]  (2.88 ns)
+
+ <State 24>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_4_i', integrate.cpp:42->integrate.cpp:120) [84]  (4.06 ns)
+
+ <State 25>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_4_i', integrate.cpp:42->integrate.cpp:120) [84]  (4.06 ns)
+
+ <State 26>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_4_i', integrate.cpp:42->integrate.cpp:120) [84]  (4.06 ns)
+
+ <State 27>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_4_i', integrate.cpp:42->integrate.cpp:120) [84]  (4.06 ns)
+
+ <State 28>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_4_i', integrate.cpp:42->integrate.cpp:120) [84]  (4.06 ns)
+
+ <State 29>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_4_i', integrate.cpp:42->integrate.cpp:120) [84]  (4.06 ns)
+
+ <State 30>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_4_i', integrate.cpp:42->integrate.cpp:120) [84]  (4.06 ns)
+
+ <State 31>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_4_i', integrate.cpp:42->integrate.cpp:120) [84]  (4.06 ns)
+
+ <State 32>: 3.71ns
+The critical path consists of the following:
+	'dsub' operation ('tmp_7_i', integrate.cpp:42->integrate.cpp:120) [87]  (3.71 ns)
+
+ <State 33>: 3.71ns
+The critical path consists of the following:
+	'dsub' operation ('tmp_7_i', integrate.cpp:42->integrate.cpp:120) [87]  (3.71 ns)
+
+ <State 34>: 3.71ns
+The critical path consists of the following:
+	'dsub' operation ('tmp_7_i', integrate.cpp:42->integrate.cpp:120) [87]  (3.71 ns)
+
+ <State 35>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_8_i', integrate.cpp:42->integrate.cpp:120) [88]  (3.79 ns)
+
+ <State 36>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_8_i', integrate.cpp:42->integrate.cpp:120) [88]  (3.79 ns)
+
+ <State 37>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_8_i', integrate.cpp:42->integrate.cpp:120) [88]  (3.79 ns)
+
+ <State 38>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_8_i', integrate.cpp:42->integrate.cpp:120) [88]  (3.79 ns)
+
+ <State 39>: 3.71ns
+The critical path consists of the following:
+	'dsub' operation ('tmp_7_i', integrate.cpp:42->integrate.cpp:120) [87]  (3.71 ns)
+
+ <State 40>: 3.71ns
+The critical path consists of the following:
+	'dsub' operation ('tmp_10_i', integrate.cpp:42->integrate.cpp:120) [90]  (3.71 ns)
+
+ <State 41>: 3.71ns
+The critical path consists of the following:
+	'dsub' operation ('tmp_10_i', integrate.cpp:42->integrate.cpp:120) [90]  (3.71 ns)
+
+ <State 42>: 3.71ns
+The critical path consists of the following:
+	'dsub' operation ('tmp_10_i', integrate.cpp:42->integrate.cpp:120) [90]  (3.71 ns)
+
+ <State 43>: 3.71ns
+The critical path consists of the following:
+	'dsub' operation ('tmp_10_i', integrate.cpp:42->integrate.cpp:120) [90]  (3.71 ns)
+
+ <State 44>: 3.71ns
+The critical path consists of the following:
+	'dsub' operation ('tmp_10_i', integrate.cpp:42->integrate.cpp:120) [90]  (3.71 ns)
+
+ <State 45>: 3.71ns
+The critical path consists of the following:
+	'dsub' operation ('tmp_10_i', integrate.cpp:42->integrate.cpp:120) [90]  (3.71 ns)
+
+ <State 46>: 3.71ns
+The critical path consists of the following:
+	'dsub' operation ('tmp_10_i', integrate.cpp:42->integrate.cpp:120) [90]  (3.71 ns)
+
+ <State 47>: 3.71ns
+The critical path consists of the following:
+	'dsub' operation ('tmp_10_i', integrate.cpp:42->integrate.cpp:120) [90]  (3.71 ns)
+
+ <State 48>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_12_i', integrate.cpp:42->integrate.cpp:120) [92]  (3.71 ns)
+
+ <State 49>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_12_i', integrate.cpp:42->integrate.cpp:120) [92]  (3.71 ns)
+
+ <State 50>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_12_i', integrate.cpp:42->integrate.cpp:120) [92]  (3.71 ns)
+
+ <State 51>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_12_i', integrate.cpp:42->integrate.cpp:120) [92]  (3.71 ns)
+
+ <State 52>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_12_i', integrate.cpp:42->integrate.cpp:120) [92]  (3.71 ns)
+
+ <State 53>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_12_i', integrate.cpp:42->integrate.cpp:120) [92]  (3.71 ns)
+
+ <State 54>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_12_i', integrate.cpp:42->integrate.cpp:120) [92]  (3.71 ns)
+
+ <State 55>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_12_i', integrate.cpp:42->integrate.cpp:120) [92]  (3.71 ns)
+
+ <State 56>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_i', integrate.cpp:44->integrate.cpp:120) [96]  (3.79 ns)
+
+ <State 57>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_i', integrate.cpp:44->integrate.cpp:120) [96]  (3.79 ns)
+
+ <State 58>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_i', integrate.cpp:44->integrate.cpp:120) [96]  (3.79 ns)
+
+ <State 59>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_i', integrate.cpp:44->integrate.cpp:120) [96]  (3.79 ns)
+
+ <State 60>: 1.77ns
+The critical path consists of the following:
+	'getelementptr' operation ('integral_addr', integrate.cpp:120) [98]  (0 ns)
+	'store' operation (integrate.cpp:120) of variable 'tmp_i', integrate.cpp:44->integrate.cpp:120 on array 'integral', integrate.cpp:57 [99]  (1.77 ns)
+
+ <State 61>: 1.77ns
+The critical path consists of the following:
+	'phi' operation ('r') with incoming values : ('r', integrate.cpp:125) [104]  (0 ns)
+	'getelementptr' operation ('integral_addr_1', integrate.cpp:126) [111]  (0 ns)
+	'load' operation ('integral_load', integrate.cpp:126) on array 'integral', integrate.cpp:57 [112]  (1.77 ns)
+
+ <State 62>: 3.54ns
+The critical path consists of the following:
+	'load' operation ('integral_load', integrate.cpp:126) on array 'integral', integrate.cpp:57 [112]  (1.77 ns)
+	'store' operation (integrate.cpp:126) of variable 'integral_load', integrate.cpp:126 on array 'total', integrate.cpp:57 [114]  (1.77 ns)
+
+ <State 63>: 0.538ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('q', integrate.cpp:132) with incoming values : ('q_1', integrate.cpp:132) [120]  (0.538 ns)
+
+ <State 64>: 1.77ns
+The critical path consists of the following:
+	'phi' operation ('q', integrate.cpp:132) with incoming values : ('q_1', integrate.cpp:132) [120]  (0 ns)
+	'getelementptr' operation ('integral_addr_2', integrate.cpp:133) [127]  (0 ns)
+	'load' operation ('integral_load_1', integrate.cpp:133) on array 'integral', integrate.cpp:57 [128]  (1.77 ns)
+
+ <State 65>: 1.77ns
+The critical path consists of the following:
+	'load' operation ('integral_load_1', integrate.cpp:133) on array 'integral', integrate.cpp:57 [128]  (1.77 ns)
+
+ <State 66>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_7', integrate.cpp:133) [131]  (4.09 ns)
+
+ <State 67>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_7', integrate.cpp:133) [131]  (4.09 ns)
+
+ <State 68>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_7', integrate.cpp:133) [131]  (4.09 ns)
+
+ <State 69>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_7', integrate.cpp:133) [131]  (4.09 ns)
+
+ <State 70>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_7', integrate.cpp:133) [131]  (4.09 ns)
+
+ <State 71>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_7', integrate.cpp:133) [131]  (4.09 ns)
+
+ <State 72>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_7', integrate.cpp:133) [131]  (4.09 ns)
+
+ <State 73>: 1.77ns
+The critical path consists of the following:
+	'store' operation (integrate.cpp:133) of variable 'tmp_7', integrate.cpp:133 on array 'total', integrate.cpp:57 [132]  (1.77 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+	State 72
+	State 73
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

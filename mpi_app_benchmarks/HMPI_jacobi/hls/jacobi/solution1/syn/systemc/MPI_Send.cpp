@@ -305,29 +305,29 @@ const sc_lv<32> MPI_Send::ap_const_lv32_3D = "111101";
 const sc_lv<32> MPI_Send::ap_const_lv32_3E = "111110";
 
 MPI_Send::MPI_Send(sc_module_name name) : sc_module(name), mVcdFile(0) {
-    jacobi_mul_32ns_1jbC_x_U130 = new jacobi_mul_32ns_1jbC<1,2,32,10,33>("jacobi_mul_32ns_1jbC_x_U130");
-    jacobi_mul_32ns_1jbC_x_U130->clk(ap_clk);
-    jacobi_mul_32ns_1jbC_x_U130->reset(ap_rst);
-    jacobi_mul_32ns_1jbC_x_U130->din0(grp_fu_2717_p0);
-    jacobi_mul_32ns_1jbC_x_U130->din1(grp_fu_2717_p1);
-    jacobi_mul_32ns_1jbC_x_U130->ce(grp_fu_2717_ce);
-    jacobi_mul_32ns_1jbC_x_U130->dout(grp_fu_2717_p2);
-    jacobi_srem_32ns_kbM_x_U131 = new jacobi_srem_32ns_kbM<1,36,32,10,10>("jacobi_srem_32ns_kbM_x_U131");
-    jacobi_srem_32ns_kbM_x_U131->clk(ap_clk);
-    jacobi_srem_32ns_kbM_x_U131->reset(ap_rst);
-    jacobi_srem_32ns_kbM_x_U131->start(grp_fu_2811_ap_start);
-    jacobi_srem_32ns_kbM_x_U131->done(grp_fu_2811_ap_done);
-    jacobi_srem_32ns_kbM_x_U131->din0(tmp_241_fu_2769_p2);
-    jacobi_srem_32ns_kbM_x_U131->din1(grp_fu_2811_p1);
-    jacobi_srem_32ns_kbM_x_U131->ce(grp_fu_2811_ce);
-    jacobi_srem_32ns_kbM_x_U131->dout(grp_fu_2811_p2);
-    jacobi_mul_32ns_1jbC_x_U132 = new jacobi_mul_32ns_1jbC<1,2,32,10,33>("jacobi_mul_32ns_1jbC_x_U132");
-    jacobi_mul_32ns_1jbC_x_U132->clk(ap_clk);
-    jacobi_mul_32ns_1jbC_x_U132->reset(ap_rst);
-    jacobi_mul_32ns_1jbC_x_U132->din0(grp_fu_3099_p0);
-    jacobi_mul_32ns_1jbC_x_U132->din1(grp_fu_3099_p1);
-    jacobi_mul_32ns_1jbC_x_U132->ce(grp_fu_3099_ce);
-    jacobi_mul_32ns_1jbC_x_U132->dout(grp_fu_3099_p2);
+    jacobi_mul_32ns_1jbC_x_U131 = new jacobi_mul_32ns_1jbC<1,2,32,10,33>("jacobi_mul_32ns_1jbC_x_U131");
+    jacobi_mul_32ns_1jbC_x_U131->clk(ap_clk);
+    jacobi_mul_32ns_1jbC_x_U131->reset(ap_rst);
+    jacobi_mul_32ns_1jbC_x_U131->din0(grp_fu_2717_p0);
+    jacobi_mul_32ns_1jbC_x_U131->din1(grp_fu_2717_p1);
+    jacobi_mul_32ns_1jbC_x_U131->ce(grp_fu_2717_ce);
+    jacobi_mul_32ns_1jbC_x_U131->dout(grp_fu_2717_p2);
+    jacobi_srem_32ns_kbM_x_U132 = new jacobi_srem_32ns_kbM<1,36,32,10,10>("jacobi_srem_32ns_kbM_x_U132");
+    jacobi_srem_32ns_kbM_x_U132->clk(ap_clk);
+    jacobi_srem_32ns_kbM_x_U132->reset(ap_rst);
+    jacobi_srem_32ns_kbM_x_U132->start(grp_fu_2811_ap_start);
+    jacobi_srem_32ns_kbM_x_U132->done(grp_fu_2811_ap_done);
+    jacobi_srem_32ns_kbM_x_U132->din0(tmp_241_fu_2769_p2);
+    jacobi_srem_32ns_kbM_x_U132->din1(grp_fu_2811_p1);
+    jacobi_srem_32ns_kbM_x_U132->ce(grp_fu_2811_ce);
+    jacobi_srem_32ns_kbM_x_U132->dout(grp_fu_2811_p2);
+    jacobi_mul_32ns_1jbC_x_U133 = new jacobi_mul_32ns_1jbC<1,2,32,10,33>("jacobi_mul_32ns_1jbC_x_U133");
+    jacobi_mul_32ns_1jbC_x_U133->clk(ap_clk);
+    jacobi_mul_32ns_1jbC_x_U133->reset(ap_rst);
+    jacobi_mul_32ns_1jbC_x_U133->din0(grp_fu_3099_p0);
+    jacobi_mul_32ns_1jbC_x_U133->din1(grp_fu_3099_p1);
+    jacobi_mul_32ns_1jbC_x_U133->ce(grp_fu_3099_ce);
+    jacobi_mul_32ns_1jbC_x_U133->dout(grp_fu_3099_p2);
 
     SC_METHOD(thread_ap_clk_no_reset_);
     dont_initialize();
@@ -4495,9 +4495,9 @@ MPI_Send::~MPI_Send() {
     if (mVcdFile) 
         sc_close_vcd_trace_file(mVcdFile);
 
-    delete jacobi_mul_32ns_1jbC_x_U130;
-    delete jacobi_srem_32ns_kbM_x_U131;
-    delete jacobi_mul_32ns_1jbC_x_U132;
+    delete jacobi_mul_32ns_1jbC_x_U131;
+    delete jacobi_srem_32ns_kbM_x_U132;
+    delete jacobi_mul_32ns_1jbC_x_U133;
 }
 
 void MPI_Send::thread_ap_clk_no_reset_() {

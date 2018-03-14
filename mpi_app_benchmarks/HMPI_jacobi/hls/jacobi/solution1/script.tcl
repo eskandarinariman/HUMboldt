@@ -5,9 +5,9 @@
 ############################################################
 open_project jacobi
 set_top jacobi
-add_files MPI.h
-add_files common.h
 add_files jacobi_parallel_simple.cpp
+add_files common.h
+add_files MPI.h
 open_solution "solution1"
 set_part {xcku115-flva1517-2-e} -tool vivado
 create_clock -period 5 -name default

@@ -1,0 +1,52 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'integrate'" level="0">
+<item name = "Date">Wed Mar 14 18:09:45 2018
+</item>
+<item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
+<item name = "Project">integrate</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">kintexu</item>
+<item name = "Target device">xcku115-flva1517-2-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00, 4.37, 0.62</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">?, ?, ?, ?, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_MPI_Send_fu_317">MPI_Send, ?, ?, ?, ?, none</column>
+<column name="grp_MPI_Send_1_fu_392">MPI_Send_1, ?, ?, ?, ?, none</column>
+<column name="grp_MPI_Recv_fu_469">MPI_Recv, ?, ?, ?, ?, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">?, ?, ?, -, -, 1000, no</column>
+<column name=" + Loop 1.1">47952, 47952, 48, -, -, 999, no</column>
+<column name="- Loop 2">2000, 2000, 2, -, -, 1000, no</column>
+<column name="- Loop 3">10000, 10000, 10, -, -, 1000, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

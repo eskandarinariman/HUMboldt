@@ -1,4 +1,4 @@
-INFO: [HLS 200-0] Workspace /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1 opened at Wed Mar 14 01:37:23 UTC 2018
+INFO: [HLS 200-0] Workspace /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1 opened at Wed Mar 14 18:10:39 UTC 2018
 INFO: [HLS 200-100] Execute     config_clock -quiet -name default -period 5 -default=false 
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
 INFO: [HLS 200-100] Command     config_clock returned 0; 0 sec.
@@ -26,11 +26,11 @@ INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/dds_compiler.lib 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
-INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx_old.lib 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx_vivado.lib 
+INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx_old.lib 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx_vivado.lib 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx.hlp 
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/target_info.tcl 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
@@ -63,7 +63,7 @@ INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/dsp48.hlp 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command     import_lib returned 0; 0.03 sec.
+INFO: [HLS 200-100] Command     import_lib returned 0; 0.02 sec.
 INFO: [HLS 200-100] Execute     source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/kintexu/kintexu.gen 
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/virtex.gen 
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx.gen 
@@ -72,12 +72,12 @@ INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/fsl.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/axi4.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/nativeAXI4.gen 
 INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/saxilite.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/maxi.gen 
 INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/maxi.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
@@ -86,16 +86,16 @@ INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/xfir.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/xfft.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.11 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.09 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/util.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/dds_compiler.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command         ap_source returned 0; 0.15 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0.12 sec.
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/dsp48.gen 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.15 sec.
-INFO: [HLS 200-100] Command     ap_source returned 0; 0.15 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.12 sec.
+INFO: [HLS 200-100] Command     ap_source returned 0; 0.12 sec.
 INFO: [HLS 200-100] Execute     open_platform DefaultPlatform 
 INFO: [HLS 200-100] Command     open_platform returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     import_lib /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/kintexu/kintexu_fpv7 
@@ -115,11 +115,11 @@ INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/dsp48.hlp 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command         ap_source returned 0; 0.01 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/kintexu/kintexu_hp.hlp 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command     import_lib returned 0; 0.03 sec.
+INFO: [HLS 200-100] Command     import_lib returned 0; 0.02 sec.
 INFO: [HLS 200-100] Execute     source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/kintexu/kintexu_fpv7.gen 
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx_fpv6.gen 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
@@ -140,7 +140,7 @@ INFO: [HLS 200-100] Command       add_library returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute       add_library xilinx/kintexu/kintexu_fpv7 
 INFO: [HLS 200-100] Execute         get_default_platform 
 INFO: [HLS 200-100] Command         get_default_platform returned 0; 0 sec.
-INFO: [HLS 200-100] Command       add_library returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command       add_library returned 0; 0 sec.
 INFO: [HLS 200-10] Setting target device to 'xcku115-flva1517-2-e'
 INFO: [HLS 200-100] Execute       get_default_platform 
 INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
@@ -151,7 +151,7 @@ INFO: [HLS 200-100] Execute     config_chip_info -quiet -resource  {SLICE 82920}
 INFO: [HLS 200-100] Command     config_chip_info returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     config_chip_info -quiet -speed medium 
 INFO: [HLS 200-100] Command     config_chip_info returned 0; 0 sec.
-INFO: [HLS 200-100] Command   open_solution returned 0; 0.28 sec.
+INFO: [HLS 200-100] Command   open_solution returned 0; 0.23 sec.
 INFO: [HLS 200-100] Execute   set_part xcku115-flva1517-2-e -tool vivado 
 INFO: [HLS 200-100] Execute     add_library xilinx/kintexu/kintexu:xcku115:-flva1517:-2-e 
 INFO: [HLS 200-100] Execute       get_default_platform 
@@ -171,9 +171,9 @@ INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
 INFO: [HLS 200-100] Command     add_library returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     get_default_platform 
 INFO: [HLS 200-100] Command     get_default_platform returned 0; 0 sec.
-INFO: [HLS 200-100] Command   set_part returned 0; 0.04 sec.
+INFO: [HLS 200-100] Command   set_part returned 0; 0.03 sec.
 INFO: [HLS 200-100] Execute   create_clock -period 5 -name default 
-INFO: [HLS 200-100] Command   create_clock returned 0; 0 sec.
+INFO: [HLS 200-100] Command   create_clock returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute   csynth_design 
 INFO: [HLS 200-100] Execute     elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -lm=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 
 INFO: [HLS 200-10] Analyzing design file 'jacobi_parallel_simple.cpp' ... 
@@ -199,13 +199,13 @@ jacobi_parallel_simple.cpp:149:5: warning: expression result unused [-Wunused-va
     ^           ~~~~~
 4 warnings generated.
 
-INFO: [HLS 200-100] Command       clang returned 0; 1.09 sec.
+INFO: [HLS 200-100] Command       clang returned 0; 1.1 sec.
 INFO: [HLS 200-100] Execute       is_encrypted /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi_parallel_simple.pp.00.o 
 INFO: [HLS 200-100] Command       is_encrypted returned 0; 0 sec.
 INFO: [HLS 200-0] Source preprocessing
 INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "/opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc" -hls -fno-exceptions  -D__llvm__  -CC -E "jacobi_parallel_simple.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi_parallel_simple.pp.0.cpp" 
 INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -CC -E jacobi_parallel_simple.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot -I /opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi_parallel_simple.pp.0.cpp
-INFO: [HLS 200-100] Command       clang returned 0; 0.18 sec.
+INFO: [HLS 200-100] Command       clang returned 0; 0.14 sec.
 INFO: [HLS 200-0] GCC PP time: 0 seconds per iteration
 INFO: [HLS 200-100] Execute       list_core -type functional_unit 
 INFO: [HLS 200-100] Command       list_core returned 0; 0 sec.
@@ -221,7 +221,7 @@ Error:Syntax error in source:for (__decltype(__n + 0) __niter = __n;
 Error:Missing ; in source:t
 Error:Syntax error in source:)
  *__first = __tmp;
-INFO: [HLS 200-100] Command       cdt returned 0; 6.95 sec.
+INFO: [HLS 200-100] Command       cdt returned 0; 6.93 sec.
 INFO: [HLS 200-0] Marker-Pragma convertor: /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi_parallel_simple.pp.0.cpp.ap-cdt.cpp /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi_parallel_simple.pragma.0.cpp /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi_parallel_simple.pragma.0.cpp.ap-line.CXX 0
 INFO: [HLS 200-0] Converting Pragmas to Markers...
 INFO: [HLS 200-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/pragma.status.tcl 
@@ -232,50 +232,50 @@ WARNING: [HLS 200-41] Resource core 'AXI4Stream' on port '&stream_in' is depreca
 INFO: [HLS 200-0] Source preprocessing
 INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "/opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc" -hls -fno-exceptions  -D__llvm__  -CC -E "/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi_parallel_simple.pragma.1.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi_parallel_simple.pragma.2.cpp" 
 INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -CC -E /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi_parallel_simple.pragma.1.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot -I /opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi_parallel_simple.pragma.2.cpp
-INFO: [HLS 200-100] Command       clang returned 0; 0.1 sec.
+INFO: [HLS 200-100] Command       clang returned 0; 0.13 sec.
 INFO: [HLS 200-0] Processing labels
 INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain /opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi_parallel_simple.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -g -o "/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi_parallel_simple.g.bc" 
 INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi_parallel_simple.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot -I /opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -g -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi_parallel_simple.g.bc
-INFO: [HLS 200-100] Command       clang returned 0; 0.96 sec.
+INFO: [HLS 200-100] Command       clang returned 0; 0.85 sec.
 INFO: [HLS 200-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/ve_warning.tcl 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-10] Validating synthesis directives ...
 INFO: [HLS 200-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/pragma.status.tcl 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:43 ; elapsed = 00:00:12 . Memory (MB): peak = 348.105 ; gain = 12.586 ; free physical = 6015 ; free virtual = 122887
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:43 ; elapsed = 00:00:11 . Memory (MB): peak = 348.102 ; gain = 12.586 ; free physical = 5955 ; free virtual = 123062
 INFO: [HLS 200-0] Linking Release ...
 INFO: [HLS 200-100] Execute       llvm-ld /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi_parallel_simple.bc -disable-opt -L/opt/Xilinx/Vivado_HLS/2017.2/lnx64/lib -lm_basic -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.o 
-INFO: [HLS 200-100] Command       llvm-ld returned 0; 8.79 sec.
+INFO: [HLS 200-100] Command       llvm-ld returned 0; 8.69 sec.
 INFO: [HLS 200-100] Execute       disassemble /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.o 
 INFO: [HLS 200-100] Execute         is_encrypted /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.o.bc 
 INFO: [HLS 200-100] Command         is_encrypted returned 0; 0 sec.
-INFO: [HLS 200-100] Command       disassemble returned 0; 6.06 sec.
-INFO: [HLS 200-0] Disassemble time: 6 seconds per iteration
+INFO: [HLS 200-100] Command       disassemble returned 0; 5.99 sec.
+INFO: [HLS 200-0] Disassemble time: 5 seconds per iteration
 INFO: [HLS 200-0] Linking Debug ...
 INFO: [HLS 200-100] Execute       llvm-ld /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi_parallel_simple.g.bc -disable-opt -L/opt/Xilinx/Vivado_HLS/2017.2/lnx64/lib -lm_basic -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.g 
-INFO: [HLS 200-100] Command       llvm-ld returned 0; 8.69 sec.
+INFO: [HLS 200-100] Command       llvm-ld returned 0; 8.64 sec.
 INFO: [HLS 200-100] Execute       disassemble /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.g /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.g 
 INFO: [HLS 200-100] Execute         is_encrypted /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.g.bc 
 INFO: [HLS 200-100] Command         is_encrypted returned 0; 0 sec.
-INFO: [HLS 200-100] Command       disassemble returned 0; 5.95 sec.
+INFO: [HLS 200-100] Command       disassemble returned 0; 5.88 sec.
 INFO: [HLS 200-0] Disassemble time: 5 seconds per iteration
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:01:11 ; elapsed = 00:00:41 . Memory (MB): peak = 348.105 ; gain = 12.586 ; free physical = 5524 ; free virtual = 122880
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:01:11 ; elapsed = 00:00:41 . Memory (MB): peak = 348.102 ; gain = 12.586 ; free physical = 5454 ; free virtual = 123044
 INFO: [HLS 200-100] Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
 INFO: [HLS 200-100] Execute         cleanup_all_models 
 INFO: [HLS 200-100] Command         cleanup_all_models returned 0; 0 sec.
 INFO: [HLS 200-10] Starting code transformations ...
 INFO: [HLS 200-100] Execute         transform -promote-dbg-pointer /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.pp.bc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.pp.0.bc -f 
-INFO: [HLS 200-100] Command         transform returned 0; 4.26 sec.
+INFO: [HLS 200-100] Command         transform returned 0; 4.21 sec.
 INFO: [HLS 200-100] Execute         llvm-ld /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.pp.0.bc -disable-opt -L/opt/Xilinx/Vivado_HLS/2017.2/lnx64/lib -lfloatconversion -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.g.0 
-INFO: [HLS 200-100] Command         llvm-ld returned 0; 8.3 sec.
+INFO: [HLS 200-100] Command         llvm-ld returned 0; 8.35 sec.
 INFO: [HLS 200-0] Running Standard Transforms...
 INFO: [HLS 200-100] Execute         transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top jacobi -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.g.0.bc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
-INFO: [HLS 200-100] Command         transform returned 0; 12.46 sec.
+INFO: [HLS 200-100] Command         transform returned 0; 12.3 sec.
 INFO: [HLS 200-100] Execute         disassemble /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.g.1 /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.g.1 
 INFO: [HLS 200-100] Execute           is_encrypted /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.g.1.bc 
 INFO: [HLS 200-100] Command           is_encrypted returned 0; 0 sec.
-INFO: [HLS 200-100] Command         disassemble returned 0; 3.05 sec.
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:01:38 ; elapsed = 00:01:09 . Memory (MB): peak = 1316.695 ; gain = 981.176 ; free physical = 4493 ; free virtual = 122059
+INFO: [HLS 200-100] Command         disassemble returned 0; 3.03 sec.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:01:38 ; elapsed = 00:01:09 . Memory (MB): peak = 1316.691 ; gain = 981.176 ; free physical = 4427 ; free virtual = 122228
 INFO: [HLS 200-10] Checking synthesizability ...
 INFO: [HLS 200-0] Checking Synthesizability 1/2..
 INFO: [HLS 200-100] Execute         transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.g.1.bc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.g.2.prechk.bc -f 
@@ -287,28 +287,28 @@ INFO: [XFORM 203-602] Inlining function 'packet_to_envelope' into 'MPI_Recv' (./
 INFO: [XFORM 203-602] Inlining function 'envelope_to_packet' into 'MPI_Recv' (./MPI.h:1513) automatically.
 INFO: [XFORM 203-602] Inlining function 'envelope_to_packet' into 'MPI_Send' (./MPI.h:603) automatically.
 INFO: [XFORM 203-602] Inlining function 'MPI_Init' into 'jacobi' (jacobi_parallel_simple.cpp:155) automatically.
-INFO: [XFORM 203-602] Inlining function 'MPI_Finalize' into 'jacobi' (jacobi_parallel_simple.cpp:355) automatically.
-INFO: [HLS 200-100] Command         transform returned 0; 2.87 sec.
+INFO: [XFORM 203-602] Inlining function 'MPI_Finalize' into 'jacobi' (jacobi_parallel_simple.cpp:357) automatically.
+INFO: [HLS 200-100] Command         transform returned 0; 2.86 sec.
 INFO: [HLS 200-0] Checking Synthesizability 2/2..
 INFO: [HLS 200-100] Execute         transform -syn-check /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.g.2.prechk.bc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
 WARNING: [SYNCHK 200-23] ./MPI.h:1619: variable-indexed range selection may cause suboptimal QoR.
 INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
-INFO: [HLS 200-100] Command         transform returned 0; 0.08 sec.
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:01:41 ; elapsed = 00:01:12 . Memory (MB): peak = 1316.695 ; gain = 981.176 ; free physical = 4483 ; free virtual = 122050
+INFO: [HLS 200-100] Command         transform returned 0; 0.09 sec.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:01:41 ; elapsed = 00:01:11 . Memory (MB): peak = 1316.691 ; gain = 981.176 ; free physical = 4419 ; free virtual = 122220
 INFO: [HLS 200-0] Compiler optimizing ...
 INFO: [HLS 200-0] Share syncheck's 1.bc for syn flow: copy /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.g.1.bc to /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.o.1.bc
 INFO: [HLS 200-0] Presyn 1...
 INFO: [HLS 200-100] Execute         transform -hls -tmp /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -auto-rom-infer -dce -function-uniquify -resource-proc -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -clib-intrinsic-prepare -dce -func-buffer -dce -array-normalize -func-legal -instcombine -gvn -constprop -dce -ptrArgReplace -mem2reg -instcombine -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -simplifycfg -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -instcombine -dce -global-constprop -deadargelim -mem2reg -instcombine -simplifycfg -dce -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -mem-intrinsic-preproc -dce -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -instcombine -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -inst-simplify -dce -norm-name -function-inline -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.o.1.bc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.o.1.tmp.bc -f 
 INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-1' (jacobi_parallel_simple.cpp:197) in function 'jacobi' automatically.
 INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-3.3' (jacobi_parallel_simple.cpp:280) in function 'jacobi' automatically.
-INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-3.4' (jacobi_parallel_simple.cpp:291) in function 'jacobi' automatically.
-INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-4' (jacobi_parallel_simple.cpp:326) in function 'jacobi' automatically.
+INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-3.4' (jacobi_parallel_simple.cpp:292) in function 'jacobi' automatically.
+INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-4' (jacobi_parallel_simple.cpp:328) in function 'jacobi' automatically.
 INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (jacobi_parallel_simple.cpp:197) in function 'jacobi' completely.
 INFO: [XFORM 203-501] Unrolling loop 'Loop-3.3' (jacobi_parallel_simple.cpp:280) in function 'jacobi' completely.
-INFO: [XFORM 203-501] Unrolling loop 'Loop-3.4' (jacobi_parallel_simple.cpp:291) in function 'jacobi' completely.
-INFO: [XFORM 203-501] Unrolling loop 'Loop-4' (jacobi_parallel_simple.cpp:326) in function 'jacobi' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-3.4' (jacobi_parallel_simple.cpp:292) in function 'jacobi' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-4' (jacobi_parallel_simple.cpp:328) in function 'jacobi' completely.
 INFO: [XFORM 203-102] Partitioning array 'diffnorm_array' (jacobi_parallel_simple.cpp:277) automatically.
-INFO: [XFORM 203-102] Partitioning array 'gdiffnorm_array' (jacobi_parallel_simple.cpp:289) automatically.
+INFO: [XFORM 203-102] Partitioning array 'gdiffnorm_array' (jacobi_parallel_simple.cpp:290) automatically.
 INFO: [XFORM 203-602] Inlining function 'initial_cond' into 'init_matrix' (jacobi_parallel_simple.cpp:67) automatically.
 INFO: [XFORM 203-602] Inlining function 'envelope_to_packet' into 'MPI_Send.1' (./MPI.h:603) automatically.
 INFO: [XFORM 203-602] Inlining function 'packet_to_envelope' into 'MPI_Send.1' (./MPI.h:649) automatically.
@@ -320,17 +320,18 @@ INFO: [XFORM 203-602] Inlining function 'envelope_to_packet' into 'MPI_Send' (./
 INFO: [XFORM 203-602] Inlining function 'packet_to_envelope' into 'MPI_Send' (./MPI.h:649) automatically.
 WARNING: [XFORM 203-561] Updating loop upper bound from 2147483646 to 6 for loop 'Loop-0' in function 'init_matrix'.
 WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 6 for loop 'Loop-0' in function 'init_matrix'.
-INFO: [HLS 200-100] Command         transform returned 0; 4.19 sec.
+INFO: [HLS 200-100] Command         transform returned 0; 4.08 sec.
 INFO: [HLS 200-0] Presyn 2...
 INFO: [HLS 200-100] Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.o.1.tmp.bc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
 INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (./MPI.h:1607:8) to (./MPI.h:1616:8) in function 'MPI_Recv.1'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (./MPI.h:1618:7) to (./MPI.h:1617:30) in function 'MPI_Recv'... converting 3 basic blocks.
 INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (./MPI.h:1607:8) to (./MPI.h:1616:8) in function 'MPI_Recv'... converting 3 basic blocks.
-INFO: [HLS 200-100] Command         transform returned 0; 1.01 sec.
+INFO: [HLS 200-100] Command         transform returned 0; 0.96 sec.
 INFO: [HLS 200-100] Execute         disassemble /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.o.2 /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.o.2 
 INFO: [HLS 200-100] Execute           is_encrypted /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.o.2.bc 
 INFO: [HLS 200-100] Command           is_encrypted returned 0; 0 sec.
-INFO: [HLS 200-100] Command         disassemble returned 0; 0.13 sec.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:46 ; elapsed = 00:01:19 . Memory (MB): peak = 1316.695 ; gain = 981.176 ; free physical = 4367 ; free virtual = 122026
+INFO: [HLS 200-100] Command         disassemble returned 0; 0.14 sec.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:46 ; elapsed = 00:01:17 . Memory (MB): peak = 1316.691 ; gain = 981.176 ; free physical = 4298 ; free virtual = 122192
 INFO: [HLS 200-0] Building ssdm...
 INFO: [HLS 200-100] Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -instcombine -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -interface-preproc -interface-gen -deadargelim -directive-preproc -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -read-loop-dep -dce -bitwidth -loop-dep -norm-name -legalize -validate-dataflow -cdfg-build /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.o.2.bc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
 INFO: [XFORM 203-603] Evaluating the output(s) of a call to function '_ssdm_op_PartSet.i40.i40.i8.i32.i32' (./MPI.h:606:3) in function 'MPI_Send' and propagating its result(s) since all actual argument(s) to the function are constants.
@@ -376,20 +377,20 @@ WARNING: [XFORM 203-562] Loop 'Loop-4.6' (./MPI.h:1668) in function 'MPI_Recv.1'
 WARNING: [XFORM 203-562] Loop 'Loop-4.7' (./MPI.h:1681) in function 'MPI_Recv.1' has unknown bound because it has multiple exiting blocks.
 WARNING: [XFORM 203-562] Loop 'Loop-4' (./MPI.h:1540) in function 'MPI_Recv.1' has unknown bound because it has multiple exiting blocks.
 WARNING: [XFORM 203-562] Loop 'Loop-1' (./MPI.h:1401) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
-WARNING: [XFORM 203-562] Loop 'Loop-4.3' (./MPI.h:1636) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
-WARNING: [XFORM 203-562] Loop 'Loop-4.4' (./MPI.h:1649) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
-WARNING: [XFORM 203-562] Loop 'Loop-4.5' (./MPI.h:1668) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
-WARNING: [XFORM 203-562] Loop 'Loop-4.6' (./MPI.h:1681) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-4.4' (./MPI.h:1636) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-4.5' (./MPI.h:1649) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-4.6' (./MPI.h:1668) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
+WARNING: [XFORM 203-562] Loop 'Loop-4.7' (./MPI.h:1681) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
 WARNING: [XFORM 203-562] Loop 'Loop-4' (./MPI.h:1540) in function 'MPI_Recv' has unknown bound because it has multiple exiting blocks.
-INFO: [HLS 200-100] Command         transform returned 0; 2.09 sec.
+INFO: [HLS 200-100] Command         transform returned 0; 2.17 sec.
 INFO: [HLS 200-100] Execute         disassemble /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.o.3 /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.o.3 
 INFO: [HLS 200-100] Execute           is_encrypted /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/a.o.3.bc 
 INFO: [HLS 200-100] Command           is_encrypted returned 0; 0 sec.
-INFO: [HLS 200-100] Command         disassemble returned 0; 0.11 sec.
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:48 ; elapsed = 00:01:21 . Memory (MB): peak = 1316.695 ; gain = 981.176 ; free physical = 4313 ; free virtual = 121975
+INFO: [HLS 200-100] Command         disassemble returned 0; 0.13 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:48 ; elapsed = 00:01:19 . Memory (MB): peak = 1316.691 ; gain = 981.176 ; free physical = 4247 ; free virtual = 122143
 INFO: [HLS 200-0] Finish building internal data model.
-INFO: [HLS 200-100] Command       opt_and_import_c returned 0; 39.67 sec.
-INFO: [HLS 200-100] Command     elaborate returned 0; 80.15 sec.
+INFO: [HLS 200-100] Command       opt_and_import_c returned 0; 38.47 sec.
+INFO: [HLS 200-100] Command     elaborate returned 0; 78.46 sec.
 INFO: [HLS 200-100] Execute     autosyn 
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO: [HLS 200-0] Synthesizing C/C++ design ...
@@ -457,7 +458,7 @@ INFO: [HLS 200-0] Preprocessing Module: MPI_Send.1 ...
 INFO: [HLS 200-100] Execute       set_default_model MPI_Send.1 
 INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       cdfg_preprocess -model MPI_Send.1 
-INFO: [HLS 200-100] Command       cdfg_preprocess returned 0; 0.03 sec.
+INFO: [HLS 200-100] Command       cdfg_preprocess returned 0; 0.04 sec.
 INFO: [HLS 200-100] Execute       rtl_gen_preprocess MPI_Send.1 
 INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
 INFO: [HLS 200-0] Preprocessing Module: MPI_Recv.1 ...
@@ -471,21 +472,21 @@ INFO: [HLS 200-0] Preprocessing Module: MPI_Recv ...
 INFO: [HLS 200-100] Execute       set_default_model MPI_Recv 
 INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       cdfg_preprocess -model MPI_Recv 
-INFO: [HLS 200-100] Command       cdfg_preprocess returned 0; 0 sec.
+INFO: [HLS 200-100] Command       cdfg_preprocess returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute       rtl_gen_preprocess MPI_Recv 
 INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
 INFO: [HLS 200-0] Preprocessing Module: MPI_Send ...
 INFO: [HLS 200-100] Execute       set_default_model MPI_Send 
 INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       cdfg_preprocess -model MPI_Send 
-INFO: [HLS 200-100] Command       cdfg_preprocess returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command       cdfg_preprocess returned 0; 0.02 sec.
 INFO: [HLS 200-100] Execute       rtl_gen_preprocess MPI_Send 
-INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0.01 sec.
 INFO: [HLS 200-0] Preprocessing Module: jacobi ...
 INFO: [HLS 200-100] Execute       set_default_model jacobi 
 INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       cdfg_preprocess -model jacobi 
-INFO: [HLS 200-100] Command       cdfg_preprocess returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command       cdfg_preprocess returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       rtl_gen_preprocess jacobi 
 INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
 INFO: [HLS 200-0] Model list for synthesis: init_matrix MPI_Send.1 MPI_Recv.1 MPI_Recv MPI_Send jacobi
@@ -498,11 +499,11 @@ INFO: [HLS 200-100] Execute       schedule -model init_matrix
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
 INFO: [HLS 200-100] Command       schedule returned 0; 0.18 sec.
-INFO: [HLS 200-111]  Elapsed time: 81.05 seconds; current allocated memory: 910.440 MB.
+INFO: [HLS 200-111]  Elapsed time: 79.35 seconds; current allocated memory: 910.880 MB.
 INFO: [HLS 200-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/init_matrix.verbose.sched.rpt -verbose -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.12 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.11 sec.
 INFO: [HLS 200-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/init_matrix.sched.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.11 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.12 sec.
 INFO: [HLS 200-0] Finish scheduling init_matrix.
 INFO: [HLS 200-100] Execute       set_default_model init_matrix 
 INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
@@ -540,12 +541,12 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-100] Command       bind returned 0; 0.03 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.27 seconds; current allocated memory: 911.066 MB.
+INFO: [HLS 200-100] Command       bind returned 0; 0.02 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.26 seconds; current allocated memory: 911.507 MB.
 INFO: [HLS 200-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/init_matrix.verbose.bind.rpt -verbose -f 
 INFO: [HLS 200-100] Command       report returned 0; 0.17 sec.
 INFO: [HLS 200-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/init_matrix.bind.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.12 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.11 sec.
 INFO: [HLS 200-0] Finish binding init_matrix.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'MPI_Send_1' 
@@ -555,12 +556,12 @@ INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       schedule -model MPI_Send.1 
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-100] Command       schedule returned 0; 0.77 sec.
-INFO: [HLS 200-111]  Elapsed time: 1.07 seconds; current allocated memory: 914.951 MB.
+INFO: [HLS 200-100] Command       schedule returned 0; 0.76 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.04 seconds; current allocated memory: 915.393 MB.
 INFO: [HLS 200-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Send_1.verbose.sched.rpt -verbose -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.75 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.74 sec.
 INFO: [HLS 200-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Send_1.sched.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.76 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.73 sec.
 INFO: [HLS 200-0] Finish scheduling MPI_Send.1.
 INFO: [HLS 200-100] Execute       set_default_model MPI_Send.1 
 INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
@@ -598,12 +599,12 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-100] Command       bind returned 0; 0.31 sec.
-INFO: [HLS 200-111]  Elapsed time: 1.82 seconds; current allocated memory: 918.418 MB.
+INFO: [HLS 200-100] Command       bind returned 0; 0.3 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.77 seconds; current allocated memory: 918.876 MB.
 INFO: [HLS 200-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Send_1.verbose.bind.rpt -verbose -f 
 INFO: [HLS 200-100] Command       report returned 0; 0.96 sec.
 INFO: [HLS 200-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Send_1.bind.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.78 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.76 sec.
 INFO: [HLS 200-0] Finish binding MPI_Send.1.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'MPI_Recv_1' 
@@ -613,12 +614,12 @@ INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       schedule -model MPI_Recv.1 
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-100] Command       schedule returned 0; 0.35 sec.
-INFO: [HLS 200-111]  Elapsed time: 2.09 seconds; current allocated memory: 920.612 MB.
+INFO: [HLS 200-100] Command       schedule returned 0; 0.33 sec.
+INFO: [HLS 200-111]  Elapsed time: 2.07 seconds; current allocated memory: 921.069 MB.
 INFO: [HLS 200-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Recv_1.verbose.sched.rpt -verbose -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.39 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.38 sec.
 INFO: [HLS 200-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Recv_1.sched.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.39 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.4 sec.
 INFO: [HLS 200-0] Finish scheduling MPI_Recv.1.
 INFO: [HLS 200-100] Execute       set_default_model MPI_Recv.1 
 INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
@@ -656,12 +657,12 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-100] Command       bind returned 0; 0.12 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.9 seconds; current allocated memory: 922.480 MB.
+INFO: [HLS 200-100] Command       bind returned 0; 0.11 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.9 seconds; current allocated memory: 922.940 MB.
 INFO: [HLS 200-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Recv_1.verbose.bind.rpt -verbose -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.52 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.62 sec.
 INFO: [HLS 200-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Recv_1.bind.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.41 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.43 sec.
 INFO: [HLS 200-0] Finish binding MPI_Recv.1.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'MPI_Recv' 
@@ -671,12 +672,12 @@ INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       schedule -model MPI_Recv 
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-100] Command       schedule returned 0; 0.3 sec.
-INFO: [HLS 200-111]  Elapsed time: 1.23 seconds; current allocated memory: 924.524 MB.
+INFO: [HLS 200-100] Command       schedule returned 0; 0.34 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.4 seconds; current allocated memory: 925.081 MB.
 INFO: [HLS 200-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Recv.verbose.sched.rpt -verbose -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.36 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.39 sec.
 INFO: [HLS 200-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Recv.sched.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.35 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.4 sec.
 INFO: [HLS 200-0] Finish scheduling MPI_Recv.
 INFO: [HLS 200-100] Execute       set_default_model MPI_Recv 
 INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
@@ -714,12 +715,12 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-100] Command       bind returned 0; 0.1 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.81 seconds; current allocated memory: 926.164 MB.
+INFO: [HLS 200-100] Command       bind returned 0; 0.12 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.91 seconds; current allocated memory: 926.964 MB.
 INFO: [HLS 200-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Recv.verbose.bind.rpt -verbose -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.46 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.52 sec.
 INFO: [HLS 200-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Recv.bind.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.38 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.4 sec.
 INFO: [HLS 200-0] Finish binding MPI_Recv.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'MPI_Send' 
@@ -729,12 +730,12 @@ INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       schedule -model MPI_Send 
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-100] Command       schedule returned 0; 0.68 sec.
-INFO: [HLS 200-111]  Elapsed time: 1.52 seconds; current allocated memory: 930.259 MB.
+INFO: [HLS 200-100] Command       schedule returned 0; 0.67 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.6 seconds; current allocated memory: 931.111 MB.
 INFO: [HLS 200-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Send.verbose.sched.rpt -verbose -f 
 INFO: [HLS 200-100] Command       report returned 0; 0.73 sec.
 INFO: [HLS 200-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Send.sched.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.71 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.73 sec.
 INFO: [HLS 200-0] Finish scheduling MPI_Send.
 INFO: [HLS 200-100] Execute       set_default_model MPI_Send 
 INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
@@ -772,12 +773,12 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-100] Command       bind returned 0; 0.3 sec.
-INFO: [HLS 200-111]  Elapsed time: 1.74 seconds; current allocated memory: 933.587 MB.
+INFO: [HLS 200-100] Command       bind returned 0; 0.29 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.75 seconds; current allocated memory: 934.449 MB.
 INFO: [HLS 200-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Send.verbose.bind.rpt -verbose -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.92 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.91 sec.
 INFO: [HLS 200-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Send.bind.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.74 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.76 sec.
 INFO: [HLS 200-0] Finish binding MPI_Send.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'jacobi' 
@@ -788,11 +789,11 @@ INFO: [HLS 200-100] Execute       schedule -model jacobi
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
 INFO: [HLS 200-100] Command       schedule returned 0; 0.14 sec.
-INFO: [HLS 200-111]  Elapsed time: 1.8 seconds; current allocated memory: 934.698 MB.
+INFO: [HLS 200-111]  Elapsed time: 1.81 seconds; current allocated memory: 935.547 MB.
 INFO: [HLS 200-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi.verbose.sched.rpt -verbose -f 
 INFO: [HLS 200-100] Command       report returned 0; 0.17 sec.
 INFO: [HLS 200-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi.sched.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.16 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.17 sec.
 INFO: [HLS 200-0] Finish scheduling jacobi.
 INFO: [HLS 200-100] Execute       set_default_model jacobi 
 INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
@@ -830,8 +831,8 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-100] Command       bind returned 0; 1.39 sec.
-INFO: [HLS 200-111]  Elapsed time: 1.73 seconds; current allocated memory: 936.419 MB.
+INFO: [HLS 200-100] Command       bind returned 0; 1.33 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.67 seconds; current allocated memory: 937.224 MB.
 INFO: [HLS 200-100] Execute       report -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi.verbose.bind.rpt -verbose -f 
 INFO: [HLS 200-100] Command       report returned 0; 1.07 sec.
 INFO: [HLS 200-100] Execute       db_write -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi.bind.adb -f 
@@ -847,7 +848,7 @@ INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       rtl_gen_preprocess MPI_Recv.1 
 INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       rtl_gen_preprocess MPI_Recv 
-INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       rtl_gen_preprocess MPI_Send 
 INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       rtl_gen_preprocess jacobi 
@@ -874,12 +875,12 @@ INFO: [RTGEN 206-100] Generating core module 'jacobi_fpext_32nseOg': 2 instance(
 INFO: [RTGEN 206-100] Generating core module 'jacobi_fptrunc_64dEe': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'jacobi_sitodp_32nhbi': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'init_matrix'.
-INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.02 sec.
-INFO: [HLS 200-111]  Elapsed time: 1.28 seconds; current allocated memory: 938.150 MB.
+INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.03 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.28 seconds; current allocated memory: 938.962 MB.
 INFO: [HLS 200-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi.rtl_wrap.cfg.tcl 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       gen_rtl init_matrix -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/systemc/init_matrix -synmodules init_matrix MPI_Send.1 MPI_Recv.1 MPI_Recv MPI_Send jacobi 
-INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       gen_rtl init_matrix -style xilinx -f -lang vhdl -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/vhdl/init_matrix 
 INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       gen_rtl init_matrix -style xilinx -f -lang vlog -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/verilog/init_matrix 
@@ -893,7 +894,7 @@ INFO: [HLS 200-100] Command       report returned 0; 0.02 sec.
 INFO: [HLS 200-100] Execute       report -model init_matrix -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/init_matrix.verbose.rpt -verbose -f 
 INFO: [HLS 200-100] Command       report returned 0; 0.18 sec.
 INFO: [HLS 200-100] Execute       db_write -model init_matrix -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/init_matrix.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.12 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.14 sec.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'MPI_Send_1' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -904,25 +905,25 @@ INFO: [RTGEN 206-100] Generating core module 'jacobi_mul_32ns_1jbC': 2 instance(
 INFO: [RTGEN 206-100] Generating core module 'jacobi_srem_32ns_kbM': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'MPI_Send_1'.
 INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.22 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.62 seconds; current allocated memory: 944.481 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.63 seconds; current allocated memory: 945.330 MB.
 INFO: [HLS 200-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi.rtl_wrap.cfg.tcl 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       gen_rtl MPI_Send.1 -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/systemc/MPI_Send_1 -synmodules init_matrix MPI_Send.1 MPI_Recv.1 MPI_Recv MPI_Send jacobi 
-INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.02 sec.
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute       gen_rtl MPI_Send.1 -style xilinx -f -lang vhdl -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/vhdl/MPI_Send_1 
-INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute       gen_rtl MPI_Send.1 -style xilinx -f -lang vlog -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/verilog/MPI_Send_1 
-INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.02 sec.
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute       gen_tb_info MPI_Send.1 -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Send_1 -p /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db 
-INFO: [HLS 200-100] Command       gen_tb_info returned 0; 0.08 sec.
+INFO: [HLS 200-100] Command       gen_tb_info returned 0; 0.09 sec.
 INFO: [HLS 200-100] Execute       report -model MPI_Send.1 -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/report/MPI_Send_1_csynth.rpt -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.1 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.09 sec.
 INFO: [HLS 200-100] Execute       report -model MPI_Send.1 -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/report/MPI_Send_1_csynth.xml -f -x 
 INFO: [HLS 200-100] Command       report returned 0; 0.09 sec.
 INFO: [HLS 200-100] Execute       report -model MPI_Send.1 -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Send_1.verbose.rpt -verbose -f 
-INFO: [HLS 200-100] Command       report returned 0; 1.01 sec.
+INFO: [HLS 200-100] Command       report returned 0; 1.04 sec.
 INFO: [HLS 200-100] Execute       db_write -model MPI_Send.1 -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Send_1.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.86 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.85 sec.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'MPI_Recv_1' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -931,25 +932,25 @@ WARNING: [RTGEN 206-101] RTL name 'jacobi_srem_32ns_kbM' is changed to 'jacobi_s
 INFO: [RTGEN 206-100] Generating core module 'jacobi_srem_32ns_kbM': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'MPI_Recv_1'.
 INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.11 sec.
-INFO: [HLS 200-111]  Elapsed time: 2.46 seconds; current allocated memory: 961.688 MB.
+INFO: [HLS 200-111]  Elapsed time: 2.48 seconds; current allocated memory: 962.516 MB.
 INFO: [HLS 200-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi.rtl_wrap.cfg.tcl 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       gen_rtl MPI_Recv.1 -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/systemc/MPI_Recv_1 -synmodules init_matrix MPI_Send.1 MPI_Recv.1 MPI_Recv MPI_Send jacobi 
-INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.02 sec.
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute       gen_rtl MPI_Recv.1 -style xilinx -f -lang vhdl -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/vhdl/MPI_Recv_1 
 INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       gen_rtl MPI_Recv.1 -style xilinx -f -lang vlog -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/verilog/MPI_Recv_1 
-INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       gen_tb_info MPI_Recv.1 -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Recv_1 -p /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db 
-INFO: [HLS 200-100] Command       gen_tb_info returned 0; 0.05 sec.
+INFO: [HLS 200-100] Command       gen_tb_info returned 0; 0.06 sec.
 INFO: [HLS 200-100] Execute       report -model MPI_Recv.1 -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/report/MPI_Recv_1_csynth.rpt -f 
 INFO: [HLS 200-100] Command       report returned 0; 0.06 sec.
 INFO: [HLS 200-100] Execute       report -model MPI_Recv.1 -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/report/MPI_Recv_1_csynth.xml -f -x 
 INFO: [HLS 200-100] Command       report returned 0; 0.06 sec.
 INFO: [HLS 200-100] Execute       report -model MPI_Recv.1 -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Recv_1.verbose.rpt -verbose -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.57 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.58 sec.
 INFO: [HLS 200-100] Execute       db_write -model MPI_Recv.1 -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Recv_1.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.45 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.46 sec.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'MPI_Recv' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -957,8 +958,8 @@ INFO: [HLS 200-100] Execute       create_rtl_model MPI_Recv -vendor xilinx -mg_f
 WARNING: [RTGEN 206-101] RTL name 'jacobi_srem_32ns_kbM' is changed to 'jacobi_srem_32ns_kbM_x' due to conflict.
 INFO: [RTGEN 206-100] Generating core module 'jacobi_srem_32ns_kbM': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'MPI_Recv'.
-INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.1 sec.
-INFO: [HLS 200-111]  Elapsed time: 1.42 seconds; current allocated memory: 971.956 MB.
+INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.12 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.45 seconds; current allocated memory: 973.033 MB.
 INFO: [HLS 200-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi.rtl_wrap.cfg.tcl 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       gen_rtl MPI_Recv -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/systemc/MPI_Recv -synmodules init_matrix MPI_Send.1 MPI_Recv.1 MPI_Recv MPI_Send jacobi 
@@ -966,17 +967,17 @@ INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute       gen_rtl MPI_Recv -style xilinx -f -lang vhdl -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/vhdl/MPI_Recv 
 INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       gen_rtl MPI_Recv -style xilinx -f -lang vlog -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/verilog/MPI_Recv 
-INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       gen_tb_info MPI_Recv -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Recv -p /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db 
-INFO: [HLS 200-100] Command       gen_tb_info returned 0; 0.06 sec.
+INFO: [HLS 200-100] Command       gen_tb_info returned 0; 0.07 sec.
 INFO: [HLS 200-100] Execute       report -model MPI_Recv -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/report/MPI_Recv_csynth.rpt -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.05 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.06 sec.
 INFO: [HLS 200-100] Execute       report -model MPI_Recv -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/report/MPI_Recv_csynth.xml -f -x 
-INFO: [HLS 200-100] Command       report returned 0; 0.05 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.26 sec.
 INFO: [HLS 200-100] Execute       report -model MPI_Recv -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Recv.verbose.rpt -verbose -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.52 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.62 sec.
 INFO: [HLS 200-100] Execute       db_write -model MPI_Recv -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Recv.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.41 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.48 sec.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'MPI_Send' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -986,26 +987,26 @@ WARNING: [RTGEN 206-101] RTL name 'jacobi_srem_32ns_kbM' is changed to 'jacobi_s
 INFO: [RTGEN 206-100] Generating core module 'jacobi_mul_32ns_1jbC': 2 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'jacobi_srem_32ns_kbM': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'MPI_Send'.
-INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.23 sec.
-INFO: [HLS 200-111]  Elapsed time: 1.43 seconds; current allocated memory: 984.150 MB.
+INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.21 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.81 seconds; current allocated memory: 985.964 MB.
 INFO: [HLS 200-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi.rtl_wrap.cfg.tcl 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       gen_rtl MPI_Send -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/systemc/MPI_Send -synmodules init_matrix MPI_Send.1 MPI_Recv.1 MPI_Recv MPI_Send jacobi 
-INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.01 sec.
-INFO: [HLS 200-100] Execute       gen_rtl MPI_Send -style xilinx -f -lang vhdl -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/vhdl/MPI_Send 
 INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.02 sec.
+INFO: [HLS 200-100] Execute       gen_rtl MPI_Send -style xilinx -f -lang vhdl -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/vhdl/MPI_Send 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       gen_rtl MPI_Send -style xilinx -f -lang vlog -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/verilog/MPI_Send 
-INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.02 sec.
 INFO: [HLS 200-100] Execute       gen_tb_info MPI_Send -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Send -p /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db 
-INFO: [HLS 200-100] Command       gen_tb_info returned 0; 0.09 sec.
+INFO: [HLS 200-100] Command       gen_tb_info returned 0; 0.08 sec.
 INFO: [HLS 200-100] Execute       report -model MPI_Send -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/report/MPI_Send_csynth.rpt -f 
 INFO: [HLS 200-100] Command       report returned 0; 0.1 sec.
 INFO: [HLS 200-100] Execute       report -model MPI_Send -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/report/MPI_Send_csynth.xml -f -x 
-INFO: [HLS 200-100] Command       report returned 0; 0.1 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.08 sec.
 INFO: [HLS 200-100] Execute       report -model MPI_Send -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Send.verbose.rpt -verbose -f 
-INFO: [HLS 200-100] Command       report returned 0; 1.06 sec.
+INFO: [HLS 200-100] Command       report returned 0; 1 sec.
 INFO: [HLS 200-100] Execute       db_write -model MPI_Send -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Send.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.82 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.85 sec.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'jacobi' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1066,8 +1067,8 @@ INFO: [RTGEN 206-100] Generating core module 'jacobi_fmul_32ns_cud': 1 instance(
 INFO: [RTGEN 206-100] Generating core module 'jacobi_fpext_32nseOg': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'jacobi_fsqrt_32nsMgi': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'jacobi'.
-INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.37 sec.
-INFO: [HLS 200-111]  Elapsed time: 2.77 seconds; current allocated memory: 1002.701 MB.
+INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.34 sec.
+INFO: [HLS 200-111]  Elapsed time: 2.67 seconds; current allocated memory: 1004.396 MB.
 INFO: [HLS 200-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi.rtl_wrap.cfg.tcl 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       gen_rtl jacobi -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/systemc/jacobi -synmodules init_matrix MPI_Send.1 MPI_Recv.1 MPI_Recv MPI_Send jacobi 
@@ -1079,19 +1080,19 @@ INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.1 sec.
 INFO: [HLS 200-100] Execute       export_constraint_db -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi.constraint.tcl -f -tool general 
 INFO: [HLS 200-100] Command       export_constraint_db returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       report -model jacobi -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi.design.xml -verbose -f -dv 
-INFO: [HLS 200-100] Command       report returned 0; 0.84 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.8 sec.
 INFO: [HLS 200-100] Execute       report -model jacobi -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi.sdaccel.xml -verbose -f -sdaccel 
 INFO: [HLS 200-100] Command       report returned 0; 0.28 sec.
 INFO: [HLS 200-100] Execute       gen_tb_info jacobi -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi -p /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db 
 INFO: [HLS 200-100] Command       gen_tb_info returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       report -model jacobi -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/report/jacobi_csynth.rpt -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.11 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.1 sec.
 INFO: [HLS 200-100] Execute       report -model jacobi -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/syn/report/jacobi_csynth.xml -f -x 
-INFO: [HLS 200-100] Command       report returned 0; 0.09 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.1 sec.
 INFO: [HLS 200-100] Execute       report -model jacobi -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi.verbose.rpt -verbose -f 
-INFO: [HLS 200-100] Command       report returned 0; 1.18 sec.
+INFO: [HLS 200-100] Command       report returned 0; 1.17 sec.
 INFO: [HLS 200-100] Execute       db_write -model jacobi -o /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/jacobi.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.29 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.27 sec.
 INFO: [HLS 200-100] Execute       sc_get_clocks jacobi 
 INFO: [HLS 200-100] Command       sc_get_clocks returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       sc_get_portdomain jacobi 
@@ -1122,7 +1123,7 @@ INFO: [HLS 200-0] Found component jacobi_mul_32ns_1jbC.
 INFO: [HLS 200-0] Append model jacobi_mul_32ns_1jbC
 INFO: [HLS 200-0] Found component jacobi_srem_32ns_kbM.
 INFO: [HLS 200-0] Append model jacobi_srem_32ns_kbM
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-0] Handling components in module [MPI_Recv_1] ... 
 INFO: [HLS 200-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Recv_1.compgen.tcl 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
@@ -1206,7 +1207,7 @@ INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/generic/autopilot/op.gen 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/generic/autopilot/op_simcore.gen 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/generic/autopilot/interface.gen 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/global.setting.tcl 
@@ -1215,7 +1216,7 @@ INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/te
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/virtex.gen 
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx.gen 
 INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/plb46.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/fsl.gen 
 INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/axi4.gen 
@@ -1229,7 +1230,7 @@ INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
 INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/xfir.gen 
 INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/xfft.gen 
@@ -1237,12 +1238,12 @@ INFO: [HLS 200-100] Command             ap_source returned 0; 0.08 sec.
 INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/util.gen 
 INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/dds_compiler.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.12 sec.
+INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.11 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/dsp48.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command         ap_source returned 0; 0.12 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.12 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0.11 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.11 sec.
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/kintexu/kintexu_fpv7.gen 
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx_fpv6.gen 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
@@ -1256,13 +1257,13 @@ INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/global.setting.tcl 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/init_matrix.compgen.tcl 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.08 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.07 sec.
 INFO: [HLS 200-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Send_1.compgen.tcl 
 INFO: [RTMG 210-282] Generating pipelined core: 'jacobi_mul_32ns_1jbC_MulnS_0'
 INFO: [RTMG 210-282] Generating pipelined core: 'jacobi_srem_32ns_kbM_div'
 INFO: [HLS 200-100] Command       ap_source returned 0; 0.02 sec.
 INFO: [HLS 200-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Recv_1.compgen.tcl 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Recv.compgen.tcl 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/jacobi/solution1/.autopilot/db/MPI_Send.compgen.tcl 
@@ -1276,12 +1277,12 @@ INFO: [RTMG 210-278] Implementing memory 'jacobi_int_requesudo_ram' using distri
 INFO: [RTMG 210-278] Implementing memory 'jacobi_xlocal_ram' using block RAMs.
 INFO: [RTMG 210-278] Implementing memory 'jacobi_xnew_ram' using block RAMs.
 INFO: [HLS 200-100] Command       ap_source returned 0; 0.08 sec.
-INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:02:14 ; elapsed = 00:01:50 . Memory (MB): peak = 1405.750 ; gain = 1070.230 ; free physical = 4173 ; free virtual = 121883
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:02:14 ; elapsed = 00:01:48 . Memory (MB): peak = 1405.746 ; gain = 1070.230 ; free physical = 4099 ; free virtual = 122044
 INFO: [SYSC 207-301] Generating SystemC RTL for jacobi.
 INFO: [VHDL 208-304] Generating VHDL RTL for jacobi.
 INFO: [VLOG 209-307] Generating Verilog RTL for jacobi.
-INFO: [HLS 200-100] Command     autosyn returned 0; 28.73 sec.
-INFO: [HLS 200-100] Command   csynth_design returned 0; 108.88 sec.
-INFO: [HLS 200-100] Command ap_source returned 0; 109.21 sec.
+INFO: [HLS 200-100] Command     autosyn returned 0; 29.23 sec.
+INFO: [HLS 200-100] Command   csynth_design returned 0; 107.69 sec.
+INFO: [HLS 200-100] Command ap_source returned 0; 107.97 sec.
 INFO: [HLS 200-100] Execute cleanup_all 
-INFO: [HLS 200-100] Command cleanup_all returned 0; 0.12 sec.
+INFO: [HLS 200-100] Command cleanup_all returned 0; 0.11 sec.

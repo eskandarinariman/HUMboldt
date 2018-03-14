@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'MPI_Send'" level="0">
-<item name = "Date">Wed Mar 14 01:39:07 2018
+<item name = "Date">Wed Mar 14 18:12:21 2018
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">jacobi</item>
@@ -83,9 +83,9 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="jacobi_mul_32ns_1jbC_x_U130">jacobi_mul_32ns_1jbC, 0, 4, 165, 49</column>
-<column name="jacobi_mul_32ns_1jbC_x_U132">jacobi_mul_32ns_1jbC, 0, 4, 165, 49</column>
-<column name="jacobi_srem_32ns_kbM_x_U131">jacobi_srem_32ns_kbM, 0, 0, 394, 238</column>
+<column name="jacobi_mul_32ns_1jbC_x_U131">jacobi_mul_32ns_1jbC, 0, 4, 165, 49</column>
+<column name="jacobi_mul_32ns_1jbC_x_U133">jacobi_mul_32ns_1jbC, 0, 4, 165, 49</column>
+<column name="jacobi_srem_32ns_kbM_x_U132">jacobi_srem_32ns_kbM, 0, 0, 394, 238</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">

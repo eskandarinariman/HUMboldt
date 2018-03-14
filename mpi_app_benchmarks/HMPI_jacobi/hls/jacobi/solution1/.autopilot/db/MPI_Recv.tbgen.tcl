@@ -8,8 +8,9 @@ set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
 set C_modelName {MPI_Recv}
-set C_modelType { void 0 }
+set C_modelType { float 32 }
 set C_modelArgList {
+	{ p_read float 32 regular  }
 	{ state_1 int 2 regular {pointer 2} {global 2}  }
 	{ envlp_SRC_V int 8 regular {pointer 2} {global 2}  }
 	{ envlp_DEST_V int 16 regular {pointer 2} {global 2}  }
@@ -49,7 +50,8 @@ set C_modelArgList {
 	{ float_clr2snd_array_7 int 4 regular {array 512 { 2 3 } 1 1 } {global 2}  }
 }
 set C_modelArgMapList {[ 
-	{ "Name" : "state_1", "interface" : "wire", "bitwidth" : 2, "direction" : "READWRITE", "extern" : 0} , 
+	{ "Name" : "p_read", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
+ 	{ "Name" : "state_1", "interface" : "wire", "bitwidth" : 2, "direction" : "READWRITE", "extern" : 0} , 
  	{ "Name" : "envlp_SRC_V", "interface" : "wire", "bitwidth" : 8, "direction" : "READWRITE", "extern" : 0} , 
  	{ "Name" : "envlp_DEST_V", "interface" : "wire", "bitwidth" : 16, "direction" : "READWRITE", "extern" : 0} , 
  	{ "Name" : "float_req_num", "interface" : "wire", "bitwidth" : 32, "direction" : "READWRITE", "extern" : 0} , 
@@ -85,9 +87,10 @@ set C_modelArgMapList {[
  	{ "Name" : "float_clr2snd_array_4", "interface" : "memory", "bitwidth" : 8, "direction" : "READWRITE", "extern" : 0} , 
  	{ "Name" : "float_clr2snd_array_3", "interface" : "memory", "bitwidth" : 32, "direction" : "READWRITE", "extern" : 0} , 
  	{ "Name" : "float_clr2snd_array_s", "interface" : "memory", "bitwidth" : 8, "direction" : "READWRITE", "extern" : 0} , 
- 	{ "Name" : "float_clr2snd_array_7", "interface" : "memory", "bitwidth" : 4, "direction" : "READWRITE", "extern" : 0} ]}
+ 	{ "Name" : "float_clr2snd_array_7", "interface" : "memory", "bitwidth" : 4, "direction" : "READWRITE", "extern" : 0} , 
+ 	{ "Name" : "ap_return", "interface" : "wire", "bitwidth" : 32} ]}
 # RTL Port declarations: 
-set portNum 167
+set portNum 169
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -95,167 +98,169 @@ set portList {
 	{ ap_done sc_out sc_logic 1 predone -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
-	{ state_1_i sc_in sc_lv 2 signal 0 } 
-	{ state_1_o sc_out sc_lv 2 signal 0 } 
-	{ state_1_o_ap_vld sc_out sc_logic 1 outvld 0 } 
-	{ envlp_SRC_V_i sc_in sc_lv 8 signal 1 } 
-	{ envlp_SRC_V_o sc_out sc_lv 8 signal 1 } 
-	{ envlp_SRC_V_o_ap_vld sc_out sc_logic 1 outvld 1 } 
-	{ envlp_DEST_V_i sc_in sc_lv 16 signal 2 } 
-	{ envlp_DEST_V_o sc_out sc_lv 16 signal 2 } 
-	{ envlp_DEST_V_o_ap_vld sc_out sc_logic 1 outvld 2 } 
-	{ float_req_num_i sc_in sc_lv 32 signal 3 } 
-	{ float_req_num_o sc_out sc_lv 32 signal 3 } 
-	{ float_req_num_o_ap_vld sc_out sc_logic 1 outvld 3 } 
-	{ float_request_array_4_address0 sc_out sc_lv 9 signal 4 } 
-	{ float_request_array_4_ce0 sc_out sc_logic 1 signal 4 } 
-	{ float_request_array_4_we0 sc_out sc_logic 1 signal 4 } 
-	{ float_request_array_4_d0 sc_out sc_lv 8 signal 4 } 
-	{ float_request_array_4_q0 sc_in sc_lv 8 signal 4 } 
-	{ float_request_array_1_address0 sc_out sc_lv 9 signal 5 } 
-	{ float_request_array_1_ce0 sc_out sc_logic 1 signal 5 } 
-	{ float_request_array_1_we0 sc_out sc_logic 1 signal 5 } 
-	{ float_request_array_1_d0 sc_out sc_lv 16 signal 5 } 
-	{ float_request_array_1_q0 sc_in sc_lv 16 signal 5 } 
-	{ float_request_array_5_address0 sc_out sc_lv 9 signal 6 } 
-	{ float_request_array_5_ce0 sc_out sc_logic 1 signal 6 } 
-	{ float_request_array_5_we0 sc_out sc_logic 1 signal 6 } 
-	{ float_request_array_5_d0 sc_out sc_lv 8 signal 6 } 
-	{ float_request_array_5_q0 sc_in sc_lv 8 signal 6 } 
-	{ float_request_array_3_address0 sc_out sc_lv 9 signal 7 } 
-	{ float_request_array_3_ce0 sc_out sc_logic 1 signal 7 } 
-	{ float_request_array_3_we0 sc_out sc_logic 1 signal 7 } 
-	{ float_request_array_3_d0 sc_out sc_lv 32 signal 7 } 
-	{ float_request_array_3_q0 sc_in sc_lv 32 signal 7 } 
-	{ envlp_MSG_SIZE_V_i sc_in sc_lv 32 signal 8 } 
-	{ envlp_MSG_SIZE_V_o sc_out sc_lv 32 signal 8 } 
-	{ envlp_MSG_SIZE_V_o_ap_vld sc_out sc_logic 1 outvld 8 } 
-	{ float_request_array_s_address0 sc_out sc_lv 9 signal 9 } 
-	{ float_request_array_s_ce0 sc_out sc_logic 1 signal 9 } 
-	{ float_request_array_s_we0 sc_out sc_logic 1 signal 9 } 
-	{ float_request_array_s_d0 sc_out sc_lv 8 signal 9 } 
-	{ float_request_array_s_q0 sc_in sc_lv 8 signal 9 } 
-	{ float_request_array_7_address0 sc_out sc_lv 9 signal 10 } 
-	{ float_request_array_7_ce0 sc_out sc_logic 1 signal 10 } 
-	{ float_request_array_7_we0 sc_out sc_logic 1 signal 10 } 
-	{ float_request_array_7_d0 sc_out sc_lv 4 signal 10 } 
-	{ float_request_array_7_q0 sc_in sc_lv 4 signal 10 } 
-	{ float_request_array_6_address0 sc_out sc_lv 9 signal 11 } 
-	{ float_request_array_6_ce0 sc_out sc_logic 1 signal 11 } 
-	{ float_request_array_6_we0 sc_out sc_logic 1 signal 11 } 
-	{ float_request_array_6_d0 sc_out sc_lv 4 signal 11 } 
-	{ float_request_array_6_q0 sc_in sc_lv 4 signal 11 } 
-	{ stream_in_V_dout sc_in sc_lv 121 signal 12 } 
-	{ stream_in_V_empty_n sc_in sc_logic 1 signal 12 } 
-	{ stream_in_V_read sc_out sc_logic 1 signal 12 } 
-	{ clr2snd_error_i sc_in sc_lv 1 signal 13 } 
-	{ clr2snd_error_o sc_out sc_lv 1 signal 13 } 
-	{ clr2snd_error_o_ap_vld sc_out sc_logic 1 outvld 13 } 
-	{ stream_out_V_din sc_out sc_lv 121 signal 14 } 
-	{ stream_out_V_full_n sc_in sc_logic 1 signal 14 } 
-	{ stream_out_V_write sc_out sc_logic 1 signal 14 } 
-	{ time_V_i sc_in sc_lv 64 signal 15 } 
-	{ time_V_o sc_out sc_lv 64 signal 15 } 
-	{ time_V_o_ap_vld sc_out sc_logic 1 outvld 15 } 
-	{ int_req_num_i sc_in sc_lv 32 signal 16 } 
-	{ int_req_num_o sc_out sc_lv 32 signal 16 } 
-	{ int_req_num_o_ap_vld sc_out sc_logic 1 outvld 16 } 
-	{ int_request_array_SR_address0 sc_out sc_lv 9 signal 17 } 
-	{ int_request_array_SR_ce0 sc_out sc_logic 1 signal 17 } 
-	{ int_request_array_SR_we0 sc_out sc_logic 1 signal 17 } 
-	{ int_request_array_SR_d0 sc_out sc_lv 8 signal 17 } 
-	{ int_request_array_SR_q0 sc_in sc_lv 8 signal 17 } 
-	{ int_request_array_DE_address0 sc_out sc_lv 9 signal 18 } 
-	{ int_request_array_DE_ce0 sc_out sc_logic 1 signal 18 } 
-	{ int_request_array_DE_we0 sc_out sc_logic 1 signal 18 } 
-	{ int_request_array_DE_d0 sc_out sc_lv 16 signal 18 } 
-	{ int_request_array_DE_q0 sc_in sc_lv 16 signal 18 } 
-	{ int_request_array_PK_address0 sc_out sc_lv 9 signal 19 } 
-	{ int_request_array_PK_ce0 sc_out sc_logic 1 signal 19 } 
-	{ int_request_array_PK_we0 sc_out sc_logic 1 signal 19 } 
-	{ int_request_array_PK_d0 sc_out sc_lv 1 signal 19 } 
-	{ int_request_array_PK_q0 sc_in sc_lv 1 signal 19 } 
-	{ int_request_array_MS_address0 sc_out sc_lv 9 signal 20 } 
-	{ int_request_array_MS_ce0 sc_out sc_logic 1 signal 20 } 
-	{ int_request_array_MS_we0 sc_out sc_logic 1 signal 20 } 
-	{ int_request_array_MS_d0 sc_out sc_lv 32 signal 20 } 
-	{ int_request_array_MS_q0 sc_in sc_lv 32 signal 20 } 
-	{ int_request_array_TA_address0 sc_out sc_lv 9 signal 21 } 
-	{ int_request_array_TA_ce0 sc_out sc_logic 1 signal 21 } 
-	{ int_request_array_TA_we0 sc_out sc_logic 1 signal 21 } 
-	{ int_request_array_TA_d0 sc_out sc_lv 8 signal 21 } 
-	{ int_request_array_TA_q0 sc_in sc_lv 8 signal 21 } 
-	{ int_request_array_DA_address0 sc_out sc_lv 9 signal 22 } 
-	{ int_request_array_DA_ce0 sc_out sc_logic 1 signal 22 } 
-	{ int_request_array_DA_we0 sc_out sc_logic 1 signal 22 } 
-	{ int_request_array_DA_d0 sc_out sc_lv 4 signal 22 } 
-	{ int_request_array_DA_q0 sc_in sc_lv 4 signal 22 } 
-	{ int_clr_num_i sc_in sc_lv 32 signal 23 } 
-	{ int_clr_num_o sc_out sc_lv 32 signal 23 } 
-	{ int_clr_num_o_ap_vld sc_out sc_logic 1 outvld 23 } 
-	{ int_clr2snd_array_SR_address0 sc_out sc_lv 9 signal 24 } 
-	{ int_clr2snd_array_SR_ce0 sc_out sc_logic 1 signal 24 } 
-	{ int_clr2snd_array_SR_we0 sc_out sc_logic 1 signal 24 } 
-	{ int_clr2snd_array_SR_d0 sc_out sc_lv 8 signal 24 } 
-	{ int_clr2snd_array_SR_q0 sc_in sc_lv 8 signal 24 } 
-	{ int_clr2snd_array_DE_address0 sc_out sc_lv 9 signal 25 } 
-	{ int_clr2snd_array_DE_ce0 sc_out sc_logic 1 signal 25 } 
-	{ int_clr2snd_array_DE_we0 sc_out sc_logic 1 signal 25 } 
-	{ int_clr2snd_array_DE_d0 sc_out sc_lv 16 signal 25 } 
-	{ int_clr2snd_array_DE_q0 sc_in sc_lv 16 signal 25 } 
-	{ int_clr2snd_array_PK_address0 sc_out sc_lv 9 signal 26 } 
-	{ int_clr2snd_array_PK_ce0 sc_out sc_logic 1 signal 26 } 
-	{ int_clr2snd_array_PK_we0 sc_out sc_logic 1 signal 26 } 
-	{ int_clr2snd_array_PK_d0 sc_out sc_lv 1 signal 26 } 
-	{ int_clr2snd_array_PK_q0 sc_in sc_lv 1 signal 26 } 
-	{ int_clr2snd_array_MS_address0 sc_out sc_lv 9 signal 27 } 
-	{ int_clr2snd_array_MS_ce0 sc_out sc_logic 1 signal 27 } 
-	{ int_clr2snd_array_MS_we0 sc_out sc_logic 1 signal 27 } 
-	{ int_clr2snd_array_MS_d0 sc_out sc_lv 32 signal 27 } 
-	{ int_clr2snd_array_MS_q0 sc_in sc_lv 32 signal 27 } 
-	{ int_clr2snd_array_TA_address0 sc_out sc_lv 9 signal 28 } 
-	{ int_clr2snd_array_TA_ce0 sc_out sc_logic 1 signal 28 } 
-	{ int_clr2snd_array_TA_we0 sc_out sc_logic 1 signal 28 } 
-	{ int_clr2snd_array_TA_d0 sc_out sc_lv 8 signal 28 } 
-	{ int_clr2snd_array_TA_q0 sc_in sc_lv 8 signal 28 } 
-	{ int_clr2snd_array_DA_address0 sc_out sc_lv 9 signal 29 } 
-	{ int_clr2snd_array_DA_ce0 sc_out sc_logic 1 signal 29 } 
-	{ int_clr2snd_array_DA_we0 sc_out sc_logic 1 signal 29 } 
-	{ int_clr2snd_array_DA_d0 sc_out sc_lv 4 signal 29 } 
-	{ int_clr2snd_array_DA_q0 sc_in sc_lv 4 signal 29 } 
-	{ float_clr_num_i sc_in sc_lv 32 signal 30 } 
-	{ float_clr_num_o sc_out sc_lv 32 signal 30 } 
-	{ float_clr_num_o_ap_vld sc_out sc_logic 1 outvld 30 } 
-	{ float_clr2snd_array_5_address0 sc_out sc_lv 9 signal 31 } 
-	{ float_clr2snd_array_5_ce0 sc_out sc_logic 1 signal 31 } 
-	{ float_clr2snd_array_5_we0 sc_out sc_logic 1 signal 31 } 
-	{ float_clr2snd_array_5_d0 sc_out sc_lv 8 signal 31 } 
-	{ float_clr2snd_array_5_q0 sc_in sc_lv 8 signal 31 } 
-	{ float_clr2snd_array_1_address0 sc_out sc_lv 9 signal 32 } 
-	{ float_clr2snd_array_1_ce0 sc_out sc_logic 1 signal 32 } 
-	{ float_clr2snd_array_1_we0 sc_out sc_logic 1 signal 32 } 
-	{ float_clr2snd_array_1_d0 sc_out sc_lv 16 signal 32 } 
-	{ float_clr2snd_array_1_q0 sc_in sc_lv 16 signal 32 } 
-	{ float_clr2snd_array_4_address0 sc_out sc_lv 9 signal 33 } 
-	{ float_clr2snd_array_4_ce0 sc_out sc_logic 1 signal 33 } 
-	{ float_clr2snd_array_4_we0 sc_out sc_logic 1 signal 33 } 
-	{ float_clr2snd_array_4_d0 sc_out sc_lv 8 signal 33 } 
-	{ float_clr2snd_array_4_q0 sc_in sc_lv 8 signal 33 } 
-	{ float_clr2snd_array_3_address0 sc_out sc_lv 9 signal 34 } 
-	{ float_clr2snd_array_3_ce0 sc_out sc_logic 1 signal 34 } 
-	{ float_clr2snd_array_3_we0 sc_out sc_logic 1 signal 34 } 
-	{ float_clr2snd_array_3_d0 sc_out sc_lv 32 signal 34 } 
-	{ float_clr2snd_array_3_q0 sc_in sc_lv 32 signal 34 } 
-	{ float_clr2snd_array_s_address0 sc_out sc_lv 9 signal 35 } 
-	{ float_clr2snd_array_s_ce0 sc_out sc_logic 1 signal 35 } 
-	{ float_clr2snd_array_s_we0 sc_out sc_logic 1 signal 35 } 
-	{ float_clr2snd_array_s_d0 sc_out sc_lv 8 signal 35 } 
-	{ float_clr2snd_array_s_q0 sc_in sc_lv 8 signal 35 } 
-	{ float_clr2snd_array_7_address0 sc_out sc_lv 9 signal 36 } 
-	{ float_clr2snd_array_7_ce0 sc_out sc_logic 1 signal 36 } 
-	{ float_clr2snd_array_7_we0 sc_out sc_logic 1 signal 36 } 
-	{ float_clr2snd_array_7_d0 sc_out sc_lv 4 signal 36 } 
-	{ float_clr2snd_array_7_q0 sc_in sc_lv 4 signal 36 } 
+	{ p_read sc_in sc_lv 32 signal 0 } 
+	{ state_1_i sc_in sc_lv 2 signal 1 } 
+	{ state_1_o sc_out sc_lv 2 signal 1 } 
+	{ state_1_o_ap_vld sc_out sc_logic 1 outvld 1 } 
+	{ envlp_SRC_V_i sc_in sc_lv 8 signal 2 } 
+	{ envlp_SRC_V_o sc_out sc_lv 8 signal 2 } 
+	{ envlp_SRC_V_o_ap_vld sc_out sc_logic 1 outvld 2 } 
+	{ envlp_DEST_V_i sc_in sc_lv 16 signal 3 } 
+	{ envlp_DEST_V_o sc_out sc_lv 16 signal 3 } 
+	{ envlp_DEST_V_o_ap_vld sc_out sc_logic 1 outvld 3 } 
+	{ float_req_num_i sc_in sc_lv 32 signal 4 } 
+	{ float_req_num_o sc_out sc_lv 32 signal 4 } 
+	{ float_req_num_o_ap_vld sc_out sc_logic 1 outvld 4 } 
+	{ float_request_array_4_address0 sc_out sc_lv 9 signal 5 } 
+	{ float_request_array_4_ce0 sc_out sc_logic 1 signal 5 } 
+	{ float_request_array_4_we0 sc_out sc_logic 1 signal 5 } 
+	{ float_request_array_4_d0 sc_out sc_lv 8 signal 5 } 
+	{ float_request_array_4_q0 sc_in sc_lv 8 signal 5 } 
+	{ float_request_array_1_address0 sc_out sc_lv 9 signal 6 } 
+	{ float_request_array_1_ce0 sc_out sc_logic 1 signal 6 } 
+	{ float_request_array_1_we0 sc_out sc_logic 1 signal 6 } 
+	{ float_request_array_1_d0 sc_out sc_lv 16 signal 6 } 
+	{ float_request_array_1_q0 sc_in sc_lv 16 signal 6 } 
+	{ float_request_array_5_address0 sc_out sc_lv 9 signal 7 } 
+	{ float_request_array_5_ce0 sc_out sc_logic 1 signal 7 } 
+	{ float_request_array_5_we0 sc_out sc_logic 1 signal 7 } 
+	{ float_request_array_5_d0 sc_out sc_lv 8 signal 7 } 
+	{ float_request_array_5_q0 sc_in sc_lv 8 signal 7 } 
+	{ float_request_array_3_address0 sc_out sc_lv 9 signal 8 } 
+	{ float_request_array_3_ce0 sc_out sc_logic 1 signal 8 } 
+	{ float_request_array_3_we0 sc_out sc_logic 1 signal 8 } 
+	{ float_request_array_3_d0 sc_out sc_lv 32 signal 8 } 
+	{ float_request_array_3_q0 sc_in sc_lv 32 signal 8 } 
+	{ envlp_MSG_SIZE_V_i sc_in sc_lv 32 signal 9 } 
+	{ envlp_MSG_SIZE_V_o sc_out sc_lv 32 signal 9 } 
+	{ envlp_MSG_SIZE_V_o_ap_vld sc_out sc_logic 1 outvld 9 } 
+	{ float_request_array_s_address0 sc_out sc_lv 9 signal 10 } 
+	{ float_request_array_s_ce0 sc_out sc_logic 1 signal 10 } 
+	{ float_request_array_s_we0 sc_out sc_logic 1 signal 10 } 
+	{ float_request_array_s_d0 sc_out sc_lv 8 signal 10 } 
+	{ float_request_array_s_q0 sc_in sc_lv 8 signal 10 } 
+	{ float_request_array_7_address0 sc_out sc_lv 9 signal 11 } 
+	{ float_request_array_7_ce0 sc_out sc_logic 1 signal 11 } 
+	{ float_request_array_7_we0 sc_out sc_logic 1 signal 11 } 
+	{ float_request_array_7_d0 sc_out sc_lv 4 signal 11 } 
+	{ float_request_array_7_q0 sc_in sc_lv 4 signal 11 } 
+	{ float_request_array_6_address0 sc_out sc_lv 9 signal 12 } 
+	{ float_request_array_6_ce0 sc_out sc_logic 1 signal 12 } 
+	{ float_request_array_6_we0 sc_out sc_logic 1 signal 12 } 
+	{ float_request_array_6_d0 sc_out sc_lv 4 signal 12 } 
+	{ float_request_array_6_q0 sc_in sc_lv 4 signal 12 } 
+	{ stream_in_V_dout sc_in sc_lv 121 signal 13 } 
+	{ stream_in_V_empty_n sc_in sc_logic 1 signal 13 } 
+	{ stream_in_V_read sc_out sc_logic 1 signal 13 } 
+	{ clr2snd_error_i sc_in sc_lv 1 signal 14 } 
+	{ clr2snd_error_o sc_out sc_lv 1 signal 14 } 
+	{ clr2snd_error_o_ap_vld sc_out sc_logic 1 outvld 14 } 
+	{ stream_out_V_din sc_out sc_lv 121 signal 15 } 
+	{ stream_out_V_full_n sc_in sc_logic 1 signal 15 } 
+	{ stream_out_V_write sc_out sc_logic 1 signal 15 } 
+	{ time_V_i sc_in sc_lv 64 signal 16 } 
+	{ time_V_o sc_out sc_lv 64 signal 16 } 
+	{ time_V_o_ap_vld sc_out sc_logic 1 outvld 16 } 
+	{ int_req_num_i sc_in sc_lv 32 signal 17 } 
+	{ int_req_num_o sc_out sc_lv 32 signal 17 } 
+	{ int_req_num_o_ap_vld sc_out sc_logic 1 outvld 17 } 
+	{ int_request_array_SR_address0 sc_out sc_lv 9 signal 18 } 
+	{ int_request_array_SR_ce0 sc_out sc_logic 1 signal 18 } 
+	{ int_request_array_SR_we0 sc_out sc_logic 1 signal 18 } 
+	{ int_request_array_SR_d0 sc_out sc_lv 8 signal 18 } 
+	{ int_request_array_SR_q0 sc_in sc_lv 8 signal 18 } 
+	{ int_request_array_DE_address0 sc_out sc_lv 9 signal 19 } 
+	{ int_request_array_DE_ce0 sc_out sc_logic 1 signal 19 } 
+	{ int_request_array_DE_we0 sc_out sc_logic 1 signal 19 } 
+	{ int_request_array_DE_d0 sc_out sc_lv 16 signal 19 } 
+	{ int_request_array_DE_q0 sc_in sc_lv 16 signal 19 } 
+	{ int_request_array_PK_address0 sc_out sc_lv 9 signal 20 } 
+	{ int_request_array_PK_ce0 sc_out sc_logic 1 signal 20 } 
+	{ int_request_array_PK_we0 sc_out sc_logic 1 signal 20 } 
+	{ int_request_array_PK_d0 sc_out sc_lv 1 signal 20 } 
+	{ int_request_array_PK_q0 sc_in sc_lv 1 signal 20 } 
+	{ int_request_array_MS_address0 sc_out sc_lv 9 signal 21 } 
+	{ int_request_array_MS_ce0 sc_out sc_logic 1 signal 21 } 
+	{ int_request_array_MS_we0 sc_out sc_logic 1 signal 21 } 
+	{ int_request_array_MS_d0 sc_out sc_lv 32 signal 21 } 
+	{ int_request_array_MS_q0 sc_in sc_lv 32 signal 21 } 
+	{ int_request_array_TA_address0 sc_out sc_lv 9 signal 22 } 
+	{ int_request_array_TA_ce0 sc_out sc_logic 1 signal 22 } 
+	{ int_request_array_TA_we0 sc_out sc_logic 1 signal 22 } 
+	{ int_request_array_TA_d0 sc_out sc_lv 8 signal 22 } 
+	{ int_request_array_TA_q0 sc_in sc_lv 8 signal 22 } 
+	{ int_request_array_DA_address0 sc_out sc_lv 9 signal 23 } 
+	{ int_request_array_DA_ce0 sc_out sc_logic 1 signal 23 } 
+	{ int_request_array_DA_we0 sc_out sc_logic 1 signal 23 } 
+	{ int_request_array_DA_d0 sc_out sc_lv 4 signal 23 } 
+	{ int_request_array_DA_q0 sc_in sc_lv 4 signal 23 } 
+	{ int_clr_num_i sc_in sc_lv 32 signal 24 } 
+	{ int_clr_num_o sc_out sc_lv 32 signal 24 } 
+	{ int_clr_num_o_ap_vld sc_out sc_logic 1 outvld 24 } 
+	{ int_clr2snd_array_SR_address0 sc_out sc_lv 9 signal 25 } 
+	{ int_clr2snd_array_SR_ce0 sc_out sc_logic 1 signal 25 } 
+	{ int_clr2snd_array_SR_we0 sc_out sc_logic 1 signal 25 } 
+	{ int_clr2snd_array_SR_d0 sc_out sc_lv 8 signal 25 } 
+	{ int_clr2snd_array_SR_q0 sc_in sc_lv 8 signal 25 } 
+	{ int_clr2snd_array_DE_address0 sc_out sc_lv 9 signal 26 } 
+	{ int_clr2snd_array_DE_ce0 sc_out sc_logic 1 signal 26 } 
+	{ int_clr2snd_array_DE_we0 sc_out sc_logic 1 signal 26 } 
+	{ int_clr2snd_array_DE_d0 sc_out sc_lv 16 signal 26 } 
+	{ int_clr2snd_array_DE_q0 sc_in sc_lv 16 signal 26 } 
+	{ int_clr2snd_array_PK_address0 sc_out sc_lv 9 signal 27 } 
+	{ int_clr2snd_array_PK_ce0 sc_out sc_logic 1 signal 27 } 
+	{ int_clr2snd_array_PK_we0 sc_out sc_logic 1 signal 27 } 
+	{ int_clr2snd_array_PK_d0 sc_out sc_lv 1 signal 27 } 
+	{ int_clr2snd_array_PK_q0 sc_in sc_lv 1 signal 27 } 
+	{ int_clr2snd_array_MS_address0 sc_out sc_lv 9 signal 28 } 
+	{ int_clr2snd_array_MS_ce0 sc_out sc_logic 1 signal 28 } 
+	{ int_clr2snd_array_MS_we0 sc_out sc_logic 1 signal 28 } 
+	{ int_clr2snd_array_MS_d0 sc_out sc_lv 32 signal 28 } 
+	{ int_clr2snd_array_MS_q0 sc_in sc_lv 32 signal 28 } 
+	{ int_clr2snd_array_TA_address0 sc_out sc_lv 9 signal 29 } 
+	{ int_clr2snd_array_TA_ce0 sc_out sc_logic 1 signal 29 } 
+	{ int_clr2snd_array_TA_we0 sc_out sc_logic 1 signal 29 } 
+	{ int_clr2snd_array_TA_d0 sc_out sc_lv 8 signal 29 } 
+	{ int_clr2snd_array_TA_q0 sc_in sc_lv 8 signal 29 } 
+	{ int_clr2snd_array_DA_address0 sc_out sc_lv 9 signal 30 } 
+	{ int_clr2snd_array_DA_ce0 sc_out sc_logic 1 signal 30 } 
+	{ int_clr2snd_array_DA_we0 sc_out sc_logic 1 signal 30 } 
+	{ int_clr2snd_array_DA_d0 sc_out sc_lv 4 signal 30 } 
+	{ int_clr2snd_array_DA_q0 sc_in sc_lv 4 signal 30 } 
+	{ float_clr_num_i sc_in sc_lv 32 signal 31 } 
+	{ float_clr_num_o sc_out sc_lv 32 signal 31 } 
+	{ float_clr_num_o_ap_vld sc_out sc_logic 1 outvld 31 } 
+	{ float_clr2snd_array_5_address0 sc_out sc_lv 9 signal 32 } 
+	{ float_clr2snd_array_5_ce0 sc_out sc_logic 1 signal 32 } 
+	{ float_clr2snd_array_5_we0 sc_out sc_logic 1 signal 32 } 
+	{ float_clr2snd_array_5_d0 sc_out sc_lv 8 signal 32 } 
+	{ float_clr2snd_array_5_q0 sc_in sc_lv 8 signal 32 } 
+	{ float_clr2snd_array_1_address0 sc_out sc_lv 9 signal 33 } 
+	{ float_clr2snd_array_1_ce0 sc_out sc_logic 1 signal 33 } 
+	{ float_clr2snd_array_1_we0 sc_out sc_logic 1 signal 33 } 
+	{ float_clr2snd_array_1_d0 sc_out sc_lv 16 signal 33 } 
+	{ float_clr2snd_array_1_q0 sc_in sc_lv 16 signal 33 } 
+	{ float_clr2snd_array_4_address0 sc_out sc_lv 9 signal 34 } 
+	{ float_clr2snd_array_4_ce0 sc_out sc_logic 1 signal 34 } 
+	{ float_clr2snd_array_4_we0 sc_out sc_logic 1 signal 34 } 
+	{ float_clr2snd_array_4_d0 sc_out sc_lv 8 signal 34 } 
+	{ float_clr2snd_array_4_q0 sc_in sc_lv 8 signal 34 } 
+	{ float_clr2snd_array_3_address0 sc_out sc_lv 9 signal 35 } 
+	{ float_clr2snd_array_3_ce0 sc_out sc_logic 1 signal 35 } 
+	{ float_clr2snd_array_3_we0 sc_out sc_logic 1 signal 35 } 
+	{ float_clr2snd_array_3_d0 sc_out sc_lv 32 signal 35 } 
+	{ float_clr2snd_array_3_q0 sc_in sc_lv 32 signal 35 } 
+	{ float_clr2snd_array_s_address0 sc_out sc_lv 9 signal 36 } 
+	{ float_clr2snd_array_s_ce0 sc_out sc_logic 1 signal 36 } 
+	{ float_clr2snd_array_s_we0 sc_out sc_logic 1 signal 36 } 
+	{ float_clr2snd_array_s_d0 sc_out sc_lv 8 signal 36 } 
+	{ float_clr2snd_array_s_q0 sc_in sc_lv 8 signal 36 } 
+	{ float_clr2snd_array_7_address0 sc_out sc_lv 9 signal 37 } 
+	{ float_clr2snd_array_7_ce0 sc_out sc_logic 1 signal 37 } 
+	{ float_clr2snd_array_7_we0 sc_out sc_logic 1 signal 37 } 
+	{ float_clr2snd_array_7_d0 sc_out sc_lv 4 signal 37 } 
+	{ float_clr2snd_array_7_q0 sc_in sc_lv 4 signal 37 } 
+	{ ap_return sc_out sc_lv 32 signal -1 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -264,6 +269,7 @@ set NewPortList {[
  	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
+ 	{ "name": "p_read", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "p_read", "role": "default" }} , 
  	{ "name": "state_1_i", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "state_1", "role": "i" }} , 
  	{ "name": "state_1_o", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "state_1", "role": "o" }} , 
  	{ "name": "state_1_o_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "state_1", "role": "o_ap_vld" }} , 
@@ -424,7 +430,8 @@ set NewPortList {[
  	{ "name": "float_clr2snd_array_7_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "float_clr2snd_array_7", "role": "ce0" }} , 
  	{ "name": "float_clr2snd_array_7_we0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "float_clr2snd_array_7", "role": "we0" }} , 
  	{ "name": "float_clr2snd_array_7_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "float_clr2snd_array_7", "role": "d0" }} , 
- 	{ "name": "float_clr2snd_array_7_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "float_clr2snd_array_7", "role": "q0" }}  ]}
+ 	{ "name": "float_clr2snd_array_7_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "float_clr2snd_array_7", "role": "q0" }} , 
+ 	{ "name": "ap_return", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "ap_return", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1"],
@@ -436,6 +443,7 @@ set RtlHierarchyInfo {[
 		"ClockEnable" : "0",
 		"VariableLatency" : "1",
 		"Port" : [
+			{"Name" : "p_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "state_1", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "envlp_SRC_V", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "envlp_DEST_V", "Type" : "OVld", "Direction" : "IO"},
@@ -482,6 +490,7 @@ set RtlHierarchyInfo {[
 
 set ArgLastReadFirstWriteLatency {
 	MPI_Recv {
+		p_read {Type I LastRead 0 FirstWrite -1}
 		state_1 {Type IO LastRead 0 FirstWrite 0}
 		envlp_SRC_V {Type IO LastRead 0 FirstWrite 2}
 		envlp_DEST_V {Type IO LastRead 0 FirstWrite 2}
@@ -531,6 +540,7 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
+	p_read { ap_none {  { p_read in_data 0 32 } } }
 	state_1 { ap_ovld {  { state_1_i in_data 0 2 }  { state_1_o out_data 1 2 }  { state_1_o_ap_vld out_vld 1 1 } } }
 	envlp_SRC_V { ap_ovld {  { envlp_SRC_V_i in_data 0 8 }  { envlp_SRC_V_o out_data 1 8 }  { envlp_SRC_V_o_ap_vld out_vld 1 1 } } }
 	envlp_DEST_V { ap_ovld {  { envlp_DEST_V_i in_data 0 16 }  { envlp_DEST_V_o out_data 1 16 }  { envlp_DEST_V_o_ap_vld out_vld 1 1 } } }

@@ -10,7 +10,7 @@ use ieee.std_logic_1164.all;
 
 entity jacobi_dcmp_64ns_Ngs is
     generic (
-        ID         : integer := 173;
+        ID         : integer := 174;
         NUM_STAGE  : integer := 1;
         din0_WIDTH : integer := 64;
         din1_WIDTH : integer := 64;

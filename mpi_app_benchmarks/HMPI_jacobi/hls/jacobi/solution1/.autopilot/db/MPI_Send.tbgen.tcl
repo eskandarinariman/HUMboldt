@@ -464,9 +464,9 @@ set RtlHierarchyInfo {[
 			{"Name" : "float_request_array_3", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "float_request_array_s", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "float_request_array_7", "Type" : "Memory", "Direction" : "IO"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.jacobi_mul_32ns_1jbC_x_U130", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.jacobi_srem_32ns_kbM_x_U131", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.jacobi_mul_32ns_1jbC_x_U132", "Parent" : "0"}]}
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.jacobi_mul_32ns_1jbC_x_U131", "Parent" : "0"},
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.jacobi_srem_32ns_kbM_x_U132", "Parent" : "0"},
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.jacobi_mul_32ns_1jbC_x_U133", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {

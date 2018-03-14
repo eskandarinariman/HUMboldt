@@ -1191,7 +1191,7 @@ architecture behav of MPI_Send is
 
 
 begin
-    jacobi_mul_32ns_1jbC_x_U130 : component jacobi_mul_32ns_1jbC
+    jacobi_mul_32ns_1jbC_x_U131 : component jacobi_mul_32ns_1jbC
     generic map (
         ID => 1,
         NUM_STAGE => 2,
@@ -1206,7 +1206,7 @@ begin
         ce => grp_fu_2717_ce,
         dout => grp_fu_2717_p2);
 
-    jacobi_srem_32ns_kbM_x_U131 : component jacobi_srem_32ns_kbM
+    jacobi_srem_32ns_kbM_x_U132 : component jacobi_srem_32ns_kbM
     generic map (
         ID => 1,
         NUM_STAGE => 36,
@@ -1223,7 +1223,7 @@ begin
         ce => grp_fu_2811_ce,
         dout => grp_fu_2811_p2);
 
-    jacobi_mul_32ns_1jbC_x_U132 : component jacobi_mul_32ns_1jbC
+    jacobi_mul_32ns_1jbC_x_U133 : component jacobi_mul_32ns_1jbC
     generic map (
         ID => 1,
         NUM_STAGE => 2,

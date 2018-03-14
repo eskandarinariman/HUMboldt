@@ -10,7 +10,7 @@
 
 module jacobi_faddfsub_3Lf8
 #(parameter
-    ID         = 169,
+    ID         = 170,
     NUM_STAGE  = 7,
     din0_WIDTH = 32,
     din1_WIDTH = 32,

@@ -1149,7 +1149,7 @@ jacobi_mul_32ns_1jbC #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 10 ),
     .dout_WIDTH( 33 ))
-jacobi_mul_32ns_1jbC_x_U130(
+jacobi_mul_32ns_1jbC_x_U131(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(grp_fu_2717_p0),
@@ -1164,7 +1164,7 @@ jacobi_srem_32ns_kbM #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 10 ),
     .dout_WIDTH( 10 ))
-jacobi_srem_32ns_kbM_x_U131(
+jacobi_srem_32ns_kbM_x_U132(
     .clk(ap_clk),
     .reset(ap_rst),
     .start(grp_fu_2811_ap_start),
@@ -1181,7 +1181,7 @@ jacobi_mul_32ns_1jbC #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 10 ),
     .dout_WIDTH( 33 ))
-jacobi_mul_32ns_1jbC_x_U132(
+jacobi_mul_32ns_1jbC_x_U133(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(grp_fu_3099_p0),

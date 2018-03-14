@@ -49870,6 +49870,7 @@ int jacobi()
             gdiffnorm = diffnorm;
             for(r = 1; r < size ;r++){
                 MPI_Recv(diffnorm_array, 1, MPI_FLOAT,r,0,MPI_COMM_WORLD);
+                diffnorm = diffnorm_array[0];
                 gdiffnorm+= diffnorm;
             }
         }
@@ -49885,11 +49886,12 @@ int jacobi()
         }
         else{
             MPI_Recv(gdiffnorm_array, 1, MPI_FLOAT,0,0,MPI_COMM_WORLD);
+            gdiffnorm = gdiffnorm_array[0];
         }
 
 
         gdiffnorm = sqrt( gdiffnorm );
-#314 "jacobi_parallel_simple.cpp"
+#316 "jacobi_parallel_simple.cpp"
     } while ( gdiffnorm > 1.0e-2 && itcnt < 100 );
     //end_time = clock();
 

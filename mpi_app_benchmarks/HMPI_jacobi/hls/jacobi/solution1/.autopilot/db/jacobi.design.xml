@@ -25,14 +25,14 @@
 <ID>619</ID>
 </Instance>
 <Instance>
-<InstName>grp_MPI_Recv_1_fu_627</InstName>
-<ModuleName>MPI_Recv_1</ModuleName>
+<InstName>grp_MPI_Recv_fu_627</InstName>
+<ModuleName>MPI_Recv</ModuleName>
 <ID>627</ID>
 </Instance>
 <Instance>
-<InstName>grp_MPI_Recv_fu_708</InstName>
-<ModuleName>MPI_Recv</ModuleName>
-<ID>708</ID>
+<InstName>grp_MPI_Recv_1_fu_707</InstName>
+<ModuleName>MPI_Recv_1</ModuleName>
+<ID>707</ID>
 </Instance>
 </InstancesList>
 </TopModule>
@@ -4295,7 +4295,7 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>5.00</TargetClockPeriod>
 <ClockUncertainty>0.62</ClockUncertainty>
-<EstimatedClockPeriod>3.54</EstimatedClockPeriod>
+<EstimatedClockPeriod>3.66</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <Best-caseLatency>undef</Best-caseLatency>
@@ -4346,8 +4346,8 @@
 </Loop4.1>
 <Loop4.2>
 <Name>Loop 4.2</Name>
-<TripCount>undef</TripCount>
-<Latency>undef</Latency>
+<TripCount>2</TripCount>
+<Latency>2</Latency>
 <IterationLatency>1</IterationLatency>
 <PipelineDepth>1</PipelineDepth>
 </Loop4.2>
@@ -4355,13 +4355,8 @@
 <Name>Loop 4.3</Name>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
-<IterationLatency>
-<range>
-<min>3</min>
-<max>7</max>
-</range>
-</IterationLatency>
-<PipelineDepth>3 ~ 7</PipelineDepth>
+<IterationLatency>1</IterationLatency>
+<PipelineDepth>1</PipelineDepth>
 </Loop4.3>
 <Loop4.4>
 <Name>Loop 4.4</Name>
@@ -4399,6 +4394,18 @@
 </IterationLatency>
 <PipelineDepth>3 ~ 7</PipelineDepth>
 </Loop4.6>
+<Loop4.7>
+<Name>Loop 4.7</Name>
+<TripCount>undef</TripCount>
+<Latency>undef</Latency>
+<IterationLatency>
+<range>
+<min>3</min>
+<max>7</max>
+</range>
+</IterationLatency>
+<PipelineDepth>3 ~ 7</PipelineDepth>
+</Loop4.7>
 </Loop4>
 <Loop5>
 <Name>Loop 5</Name>
@@ -4418,8 +4425,8 @@
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>3282</FF>
-<LUT>2531</LUT>
+<FF>4026</FF>
+<LUT>3281</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 </Resources>
@@ -4490,6 +4497,28 @@
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_return</name>
+<Object>MPI_Recv</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>32</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>p_read</name>
+<Object>p_read</Object>
+<Type>scalar</Type>
+<Scope></Scope>
+<IOProtocol>ap_none</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>32</Bits>
+<Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>state_1_i</name>
@@ -8379,8 +8408,8 @@
 <Resources>
 <BRAM_18K>27</BRAM_18K>
 <DSP48E>111</DSP48E>
-<FF>32109</FF>
-<LUT>31765</LUT>
+<FF>32887</FF>
+<LUT>32527</LUT>
 </Resources>
 </AreaEstimates>
 <InterfaceSummary>
