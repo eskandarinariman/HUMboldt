@@ -1,0 +1,1694 @@
+
+
+================================================================
+== Vivado HLS Report for 'jacobi'
+================================================================
+* Date:           Wed Mar 14 01:38:57 2018
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        jacobi
+* Solution:       solution1
+* Product family: kintexu
+* Target device:  xcku115-flva1517-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|      4.59|        0.62|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------+------+------+----------+-----------+-----------+------+----------+
+        |                 |   Latency   | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name    |  min |  max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------+------+------+----------+-----------+-----------+------+----------+
+        |- Loop 1         |     ?|     ?|         ?|          -|          -|     7|    no    |
+        |- Loop 2         |   154|   154|        22|          -|          -|     7|    no    |
+        | + Loop 2.1      |    20|    20|         2|          -|          -|    10|    no    |
+        |- Loop 3         |     ?|     ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 3.1      |  1810|  1810|       362|          -|          -|     5|    no    |
+        |  ++ Loop 3.1.1  |   360|   360|        45|          -|          -|     8|    no    |
+        | + Loop 3.2      |    90|    90|        18|          -|          -|     5|    no    |
+        |  ++ Loop 3.2.1  |    16|    16|         2|          -|          -|     8|    no    |
+        |- Loop 4         |     ?|     ?|         ?|          -|          -|     7|    no    |
+        |- Loop 5         |   154|   154|        22|          -|          -|     7|    no    |
+        | + Loop 5.1      |    20|    20|         2|          -|          -|    10|    no    |
+        +-----------------+------+------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 85
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / (!exitcond2)
+	5  / (exitcond2)
+4 --> 
+	3  / true
+5 --> 
+	6  / (!exitcond3)
+	8  / (exitcond3)
+6 --> 
+	7  / (!exitcond9)
+	5  / (exitcond9)
+7 --> 
+	6  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / (!exitcond8)
+	58  / (exitcond8)
+13 --> 
+	14  / (!exitcond7)
+	12  / (exitcond7)
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+	41  / true
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	44  / true
+44 --> 
+	45  / true
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	48  / true
+48 --> 
+	49  / true
+49 --> 
+	50  / true
+50 --> 
+	51  / true
+51 --> 
+	52  / true
+52 --> 
+	53  / true
+53 --> 
+	54  / true
+54 --> 
+	55  / true
+55 --> 
+	56  / true
+56 --> 
+	57  / true
+57 --> 
+	13  / true
+58 --> 
+	61  / (exitcond6)
+	59  / (!exitcond6)
+59 --> 
+	60  / (!exitcond5)
+	58  / (exitcond5)
+60 --> 
+	59  / true
+61 --> 
+	62  / true
+62 --> 
+	63  / true
+63 --> 
+	64  / true
+64 --> 
+	65  / true
+65 --> 
+	66  / true
+66 --> 
+	67  / true
+67 --> 
+	68  / true
+68 --> 
+	69  / true
+69 --> 
+	70  / true
+70 --> 
+	71  / true
+71 --> 
+	72  / true
+72 --> 
+	73  / true
+73 --> 
+	74  / true
+74 --> 
+	75  / true
+75 --> 
+	76  / true
+76 --> 
+	77  / true
+77 --> 
+	78  / true
+78 --> 
+	79  / true
+79 --> 
+	80  / true
+80 --> 
+	8  / (tmp_22)
+	81  / (!tmp_22)
+81 --> 
+	82  / (!exitcond4)
+	83  / (exitcond4)
+82 --> 
+	81  / true
+83 --> 
+	84  / (!exitcond1)
+84 --> 
+	85  / (!exitcond)
+	83  / (exitcond)
+85 --> 
+	84  / true
+* FSM state operations: 
+
+ <State 1>: 0.54ns
+ST_1: xlocal (47)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:186
+:4  %xlocal = alloca [70 x float], align 4
+
+ST_1: xnew (48)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:187
+:5  %xnew = alloca [70 x float], align 4
+
+ST_1: StgValue_88 (51)  [2/2] 0.54ns  loc: jacobi_parallel_simple.cpp:192
+:8  call fastcc void @init_matrix([70 x float]* %xnew, i1 false) nounwind
+
+ST_1: StgValue_89 (52)  [2/2] 0.54ns  loc: jacobi_parallel_simple.cpp:200
+:9  call fastcc void @init_matrix([70 x float]* %xlocal, i1 true) nounwind
+
+
+ <State 2>: 0.54ns
+ST_2: empty (43)  [1/1] 0.00ns
+:0  %empty = call i32 (...)* @_ssdm_op_SpecInterface(i121* @stream_in_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str213, i32 0, i32 0, [1 x i8]* @p_str214, [1 x i8]* @p_str215, [1 x i8]* @p_str216, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str217, [1 x i8]* @p_str218) nounwind
+
+ST_2: empty_15 (44)  [1/1] 0.00ns
+:1  %empty_15 = call i32 (...)* @_ssdm_op_SpecInterface(i121* @stream_out_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str207, i32 0, i32 0, [1 x i8]* @p_str208, [1 x i8]* @p_str209, [1 x i8]* @p_str210, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str211, [1 x i8]* @p_str212) nounwind
+
+ST_2: StgValue_92 (45)  [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i32 0) nounwind, !map !3898
+
+ST_2: StgValue_93 (46)  [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecTopModule([7 x i8]* @jacobi_str) nounwind
+
+ST_2: StgValue_94 (49)  [1/1] 0.00ns
+:6  call void (...)* @_ssdm_op_SpecIFCore(i121* @stream_out_V, [1 x i8]* @p_str7, [11 x i8]* @p_str8, [1 x i8]* @p_str7, i32 -1, [1 x i8]* @p_str7, [1 x i8]* @p_str7, [1 x i8]* @p_str7, [1 x i8]* @p_str7, [1 x i8]* @p_str7) nounwind
+
+ST_2: StgValue_95 (50)  [1/1] 0.00ns
+:7  call void (...)* @_ssdm_op_SpecIFCore(i121* @stream_in_V, [1 x i8]* @p_str7, [11 x i8]* @p_str8, [1 x i8]* @p_str7, i32 -1, [1 x i8]* @p_str7, [1 x i8]* @p_str7, [1 x i8]* @p_str7, [1 x i8]* @p_str7, [1 x i8]* @p_str7) nounwind
+
+ST_2: StgValue_96 (51)  [1/2] 0.00ns  loc: jacobi_parallel_simple.cpp:192
+:8  call fastcc void @init_matrix([70 x float]* %xnew, i1 false) nounwind
+
+ST_2: StgValue_97 (52)  [1/2] 0.00ns  loc: jacobi_parallel_simple.cpp:200
+:9  call fastcc void @init_matrix([70 x float]* %xlocal, i1 true) nounwind
+
+ST_2: StgValue_98 (53)  [1/1] 0.54ns  loc: jacobi_parallel_simple.cpp:207
+:10  br label %1
+
+
+ <State 3>: 1.81ns
+ST_3: ii (55)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:207
+:0  %ii = phi i3 [ 0, %0 ], [ %ii_1, %2 ]
+
+ST_3: empty_16 (56)  [1/1] 0.00ns
+:1  %empty_16 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 7, i64 7, i64 0) nounwind
+
+ST_3: exitcond2 (57)  [1/1] 0.19ns  loc: jacobi_parallel_simple.cpp:207
+:2  %exitcond2 = icmp eq i3 %ii, -1
+
+ST_3: ii_1 (58)  [1/1] 1.17ns  loc: jacobi_parallel_simple.cpp:207
+:3  %ii_1 = add i3 %ii, 1
+
+ST_3: StgValue_103 (59)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:207
+:4  br i1 %exitcond2, label %.preheader19.preheader, label %2
+
+ST_3: tmp_3_cast (61)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:209
+:0  %tmp_3_cast = zext i3 %ii to i5
+
+ST_3: StgValue_105 (62)  [2/2] 1.81ns  loc: jacobi_parallel_simple.cpp:209
+:1  call fastcc void @MPI_Send.1([70 x float]* %xlocal, i5 %tmp_3_cast) nounwind
+
+ST_3: StgValue_106 (65)  [1/1] 0.54ns  loc: jacobi_parallel_simple.cpp:214
+.preheader19.preheader:0  br label %.preheader19
+
+
+ <State 4>: 0.00ns
+ST_4: StgValue_107 (62)  [1/2] 0.00ns  loc: jacobi_parallel_simple.cpp:209
+:1  call fastcc void @MPI_Send.1([70 x float]* %xlocal, i5 %tmp_3_cast) nounwind
+
+ST_4: StgValue_108 (63)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:207
+:2  br label %1
+
+
+ <State 5>: 1.32ns
+ST_5: i_1 (67)  [1/1] 0.00ns
+.preheader19:0  %i_1 = phi i3 [ %i_4, %.preheader19.loopexit ], [ 0, %.preheader19.preheader ]
+
+ST_5: exitcond3 (68)  [1/1] 0.19ns  loc: jacobi_parallel_simple.cpp:214
+.preheader19:1  %exitcond3 = icmp eq i3 %i_1, -1
+
+ST_5: empty_17 (69)  [1/1] 0.00ns
+.preheader19:2  %empty_17 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 7, i64 7, i64 7) nounwind
+
+ST_5: i_4 (70)  [1/1] 1.17ns  loc: jacobi_parallel_simple.cpp:214
+.preheader19:3  %i_4 = add i3 %i_1, 1
+
+ST_5: StgValue_113 (71)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:214
+.preheader19:4  br i1 %exitcond3, label %.preheader17.preheader, label %.preheader18.preheader
+
+ST_5: tmp_1 (73)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:214
+.preheader18.preheader:0  %tmp_1 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %i_1, i3 0)
+
+ST_5: p_shl_cast (74)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:214
+.preheader18.preheader:1  %p_shl_cast = zext i6 %tmp_1 to i7
+
+ST_5: tmp_2 (75)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:214
+.preheader18.preheader:2  %tmp_2 = call i4 @_ssdm_op_BitConcatenate.i4.i3.i1(i3 %i_1, i1 false)
+
+ST_5: p_shl1_cast (76)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:216
+.preheader18.preheader:3  %p_shl1_cast = zext i4 %tmp_2 to i7
+
+ST_5: tmp_5 (77)  [1/1] 1.32ns  loc: jacobi_parallel_simple.cpp:216
+.preheader18.preheader:4  %tmp_5 = add i7 %p_shl1_cast, %p_shl_cast
+
+ST_5: StgValue_119 (78)  [1/1] 0.54ns  loc: jacobi_parallel_simple.cpp:215
+.preheader18.preheader:5  br label %.preheader18
+
+ST_5: StgValue_120 (97)  [1/1] 0.54ns  loc: jacobi_parallel_simple.cpp:241
+.preheader17.preheader:0  br label %.preheader17
+
+
+ <State 6>: 3.06ns
+ST_6: j (80)  [1/1] 0.00ns
+.preheader18:0  %j = phi i4 [ %j_4, %3 ], [ 0, %.preheader18.preheader ]
+
+ST_6: exitcond9 (81)  [1/1] 0.47ns  loc: jacobi_parallel_simple.cpp:215
+.preheader18:1  %exitcond9 = icmp eq i4 %j, -6
+
+ST_6: empty_18 (82)  [1/1] 0.00ns
+.preheader18:2  %empty_18 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 10, i64 10, i64 10) nounwind
+
+ST_6: j_4 (83)  [1/1] 1.09ns  loc: jacobi_parallel_simple.cpp:215
+.preheader18:3  %j_4 = add i4 %j, 1
+
+ST_6: StgValue_125 (84)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:215
+.preheader18:4  br i1 %exitcond9, label %.preheader19.loopexit, label %3
+
+ST_6: tmp_8_cast (86)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:216
+:0  %tmp_8_cast = zext i4 %j to i7
+
+ST_6: tmp_6 (87)  [1/1] 1.29ns  loc: jacobi_parallel_simple.cpp:216
+:1  %tmp_6 = add i7 %tmp_5, %tmp_8_cast
+
+ST_6: tmp_6_cast (88)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:216
+:2  %tmp_6_cast = zext i7 %tmp_6 to i64
+
+ST_6: xnew_addr (90)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:216
+:4  %xnew_addr = getelementptr [70 x float]* %xnew, i64 0, i64 %tmp_6_cast
+
+ST_6: xnew_load (91)  [2/2] 1.77ns  loc: jacobi_parallel_simple.cpp:216
+:5  %xnew_load = load float* %xnew_addr, align 4
+
+ST_6: StgValue_131 (95)  [1/1] 0.00ns
+.preheader19.loopexit:0  br label %.preheader19
+
+
+ <State 7>: 3.54ns
+ST_7: xlocal_addr (89)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:216
+:3  %xlocal_addr = getelementptr [70 x float]* %xlocal, i64 0, i64 %tmp_6_cast
+
+ST_7: xnew_load (91)  [1/2] 1.77ns  loc: jacobi_parallel_simple.cpp:216
+:5  %xnew_load = load float* %xnew_addr, align 4
+
+ST_7: StgValue_134 (92)  [1/1] 1.77ns  loc: jacobi_parallel_simple.cpp:216
+:6  store float %xnew_load, float* %xlocal_addr, align 4
+
+ST_7: StgValue_135 (93)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:215
+:7  br label %.preheader18
+
+
+ <State 8>: 1.81ns
+ST_8: StgValue_136 (100)  [2/2] 1.81ns  loc: jacobi_parallel_simple.cpp:241
+.preheader17:1  call fastcc void @MPI_Send.1([70 x float]* %xlocal, i5 5) nounwind
+
+
+ <State 9>: 0.00ns
+ST_9: StgValue_137 (100)  [1/2] 0.00ns  loc: jacobi_parallel_simple.cpp:241
+.preheader17:1  call fastcc void @MPI_Send.1([70 x float]* %xlocal, i5 5) nounwind
+
+
+ <State 10>: 1.83ns
+ST_10: StgValue_138 (101)  [2/2] 1.83ns  loc: jacobi_parallel_simple.cpp:253
+.preheader17:2  call fastcc void @MPI_Recv.1([70 x float]* %xlocal, i4 6) nounwind
+
+
+ <State 11>: 1.46ns
+ST_11: itcnt (99)  [1/1] 0.00ns
+.preheader17:0  %itcnt = phi i32 [ %itcnt_1, %7 ], [ 0, %.preheader17.preheader ]
+
+ST_11: StgValue_140 (101)  [1/2] 0.00ns  loc: jacobi_parallel_simple.cpp:253
+.preheader17:2  call fastcc void @MPI_Recv.1([70 x float]* %xlocal, i4 6) nounwind
+
+ST_11: itcnt_1 (102)  [1/1] 1.46ns  loc: jacobi_parallel_simple.cpp:256
+.preheader17:3  %itcnt_1 = add nsw i32 %itcnt, 1
+
+ST_11: StgValue_142 (103)  [1/1] 0.54ns  loc: jacobi_parallel_simple.cpp:258
+.preheader17:4  br label %.loopexit
+
+
+ <State 12>: 2.48ns
+ST_12: diffnorm_array_0 (105)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:263
+.loopexit:0  %diffnorm_array_0 = phi float [ 0.000000e+00, %.preheader17 ], [ %diffnorm_1, %.loopexit.loopexit ]
+
+ST_12: i_2 (106)  [1/1] 0.00ns
+.loopexit:1  %i_2 = phi i3 [ 1, %.preheader17 ], [ %i, %.loopexit.loopexit ]
+
+ST_12: exitcond8 (107)  [1/1] 0.19ns  loc: jacobi_parallel_simple.cpp:258
+.loopexit:2  %exitcond8 = icmp eq i3 %i_2, -2
+
+ST_12: empty_19 (108)  [1/1] 0.00ns
+.loopexit:3  %empty_19 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 5, i64 5, i64 5) nounwind
+
+ST_12: StgValue_147 (109)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:258
+.loopexit:4  br i1 %exitcond8, label %.preheader15.preheader, label %.preheader16.preheader
+
+ST_12: tmp_s (111)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+.preheader16.preheader:0  %tmp_s = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %i_2, i3 0)
+
+ST_12: p_shl6_cast (112)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+.preheader16.preheader:1  %p_shl6_cast = zext i6 %tmp_s to i7
+
+ST_12: tmp_7 (113)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+.preheader16.preheader:2  %tmp_7 = call i4 @_ssdm_op_BitConcatenate.i4.i3.i1(i3 %i_2, i1 false)
+
+ST_12: p_shl7_cast (114)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+.preheader16.preheader:3  %p_shl7_cast = zext i4 %tmp_7 to i7
+
+ST_12: tmp_8 (115)  [1/1] 1.32ns  loc: jacobi_parallel_simple.cpp:262
+.preheader16.preheader:4  %tmp_8 = add i7 %p_shl7_cast, %p_shl6_cast
+
+ST_12: i (116)  [1/1] 1.17ns  loc: jacobi_parallel_simple.cpp:262
+.preheader16.preheader:5  %i = add i3 %i_2, 1
+
+ST_12: tmp_10 (117)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+.preheader16.preheader:6  %tmp_10 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %i, i3 0)
+
+ST_12: p_shl4_cast (118)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+.preheader16.preheader:7  %p_shl4_cast = zext i6 %tmp_10 to i7
+
+ST_12: tmp_12 (119)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+.preheader16.preheader:8  %tmp_12 = call i4 @_ssdm_op_BitConcatenate.i4.i3.i1(i3 %i, i1 false)
+
+ST_12: p_shl5_cast (120)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+.preheader16.preheader:9  %p_shl5_cast = zext i4 %tmp_12 to i7
+
+ST_12: tmp_18 (121)  [1/1] 1.32ns  loc: jacobi_parallel_simple.cpp:262
+.preheader16.preheader:10  %tmp_18 = add i7 %p_shl5_cast, %p_shl4_cast
+
+ST_12: tmp_4 (122)  [1/1] 1.17ns  loc: jacobi_parallel_simple.cpp:262
+.preheader16.preheader:11  %tmp_4 = add i3 %i_2, -1
+
+ST_12: tmp_23 (123)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+.preheader16.preheader:12  %tmp_23 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %tmp_4, i3 0)
+
+ST_12: p_shl2_cast (124)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+.preheader16.preheader:13  %p_shl2_cast = zext i6 %tmp_23 to i7
+
+ST_12: tmp_24 (125)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+.preheader16.preheader:14  %tmp_24 = call i4 @_ssdm_op_BitConcatenate.i4.i3.i1(i3 %tmp_4, i1 false)
+
+ST_12: p_shl3_cast (126)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+.preheader16.preheader:15  %p_shl3_cast = zext i4 %tmp_24 to i7
+
+ST_12: tmp_26 (127)  [1/1] 1.32ns  loc: jacobi_parallel_simple.cpp:262
+.preheader16.preheader:16  %tmp_26 = add i7 %p_shl3_cast, %p_shl2_cast
+
+ST_12: StgValue_165 (128)  [1/1] 0.54ns  loc: jacobi_parallel_simple.cpp:260
+.preheader16.preheader:17  br label %.preheader16
+
+ST_12: StgValue_166 (174)  [1/1] 0.54ns  loc: jacobi_parallel_simple.cpp:268
+.preheader15.preheader:0  br label %.preheader15
+
+
+ <State 13>: 4.15ns
+ST_13: diffnorm_1 (130)  [1/1] 0.00ns
+.preheader16:0  %diffnorm_1 = phi float [ %diffnorm, %4 ], [ %diffnorm_array_0, %.preheader16.preheader ]
+
+ST_13: j_1 (131)  [1/1] 0.00ns
+.preheader16:1  %j_1 = phi i4 [ %j_5, %4 ], [ 1, %.preheader16.preheader ]
+
+ST_13: exitcond7 (132)  [1/1] 0.47ns  loc: jacobi_parallel_simple.cpp:260
+.preheader16:2  %exitcond7 = icmp eq i4 %j_1, -7
+
+ST_13: empty_20 (133)  [1/1] 0.00ns
+.preheader16:3  %empty_20 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8) nounwind
+
+ST_13: StgValue_171 (134)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:260
+.preheader16:4  br i1 %exitcond7, label %.loopexit.loopexit, label %4
+
+ST_13: j_5 (136)  [1/1] 1.09ns  loc: jacobi_parallel_simple.cpp:262
+:0  %j_5 = add i4 %j_1, 1
+
+ST_13: tmp_7_cast (137)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+:1  %tmp_7_cast = zext i4 %j_5 to i7
+
+ST_13: tmp_31 (138)  [1/1] 1.29ns  loc: jacobi_parallel_simple.cpp:262
+:2  %tmp_31 = add i7 %tmp_8, %tmp_7_cast
+
+ST_13: tmp_38_cast (139)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+:3  %tmp_38_cast = zext i7 %tmp_31 to i64
+
+ST_13: xlocal_addr_1 (140)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+:4  %xlocal_addr_1 = getelementptr [70 x float]* %xlocal, i64 0, i64 %tmp_38_cast
+
+ST_13: xlocal_load (141)  [2/2] 1.77ns  loc: jacobi_parallel_simple.cpp:262
+:5  %xlocal_load = load float* %xlocal_addr_1, align 4
+
+ST_13: tmp_9 (142)  [1/1] 1.09ns  loc: jacobi_parallel_simple.cpp:262
+:6  %tmp_9 = add i4 %j_1, -1
+
+ST_13: tmp_10_cast (143)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+:7  %tmp_10_cast = zext i4 %tmp_9 to i7
+
+ST_13: tmp_32 (144)  [1/1] 1.29ns  loc: jacobi_parallel_simple.cpp:262
+:8  %tmp_32 = add i7 %tmp_8, %tmp_10_cast
+
+ST_13: tmp_39_cast (145)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+:9  %tmp_39_cast = zext i7 %tmp_32 to i64
+
+ST_13: xlocal_addr_2 (146)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+:10  %xlocal_addr_2 = getelementptr [70 x float]* %xlocal, i64 0, i64 %tmp_39_cast
+
+ST_13: xlocal_load_1 (147)  [2/2] 1.77ns  loc: jacobi_parallel_simple.cpp:262
+:11  %xlocal_load_1 = load float* %xlocal_addr_2, align 4
+
+ST_13: tmp_12_cast (149)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+:13  %tmp_12_cast = zext i4 %j_1 to i7
+
+ST_13: tmp_33 (150)  [1/1] 1.29ns  loc: jacobi_parallel_simple.cpp:262
+:14  %tmp_33 = add i7 %tmp_18, %tmp_12_cast
+
+ST_13: tmp_34 (153)  [1/1] 1.29ns  loc: jacobi_parallel_simple.cpp:262
+:17  %tmp_34 = add i7 %tmp_26, %tmp_12_cast
+
+ST_13: tmp_35 (156)  [1/1] 1.29ns  loc: jacobi_parallel_simple.cpp:263
+:20  %tmp_35 = add i7 %tmp_8, %tmp_12_cast
+
+ST_13: StgValue_188 (172)  [1/1] 0.00ns
+.loopexit.loopexit:0  br label %.loopexit
+
+
+ <State 14>: 1.77ns
+ST_14: xlocal_load (141)  [1/2] 1.77ns  loc: jacobi_parallel_simple.cpp:262
+:5  %xlocal_load = load float* %xlocal_addr_1, align 4
+
+ST_14: xlocal_load_1 (147)  [1/2] 1.77ns  loc: jacobi_parallel_simple.cpp:262
+:11  %xlocal_load_1 = load float* %xlocal_addr_2, align 4
+
+
+ <State 15>: 4.09ns
+ST_15: tmp_11 (148)  [7/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:12  %tmp_11 = fadd float %xlocal_load, %xlocal_load_1
+
+
+ <State 16>: 4.09ns
+ST_16: tmp_11 (148)  [6/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:12  %tmp_11 = fadd float %xlocal_load, %xlocal_load_1
+
+
+ <State 17>: 4.09ns
+ST_17: tmp_11 (148)  [5/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:12  %tmp_11 = fadd float %xlocal_load, %xlocal_load_1
+
+
+ <State 18>: 4.09ns
+ST_18: tmp_11 (148)  [4/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:12  %tmp_11 = fadd float %xlocal_load, %xlocal_load_1
+
+
+ <State 19>: 4.09ns
+ST_19: tmp_11 (148)  [3/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:12  %tmp_11 = fadd float %xlocal_load, %xlocal_load_1
+
+
+ <State 20>: 4.09ns
+ST_20: tmp_11 (148)  [2/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:12  %tmp_11 = fadd float %xlocal_load, %xlocal_load_1
+
+ST_20: tmp_40_cast (151)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+:15  %tmp_40_cast = zext i7 %tmp_33 to i64
+
+ST_20: xlocal_addr_3 (152)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+:16  %xlocal_addr_3 = getelementptr [70 x float]* %xlocal, i64 0, i64 %tmp_40_cast
+
+ST_20: xlocal_load_2 (160)  [2/2] 1.77ns  loc: jacobi_parallel_simple.cpp:262
+:24  %xlocal_load_2 = load float* %xlocal_addr_3, align 4
+
+
+ <State 21>: 4.09ns
+ST_21: tmp_11 (148)  [1/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:12  %tmp_11 = fadd float %xlocal_load, %xlocal_load_1
+
+ST_21: xlocal_load_2 (160)  [1/2] 1.77ns  loc: jacobi_parallel_simple.cpp:262
+:24  %xlocal_load_2 = load float* %xlocal_addr_3, align 4
+
+
+ <State 22>: 4.09ns
+ST_22: tmp_13 (161)  [7/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:25  %tmp_13 = fadd float %tmp_11, %xlocal_load_2
+
+
+ <State 23>: 4.09ns
+ST_23: tmp_13 (161)  [6/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:25  %tmp_13 = fadd float %tmp_11, %xlocal_load_2
+
+
+ <State 24>: 4.09ns
+ST_24: tmp_13 (161)  [5/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:25  %tmp_13 = fadd float %tmp_11, %xlocal_load_2
+
+
+ <State 25>: 4.09ns
+ST_25: tmp_13 (161)  [4/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:25  %tmp_13 = fadd float %tmp_11, %xlocal_load_2
+
+
+ <State 26>: 4.09ns
+ST_26: tmp_13 (161)  [3/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:25  %tmp_13 = fadd float %tmp_11, %xlocal_load_2
+
+
+ <State 27>: 4.09ns
+ST_27: tmp_41_cast (154)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+:18  %tmp_41_cast = zext i7 %tmp_34 to i64
+
+ST_27: xlocal_addr_4 (155)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+:19  %xlocal_addr_4 = getelementptr [70 x float]* %xlocal, i64 0, i64 %tmp_41_cast
+
+ST_27: tmp_13 (161)  [2/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:25  %tmp_13 = fadd float %tmp_11, %xlocal_load_2
+
+ST_27: xlocal_load_3 (162)  [2/2] 1.77ns  loc: jacobi_parallel_simple.cpp:262
+:26  %xlocal_load_3 = load float* %xlocal_addr_4, align 4
+
+
+ <State 28>: 4.09ns
+ST_28: tmp_13 (161)  [1/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:25  %tmp_13 = fadd float %tmp_11, %xlocal_load_2
+
+ST_28: xlocal_load_3 (162)  [1/2] 1.77ns  loc: jacobi_parallel_simple.cpp:262
+:26  %xlocal_load_3 = load float* %xlocal_addr_4, align 4
+
+
+ <State 29>: 4.09ns
+ST_29: tmp_14 (163)  [7/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:27  %tmp_14 = fadd float %tmp_13, %xlocal_load_3
+
+
+ <State 30>: 4.09ns
+ST_30: tmp_14 (163)  [6/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:27  %tmp_14 = fadd float %tmp_13, %xlocal_load_3
+
+
+ <State 31>: 4.09ns
+ST_31: tmp_14 (163)  [5/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:27  %tmp_14 = fadd float %tmp_13, %xlocal_load_3
+
+
+ <State 32>: 4.09ns
+ST_32: tmp_14 (163)  [4/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:27  %tmp_14 = fadd float %tmp_13, %xlocal_load_3
+
+
+ <State 33>: 4.09ns
+ST_33: tmp_14 (163)  [3/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:27  %tmp_14 = fadd float %tmp_13, %xlocal_load_3
+
+
+ <State 34>: 4.09ns
+ST_34: tmp_14 (163)  [2/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:27  %tmp_14 = fadd float %tmp_13, %xlocal_load_3
+
+
+ <State 35>: 4.09ns
+ST_35: tmp_14 (163)  [1/7] 4.09ns  loc: jacobi_parallel_simple.cpp:262
+:27  %tmp_14 = fadd float %tmp_13, %xlocal_load_3
+
+
+ <State 36>: 3.79ns
+ST_36: tmp_15 (164)  [4/4] 3.79ns  loc: jacobi_parallel_simple.cpp:262
+:28  %tmp_15 = fmul float %tmp_14, 2.500000e-01
+
+
+ <State 37>: 3.79ns
+ST_37: tmp_15 (164)  [3/4] 3.79ns  loc: jacobi_parallel_simple.cpp:262
+:28  %tmp_15 = fmul float %tmp_14, 2.500000e-01
+
+
+ <State 38>: 3.79ns
+ST_38: tmp_42_cast (157)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:263
+:21  %tmp_42_cast = zext i7 %tmp_35 to i64
+
+ST_38: xlocal_addr_5 (158)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:263
+:22  %xlocal_addr_5 = getelementptr [70 x float]* %xlocal, i64 0, i64 %tmp_42_cast
+
+ST_38: tmp_15 (164)  [2/4] 3.79ns  loc: jacobi_parallel_simple.cpp:262
+:28  %tmp_15 = fmul float %tmp_14, 2.500000e-01
+
+ST_38: xlocal_load_4 (166)  [2/2] 1.77ns  loc: jacobi_parallel_simple.cpp:263
+:30  %xlocal_load_4 = load float* %xlocal_addr_5, align 4
+
+
+ <State 39>: 3.79ns
+ST_39: tmp_15 (164)  [1/4] 3.79ns  loc: jacobi_parallel_simple.cpp:262
+:28  %tmp_15 = fmul float %tmp_14, 2.500000e-01
+
+ST_39: xlocal_load_4 (166)  [1/2] 1.77ns  loc: jacobi_parallel_simple.cpp:263
+:30  %xlocal_load_4 = load float* %xlocal_addr_5, align 4
+
+
+ <State 40>: 4.09ns
+ST_40: xnew_addr_1 (159)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:262
+:23  %xnew_addr_1 = getelementptr [70 x float]* %xnew, i64 0, i64 %tmp_42_cast
+
+ST_40: StgValue_229 (165)  [1/1] 1.77ns  loc: jacobi_parallel_simple.cpp:262
+:29  store float %tmp_15, float* %xnew_addr_1, align 4
+
+ST_40: tmp_16 (167)  [7/7] 4.09ns  loc: jacobi_parallel_simple.cpp:263
+:31  %tmp_16 = fsub float %tmp_15, %xlocal_load_4
+
+
+ <State 41>: 4.09ns
+ST_41: tmp_16 (167)  [6/7] 4.09ns  loc: jacobi_parallel_simple.cpp:263
+:31  %tmp_16 = fsub float %tmp_15, %xlocal_load_4
+
+
+ <State 42>: 4.09ns
+ST_42: tmp_16 (167)  [5/7] 4.09ns  loc: jacobi_parallel_simple.cpp:263
+:31  %tmp_16 = fsub float %tmp_15, %xlocal_load_4
+
+
+ <State 43>: 4.09ns
+ST_43: tmp_16 (167)  [4/7] 4.09ns  loc: jacobi_parallel_simple.cpp:263
+:31  %tmp_16 = fsub float %tmp_15, %xlocal_load_4
+
+
+ <State 44>: 4.09ns
+ST_44: tmp_16 (167)  [3/7] 4.09ns  loc: jacobi_parallel_simple.cpp:263
+:31  %tmp_16 = fsub float %tmp_15, %xlocal_load_4
+
+
+ <State 45>: 4.09ns
+ST_45: tmp_16 (167)  [2/7] 4.09ns  loc: jacobi_parallel_simple.cpp:263
+:31  %tmp_16 = fsub float %tmp_15, %xlocal_load_4
+
+
+ <State 46>: 4.09ns
+ST_46: tmp_16 (167)  [1/7] 4.09ns  loc: jacobi_parallel_simple.cpp:263
+:31  %tmp_16 = fsub float %tmp_15, %xlocal_load_4
+
+
+ <State 47>: 3.79ns
+ST_47: tmp_17 (168)  [4/4] 3.79ns  loc: jacobi_parallel_simple.cpp:263
+:32  %tmp_17 = fmul float %tmp_16, %tmp_16
+
+
+ <State 48>: 3.79ns
+ST_48: tmp_17 (168)  [3/4] 3.79ns  loc: jacobi_parallel_simple.cpp:263
+:32  %tmp_17 = fmul float %tmp_16, %tmp_16
+
+
+ <State 49>: 3.79ns
+ST_49: tmp_17 (168)  [2/4] 3.79ns  loc: jacobi_parallel_simple.cpp:263
+:32  %tmp_17 = fmul float %tmp_16, %tmp_16
+
+
+ <State 50>: 3.79ns
+ST_50: tmp_17 (168)  [1/4] 3.79ns  loc: jacobi_parallel_simple.cpp:263
+:32  %tmp_17 = fmul float %tmp_16, %tmp_16
+
+
+ <State 51>: 4.09ns
+ST_51: diffnorm (169)  [7/7] 4.09ns  loc: jacobi_parallel_simple.cpp:263
+:33  %diffnorm = fadd float %diffnorm_1, %tmp_17
+
+
+ <State 52>: 4.09ns
+ST_52: diffnorm (169)  [6/7] 4.09ns  loc: jacobi_parallel_simple.cpp:263
+:33  %diffnorm = fadd float %diffnorm_1, %tmp_17
+
+
+ <State 53>: 4.09ns
+ST_53: diffnorm (169)  [5/7] 4.09ns  loc: jacobi_parallel_simple.cpp:263
+:33  %diffnorm = fadd float %diffnorm_1, %tmp_17
+
+
+ <State 54>: 4.09ns
+ST_54: diffnorm (169)  [4/7] 4.09ns  loc: jacobi_parallel_simple.cpp:263
+:33  %diffnorm = fadd float %diffnorm_1, %tmp_17
+
+
+ <State 55>: 4.09ns
+ST_55: diffnorm (169)  [3/7] 4.09ns  loc: jacobi_parallel_simple.cpp:263
+:33  %diffnorm = fadd float %diffnorm_1, %tmp_17
+
+
+ <State 56>: 4.09ns
+ST_56: diffnorm (169)  [2/7] 4.09ns  loc: jacobi_parallel_simple.cpp:263
+:33  %diffnorm = fadd float %diffnorm_1, %tmp_17
+
+
+ <State 57>: 4.09ns
+ST_57: diffnorm (169)  [1/7] 4.09ns  loc: jacobi_parallel_simple.cpp:263
+:33  %diffnorm = fadd float %diffnorm_1, %tmp_17
+
+ST_57: StgValue_248 (170)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:260
+:34  br label %.preheader16
+
+
+ <State 58>: 4.09ns
+ST_58: i_3 (176)  [1/1] 0.00ns
+.preheader15:0  %i_3 = phi i3 [ %i_6, %6 ], [ 1, %.preheader15.preheader ]
+
+ST_58: exitcond6 (177)  [1/1] 0.19ns  loc: jacobi_parallel_simple.cpp:268
+.preheader15:1  %exitcond6 = icmp eq i3 %i_3, -2
+
+ST_58: empty_21 (178)  [1/1] 0.00ns
+.preheader15:2  %empty_21 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 5, i64 5, i64 5) nounwind
+
+ST_58: StgValue_252 (179)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:268
+.preheader15:3  br i1 %exitcond6, label %7, label %.preheader14.preheader
+
+ST_58: tmp_28 (181)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:268
+.preheader14.preheader:0  %tmp_28 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %i_3, i3 0)
+
+ST_58: p_shl8_cast (182)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:268
+.preheader14.preheader:1  %p_shl8_cast = zext i6 %tmp_28 to i7
+
+ST_58: tmp_29 (183)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:268
+.preheader14.preheader:2  %tmp_29 = call i4 @_ssdm_op_BitConcatenate.i4.i3.i1(i3 %i_3, i1 false)
+
+ST_58: p_shl9_cast (184)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:272
+.preheader14.preheader:3  %p_shl9_cast = zext i4 %tmp_29 to i7
+
+ST_58: tmp_30 (185)  [1/1] 1.32ns  loc: jacobi_parallel_simple.cpp:272
+.preheader14.preheader:4  %tmp_30 = add i7 %p_shl9_cast, %p_shl8_cast
+
+ST_58: StgValue_258 (186)  [1/1] 0.54ns  loc: jacobi_parallel_simple.cpp:270
+.preheader14.preheader:5  br label %.preheader14
+
+ST_58: gdiffnorm_array_0 (207)  [7/7] 4.09ns  loc: jacobi_parallel_simple.cpp:282
+:1  %gdiffnorm_array_0 = fadd float %diffnorm_array_0, %diffnorm_array_0
+
+ST_58: tmp_21 (219)  [1/1] 0.99ns  loc: jacobi_parallel_simple.cpp:314
+:13  %tmp_21 = icmp slt i32 %itcnt_1, 100
+
+
+ <State 59>: 3.06ns
+ST_59: j_2 (188)  [1/1] 0.00ns
+.preheader14:0  %j_2 = phi i4 [ %j_6, %5 ], [ 1, %.preheader14.preheader ]
+
+ST_59: exitcond5 (189)  [1/1] 0.47ns  loc: jacobi_parallel_simple.cpp:270
+.preheader14:1  %exitcond5 = icmp eq i4 %j_2, -7
+
+ST_59: empty_22 (190)  [1/1] 0.00ns
+.preheader14:2  %empty_22 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8) nounwind
+
+ST_59: StgValue_264 (191)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:270
+.preheader14:3  br i1 %exitcond5, label %6, label %5
+
+ST_59: tmp_18_cast (193)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:272
+:0  %tmp_18_cast = zext i4 %j_2 to i7
+
+ST_59: tmp_36 (194)  [1/1] 1.29ns  loc: jacobi_parallel_simple.cpp:272
+:1  %tmp_36 = add i7 %tmp_30, %tmp_18_cast
+
+ST_59: tmp_43_cast (195)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:272
+:2  %tmp_43_cast = zext i7 %tmp_36 to i64
+
+ST_59: xnew_addr_2 (197)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:272
+:4  %xnew_addr_2 = getelementptr [70 x float]* %xnew, i64 0, i64 %tmp_43_cast
+
+ST_59: xnew_load_1 (198)  [2/2] 1.77ns  loc: jacobi_parallel_simple.cpp:272
+:5  %xnew_load_1 = load float* %xnew_addr_2, align 4
+
+ST_59: j_6 (200)  [1/1] 1.09ns  loc: jacobi_parallel_simple.cpp:270
+:7  %j_6 = add i4 %j_2, 1
+
+ST_59: i_6 (203)  [1/1] 1.17ns  loc: jacobi_parallel_simple.cpp:268
+:0  %i_6 = add i3 %i_3, 1
+
+ST_59: StgValue_272 (204)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:268
+:1  br label %.preheader15
+
+
+ <State 60>: 3.54ns
+ST_60: xlocal_addr_6 (196)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:272
+:3  %xlocal_addr_6 = getelementptr [70 x float]* %xlocal, i64 0, i64 %tmp_43_cast
+
+ST_60: xnew_load_1 (198)  [1/2] 1.77ns  loc: jacobi_parallel_simple.cpp:272
+:5  %xnew_load_1 = load float* %xnew_addr_2, align 4
+
+ST_60: StgValue_275 (199)  [1/1] 1.77ns  loc: jacobi_parallel_simple.cpp:272
+:6  store float %xnew_load_1, float* %xlocal_addr_6, align 4
+
+ST_60: StgValue_276 (201)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:270
+:8  br label %.preheader14
+
+
+ <State 61>: 4.09ns
+ST_61: gdiffnorm_array_0 (207)  [6/7] 4.09ns  loc: jacobi_parallel_simple.cpp:282
+:1  %gdiffnorm_array_0 = fadd float %diffnorm_array_0, %diffnorm_array_0
+
+
+ <State 62>: 4.09ns
+ST_62: gdiffnorm_array_0 (207)  [5/7] 4.09ns  loc: jacobi_parallel_simple.cpp:282
+:1  %gdiffnorm_array_0 = fadd float %diffnorm_array_0, %diffnorm_array_0
+
+
+ <State 63>: 4.09ns
+ST_63: gdiffnorm_array_0 (207)  [4/7] 4.09ns  loc: jacobi_parallel_simple.cpp:282
+:1  %gdiffnorm_array_0 = fadd float %diffnorm_array_0, %diffnorm_array_0
+
+
+ <State 64>: 4.09ns
+ST_64: gdiffnorm_array_0 (207)  [3/7] 4.09ns  loc: jacobi_parallel_simple.cpp:282
+:1  %gdiffnorm_array_0 = fadd float %diffnorm_array_0, %diffnorm_array_0
+
+
+ <State 65>: 4.09ns
+ST_65: StgValue_281 (206)  [2/2] 0.00ns  loc: jacobi_parallel_simple.cpp:281
+:0  call fastcc void @MPI_Recv() nounwind
+
+ST_65: gdiffnorm_array_0 (207)  [2/7] 4.09ns  loc: jacobi_parallel_simple.cpp:282
+:1  %gdiffnorm_array_0 = fadd float %diffnorm_array_0, %diffnorm_array_0
+
+
+ <State 66>: 4.09ns
+ST_66: StgValue_283 (206)  [1/2] 0.00ns  loc: jacobi_parallel_simple.cpp:281
+:0  call fastcc void @MPI_Recv() nounwind
+
+ST_66: gdiffnorm_array_0 (207)  [1/7] 4.09ns  loc: jacobi_parallel_simple.cpp:282
+:1  %gdiffnorm_array_0 = fadd float %diffnorm_array_0, %diffnorm_array_0
+
+
+ <State 67>: 4.28ns
+ST_67: StgValue_285 (208)  [2/2] 0.00ns  loc: jacobi_parallel_simple.cpp:292
+:2  call fastcc void @MPI_Send(float %gdiffnorm_array_0) nounwind
+
+ST_67: gdiffnorm_1 (209)  [12/12] 4.28ns  loc: jacobi_parallel_simple.cpp:300
+:3  %gdiffnorm_1 = call float @llvm.sqrt.f32(float %gdiffnorm_array_0)
+
+
+ <State 68>: 4.28ns
+ST_68: StgValue_287 (208)  [1/2] 0.00ns  loc: jacobi_parallel_simple.cpp:292
+:2  call fastcc void @MPI_Send(float %gdiffnorm_array_0) nounwind
+
+ST_68: gdiffnorm_1 (209)  [11/12] 4.28ns  loc: jacobi_parallel_simple.cpp:300
+:3  %gdiffnorm_1 = call float @llvm.sqrt.f32(float %gdiffnorm_array_0)
+
+
+ <State 69>: 4.28ns
+ST_69: gdiffnorm_1 (209)  [10/12] 4.28ns  loc: jacobi_parallel_simple.cpp:300
+:3  %gdiffnorm_1 = call float @llvm.sqrt.f32(float %gdiffnorm_array_0)
+
+
+ <State 70>: 4.28ns
+ST_70: gdiffnorm_1 (209)  [9/12] 4.28ns  loc: jacobi_parallel_simple.cpp:300
+:3  %gdiffnorm_1 = call float @llvm.sqrt.f32(float %gdiffnorm_array_0)
+
+
+ <State 71>: 4.28ns
+ST_71: gdiffnorm_1 (209)  [8/12] 4.28ns  loc: jacobi_parallel_simple.cpp:300
+:3  %gdiffnorm_1 = call float @llvm.sqrt.f32(float %gdiffnorm_array_0)
+
+
+ <State 72>: 4.28ns
+ST_72: gdiffnorm_1 (209)  [7/12] 4.28ns  loc: jacobi_parallel_simple.cpp:300
+:3  %gdiffnorm_1 = call float @llvm.sqrt.f32(float %gdiffnorm_array_0)
+
+
+ <State 73>: 4.28ns
+ST_73: gdiffnorm_1 (209)  [6/12] 4.28ns  loc: jacobi_parallel_simple.cpp:300
+:3  %gdiffnorm_1 = call float @llvm.sqrt.f32(float %gdiffnorm_array_0)
+
+
+ <State 74>: 4.28ns
+ST_74: gdiffnorm_1 (209)  [5/12] 4.28ns  loc: jacobi_parallel_simple.cpp:300
+:3  %gdiffnorm_1 = call float @llvm.sqrt.f32(float %gdiffnorm_array_0)
+
+
+ <State 75>: 4.28ns
+ST_75: gdiffnorm_1 (209)  [4/12] 4.28ns  loc: jacobi_parallel_simple.cpp:300
+:3  %gdiffnorm_1 = call float @llvm.sqrt.f32(float %gdiffnorm_array_0)
+
+
+ <State 76>: 4.28ns
+ST_76: gdiffnorm_1 (209)  [3/12] 4.28ns  loc: jacobi_parallel_simple.cpp:300
+:3  %gdiffnorm_1 = call float @llvm.sqrt.f32(float %gdiffnorm_array_0)
+
+
+ <State 77>: 4.28ns
+ST_77: gdiffnorm_1 (209)  [2/12] 4.28ns  loc: jacobi_parallel_simple.cpp:300
+:3  %gdiffnorm_1 = call float @llvm.sqrt.f32(float %gdiffnorm_array_0)
+
+
+ <State 78>: 4.28ns
+ST_78: gdiffnorm_1 (209)  [1/12] 4.28ns  loc: jacobi_parallel_simple.cpp:300
+:3  %gdiffnorm_1 = call float @llvm.sqrt.f32(float %gdiffnorm_array_0)
+
+
+ <State 79>: 2.88ns
+ST_79: tmp_3 (210)  [1/1] 2.88ns  loc: jacobi_parallel_simple.cpp:314
+:4  %tmp_3 = fpext float %gdiffnorm_1 to double
+
+
+ <State 80>: 3.59ns
+ST_80: tmp_19_to_int (211)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:314
+:5  %tmp_19_to_int = bitcast double %tmp_3 to i64
+
+ST_80: tmp (212)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:314
+:6  %tmp = call i11 @_ssdm_op_PartSelect.i11.i64.i32.i32(i64 %tmp_19_to_int, i32 52, i32 62)
+
+ST_80: tmp_27 (213)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:314
+:7  %tmp_27 = trunc i64 %tmp_19_to_int to i52
+
+ST_80: notlhs (214)  [1/1] 0.77ns  loc: jacobi_parallel_simple.cpp:314
+:8  %notlhs = icmp ne i11 %tmp, -1
+
+ST_80: notrhs (215)  [1/1] 1.06ns  loc: jacobi_parallel_simple.cpp:314
+:9  %notrhs = icmp eq i52 %tmp_27, 0
+
+ST_80: tmp_19 (216)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:314 (grouped into LUT with out node tmp_22)
+:10  %tmp_19 = or i1 %notrhs, %notlhs
+
+ST_80: tmp_20 (217)  [1/1] 3.52ns  loc: jacobi_parallel_simple.cpp:314
+:11  %tmp_20 = fcmp ogt double %tmp_3, 1.000000e-02
+
+ST_80: tmp_25 (218)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:314 (grouped into LUT with out node tmp_22)
+:12  %tmp_25 = and i1 %tmp_19, %tmp_20
+
+ST_80: tmp_22 (220)  [1/1] 0.07ns  loc: jacobi_parallel_simple.cpp:314 (out node of the LUT)
+:14  %tmp_22 = and i1 %tmp_25, %tmp_21
+
+ST_80: StgValue_309 (221)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:314
+:15  br i1 %tmp_22, label %.preheader17, label %.preheader13.0.preheader
+
+ST_80: StgValue_310 (223)  [1/1] 0.54ns
+.preheader13.0.preheader:0  br label %.preheader13.0
+
+
+ <State 81>: 1.83ns
+ST_81: ii2 (225)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:330
+.preheader13.0:0  %ii2 = phi i3 [ %ii_2, %8 ], [ 0, %.preheader13.0.preheader ]
+
+ST_81: empty_23 (226)  [1/1] 0.00ns
+.preheader13.0:1  %empty_23 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 7, i64 7, i64 0) nounwind
+
+ST_81: exitcond4 (227)  [1/1] 0.19ns  loc: jacobi_parallel_simple.cpp:330
+.preheader13.0:2  %exitcond4 = icmp eq i3 %ii2, -1
+
+ST_81: ii_2 (228)  [1/1] 1.17ns  loc: jacobi_parallel_simple.cpp:330
+.preheader13.0:3  %ii_2 = add i3 %ii2, 1
+
+ST_81: StgValue_315 (229)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:330
+.preheader13.0:4  br i1 %exitcond4, label %.preheader12.preheader, label %8
+
+ST_81: tmp_25_cast (231)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:331
+:0  %tmp_25_cast = zext i3 %ii2 to i4
+
+ST_81: StgValue_317 (232)  [2/2] 1.83ns  loc: jacobi_parallel_simple.cpp:331
+:1  call fastcc void @MPI_Recv.1([70 x float]* %xlocal, i4 %tmp_25_cast) nounwind
+
+ST_81: StgValue_318 (235)  [1/1] 0.54ns  loc: jacobi_parallel_simple.cpp:340
+.preheader12.preheader:0  br label %.preheader12
+
+
+ <State 82>: 0.00ns
+ST_82: StgValue_319 (232)  [1/2] 0.00ns  loc: jacobi_parallel_simple.cpp:331
+:1  call fastcc void @MPI_Recv.1([70 x float]* %xlocal, i4 %tmp_25_cast) nounwind
+
+ST_82: StgValue_320 (233)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:330
+:2  br label %.preheader13.0
+
+
+ <State 83>: 1.32ns
+ST_83: i_5 (237)  [1/1] 0.00ns
+.preheader12:0  %i_5 = phi i3 [ %i_7, %.preheader12.loopexit ], [ 0, %.preheader12.preheader ]
+
+ST_83: exitcond1 (238)  [1/1] 0.19ns  loc: jacobi_parallel_simple.cpp:340
+.preheader12:1  %exitcond1 = icmp eq i3 %i_5, -1
+
+ST_83: empty_24 (239)  [1/1] 0.00ns
+.preheader12:2  %empty_24 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 7, i64 7, i64 7) nounwind
+
+ST_83: i_7 (240)  [1/1] 1.17ns  loc: jacobi_parallel_simple.cpp:340
+.preheader12:3  %i_7 = add i3 %i_5, 1
+
+ST_83: StgValue_325 (241)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:340
+.preheader12:4  br i1 %exitcond1, label %10, label %.preheader.preheader
+
+ST_83: tmp_37 (243)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:340
+.preheader.preheader:0  %tmp_37 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %i_5, i3 0)
+
+ST_83: p_shl10_cast (244)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:340
+.preheader.preheader:1  %p_shl10_cast = zext i6 %tmp_37 to i7
+
+ST_83: tmp_38 (245)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:340
+.preheader.preheader:2  %tmp_38 = call i4 @_ssdm_op_BitConcatenate.i4.i3.i1(i3 %i_5, i1 false)
+
+ST_83: p_shl11_cast (246)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:342
+.preheader.preheader:3  %p_shl11_cast = zext i4 %tmp_38 to i7
+
+ST_83: tmp_39 (247)  [1/1] 1.32ns  loc: jacobi_parallel_simple.cpp:342
+.preheader.preheader:4  %tmp_39 = add i7 %p_shl11_cast, %p_shl10_cast
+
+ST_83: StgValue_331 (248)  [1/1] 0.54ns  loc: jacobi_parallel_simple.cpp:341
+.preheader.preheader:5  br label %.preheader
+
+ST_83: StgValue_332 (267)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:358
+:0  ret i32 0
+
+
+ <State 84>: 3.06ns
+ST_84: j_3 (250)  [1/1] 0.00ns
+.preheader:0  %j_3 = phi i4 [ %j_7, %9 ], [ 0, %.preheader.preheader ]
+
+ST_84: exitcond (251)  [1/1] 0.47ns  loc: jacobi_parallel_simple.cpp:341
+.preheader:1  %exitcond = icmp eq i4 %j_3, -6
+
+ST_84: empty_25 (252)  [1/1] 0.00ns
+.preheader:2  %empty_25 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 10, i64 10, i64 10) nounwind
+
+ST_84: j_7 (253)  [1/1] 1.09ns  loc: jacobi_parallel_simple.cpp:341
+.preheader:3  %j_7 = add i4 %j_3, 1
+
+ST_84: StgValue_337 (254)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:341
+.preheader:4  br i1 %exitcond, label %.preheader12.loopexit, label %9
+
+ST_84: tmp_24_cast (256)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:342
+:0  %tmp_24_cast = zext i4 %j_3 to i7
+
+ST_84: tmp_40 (257)  [1/1] 1.29ns  loc: jacobi_parallel_simple.cpp:342
+:1  %tmp_40 = add i7 %tmp_39, %tmp_24_cast
+
+ST_84: tmp_47_cast (258)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:342
+:2  %tmp_47_cast = zext i7 %tmp_40 to i64
+
+ST_84: xnew_addr_3 (260)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:342
+:4  %xnew_addr_3 = getelementptr [70 x float]* %xnew, i64 0, i64 %tmp_47_cast
+
+ST_84: xnew_load_2 (261)  [2/2] 1.77ns  loc: jacobi_parallel_simple.cpp:342
+:5  %xnew_load_2 = load float* %xnew_addr_3, align 4
+
+ST_84: StgValue_343 (265)  [1/1] 0.00ns
+.preheader12.loopexit:0  br label %.preheader12
+
+
+ <State 85>: 3.54ns
+ST_85: xlocal_addr_7 (259)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:342
+:3  %xlocal_addr_7 = getelementptr [70 x float]* %xlocal, i64 0, i64 %tmp_47_cast
+
+ST_85: xnew_load_2 (261)  [1/2] 1.77ns  loc: jacobi_parallel_simple.cpp:342
+:5  %xnew_load_2 = load float* %xnew_addr_3, align 4
+
+ST_85: StgValue_346 (262)  [1/1] 1.77ns  loc: jacobi_parallel_simple.cpp:342
+:6  store float %xnew_load_2, float* %xlocal_addr_7, align 4
+
+ST_85: StgValue_347 (263)  [1/1] 0.00ns  loc: jacobi_parallel_simple.cpp:341
+:7  br label %.preheader
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 0.538ns
+The critical path consists of the following:
+	'alloca' operation ('xlocal', jacobi_parallel_simple.cpp:186) [47]  (0 ns)
+	'call' operation (jacobi_parallel_simple.cpp:200) to 'init_matrix' [52]  (0.538 ns)
+
+ <State 2>: 0.538ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('ii', jacobi_parallel_simple.cpp:207) with incoming values : ('ii_1', jacobi_parallel_simple.cpp:207) [55]  (0.538 ns)
+
+ <State 3>: 1.81ns
+The critical path consists of the following:
+	'phi' operation ('ii', jacobi_parallel_simple.cpp:207) with incoming values : ('ii_1', jacobi_parallel_simple.cpp:207) [55]  (0 ns)
+	'call' operation (jacobi_parallel_simple.cpp:209) to 'MPI_Send.1' [62]  (1.81 ns)
+
+ <State 4>: 0ns
+The critical path consists of the following:
+
+ <State 5>: 1.32ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', jacobi_parallel_simple.cpp:214) [67]  (0 ns)
+	'add' operation ('tmp_5', jacobi_parallel_simple.cpp:216) [77]  (1.32 ns)
+
+ <State 6>: 3.06ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', jacobi_parallel_simple.cpp:215) [80]  (0 ns)
+	'add' operation ('tmp_6', jacobi_parallel_simple.cpp:216) [87]  (1.29 ns)
+	'getelementptr' operation ('xnew_addr', jacobi_parallel_simple.cpp:216) [90]  (0 ns)
+	'load' operation ('xnew_load', jacobi_parallel_simple.cpp:216) on array 'xnew', jacobi_parallel_simple.cpp:187 [91]  (1.77 ns)
+
+ <State 7>: 3.54ns
+The critical path consists of the following:
+	'load' operation ('xnew_load', jacobi_parallel_simple.cpp:216) on array 'xnew', jacobi_parallel_simple.cpp:187 [91]  (1.77 ns)
+	'store' operation (jacobi_parallel_simple.cpp:216) of variable 'xnew_load', jacobi_parallel_simple.cpp:216 on array 'xlocal', jacobi_parallel_simple.cpp:186 [92]  (1.77 ns)
+
+ <State 8>: 1.81ns
+The critical path consists of the following:
+	'call' operation (jacobi_parallel_simple.cpp:241) to 'MPI_Send.1' [100]  (1.81 ns)
+
+ <State 9>: 0ns
+The critical path consists of the following:
+
+ <State 10>: 1.83ns
+The critical path consists of the following:
+	'call' operation (jacobi_parallel_simple.cpp:253) to 'MPI_Recv.1' [101]  (1.83 ns)
+
+ <State 11>: 1.46ns
+The critical path consists of the following:
+	'phi' operation ('itcnt') with incoming values : ('itcnt', jacobi_parallel_simple.cpp:256) [99]  (0 ns)
+	'add' operation ('itcnt', jacobi_parallel_simple.cpp:256) [102]  (1.46 ns)
+
+ <State 12>: 2.48ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', jacobi_parallel_simple.cpp:262) [106]  (0 ns)
+	'add' operation ('i', jacobi_parallel_simple.cpp:262) [116]  (1.17 ns)
+	'add' operation ('tmp_18', jacobi_parallel_simple.cpp:262) [121]  (1.32 ns)
+
+ <State 13>: 4.15ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', jacobi_parallel_simple.cpp:262) [131]  (0 ns)
+	'add' operation ('j', jacobi_parallel_simple.cpp:262) [136]  (1.09 ns)
+	'add' operation ('tmp_31', jacobi_parallel_simple.cpp:262) [138]  (1.29 ns)
+	'getelementptr' operation ('xlocal_addr_1', jacobi_parallel_simple.cpp:262) [140]  (0 ns)
+	'load' operation ('xlocal_load', jacobi_parallel_simple.cpp:262) on array 'xlocal', jacobi_parallel_simple.cpp:186 [141]  (1.77 ns)
+
+ <State 14>: 1.77ns
+The critical path consists of the following:
+	'load' operation ('xlocal_load', jacobi_parallel_simple.cpp:262) on array 'xlocal', jacobi_parallel_simple.cpp:186 [141]  (1.77 ns)
+
+ <State 15>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_11', jacobi_parallel_simple.cpp:262) [148]  (4.09 ns)
+
+ <State 16>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_11', jacobi_parallel_simple.cpp:262) [148]  (4.09 ns)
+
+ <State 17>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_11', jacobi_parallel_simple.cpp:262) [148]  (4.09 ns)
+
+ <State 18>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_11', jacobi_parallel_simple.cpp:262) [148]  (4.09 ns)
+
+ <State 19>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_11', jacobi_parallel_simple.cpp:262) [148]  (4.09 ns)
+
+ <State 20>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_11', jacobi_parallel_simple.cpp:262) [148]  (4.09 ns)
+
+ <State 21>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_11', jacobi_parallel_simple.cpp:262) [148]  (4.09 ns)
+
+ <State 22>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_13', jacobi_parallel_simple.cpp:262) [161]  (4.09 ns)
+
+ <State 23>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_13', jacobi_parallel_simple.cpp:262) [161]  (4.09 ns)
+
+ <State 24>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_13', jacobi_parallel_simple.cpp:262) [161]  (4.09 ns)
+
+ <State 25>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_13', jacobi_parallel_simple.cpp:262) [161]  (4.09 ns)
+
+ <State 26>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_13', jacobi_parallel_simple.cpp:262) [161]  (4.09 ns)
+
+ <State 27>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_13', jacobi_parallel_simple.cpp:262) [161]  (4.09 ns)
+
+ <State 28>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_13', jacobi_parallel_simple.cpp:262) [161]  (4.09 ns)
+
+ <State 29>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_14', jacobi_parallel_simple.cpp:262) [163]  (4.09 ns)
+
+ <State 30>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_14', jacobi_parallel_simple.cpp:262) [163]  (4.09 ns)
+
+ <State 31>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_14', jacobi_parallel_simple.cpp:262) [163]  (4.09 ns)
+
+ <State 32>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_14', jacobi_parallel_simple.cpp:262) [163]  (4.09 ns)
+
+ <State 33>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_14', jacobi_parallel_simple.cpp:262) [163]  (4.09 ns)
+
+ <State 34>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_14', jacobi_parallel_simple.cpp:262) [163]  (4.09 ns)
+
+ <State 35>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_14', jacobi_parallel_simple.cpp:262) [163]  (4.09 ns)
+
+ <State 36>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_15', jacobi_parallel_simple.cpp:262) [164]  (3.79 ns)
+
+ <State 37>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_15', jacobi_parallel_simple.cpp:262) [164]  (3.79 ns)
+
+ <State 38>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_15', jacobi_parallel_simple.cpp:262) [164]  (3.79 ns)
+
+ <State 39>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_15', jacobi_parallel_simple.cpp:262) [164]  (3.79 ns)
+
+ <State 40>: 4.09ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_16', jacobi_parallel_simple.cpp:263) [167]  (4.09 ns)
+
+ <State 41>: 4.09ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_16', jacobi_parallel_simple.cpp:263) [167]  (4.09 ns)
+
+ <State 42>: 4.09ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_16', jacobi_parallel_simple.cpp:263) [167]  (4.09 ns)
+
+ <State 43>: 4.09ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_16', jacobi_parallel_simple.cpp:263) [167]  (4.09 ns)
+
+ <State 44>: 4.09ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_16', jacobi_parallel_simple.cpp:263) [167]  (4.09 ns)
+
+ <State 45>: 4.09ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_16', jacobi_parallel_simple.cpp:263) [167]  (4.09 ns)
+
+ <State 46>: 4.09ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_16', jacobi_parallel_simple.cpp:263) [167]  (4.09 ns)
+
+ <State 47>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_17', jacobi_parallel_simple.cpp:263) [168]  (3.79 ns)
+
+ <State 48>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_17', jacobi_parallel_simple.cpp:263) [168]  (3.79 ns)
+
+ <State 49>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_17', jacobi_parallel_simple.cpp:263) [168]  (3.79 ns)
+
+ <State 50>: 3.79ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_17', jacobi_parallel_simple.cpp:263) [168]  (3.79 ns)
+
+ <State 51>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('diffnorm', jacobi_parallel_simple.cpp:263) [169]  (4.09 ns)
+
+ <State 52>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('diffnorm', jacobi_parallel_simple.cpp:263) [169]  (4.09 ns)
+
+ <State 53>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('diffnorm', jacobi_parallel_simple.cpp:263) [169]  (4.09 ns)
+
+ <State 54>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('diffnorm', jacobi_parallel_simple.cpp:263) [169]  (4.09 ns)
+
+ <State 55>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('diffnorm', jacobi_parallel_simple.cpp:263) [169]  (4.09 ns)
+
+ <State 56>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('diffnorm', jacobi_parallel_simple.cpp:263) [169]  (4.09 ns)
+
+ <State 57>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('diffnorm', jacobi_parallel_simple.cpp:263) [169]  (4.09 ns)
+
+ <State 58>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('gdiffnorm_array[0]', jacobi_parallel_simple.cpp:282) [207]  (4.09 ns)
+
+ <State 59>: 3.06ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', jacobi_parallel_simple.cpp:270) [188]  (0 ns)
+	'add' operation ('tmp_36', jacobi_parallel_simple.cpp:272) [194]  (1.29 ns)
+	'getelementptr' operation ('xnew_addr_2', jacobi_parallel_simple.cpp:272) [197]  (0 ns)
+	'load' operation ('xnew_load_1', jacobi_parallel_simple.cpp:272) on array 'xnew', jacobi_parallel_simple.cpp:187 [198]  (1.77 ns)
+
+ <State 60>: 3.54ns
+The critical path consists of the following:
+	'load' operation ('xnew_load_1', jacobi_parallel_simple.cpp:272) on array 'xnew', jacobi_parallel_simple.cpp:187 [198]  (1.77 ns)
+	'store' operation (jacobi_parallel_simple.cpp:272) of variable 'xnew_load_1', jacobi_parallel_simple.cpp:272 on array 'xlocal', jacobi_parallel_simple.cpp:186 [199]  (1.77 ns)
+
+ <State 61>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('gdiffnorm_array[0]', jacobi_parallel_simple.cpp:282) [207]  (4.09 ns)
+
+ <State 62>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('gdiffnorm_array[0]', jacobi_parallel_simple.cpp:282) [207]  (4.09 ns)
+
+ <State 63>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('gdiffnorm_array[0]', jacobi_parallel_simple.cpp:282) [207]  (4.09 ns)
+
+ <State 64>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('gdiffnorm_array[0]', jacobi_parallel_simple.cpp:282) [207]  (4.09 ns)
+
+ <State 65>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('gdiffnorm_array[0]', jacobi_parallel_simple.cpp:282) [207]  (4.09 ns)
+
+ <State 66>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('gdiffnorm_array[0]', jacobi_parallel_simple.cpp:282) [207]  (4.09 ns)
+
+ <State 67>: 4.28ns
+The critical path consists of the following:
+	'fsqrt' operation ('gdiffnorm', jacobi_parallel_simple.cpp:300) [209]  (4.28 ns)
+
+ <State 68>: 4.28ns
+The critical path consists of the following:
+	'fsqrt' operation ('gdiffnorm', jacobi_parallel_simple.cpp:300) [209]  (4.28 ns)
+
+ <State 69>: 4.28ns
+The critical path consists of the following:
+	'fsqrt' operation ('gdiffnorm', jacobi_parallel_simple.cpp:300) [209]  (4.28 ns)
+
+ <State 70>: 4.28ns
+The critical path consists of the following:
+	'fsqrt' operation ('gdiffnorm', jacobi_parallel_simple.cpp:300) [209]  (4.28 ns)
+
+ <State 71>: 4.28ns
+The critical path consists of the following:
+	'fsqrt' operation ('gdiffnorm', jacobi_parallel_simple.cpp:300) [209]  (4.28 ns)
+
+ <State 72>: 4.28ns
+The critical path consists of the following:
+	'fsqrt' operation ('gdiffnorm', jacobi_parallel_simple.cpp:300) [209]  (4.28 ns)
+
+ <State 73>: 4.28ns
+The critical path consists of the following:
+	'fsqrt' operation ('gdiffnorm', jacobi_parallel_simple.cpp:300) [209]  (4.28 ns)
+
+ <State 74>: 4.28ns
+The critical path consists of the following:
+	'fsqrt' operation ('gdiffnorm', jacobi_parallel_simple.cpp:300) [209]  (4.28 ns)
+
+ <State 75>: 4.28ns
+The critical path consists of the following:
+	'fsqrt' operation ('gdiffnorm', jacobi_parallel_simple.cpp:300) [209]  (4.28 ns)
+
+ <State 76>: 4.28ns
+The critical path consists of the following:
+	'fsqrt' operation ('gdiffnorm', jacobi_parallel_simple.cpp:300) [209]  (4.28 ns)
+
+ <State 77>: 4.28ns
+The critical path consists of the following:
+	'fsqrt' operation ('gdiffnorm', jacobi_parallel_simple.cpp:300) [209]  (4.28 ns)
+
+ <State 78>: 4.28ns
+The critical path consists of the following:
+	'fsqrt' operation ('gdiffnorm', jacobi_parallel_simple.cpp:300) [209]  (4.28 ns)
+
+ <State 79>: 2.88ns
+The critical path consists of the following:
+	'fpext' operation ('tmp_3', jacobi_parallel_simple.cpp:314) [210]  (2.88 ns)
+
+ <State 80>: 3.59ns
+The critical path consists of the following:
+	'dcmp' operation ('tmp_20', jacobi_parallel_simple.cpp:314) [217]  (3.52 ns)
+	'and' operation ('tmp_25', jacobi_parallel_simple.cpp:314) [218]  (0 ns)
+	'and' operation ('tmp_22', jacobi_parallel_simple.cpp:314) [220]  (0.071 ns)
+
+ <State 81>: 1.83ns
+The critical path consists of the following:
+	'phi' operation ('ii2', jacobi_parallel_simple.cpp:330) with incoming values : ('ii_2', jacobi_parallel_simple.cpp:330) [225]  (0 ns)
+	'call' operation (jacobi_parallel_simple.cpp:331) to 'MPI_Recv.1' [232]  (1.83 ns)
+
+ <State 82>: 0ns
+The critical path consists of the following:
+
+ <State 83>: 1.32ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', jacobi_parallel_simple.cpp:340) [237]  (0 ns)
+	'add' operation ('tmp_39', jacobi_parallel_simple.cpp:342) [247]  (1.32 ns)
+
+ <State 84>: 3.06ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', jacobi_parallel_simple.cpp:341) [250]  (0 ns)
+	'add' operation ('tmp_40', jacobi_parallel_simple.cpp:342) [257]  (1.29 ns)
+	'getelementptr' operation ('xnew_addr_3', jacobi_parallel_simple.cpp:342) [260]  (0 ns)
+	'load' operation ('xnew_load_2', jacobi_parallel_simple.cpp:342) on array 'xnew', jacobi_parallel_simple.cpp:187 [261]  (1.77 ns)
+
+ <State 85>: 3.54ns
+The critical path consists of the following:
+	'load' operation ('xnew_load_2', jacobi_parallel_simple.cpp:342) on array 'xnew', jacobi_parallel_simple.cpp:187 [261]  (1.77 ns)
+	'store' operation (jacobi_parallel_simple.cpp:342) of variable 'xnew_load_2', jacobi_parallel_simple.cpp:342 on array 'xlocal', jacobi_parallel_simple.cpp:186 [262]  (1.77 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+	State 72
+	State 73
+	State 74
+	State 75
+	State 76
+	State 77
+	State 78
+	State 79
+	State 80
+	State 81
+	State 82
+	State 83
+	State 84
+	State 85
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
