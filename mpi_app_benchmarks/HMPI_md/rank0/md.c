@@ -1,5 +1,5 @@
 #define MODULE_RANK 0
-#define MPI_SIZE 1
+#define MPI_SIZE 2
 
 /*
  * Program to compute Molecular Dynamics and determine the potential energy of a collection 

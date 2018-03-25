@@ -930,13 +930,13 @@ done:
 
 int MPI_Recv(void * buff,unsigned int count,MPI_DATA_TYPE dataType,
 	unsigned int src,int tag,MPI_COMM comm){
-	//cout << "wait for envlp from " <<src<<endl;
+	cout << "wait for envlp from " <<src<<endl;
 	wait_for_envlp(src,dataType);
-	//cout << "send clr2snd to " <<src<<endl;
+	cout << "send clr2snd to " <<src<<endl;
 	send_clr2snd(src,dataType);
-	//cout << "receive data from " <<src<<endl;
+	cout << "receive data from " <<src<<endl;
 	receive_data(buff,count,dataType,src);//this function has problem
-	//cout << "recv done " <<src<<endl;
+	cout << "recv done " <<src<<endl;
 
 	return 1;
 
@@ -944,13 +944,13 @@ int MPI_Recv(void * buff,unsigned int count,MPI_DATA_TYPE dataType,
 
 int MPI_Send(void * buff,unsigned int count,MPI_DATA_TYPE dataType,
 	unsigned int dest,int tag,MPI_COMM comm){
-	//cout << "send envelope to " <<dest<<endl;
+	cout << "send envelope to " <<dest<<endl;
 	send_envelope(dest,count,dataType,tag);
-	//cout << "wait for clr2snd from " <<dest<<endl;
+	cout << "wait for clr2snd from " <<dest<<endl;
 	wait_for_clr2snd(dest,count,dataType,tag);
-	//cout << "send data to " <<dest<<endl;
+	cout << "send data to " <<dest<<endl;
 	send_data(buff,count,dataType,dest,tag);
-	//cout << "send done " <<dest<<endl;
+	cout << "send done " <<dest<<endl;
 
 	return 1;
 }

@@ -106,39 +106,48 @@ doMD(int atomCount, int stepCount)
     float *vel = NULL;
 
     float *pos = (float*) malloc(atomCount * 3 * sizeof(float));
+    for(q = 0; q < atomCount*3 ;q++)
+        pos[q]  = 0;
     if (pos == NULL)
     {
         PRINT("Cannot allocate memory for atoms\n");
         return;
     }
     float *force = (float*) malloc(atomCount * 3 * sizeof(float));
+    for(q = 0; q < atomCount*3 ;q++)
+        force[q]  = 0;
     if (force == NULL)
     {
         PRINT("Cannot allocate memory for forces\n");
         free (pos);
         return;
     }
+
+    forceSum = (float*) malloc(atomCount * 3 * sizeof(float));
+    for(q = 0; q < atomCount*3 ;q++)
+        forceSum[q]  = 0;
+    if (forceSum == NULL)
+    {
+        PRINT("Cannot allocate memory for force summation buffer\n");
+        free(pos);
+        free(force);
+        return;
+    }
+
+    vel = (float*) malloc(atomCount * 3 * sizeof(float));
+    for(q = 0; q < atomCount*3 ;q++)
+        vel[q]  = 0;
+    if (vel == NULL)
+    {
+        PRINT("Cannot allocate memory for velocity buffer\n");
+        free(forceSum);
+        free(pos);
+        free(force);
+        return;
+    }
     
     if (!rank)
     {
-        forceSum = (float*) malloc(atomCount * 3 * sizeof(float));
-        if (forceSum == NULL)
-        {
-            PRINT("Cannot allocate memory for force summation buffer\n");
-            free(pos);
-            free(force);
-            return;
-        }
-
-        vel = (float*) malloc(atomCount * 3 * sizeof(float));
-        if (vel == NULL)
-        {
-            PRINT("Cannot allocate memory for velocity buffer\n");
-            free(forceSum);
-            free(pos);
-            free(force);
-            return;
-        }
 
         float boltzmanTemp = 298. * BOLTZMAN;
         float tempOverMass = sqrt(boltzmanTemp / 40.0);
@@ -183,13 +192,15 @@ doMD(int atomCount, int stepCount)
     float vdw = 0.5;
     while (stepIndex++ < stepCount)
     {
+        #ifdef VERBOSE
         printf("stepIndex: %d\n",stepIndex);
+        #endif
         // Distribute atoms using broadcast.
        
         MPI_Bcast(pos, atomCount * 3, MPI_FLOAT, 0, MPI_COMM_WORLD);
-        for(q = 0; q < atomCount*3 ; q++){
-            printf("pos: %f\n",pos[q]);
-        }
+        // for(q = 0; q < atomCount*3 ; q++){
+        //     printf("pos: %f\n",pos[q]);
+        // }
         memset(force, 0, sizeof(float) * 3 * atomCount);
         for (i = rank * localAtomCount; i != rank * localAtomCount + localAtomCount; ++i)
         {
@@ -228,6 +239,12 @@ doMD(int atomCount, int stepCount)
 
         // Reduce forces on root.
         MPI_Reduce(force, forceSum, atomCount * 3, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
+        #ifdef VERBOSE
+        if(!rank)
+            for(q = 0; q < atomCount*3 ; q++){
+                printf("forceSum: %f\n",forceSum[q]);
+            }
+        #endif
 
         // Integrate.
         if (!rank)
@@ -237,16 +254,31 @@ doMD(int atomCount, int stepCount)
             {
                 vel[i * 3] += forceSum[i * 3] * DT * INVMASS;
                 pos[i * 3] += floatMod(vel[i * 3] * DT, CUBELENGTH);
-                vel[i * 3 + 1] += forceSum[i * 3 + 1] * DT * INVMASS;
-                pos[i * 3 + 1] += floatMod(vel[i * 3 + 1] * DT, CUBELENGTH);
-                vel[i * 3 + 2] += forceSum[i * 3 + 2] * DT * INVMASS;
-                pos[i * 3 + 2] += floatMod(vel[i * 3 + 2] * DT, CUBELENGTH);
+                vel[(i * 3) + 1] += forceSum[i * 3 + 1] * DT * INVMASS;
+                pos[(i * 3) + 1] += floatMod(vel[i * 3 + 1] * DT, CUBELENGTH);
+                vel[(i * 3) + 2] += forceSum[i * 3 + 2] * DT * INVMASS;
+                pos[(i * 3) + 2] += floatMod(vel[i * 3 + 2] * DT, CUBELENGTH);
+                // if(i*3 == 108 || i*3+1 == 108 || i*3+2 == 108){
+                //     printf("i: %d setting value of pos [108]: %f\n",i,pos[108]);
+                //     int temp;
+                //     scanf("%d",&temp);
+                // }
             }
+            #ifdef VERBOSE
+            for(q = 0; q < atomCount*3 ; q++){
+                printf("vel: %f\n",vel[q]);
+            }    
+            for(q = 0; q < atomCount*3 ; q++){
+                printf("pos[%d]: %f\n",q,pos[q]);
+            }    
+            #endif
         }
+
     }
 
     MPI_Barrier(MPI_COMM_WORLD);
-
+    fflush(stdout);
+    printf("pos: %f\n",pos[(atomCount*3)-1]);
     free(pos);
     free(force);
     
@@ -261,9 +293,9 @@ doMD(int atomCount, int stepCount)
 int 
 main(int argc, char* argv[])
 {
-    PRINT( "%c[2J%c[H", 27, 27);
-    PRINT("File: %s\r\n",__FILE__);
-    PRINT("Compiled %s %s\r\n",__DATE__,__TIME__);
+    // PRINT( "%c[2J%c[H", 27, 27);
+    // PRINT("File: %s\r\n",__FILE__);
+    // PRINT("Compiled %s %s\r\n",__DATE__,__TIME__);
     
 
     // Setup network.
@@ -271,7 +303,7 @@ main(int argc, char* argv[])
     MPI_Comm_size(MPI_COMM_WORLD, &processorCount);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
-    PRINT("PROC:%d, ATOMS:%d, STEPS:%d\r\n", processorCount, ATOMCOUNT, STEPCOUNT);
+    //PRINT("PROC:%d, ATOMS:%d, STEPS:%d\r\n", processorCount, ATOMCOUNT, STEPCOUNT);
 
     //srand((unsigned)time(0));
     int atomCount = ATOMCOUNT;

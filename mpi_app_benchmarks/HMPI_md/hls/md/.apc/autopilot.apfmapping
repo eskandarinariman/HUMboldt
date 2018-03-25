@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="MPI.h" path="/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/MPI.h"/>
     <originFiles name="md.cpp" path="/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/md.cpp"/>
     <originFiles name="common.h" path="/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/common.h"/>
+    <originFiles name="MPI.h" path="/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_md/hls/MPI.h"/>
   </source>
   <testbench/>
 </autopilotfilemapping:AutoPilotFileMapping>

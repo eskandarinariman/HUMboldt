@@ -2,7 +2,7 @@ PROGNAME = md
 
 IDIR = ../common/
 CC = mpicc.mpich
-CFLAGS = -I$(IDIR) -DVERBOSE
+CFLAGS = -I$(IDIR) 
 
 ODIR = ./
 LDIR = ./

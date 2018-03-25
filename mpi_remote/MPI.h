@@ -52,7 +52,7 @@ using namespace std;
 
 #define MPI_SUCCESS 1
 
-#define TIMEOUT 4
+#define TIMEOUT 6
 
 
 #define INT 0

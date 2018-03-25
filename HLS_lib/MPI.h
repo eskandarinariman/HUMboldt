@@ -113,10 +113,10 @@ int MPI_Send(
 		MPI_DATA_TYPE dataType,
 		int dest,
 		int tag,
-		int MPI_Comm,
-		int & state_out)
+		int MPI_Comm)
 {
-
+//#pragma HLS INLINE
+	
 
 	static enum State {IDLE = 0,CLR2SND_WAIT, DATA_SEND_LOOP} state;
 
@@ -307,7 +307,7 @@ send:
 					seq_num = temp.MSG_SIZE;
 					error_is_seen = 1;
 					old_seq_num = seq_num;
-					state_out = 12;
+					//state_out = 12;
 					continue;
 				}
 				else if(temp.PKT_TYPE == C_DATA_TRANSMISSION_DONE && recv_data.id == dest){
@@ -467,7 +467,7 @@ send:
 			if(temp.PKT_TYPE == C_RECV_ERROR && recv_data.id == dest){
 				i = temp.MSG_SIZE*(ETH_DATA_FRAM_SIZE-8)+1; //??? + or not?
 				seq_num = temp.MSG_SIZE;
-				state_out = 12;
+				//state_out = 12;
 				goto send;
 			}
 			else if(temp.PKT_TYPE == C_DATA_TRANSMISSION_DONE && recv_data.id == dest){
@@ -570,10 +570,9 @@ int MPI_Send(
 		MPI_DATA_TYPE dataType,
 		int dest,
 		int tag,
-		int MPI_Comm,
-		int & state_out)
+		int MPI_Comm)
 {
-
+//#pragma HLS INLINE
 
 	static enum State {IDLE = 0,CLR2SND_WAIT, DATA_SEND_LOOP,SEND_DATA_FAILURE} state;
 	static ap_uint<64> time = 0;  
@@ -740,8 +739,8 @@ int MPI_Send(
 		bool seq_inc = 0;
 		bool transmission_done = 0;
 		bool failed = 0;
-		state_out = 9;
-		bool for_finished= 0;
+		//state_out = 9;
+		volatile bool for_finished = 0;
 		bool error_is_seen = 0;
 		
 		//state_out = 0;
@@ -751,7 +750,11 @@ send:
 			ap_uint <1> last = 0;
 			stream_packet to_send_data;
 			stream_packet recv_data,useless;
-			state_out = 10;
+			//state_out = 10;
+			if(count == 0){
+				for_finished =1;
+				goto sfdone;
+			}
 			if(!stream_in.empty()){
 				recv_data = stream_in.read();
 				last = recv_data.last;
@@ -761,7 +764,7 @@ send:
 				}
 
 				envelope temp;
-				state_out = 11;
+				//state_out = 11;
 				packet_to_envelope(&recv_data,&temp);
 				// if(temp.PKT_TYPE == C_RECV_ERROR && recv_data.id == dest){
 				if(temp.PKT_TYPE == C_RECV_ERROR && recv_data.id == dest){
@@ -770,12 +773,14 @@ send:
 					//i = 15;
 					old_seq_num = seq_num;
 					seq_num = temp.MSG_SIZE;
-					state_out = 12;
+					//state_out = 12;
 					continue;
 					//return 0;
 				}
 				else if(temp.PKT_TYPE == C_DATA_TRANSMISSION_DONE && recv_data.id == dest){
-					transmission_done = 1;
+					//for_finished = 0;
+					state = IDLE;
+					return 1;
 					//state_out = 1;
 				}
 				else if(recv_data.user(7,4) == ENVLP){
@@ -879,10 +884,10 @@ send:
 				continue;
 			}
 
-			state_out = 13;
+			//state_out = 13;
 			if(((i-1)*2) >= count){
 				for_finished = 1;
-				break;
+				goto sfdone;
 			}
 
 			float temp1= buf[((i-1)*2)+0];
@@ -898,10 +903,11 @@ send:
 				to_send_data.id = MODULE_RANK;
 				to_send_data.user(3,0) = FLOAT;
 				to_send_data.user(7,4) = DATA;
-				to_send_data.id = MODULE_RANK;
+				to_send_data.dest = dest;
 				to_send_data.user(39,8) = seq_num;
 				stream_out.write(to_send_data);
-				break;
+				for_finished = 1;
+				goto sfdone;
 			}
 			float temp2= buf[((i-1)*2)+1];
 			void * vtemp2_p= &temp2;
@@ -943,6 +949,7 @@ send:
 				seq_inc = 0;
 			}
 		}
+sfdone:
 		while(for_finished){
 			stream_packet recv_data,useless;
 			ap_uint <1> last = 0;
@@ -953,19 +960,20 @@ send:
 				last = useless.last;
 			}
 			envelope temp;
-			state_out = 15;
+			//state_out = 15;
 			packet_to_envelope(&recv_data,&temp);
 			// if(temp.PKT_TYPE == C_RECV_ERROR && recv_data.id == dest){
 			if(temp.PKT_TYPE == C_RECV_ERROR && recv_data.id == dest){
 				i = (temp.MSG_SIZE*((ETH_DATA_FRAM_SIZE/4)-2)/2)+1; // ??? +1 or not?
 				//i = 15;
 				seq_num = temp.MSG_SIZE;
-				state_out = 16;
+				//state_out = 16;
 				goto send;
 				//return 0;
 			}
 			else if(temp.PKT_TYPE == C_DATA_TRANSMISSION_DONE && recv_data.id == dest){
 				state = IDLE;
+				//for_finished = 0;
 				return 1;
 				//state_out = 1;
 			}
@@ -1060,14 +1068,13 @@ send:
 	return 0;
 }
 
-int MPI_Recv_i(
+int MPI_Recv(
 		int * buf,
 		int count,
 		MPI_DATA_TYPE dataType,
 		int source,
 		int tag,
-		int MPI_Comm,
-		int & state_out
+		int MPI_Comm
 		){
 
 	static enum State {IDLE = 0,CLR2SND_SEND, DATA_RECV_LOOP} state;
@@ -1351,14 +1358,13 @@ int MPI_Recv_i(
 	return 0;
 //}
 }
-int MPI_Recv_f(
+int MPI_Recv(
 		float * buf,
 		int count,
 		MPI_DATA_TYPE dataType,
 		int source,
 		int tag,
-		int MPI_Comm,
-		int & state_out
+		int MPI_Comm
 		){
 //section_2:{
 //#pragma HLS protocol fixed
@@ -1393,7 +1399,7 @@ int MPI_Recv_f(
 //	}
 
 
-	static bool clr2snd_error = 1;
+	static bool clr2snd_error = 0;
 
 	static envelope envlp;
 
@@ -1401,7 +1407,7 @@ int MPI_Recv_f(
 	case IDLE:{
 
 		// searching the buffer to see if the envelope has already received
-		state_out = state;
+		//state_out = state;
 		for(int i = 0 ; i < float_req_num ;i++){
 			if(float_request_array[i].PKT_TYPE == C_SYNC_ENV_PACKET
 			&& float_request_array[i].DEST == MODULE_RANK
@@ -1541,10 +1547,12 @@ int MPI_Recv_f(
 		ap_uint<1> is_error_sent = 0;
 		ap_uint<1> first_seen_error = 1;
 		ap_uint<1> data_is_seen = 0;
+		if(count == 0)
+			goto rfdone;
 		for(int i = 1 ; i <= (count/2)+1 ; i++ ){
-			state_out =  state;
+			//state_out =  state;
 			//req_out = i;
-			state_out = i+10;
+			//state_out = i+10;
 			if(((i-1)*2)>= count){
 				state = IDLE;
 				time = 0;
@@ -1717,11 +1725,12 @@ int MPI_Recv_f(
 			useless = stream_in.read();
 			last = useless.last;
 		}
+rfdone:
 		state = IDLE;
 		time = 0;
 		envelope error;
 		error.DEST = envlp.SRC;
-		error.SRC = envlp.DEST;
+		error.SRC = MODULE_RANK;
 		error.PKT_TYPE = C_DATA_TRANSMISSION_DONE;
 		error.MSG_SIZE = seq_num;
 		stream_packet pkt_out;
@@ -1745,6 +1754,13 @@ int MPI_Recv_f(
 }
 
 int MPI_Init(){
+	return 1;
+}
+int MPI_Init(int){
+	return 1;
+}
+
+int MPI_Finalize(){
 	return 1;
 }
 
