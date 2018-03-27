@@ -220,117 +220,117 @@ csynth_design
 export_design -rtl verilog -format ip_catalog
 close_project
 
-# open_project md8
-# set_top md8
-# add_files ../HMPI/mpi_app_benchmarks/HMPI_md/hls/md8.cpp -cflags "-I ${MPI_HEADERS_DIR} "
-# open_solution "solution1"
-# set_part {xcku115-flva1517-2-e}
-# create_clock -period 5 -name default
-# config_rtl -encoding onehot -prefix rank8
-# #source "../hlsSources/directives/roundRobin.tcl"
-# #csim_design
-# csynth_design
-# #cosim_design
-# export_design -rtl verilog -format ip_catalog
-# close_project
+open_project md16
+set_top md16
+add_files ../HMPI/mpi_app_benchmarks/HMPI_md/hls/md16.cpp -cflags "-I ${MPI_HEADERS_DIR} "
+open_solution "solution1"
+set_part {xcku115-flva1517-2-e}
+create_clock -period 5 -name default
+config_rtl -encoding onehot -prefix rank16
+#source "../hlsSources/directives/roundRobin.tcl"
+#csim_design
+csynth_design
+#cosim_design
+export_design -rtl verilog -format ip_catalog
+close_project
 
-# open_project md9
-# set_top md9
-# add_files ../HMPI/mpi_app_benchmarks/HMPI_md/hls/md9.cpp -cflags "-I ${MPI_HEADERS_DIR} "
-# open_solution "solution1"
-# set_part {xcku115-flva1517-2-e}
-# create_clock -period 5 -name default
-# config_rtl -encoding onehot -prefix rank9
-# #source "../hlsSources/directives/roundRobin.tcl"
-# #csim_design
-# csynth_design
-# #cosim_design
-# export_design -rtl verilog -format ip_catalog
-# close_project
+open_project md17
+set_top md17
+add_files ../HMPI/mpi_app_benchmarks/HMPI_md/hls/md17.cpp -cflags "-I ${MPI_HEADERS_DIR} "
+open_solution "solution1"
+set_part {xcku115-flva1517-2-e}
+create_clock -period 5 -name default
+config_rtl -encoding onehot -prefix rank17
+#source "../hlsSources/directives/roundRobin.tcl"
+#csim_design
+csynth_design
+#cosim_design
+export_design -rtl verilog -format ip_catalog
+close_project
 
-# open_project md10
-# set_top md10
-# add_files ../HMPI/mpi_app_benchmarks/HMPI_md/hls/md10.cpp -cflags "-I ${MPI_HEADERS_DIR} "
-# open_solution "solution1"
-# set_part {xcku115-flva1517-2-e}
-# create_clock -period 5 -name default
-# config_rtl -encoding onehot -prefix rank10
-# #source "../hlsSources/directives/roundRobin.tcl"
-# #csim_design
-# csynth_design
-# #cosim_design
-# export_design -rtl verilog -format ip_catalog
-# close_project
+open_project md18
+set_top md18
+add_files ../HMPI/mpi_app_benchmarks/HMPI_md/hls/md18.cpp -cflags "-I ${MPI_HEADERS_DIR} "
+open_solution "solution1"
+set_part {xcku115-flva1517-2-e}
+create_clock -period 5 -name default
+config_rtl -encoding onehot -prefix rank18
+#source "../hlsSources/directives/roundRobin.tcl"
+#csim_design
+csynth_design
+#cosim_design
+export_design -rtl verilog -format ip_catalog
+close_project
 
-# open_project md11
-# set_top md11
-# add_files ../HMPI/mpi_app_benchmarks/HMPI_md/hls/md11.cpp -cflags "-I ${MPI_HEADERS_DIR} "
-# open_solution "solution1"
-# set_part {xcku115-flva1517-2-e}
-# create_clock -period 5 -name default
-# config_rtl -encoding onehot -prefix rank11
-# #source "../hlsSources/directives/roundRobin.tcl"
-# #csim_design
-# csynth_design
-# #cosim_design
-# export_design -rtl verilog -format ip_catalog
-# close_project
+open_project md19
+set_top md19
+add_files ../HMPI/mpi_app_benchmarks/HMPI_md/hls/md19.cpp -cflags "-I ${MPI_HEADERS_DIR} "
+open_solution "solution1"
+set_part {xcku115-flva1517-2-e}
+create_clock -period 5 -name default
+config_rtl -encoding onehot -prefix rank19
+#source "../hlsSources/directives/roundRobin.tcl"
+#csim_design
+csynth_design
+#cosim_design
+export_design -rtl verilog -format ip_catalog
+close_project
 
-# open_project md12
-# set_top md12
-# add_files ../HMPI/mpi_app_benchmarks/HMPI_md/hls/md12.cpp -cflags "-I ${MPI_HEADERS_DIR} "
-# open_solution "solution1"
-# set_part {xcku115-flva1517-2-e}
-# create_clock -period 5 -name default
-# config_rtl -encoding onehot -prefix rank12
-# #source "../hlsSources/directives/roundRobin.tcl"
-# #csim_design
-# csynth_design
-# #cosim_design
-# export_design -rtl verilog -format ip_catalog
-# close_project
+open_project md20
+set_top md20
+add_files ../HMPI/mpi_app_benchmarks/HMPI_md/hls/md20.cpp -cflags "-I ${MPI_HEADERS_DIR} "
+open_solution "solution1"
+set_part {xcku115-flva1517-2-e}
+create_clock -period 5 -name default
+config_rtl -encoding onehot -prefix rank20
+#source "../hlsSources/directives/roundRobin.tcl"
+#csim_design
+csynth_design
+#cosim_design
+export_design -rtl verilog -format ip_catalog
+close_project
 
-# open_project md13
-# set_top md13
-# add_files ../HMPI/mpi_app_benchmarks/HMPI_md/hls/md13.cpp -cflags "-I ${MPI_HEADERS_DIR} "
-# open_solution "solution1"
-# set_part {xcku115-flva1517-2-e}
-# create_clock -period 5 -name default
-# config_rtl -encoding onehot -prefix rank13
-# #source "../hlsSources/directives/roundRobin.tcl"
-# #csim_design
-# csynth_design
-# #cosim_design
-# export_design -rtl verilog -format ip_catalog
-# close_project
+open_project md21
+set_top md21
+add_files ../HMPI/mpi_app_benchmarks/HMPI_md/hls/md21.cpp -cflags "-I ${MPI_HEADERS_DIR} "
+open_solution "solution1"
+set_part {xcku115-flva1517-2-e}
+create_clock -period 5 -name default
+config_rtl -encoding onehot -prefix rank21
+#source "../hlsSources/directives/roundRobin.tcl"
+#csim_design
+csynth_design
+#cosim_design
+export_design -rtl verilog -format ip_catalog
+close_project
 
-# open_project md14
-# set_top md14
-# add_files ../HMPI/mpi_app_benchmarks/HMPI_md/hls/md14.cpp -cflags "-I ${MPI_HEADERS_DIR} "
-# open_solution "solution1"
-# set_part {xcku115-flva1517-2-e}
-# create_clock -period 5 -name default
-# config_rtl -encoding onehot -prefix rank14
-# #source "../hlsSources/directives/roundRobin.tcl"
-# #csim_design
-# csynth_design
-# #cosim_design
-# export_design -rtl verilog -format ip_catalog
-# close_project
+open_project md22
+set_top md22
+add_files ../HMPI/mpi_app_benchmarks/HMPI_md/hls/md22.cpp -cflags "-I ${MPI_HEADERS_DIR} "
+open_solution "solution1"
+set_part {xcku115-flva1517-2-e}
+create_clock -period 5 -name default
+config_rtl -encoding onehot -prefix rank22
+#source "../hlsSources/directives/roundRobin.tcl"
+#csim_design
+csynth_design
+#cosim_design
+export_design -rtl verilog -format ip_catalog
+close_project
 
-# open_project md15
-# set_top md15
-# add_files ../HMPI/mpi_app_benchmarks/HMPI_md/hls/md15.cpp -cflags "-I ${MPI_HEADERS_DIR} "
-# open_solution "solution1"
-# set_part {xcku115-flva1517-2-e}
-# create_clock -period 5 -name default
-# config_rtl -encoding onehot -prefix rank15
-# #source "../hlsSources/directives/roundRobin.tcl"
-# #csim_design
-# csynth_design
-# #cosim_design
-# export_design -rtl verilog -format ip_catalog
-# close_project
+open_project md23
+set_top md23
+add_files ../HMPI/mpi_app_benchmarks/HMPI_md/hls/md23.cpp -cflags "-I ${MPI_HEADERS_DIR} "
+open_solution "solution1"
+set_part {xcku115-flva1517-2-e}
+create_clock -period 5 -name default
+config_rtl -encoding onehot -prefix rank23
+#source "../hlsSources/directives/roundRobin.tcl"
+#csim_design
+csynth_design
+#cosim_design
+export_design -rtl verilog -format ip_catalog
+close_project
 
 
 # open_project packetMaker
