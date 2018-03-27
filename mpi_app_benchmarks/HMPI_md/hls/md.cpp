@@ -1,4 +1,4 @@
-#define MODULE_RANK 0
+#define MODULE_RANK 1
 #define MPI_SIZE 2
 
 /*
@@ -24,8 +24,8 @@
 #include "common.h"
 
 // Define MD simulation parameters
-#define ATOMCOUNT 72
-#define STEPCOUNT 20
+#define ATOMCOUNT 32
+#define STEPCOUNT 10
 #define CUBELENGTH 25
 #define INVMASS 0.5
 #define DT 0.02
@@ -44,12 +44,6 @@ float floatMod(float a, float b)
 {
     return (a - b * floor(a / b));
 }
-
-float floatMod(float a, float b)
-{
-    return (a - b * floor(a / b));
-}
-
 float roundInt(float x)
 {
     float      x_orig;

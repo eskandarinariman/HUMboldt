@@ -10,7 +10,7 @@ set StallSigGenFlag 0
 set C_modelName {MPI_Recv}
 set C_modelType { void 0 }
 set C_modelArgList {
-	{ buf_r float 32 regular {array 216 { 0 3 } 0 1 }  }
+	{ buf_r float 32 regular {array 96 { 0 3 } 0 1 }  }
 	{ source int 32 regular  }
 	{ float_req_num int 32 regular {pointer 2} {global 2}  }
 	{ float_request_array_4 int 1 regular {array 512 { 2 3 } 1 1 } {global 2}  }
@@ -85,7 +85,7 @@ set portList {
 	{ ap_done sc_out sc_logic 1 predone -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
-	{ buf_r_address0 sc_out sc_lv 8 signal 0 } 
+	{ buf_r_address0 sc_out sc_lv 7 signal 0 } 
 	{ buf_r_ce0 sc_out sc_logic 1 signal 0 } 
 	{ buf_r_we0 sc_out sc_logic 1 signal 0 } 
 	{ buf_r_d0 sc_out sc_lv 32 signal 0 } 
@@ -236,7 +236,7 @@ set NewPortList {[
  	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
- 	{ "name": "buf_r_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "buf_r", "role": "address0" }} , 
+ 	{ "name": "buf_r_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "buf_r", "role": "address0" }} , 
  	{ "name": "buf_r_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "buf_r", "role": "ce0" }} , 
  	{ "name": "buf_r_we0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "buf_r", "role": "we0" }} , 
  	{ "name": "buf_r_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "buf_r", "role": "d0" }} , 
@@ -383,58 +383,99 @@ set NewPortList {[
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2"],
 		"CDFG" : "MPI_Recv",
-		"VariableLatency" : "1",
-		"AlignedPipeline" : "0",
-		"UnalignedPipeline" : "0",
-		"ProcessNetwork" : "0",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
+		"Pipeline" : "None", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"Combinational" : "0",
-		"ControlExist" : "1",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"VariableLatency" : "1",
 		"Port" : [
-		{"Name" : "buf_r", "Type" : "Memory", "Direction" : "O"},
-		{"Name" : "source", "Type" : "None", "Direction" : "I"},
-		{"Name" : "state_1", "Type" : "OVld", "Direction" : "IO"},
-		{"Name" : "envlp_SRC_V", "Type" : "OVld", "Direction" : "IO"},
-		{"Name" : "envlp_DEST_V", "Type" : "OVld", "Direction" : "IO"},
-		{"Name" : "float_req_num", "Type" : "OVld", "Direction" : "IO"},
-		{"Name" : "float_request_array_4", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "float_request_array_1", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "float_request_array_5", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "float_request_array_3", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "envlp_MSG_SIZE_V", "Type" : "OVld", "Direction" : "IO"},
-		{"Name" : "float_request_array_s", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "float_request_array_7", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "float_request_array_6", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "stream_in_V", "Type" : "Fifo", "Direction" : "I",
-			"BlockSignal" : [
-			{"Name" : "stream_in_V_blk_n", "Type" : "RtlSignal"}]},
-		{"Name" : "clr2snd_error", "Type" : "OVld", "Direction" : "IO"},
-		{"Name" : "stream_out_V", "Type" : "Fifo", "Direction" : "O",
-			"BlockSignal" : [
-			{"Name" : "stream_out_V_blk_n", "Type" : "RtlSignal"}]},
-		{"Name" : "time_V", "Type" : "OVld", "Direction" : "IO"},
-		{"Name" : "int_req_num", "Type" : "OVld", "Direction" : "IO"},
-		{"Name" : "int_request_array_SR", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "int_request_array_DE", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "int_request_array_PK", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "int_request_array_MS", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "int_request_array_TA", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "int_request_array_DA", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "int_clr_num", "Type" : "OVld", "Direction" : "IO"},
-		{"Name" : "int_clr2snd_array_SR", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "int_clr2snd_array_DE", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "int_clr2snd_array_PK", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "int_clr2snd_array_MS", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "int_clr2snd_array_TA", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "int_clr2snd_array_DA", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "float_clr_num", "Type" : "OVld", "Direction" : "IO"},
-		{"Name" : "float_clr2snd_array_5", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "float_clr2snd_array_1", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "float_clr2snd_array_4", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "float_clr2snd_array_3", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "float_clr2snd_array_s", "Type" : "Memory", "Direction" : "IO"},
-		{"Name" : "float_clr2snd_array_7", "Type" : "Memory", "Direction" : "IO"}]},
+			{"Name" : "buf_r", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "source", "Type" : "None", "Direction" : "I"},
+			{"Name" : "state_1", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "envlp_SRC_V", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "envlp_DEST_V", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "float_req_num", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "float_request_array_4", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "float_request_array_1", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "float_request_array_5", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "float_request_array_3", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "envlp_MSG_SIZE_V", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "float_request_array_s", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "float_request_array_7", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "float_request_array_6", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "stream_in_V", "Type" : "Fifo", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "stream_in_V_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "stream_out_V", "Type" : "Fifo", "Direction" : "O",
+				"BlockSignal" : [
+					{"Name" : "stream_out_V_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "time_V", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "int_req_num", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "int_request_array_SR", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "int_request_array_DE", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "int_request_array_PK", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "int_request_array_MS", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "int_request_array_TA", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "int_request_array_DA", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "int_clr_num", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "int_clr2snd_array_SR", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "int_clr2snd_array_DE", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "int_clr2snd_array_PK", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "int_clr2snd_array_MS", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "int_clr2snd_array_TA", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "int_clr2snd_array_DA", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "float_clr_num", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "float_clr2snd_array_5", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "float_clr2snd_array_1", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "float_clr2snd_array_4", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "float_clr2snd_array_3", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "float_clr2snd_array_s", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "float_clr2snd_array_7", "Type" : "Memory", "Direction" : "IO"}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.float_request_array_6_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.md_srem_32ns_10nscud_U1", "Parent" : "0"}]}
+
+
+set ArgLastReadFirstWriteLatency {
+	MPI_Recv {
+		buf_r {Type O LastRead -1 FirstWrite 39}
+		source {Type I LastRead 0 FirstWrite -1}
+		state_1 {Type IO LastRead -1 FirstWrite -1}
+		envlp_SRC_V {Type IO LastRead -1 FirstWrite -1}
+		envlp_DEST_V {Type IO LastRead -1 FirstWrite -1}
+		float_req_num {Type IO LastRead 38 FirstWrite 5}
+		float_request_array_4 {Type IO LastRead 41 FirstWrite 7}
+		float_request_array_1 {Type IO LastRead 40 FirstWrite 7}
+		float_request_array_5 {Type IO LastRead 39 FirstWrite 7}
+		float_request_array_3 {Type IO LastRead 42 FirstWrite 7}
+		envlp_MSG_SIZE_V {Type IO LastRead -1 FirstWrite -1}
+		float_request_array_s {Type IO LastRead 43 FirstWrite 7}
+		float_request_array_7 {Type IO LastRead 45 FirstWrite 7}
+		float_request_array_6 {Type IO LastRead -1 FirstWrite -1}
+		stream_in_V {Type I LastRead 38 FirstWrite -1}
+		stream_out_V {Type O LastRead -1 FirstWrite 0}
+		time_V {Type IO LastRead -1 FirstWrite -1}
+		int_req_num {Type IO LastRead 38 FirstWrite 39}
+		int_request_array_SR {Type IO LastRead 39 FirstWrite 39}
+		int_request_array_DE {Type IO LastRead 40 FirstWrite 39}
+		int_request_array_PK {Type IO LastRead 41 FirstWrite 39}
+		int_request_array_MS {Type IO LastRead 42 FirstWrite 39}
+		int_request_array_TA {Type IO LastRead 43 FirstWrite 39}
+		int_request_array_DA {Type IO LastRead 45 FirstWrite 39}
+		int_clr_num {Type IO LastRead 38 FirstWrite 39}
+		int_clr2snd_array_SR {Type IO LastRead 39 FirstWrite 39}
+		int_clr2snd_array_DE {Type IO LastRead 40 FirstWrite 39}
+		int_clr2snd_array_PK {Type IO LastRead 41 FirstWrite 39}
+		int_clr2snd_array_MS {Type IO LastRead 42 FirstWrite 39}
+		int_clr2snd_array_TA {Type IO LastRead 43 FirstWrite 39}
+		int_clr2snd_array_DA {Type IO LastRead 45 FirstWrite 39}
+		float_clr_num {Type IO LastRead 38 FirstWrite 39}
+		float_clr2snd_array_5 {Type IO LastRead 39 FirstWrite 39}
+		float_clr2snd_array_1 {Type IO LastRead 40 FirstWrite 39}
+		float_clr2snd_array_4 {Type IO LastRead 41 FirstWrite 39}
+		float_clr2snd_array_3 {Type IO LastRead 42 FirstWrite 39}
+		float_clr2snd_array_s {Type IO LastRead 43 FirstWrite 39}
+		float_clr2snd_array_7 {Type IO LastRead 44 FirstWrite 39}}}
 
 set hasDtUnsupportedChannel 0
 
@@ -443,8 +484,11 @@ set PerformanceInfo {[
 	, {"Name" : "Interval", "Min" : "4294967295", "Max" : "4294967295"}
 ]}
 
+set PipelineEnableSignalInfo {[
+]}
+
 set Spec2ImplPortList { 
-	buf_r { ap_memory {  { buf_r_address0 mem_address 1 8 }  { buf_r_ce0 mem_ce 1 1 }  { buf_r_we0 mem_we 1 1 }  { buf_r_d0 mem_din 1 32 } } }
+	buf_r { ap_memory {  { buf_r_address0 mem_address 1 7 }  { buf_r_ce0 mem_ce 1 1 }  { buf_r_we0 mem_we 1 1 }  { buf_r_d0 mem_din 1 32 } } }
 	source { ap_none {  { source in_data 0 32 } } }
 	float_req_num { ap_ovld {  { float_req_num_i in_data 0 32 }  { float_req_num_o out_data 1 32 }  { float_req_num_o_ap_vld out_vld 1 1 } } }
 	float_request_array_4 { ap_memory {  { float_request_array_4_address0 mem_address 1 9 }  { float_request_array_4_ce0 mem_ce 1 1 }  { float_request_array_4_we0 mem_we 1 1 }  { float_request_array_4_d0 mem_din 1 1 }  { float_request_array_4_q0 mem_dout 0 1 } } }

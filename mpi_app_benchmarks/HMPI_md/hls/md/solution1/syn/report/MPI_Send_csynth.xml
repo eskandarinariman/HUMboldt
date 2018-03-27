@@ -1,7 +1,7 @@
 <profile>
 
 <ReportVersion>
-<Version>2016.3</Version>
+<Version>2017.2</Version>
 </ReportVersion>
 
 <UserAssignments>
@@ -17,7 +17,7 @@
 <PipelineType>none</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>3.99</EstimatedClockPeriod>
+<EstimatedClockPeriod>4.37</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -41,7 +41,7 @@
 <Loop2>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
-<IterationLatency>3</IterationLatency>
+<IterationLatency>2</IterationLatency>
 </Loop2>
 <Loop3>
 <TripCount>undef</TripCount>
@@ -88,10 +88,6 @@
 </range>
 </IterationLatency>
 </Loop7>
-<Loop8>
-<TripCount>undef</TripCount>
-<Latency>undef</Latency>
-<IterationLatency>undef</IterationLatency>
 <send>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
@@ -141,17 +137,16 @@
 </range>
 </IterationLatency>
 </send.5>
-</send>
-<Loop8.2>
+<sfdone>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
 <IterationLatency>undef</IterationLatency>
-<Loop8.2.1>
+<sfdone.1>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
 <IterationLatency>1</IterationLatency>
-</Loop8.2.1>
-<Loop8.2.2>
+</sfdone.1>
+<sfdone.2>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
 <IterationLatency>
@@ -160,8 +155,8 @@
 <max>7</max>
 </range>
 </IterationLatency>
-</Loop8.2.2>
-<Loop8.2.3>
+</sfdone.2>
+<sfdone.3>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
 <IterationLatency>
@@ -170,8 +165,8 @@
 <max>7</max>
 </range>
 </IterationLatency>
-</Loop8.2.3>
-<Loop8.2.4>
+</sfdone.3>
+<sfdone.4>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
 <IterationLatency>
@@ -180,8 +175,8 @@
 <max>7</max>
 </range>
 </IterationLatency>
-</Loop8.2.4>
-<Loop8.2.5>
+</sfdone.4>
+<sfdone.5>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
 <IterationLatency>
@@ -190,18 +185,18 @@
 <max>7</max>
 </range>
 </IterationLatency>
-</Loop8.2.5>
-</Loop8.2>
-</Loop8>
+</sfdone.5>
+</sfdone>
+</send>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
 <BRAM_18K>1</BRAM_18K>
-<DSP48E>4</DSP48E>
-<FF>3364</FF>
-<LUT>4022</LUT>
+<DSP48E>8</DSP48E>
+<FF>6691</FF>
+<LUT>4900</LUT>
 </Resources>
 <AvailableResources>
 <BRAM_18K>4320</BRAM_18K>
@@ -286,7 +281,7 @@
 <IOProtocol>ap_memory</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>8</Bits>
+<Bits>7</Bits>
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>

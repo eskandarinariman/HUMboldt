@@ -4,7 +4,7 @@ set id 35
 set name md_mul_32ns_10ns_eOg
 set corename simcore_mul
 set op mul
-set stage_num 5
+set stage_num 2
 set max_latency -1
 set registered_input 1
 set in0_width 32
@@ -85,7 +85,7 @@ eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
     dir I \
     corename buf_r \
     op interface \
-    ports { buf_r_address0 { O 8 vector } buf_r_ce0 { O 1 bit } buf_r_q0 { I 32 vector } } \
+    ports { buf_r_address0 { O 7 vector } buf_r_ce0 { O 1 bit } buf_r_q0 { I 32 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'buf_r'"

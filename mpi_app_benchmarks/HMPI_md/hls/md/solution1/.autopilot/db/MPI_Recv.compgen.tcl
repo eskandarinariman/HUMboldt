@@ -83,7 +83,7 @@ set HasInitializer 1
 set Initializer $ROMData
 set NumOfStage 2
 set MaxLatency -1
-set DelayBudget 1.96
+set DelayBudget 1.771
 set ClkPeriod 5
 set RegisteredInput 0
 if {${::AESL::PGuard_simmodel_gen}} {
@@ -168,7 +168,7 @@ eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
     dir O \
     corename buf_r \
     op interface \
-    ports { buf_r_address0 { O 8 vector } buf_r_ce0 { O 1 bit } buf_r_we0 { O 1 bit } buf_r_d0 { O 32 vector } } \
+    ports { buf_r_address0 { O 7 vector } buf_r_ce0 { O 1 bit } buf_r_we0 { O 1 bit } buf_r_d0 { O 32 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'buf_r'"

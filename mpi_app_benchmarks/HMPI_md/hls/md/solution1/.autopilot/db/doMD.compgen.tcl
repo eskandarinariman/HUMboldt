@@ -1,7 +1,7 @@
 # This script segment is generated automatically by AutoPilot
 
 set id 80
-set name md_faddfsub_32ns_JfO
+set name md_faddfsub_32ns_Lf8
 set corename simcore_faddfsub
 set op faddfsub
 set stage_num 7
@@ -71,7 +71,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your p
 
 
 set id 82
-set name md_fmul_32ns_32nsKfY
+set name md_fmul_32ns_32nsMgi
 set corename simcore_fmul
 set op fmul
 set stage_num 4
@@ -141,7 +141,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your p
 
 
 set id 85
-set name md_fdiv_32ns_32nsLf8
+set name md_fdiv_32ns_32nsNgs
 set corename simcore_fdiv
 set op fdiv
 set stage_num 12
@@ -269,7 +269,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your p
 
 
 set id 92
-set name md_dadddsub_64ns_Mgi
+set name md_dadddsub_64ns_OgC
 set corename simcore_dadddsub
 set op dadddsub
 set stage_num 8
@@ -339,16 +339,16 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your p
 
 
 set id 96
-set name md_mul_32s_34ns_6Ngs
+set name md_mul_34ns_32s_6PgM
 set corename simcore_mul
 set op mul
-set stage_num 7
+set stage_num 2
 set max_latency -1
 set registered_input 1
-set in0_width 32
-set in0_signed 1
-set in1_width 34
-set in1_signed 0
+set in0_width 34
+set in0_signed 0
+set in1_width 32
+set in1_signed 1
 set out_width 65
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ap_gen_simcore_mul] == "ap_gen_simcore_mul"} {
@@ -406,13 +406,13 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_multicycle_mul, che
 
 
 set id 97
-set name md_sdiv_9ns_32ns_OgC
+set name md_sdiv_8ns_32ns_QgW
 set corename simcore_sdiv_seq
 set op sdiv
-set stage_num 13
+set stage_num 12
 set max_latency -1
 set registered_input 1
-set in0_width 9
+set in0_width 8
 set in0_signed 0
 set in1_width 32
 set in1_signed 0
@@ -473,15 +473,15 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_div, check your pla
 
 
 set id 98
-set name md_mul_18s_18s_32_3
+set name md_mul_16ns_32s_3Rg6
 set corename simcore_mul
 set op mul
-set stage_num 3
+set stage_num 2
 set max_latency -1
 set registered_input 1
-set in0_width 18
-set in0_signed 1
-set in1_width 18
+set in0_width 16
+set in0_signed 0
+set in1_width 32
 set in1_signed 1
 set out_width 32
 if {${::AESL::PGuard_simmodel_gen}} {
@@ -539,145 +539,11 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_multicycle_mul, che
 }
 
 
-set id 99
-set name md_mul_32s_16ns_3PgM
+set id 109
+set name md_mul_32s_32s_32_2
 set corename simcore_mul
 set op mul
-set stage_num 5
-set max_latency -1
-set registered_input 1
-set in0_width 32
-set in0_signed 1
-set in1_width 16
-set in1_signed 0
-set out_width 32
-if {${::AESL::PGuard_simmodel_gen}} {
-if {[info proc ap_gen_simcore_mul] == "ap_gen_simcore_mul"} {
-eval "ap_gen_simcore_mul { \
-    id ${id} \
-    name ${name} \
-    corename ${corename} \
-    op ${op} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${stage_num} \
-    max_latency ${max_latency} \
-    registered_input ${registered_input} \
-    in0_width ${in0_width} \
-    in0_signed ${in0_signed} \
-    in1_width ${in1_width} \
-    in1_signed ${in1_signed} \
-    out_width ${out_width} \
-}"
-} else {
-puts "@W \[IMPL-100\] Cannot find ap_gen_simcore_mul, check your AutoPilot builtin lib"
-}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler ${name}
-}
-
-
-set op mul
-set corename MulnS
-if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
-if {[info proc ::AESL_LIB_VIRTEX::xil_gen_multicycle_mul] == "::AESL_LIB_VIRTEX::xil_gen_multicycle_mul"} {
-eval "::AESL_LIB_VIRTEX::xil_gen_multicycle_mul { \
-    id ${id} \
-    name ${name} \
-    corename ${corename} \
-    op ${op} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${stage_num} \
-    max_latency ${max_latency} \
-    registered_input ${registered_input} \
-    in0_width ${in0_width} \
-    in0_signed ${in0_signed} \
-    in1_width ${in1_width} \
-    in1_signed ${in1_signed} \
-    out_width ${out_width} \
-}"
-} else {
-puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_multicycle_mul, check your platform lib"
-}
-}
-
-
-set id 100
-set name md_mul_18s_13s_32_3
-set corename simcore_mul
-set op mul
-set stage_num 3
-set max_latency -1
-set registered_input 1
-set in0_width 18
-set in0_signed 1
-set in1_width 13
-set in1_signed 1
-set out_width 32
-if {${::AESL::PGuard_simmodel_gen}} {
-if {[info proc ap_gen_simcore_mul] == "ap_gen_simcore_mul"} {
-eval "ap_gen_simcore_mul { \
-    id ${id} \
-    name ${name} \
-    corename ${corename} \
-    op ${op} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${stage_num} \
-    max_latency ${max_latency} \
-    registered_input ${registered_input} \
-    in0_width ${in0_width} \
-    in0_signed ${in0_signed} \
-    in1_width ${in1_width} \
-    in1_signed ${in1_signed} \
-    out_width ${out_width} \
-}"
-} else {
-puts "@W \[IMPL-100\] Cannot find ap_gen_simcore_mul, check your AutoPilot builtin lib"
-}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler ${name}
-}
-
-
-set op mul
-set corename MulnS
-if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
-if {[info proc ::AESL_LIB_VIRTEX::xil_gen_multicycle_mul] == "::AESL_LIB_VIRTEX::xil_gen_multicycle_mul"} {
-eval "::AESL_LIB_VIRTEX::xil_gen_multicycle_mul { \
-    id ${id} \
-    name ${name} \
-    corename ${corename} \
-    op ${op} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${stage_num} \
-    max_latency ${max_latency} \
-    registered_input ${registered_input} \
-    in0_width ${in0_width} \
-    in0_signed ${in0_signed} \
-    in1_width ${in1_width} \
-    in1_signed ${in1_signed} \
-    out_width ${out_width} \
-}"
-} else {
-puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_multicycle_mul, check your platform lib"
-}
-}
-
-
-set id 121
-set name md_mul_32s_32s_32_7
-set corename simcore_mul
-set op mul
-set stage_num 7
+set stage_num 2
 set max_latency -1
 set registered_input 1
 set in0_width 32
@@ -741,8 +607,8 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_multicycle_mul, che
 
 
 # Memory (RAM/ROM)  definition:
-set ID 122
-set MemName doMD_float_clr2snlbW
+set ID 110
+set MemName doMD_float_clr2snncg
 set CoreName ap_simcore_mem
 set PortList { 2 3 }
 set DataWd 1
@@ -756,7 +622,7 @@ set HasInitializer 1
 set Initializer $ROMData
 set NumOfStage 2
 set MaxLatency -1
-set DelayBudget 2.39
+set DelayBudget 0.94
 set ClkPeriod 5
 set RegisteredInput 0
 if {${::AESL::PGuard_simmodel_gen}} {
@@ -824,8 +690,8 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 123
-set MemName doMD_float_clr2snmb6
+set ID 111
+set MemName doMD_float_clr2snocq
 set CoreName ap_simcore_mem
 set PortList { 2 3 }
 set DataWd 16
@@ -839,7 +705,7 @@ set HasInitializer 1
 set Initializer $ROMData
 set NumOfStage 2
 set MaxLatency -1
-set DelayBudget 1.96
+set DelayBudget 1.771
 set ClkPeriod 5
 set RegisteredInput 0
 if {${::AESL::PGuard_simmodel_gen}} {
@@ -907,8 +773,8 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 124
-set MemName doMD_float_clr2snncg
+set ID 112
+set MemName doMD_float_clr2snpcA
 set CoreName ap_simcore_mem
 set PortList { 2 3 }
 set DataWd 8
@@ -922,7 +788,7 @@ set HasInitializer 1
 set Initializer $ROMData
 set NumOfStage 2
 set MaxLatency -1
-set DelayBudget 1.96
+set DelayBudget 1.771
 set ClkPeriod 5
 set RegisteredInput 0
 if {${::AESL::PGuard_simmodel_gen}} {
@@ -990,8 +856,8 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 125
-set MemName doMD_float_clr2snpcA
+set ID 113
+set MemName doMD_float_clr2snrcU
 set CoreName ap_simcore_mem
 set PortList { 2 3 }
 set DataWd 32
@@ -1005,7 +871,7 @@ set HasInitializer 1
 set Initializer $ROMData
 set NumOfStage 2
 set MaxLatency -1
-set DelayBudget 1.96
+set DelayBudget 1.771
 set ClkPeriod 5
 set RegisteredInput 0
 if {${::AESL::PGuard_simmodel_gen}} {
@@ -1073,8 +939,8 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 126
-set MemName doMD_mask_table1
+set ID 114
+set MemName doMD_mask_table3
 set CoreName ap_simcore_mem
 set PortList { 1 1 }
 set DataWd 52
@@ -1087,7 +953,7 @@ set HasInitializer 1
 set Initializer $ROMData
 set NumOfStage 2
 set MaxLatency -1
-set DelayBudget 2.39
+set DelayBudget 1.771
 set ClkPeriod 5
 set RegisteredInput 0
 if {${::AESL::PGuard_simmodel_gen}} {
@@ -1153,13 +1019,13 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_ROM] == "::AESL_LIB_VIRTEX::xil_gen_RO
 
 
 # Memory (RAM/ROM)  definition:
-set ID 127
+set ID 115
 set MemName doMD_pos1
 set CoreName ap_simcore_mem
 set PortList { 2 2 }
 set DataWd 32
-set AddrRange 216
-set AddrWd 8
+set AddrRange 96
+set AddrWd 7
 set impl_style block
 set TrueReset 0
 set HasInitializer 0
@@ -1167,7 +1033,7 @@ set IsROM 0
 set ROMData {}
 set NumOfStage 2
 set MaxLatency -1
-set DelayBudget 1.96
+set DelayBudget 1.771
 set ClkPeriod 5
 set RegisteredInput 0
 if {${::AESL::PGuard_simmodel_gen}} {
@@ -1235,13 +1101,13 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 128
+set ID 116
 set MemName doMD_forceSum3
 set CoreName ap_simcore_mem
 set PortList { 2 1 }
 set DataWd 32
-set AddrRange 216
-set AddrWd 8
+set AddrRange 96
+set AddrWd 7
 set impl_style block
 set TrueReset 0
 set HasInitializer 0
@@ -1249,7 +1115,7 @@ set IsROM 0
 set ROMData {}
 set NumOfStage 2
 set MaxLatency -1
-set DelayBudget 1.96
+set DelayBudget 1.771
 set ClkPeriod 5
 set RegisteredInput 0
 if {${::AESL::PGuard_simmodel_gen}} {
@@ -1326,7 +1192,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 129 \
+    id 117 \
     name stream_out_V \
     type fifo \
     dir O \
@@ -1341,7 +1207,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 130 \
+    id 118 \
     name stream_in_V \
     type fifo \
     dir I \

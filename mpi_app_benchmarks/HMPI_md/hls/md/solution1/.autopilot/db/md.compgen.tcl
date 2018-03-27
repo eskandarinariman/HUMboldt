@@ -11,7 +11,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 set corename stream_in_V
 set opts {
     {
-        id 132
+        id 120
         name stream_in_V
         reset_level 1
         sync_rst true
@@ -42,7 +42,7 @@ puts "@W Can not find gen function '::AESL_LIB_XILADAPTER::axis_gen' in the libr
 set corename stream_out_V
 set opts {
     {
-        id 131
+        id 119
         name stream_out_V
         reset_level 1
         sync_rst true

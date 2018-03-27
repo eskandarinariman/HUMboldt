@@ -1,0 +1,1752 @@
+
+
+================================================================
+== Vivado HLS Report for 'roundInt'
+================================================================
+* Date:           Tue Mar 27 03:54:26 2018
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        md
+* Solution:       solution1
+* Product family: kintexu
+* Target device:  xcku115-flva1517-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|      4.33|        0.62|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    2|   39|    2|   39|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 77
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	40  / (tmp_2_demorgan) | (tmp_5 & tmp_6)
+	3  / (!tmp_2_demorgan & !tmp_5)
+	41  / (!tmp_2_demorgan & tmp_5 & !tmp_6)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / (!tmp_14)
+	40  / (tmp_14)
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / (!tmp_28)
+	40  / (tmp_28)
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / (tmp_42)
+	40  / (!tmp_42)
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	44  / true
+44 --> 
+	45  / true
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	40  / (tmp_19)
+	48  / (!tmp_19)
+48 --> 
+	49  / true
+49 --> 
+	50  / true
+50 --> 
+	51  / true
+51 --> 
+	52  / true
+52 --> 
+	53  / true
+53 --> 
+	54  / true
+54 --> 
+	55  / true
+55 --> 
+	56  / true
+56 --> 
+	40  / (tmp_36)
+	57  / (!tmp_36)
+57 --> 
+	58  / true
+58 --> 
+	59  / true
+59 --> 
+	40  / (!tmp_49)
+	60  / (tmp_49)
+60 --> 
+	61  / true
+61 --> 
+	62  / true
+62 --> 
+	63  / true
+63 --> 
+	64  / true
+64 --> 
+	65  / true
+65 --> 
+	66  / true
+66 --> 
+	67  / true
+67 --> 
+	68  / true
+68 --> 
+	69  / true
+69 --> 
+	70  / true
+70 --> 
+	71  / true
+71 --> 
+	72  / true
+72 --> 
+	73  / true
+73 --> 
+	74  / true
+74 --> 
+	75  / true
+75 --> 
+	76  / true
+76 --> 
+	77  / true
+77 --> 
+	40  / true
+* FSM state operations: 
+
+ <State 1>: 2.88ns
+ST_1: x_read (4)  [1/1] 0.00ns
+:0  %x_read = call float @_ssdm_op_Read.ap_auto.float(float %x) nounwind
+
+ST_1: t_in_assign (5)  [1/1] 2.88ns  loc: /opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/cmath:764->md.cpp:52
+:1  %t_in_assign = fpext float %x_read to double
+
+
+ <State 2>: 4.26ns
+ST_2: p_Val2_s (6)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:475->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_basic_math.h:184->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_basic_math.h:195->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:518->/opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/cmath:764->md.cpp:52
+:2  %p_Val2_s = bitcast double %t_in_assign to i64
+
+ST_2: loc_V (7)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:477->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_basic_math.h:184->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_basic_math.h:195->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:518->/opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/cmath:764->md.cpp:52
+:3  %loc_V = call i11 @_ssdm_op_PartSelect.i11.i64.i32.i32(i64 %p_Val2_s, i32 52, i32 62) nounwind
+
+ST_2: loc_V_1 (8)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:478->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_basic_math.h:184->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_basic_math.h:195->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:518->/opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/cmath:764->md.cpp:52
+:4  %loc_V_1 = trunc i64 %p_Val2_s to i52
+
+ST_2: tmp_i_i_i_i (9)  [1/1] 0.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_basic_math.h:185->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_basic_math.h:195->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:518->/opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/cmath:764->md.cpp:52
+:5  %tmp_i_i_i_i = icmp eq i11 %loc_V, -1
+
+ST_2: tmp_i_i_i_i_17 (10)  [1/1] 1.06ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_basic_math.h:185->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_basic_math.h:195->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:518->/opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/cmath:764->md.cpp:52
+:6  %tmp_i_i_i_i_17 = icmp ne i52 %loc_V_1, 0
+
+ST_2: tmp_2_demorgan (11)  [1/1] 0.07ns  loc: md.cpp:52
+:7  %tmp_2_demorgan = and i1 %tmp_i_i_i_i, %tmp_i_i_i_i_17
+
+ST_2: StgValue_86 (12)  [1/1] 0.79ns  loc: md.cpp:52
+:8  br i1 %tmp_2_demorgan, label %._crit_edge, label %1
+
+ST_2: x_to_int (14)  [1/1] 0.00ns
+:0  %x_to_int = bitcast float %x_read to i32
+
+ST_2: tmp_1 (15)  [1/1] 0.00ns
+:1  %tmp_1 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %x_to_int, i32 23, i32 30)
+
+ST_2: tmp_10 (16)  [1/1] 0.00ns
+:2  %tmp_10 = trunc i32 %x_to_int to i23
+
+ST_2: notlhs (17)  [1/1] 0.78ns
+:3  %notlhs = icmp ne i8 %tmp_1, -1
+
+ST_2: notrhs (18)  [1/1] 1.02ns
+:4  %notrhs = icmp eq i23 %tmp_10, 0
+
+ST_2: tmp_3 (19)  [1/1] 0.00ns (grouped into LUT with out node tmp_5)
+:5  %tmp_3 = or i1 %notrhs, %notlhs
+
+ST_2: tmp_4 (20)  [1/1] 3.48ns  loc: md.cpp:55
+:6  %tmp_4 = fcmp ole float %x_read, 0.000000e+00
+
+ST_2: tmp_5 (21)  [1/1] 0.07ns  loc: md.cpp:55 (out node of the LUT)
+:7  %tmp_5 = and i1 %tmp_3, %tmp_4
+
+ST_2: StgValue_95 (22)  [1/1] 0.00ns  loc: md.cpp:55
+:8  br i1 %tmp_5, label %2, label %7
+
+ST_2: x_assign (24)  [7/7] 4.09ns  loc: md.cpp:77
+:0  %x_assign = fadd float %x_read, -5.000000e-01
+
+ST_2: tmp_6 (141)  [1/1] 3.48ns  loc: md.cpp:57
+:0  %tmp_6 = fcmp oeq float %x_read, 0.000000e+00
+
+ST_2: StgValue_98 (142)  [1/1] 0.79ns  loc: md.cpp:57
+:1  br i1 %tmp_6, label %._crit_edge, label %3
+
+ST_2: x_assign_1 (144)  [7/7] 4.09ns  loc: md.cpp:61
+:0  %x_assign_1 = fadd float %x_read, 5.000000e-01
+
+
+ <State 3>: 4.09ns
+ST_3: x_assign (24)  [6/7] 4.09ns  loc: md.cpp:77
+:0  %x_assign = fadd float %x_read, -5.000000e-01
+
+
+ <State 4>: 4.09ns
+ST_4: x_assign (24)  [5/7] 4.09ns  loc: md.cpp:77
+:0  %x_assign = fadd float %x_read, -5.000000e-01
+
+
+ <State 5>: 4.09ns
+ST_5: x_assign (24)  [4/7] 4.09ns  loc: md.cpp:77
+:0  %x_assign = fadd float %x_read, -5.000000e-01
+
+
+ <State 6>: 4.09ns
+ST_6: x_assign (24)  [3/7] 4.09ns  loc: md.cpp:77
+:0  %x_assign = fadd float %x_read, -5.000000e-01
+
+
+ <State 7>: 4.09ns
+ST_7: x_assign (24)  [2/7] 4.09ns  loc: md.cpp:77
+:0  %x_assign = fadd float %x_read, -5.000000e-01
+
+
+ <State 8>: 4.09ns
+ST_8: x_assign (24)  [1/7] 4.09ns  loc: md.cpp:77
+:0  %x_assign = fadd float %x_read, -5.000000e-01
+
+
+ <State 9>: 4.33ns
+ST_9: x_assign_to_int (25)  [1/1] 0.00ns  loc: md.cpp:77
+:1  %x_assign_to_int = bitcast float %x_assign to i32
+
+ST_9: tmp_8 (26)  [1/1] 0.00ns  loc: md.cpp:77
+:2  %tmp_8 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %x_assign_to_int, i32 23, i32 30)
+
+ST_9: tmp_17 (27)  [1/1] 0.00ns  loc: md.cpp:77
+:3  %tmp_17 = trunc i32 %x_assign_to_int to i23
+
+ST_9: notlhs2 (28)  [1/1] 0.78ns  loc: md.cpp:77
+:4  %notlhs2 = icmp ne i8 %tmp_8, -1
+
+ST_9: notrhs2 (29)  [1/1] 1.02ns  loc: md.cpp:77
+:5  %notrhs2 = icmp eq i23 %tmp_17, 0
+
+ST_9: tmp_2 (30)  [1/1] 0.07ns  loc: md.cpp:77
+:6  %tmp_2 = or i1 %notrhs2, %notlhs2
+
+ST_9: tmp_13 (31)  [1/1] 3.48ns  loc: md.cpp:78
+:7  %tmp_13 = fcmp ole float %x_assign, 0.000000e+00
+
+ST_9: tmp_14 (32)  [1/1] 0.07ns  loc: md.cpp:78
+:8  %tmp_14 = and i1 %tmp_2, %tmp_13
+
+ST_9: StgValue_114 (33)  [1/1] 0.79ns  loc: md.cpp:78
+:9  br i1 %tmp_14, label %._crit_edge, label %8
+
+ST_9: tmp_9 (36)  [8/8] 3.71ns  loc: md.cpp:80
+:1  %tmp_9 = fadd double %t_in_assign, -1.000000e+00
+
+
+ <State 10>: 3.71ns
+ST_10: tmp_9 (36)  [7/8] 3.71ns  loc: md.cpp:80
+:1  %tmp_9 = fadd double %t_in_assign, -1.000000e+00
+
+
+ <State 11>: 3.71ns
+ST_11: tmp_9 (36)  [6/8] 3.71ns  loc: md.cpp:80
+:1  %tmp_9 = fadd double %t_in_assign, -1.000000e+00
+
+
+ <State 12>: 3.71ns
+ST_12: tmp_9 (36)  [5/8] 3.71ns  loc: md.cpp:80
+:1  %tmp_9 = fadd double %t_in_assign, -1.000000e+00
+
+
+ <State 13>: 3.71ns
+ST_13: tmp_9 (36)  [4/8] 3.71ns  loc: md.cpp:80
+:1  %tmp_9 = fadd double %t_in_assign, -1.000000e+00
+
+
+ <State 14>: 3.71ns
+ST_14: tmp_9 (36)  [3/8] 3.71ns  loc: md.cpp:80
+:1  %tmp_9 = fadd double %t_in_assign, -1.000000e+00
+
+
+ <State 15>: 3.71ns
+ST_15: tmp_9 (36)  [2/8] 3.71ns  loc: md.cpp:80
+:1  %tmp_9 = fadd double %t_in_assign, -1.000000e+00
+
+
+ <State 16>: 3.71ns
+ST_16: x_assign_9 (35)  [1/1] 2.88ns  loc: md.cpp:80
+:0  %x_assign_9 = fpext float %x_assign to double
+
+ST_16: tmp_9 (36)  [1/8] 3.71ns  loc: md.cpp:80
+:1  %tmp_9 = fadd double %t_in_assign, -1.000000e+00
+
+
+ <State 17>: 3.52ns
+ST_17: tmp_9_to_int (40)  [1/1] 0.00ns  loc: md.cpp:80
+:5  %tmp_9_to_int = bitcast double %tmp_9 to i64
+
+ST_17: tmp_20 (41)  [1/1] 0.00ns  loc: md.cpp:80
+:6  %tmp_20 = call i11 @_ssdm_op_PartSelect.i11.i64.i32.i32(i64 %tmp_9_to_int, i32 52, i32 62)
+
+ST_17: tmp_23 (42)  [1/1] 0.00ns  loc: md.cpp:80
+:7  %tmp_23 = trunc i64 %tmp_9_to_int to i52
+
+ST_17: notlhs5 (46)  [1/1] 0.77ns  loc: md.cpp:80
+:11  %notlhs5 = icmp ne i11 %tmp_20, -1
+
+ST_17: notrhs5 (47)  [1/1] 1.06ns  loc: md.cpp:80
+:12  %notrhs5 = icmp eq i52 %tmp_23, 0
+
+ST_17: tmp_27 (50)  [1/1] 3.52ns  loc: md.cpp:80
+:15  %tmp_27 = fcmp oeq double %x_assign_9, %tmp_9
+
+
+ <State 18>: 1.92ns
+ST_18: p_Val2_3 (37)  [1/1] 0.00ns  loc: md.cpp:80
+:2  %p_Val2_3 = bitcast double %x_assign_9 to i64
+
+ST_18: loc_V_10 (38)  [1/1] 0.00ns  loc: md.cpp:80
+:3  %loc_V_10 = call i11 @_ssdm_op_PartSelect.i11.i64.i32.i32(i64 %p_Val2_3, i32 52, i32 62)
+
+ST_18: loc_V_11 (39)  [1/1] 0.00ns  loc: md.cpp:80
+:4  %loc_V_11 = trunc i64 %p_Val2_3 to i52
+
+ST_18: notlhs4 (43)  [1/1] 0.77ns  loc: md.cpp:80
+:8  %notlhs4 = icmp ne i11 %loc_V_10, -1
+
+ST_18: notrhs4 (44)  [1/1] 1.06ns  loc: md.cpp:80
+:9  %notrhs4 = icmp eq i52 %loc_V_11, 0
+
+ST_18: tmp_24 (45)  [1/1] 0.00ns  loc: md.cpp:80 (grouped into LUT with out node tmp_28)
+:10  %tmp_24 = or i1 %notrhs4, %notlhs4
+
+ST_18: tmp_25 (48)  [1/1] 0.00ns  loc: md.cpp:80 (grouped into LUT with out node tmp_28)
+:13  %tmp_25 = or i1 %notrhs5, %notlhs5
+
+ST_18: tmp_26 (49)  [1/1] 0.00ns  loc: md.cpp:80 (grouped into LUT with out node tmp_28)
+:14  %tmp_26 = and i1 %tmp_24, %tmp_25
+
+ST_18: tmp_28 (51)  [1/1] 0.07ns  loc: md.cpp:80 (out node of the LUT)
+:16  %tmp_28 = and i1 %tmp_26, %tmp_27
+
+ST_18: StgValue_139 (52)  [1/1] 0.79ns  loc: md.cpp:80
+:17  br i1 %tmp_28, label %._crit_edge, label %9
+
+ST_18: index_V (59)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:159->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82
+:5  %index_V = call i6 @_ssdm_op_PartSelect.i6.i64.i32.i32(i64 %p_Val2_3, i32 52, i32 57) nounwind
+
+ST_18: tmp_24_i (60)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:160->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82
+:6  %tmp_24_i = zext i6 %index_V to i64
+
+ST_18: mask_table1_addr (61)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:160->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82
+:7  %mask_table1_addr = getelementptr [64 x i52]* @mask_table1, i64 0, i64 %tmp_24_i
+
+ST_18: mask_1 (62)  [2/2] 1.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:160->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82
+:8  %mask_1 = load i52* %mask_table1_addr, align 8
+
+
+ <State 19>: 3.70ns
+ST_19: p_Result_8 (54)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:144->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82
+:0  %p_Result_8 = call i1 @_ssdm_op_BitSelect.i1.i64.i32(i64 %p_Val2_3, i32 63)
+
+ST_19: tmp_i1 (55)  [1/1] 0.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:146->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82
+:1  %tmp_i1 = icmp ult i11 %loc_V_10, 1023
+
+ST_19: tmp_i1_19 (56)  [1/1] 0.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:152->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82
+:2  %tmp_i1_19 = icmp ugt i11 %loc_V_10, -973
+
+ST_19: tmp_23_i (57)  [1/1] 0.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:147->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82
+:3  %tmp_23_i = icmp eq i11 %loc_V_10, 0
+
+ST_19: or_cond_i (58)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:147->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (grouped into LUT with out node sel_tmp2_i)
+:4  %or_cond_i = and i1 %notrhs4, %tmp_23_i
+
+ST_19: mask_1 (62)  [1/2] 1.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:160->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82
+:8  %mask_1 = load i52* %mask_table1_addr, align 8
+
+ST_19: mask_i42_cast (63)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:160->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82
+:9  %mask_i42_cast = zext i52 %mask_1 to i64
+
+ST_19: p_Result_77 (64)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:495->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_basic_math.h:337->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:150->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (grouped into LUT with out node sel_tmp2_i)
+:10  %p_Result_77 = call i64 @_ssdm_op_BitConcatenate.i64.i1.i63(i1 %p_Result_8, i63 0) nounwind
+
+ST_19: ret_i_i_i_i (65)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_basic_math.h:337->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:150->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (grouped into LUT with out node sel_tmp2_i)
+:11  %ret_i_i_i_i = bitcast i64 %p_Result_77 to double
+
+ST_19: tmp_38 (66)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:495->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:164->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82
+:12  %tmp_38 = trunc i64 %p_Val2_3 to i63
+
+ST_19: p_Result_78 (67)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:495->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:164->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82
+:13  %p_Result_78 = call i64 @_ssdm_op_BitConcatenate.i64.i1.i63(i1 false, i63 %tmp_38) nounwind
+
+ST_19: p_Val2_7 (68)  [1/1] 1.69ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:164->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82
+:14  %p_Val2_7 = add i64 %mask_i42_cast, %p_Result_78
+
+ST_19: p_Result_79 (69)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:481->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:484->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:164->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (grouped into LUT with out node ret_i_i_i)
+:15  %p_Result_79 = call i1 @_ssdm_op_BitSelect.i1.i64.i32(i64 %p_Val2_7, i32 63)
+
+ST_19: loc_V_12 (70)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:482->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:484->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:164->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (grouped into LUT with out node ret_i_i_i)
+:16  %loc_V_12 = call i11 @_ssdm_op_PartSelect.i11.i64.i32.i32(i64 %p_Val2_7, i32 52, i32 62) nounwind
+
+ST_19: loc_V_13 (71)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:483->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:484->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:164->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (grouped into LUT with out node ret_i_i_i)
+:17  %loc_V_13 = trunc i64 %p_Val2_7 to i52
+
+ST_19: xs_exp_V_12 (72)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:494->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:168->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (grouped into LUT with out node ret_i_i_i)
+:18  %xs_exp_V_12 = select i1 %p_Result_8, i11 %loc_V_10, i11 %loc_V_12
+
+ST_19: xs_sign_V_15 (73)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:493->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:168->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (grouped into LUT with out node ret_i_i_i)
+:19  %xs_sign_V_15 = or i1 %p_Result_8, %p_Result_79
+
+ST_19: xs_sig_V_1 (74)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:144->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (grouped into LUT with out node ret_i_i_i)
+:20  %xs_sig_V_1 = select i1 %p_Result_8, i52 %loc_V_11, i52 %loc_V_13
+
+ST_19: tmp_26_i (75)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:167->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (grouped into LUT with out node ret_i_i_i)
+:21  %tmp_26_i = xor i52 %mask_1, -1
+
+ST_19: xs_sig_V_16 (76)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:167->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (grouped into LUT with out node ret_i_i_i)
+:22  %xs_sig_V_16 = and i52 %xs_sig_V_1, %tmp_26_i
+
+ST_19: p_Result_80 (77)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:495->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:168->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (grouped into LUT with out node ret_i_i_i)
+:23  %p_Result_80 = call i64 @_ssdm_op_BitConcatenate.i64.i1.i11.i52(i1 %xs_sign_V_15, i11 %xs_exp_V_12, i52 %xs_sig_V_16) nounwind
+
+ST_19: ret_i_i_i (78)  [1/1] 0.12ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:168->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (out node of the LUT)
+:24  %ret_i_i_i = bitcast i64 %p_Result_80 to double
+
+ST_19: sel_tmp_i (79)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:144->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (grouped into LUT with out node sel_tmp2_i)
+:25  %sel_tmp_i = or i1 %p_Result_8, %or_cond_i
+
+ST_19: sel_tmp1_i (80)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:144->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (grouped into LUT with out node sel_tmp2_i)
+:26  %sel_tmp1_i = and i1 %sel_tmp_i, %tmp_i1
+
+ST_19: sel_tmp2_i (81)  [1/1] 0.12ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:144->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (out node of the LUT)
+:27  %sel_tmp2_i = select i1 %sel_tmp1_i, double %ret_i_i_i_i, double 1.000000e+00
+
+ST_19: sel_tmp5_demorgan_i (82)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:146->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (grouped into LUT with out node sel_tmp6_i1)
+:28  %sel_tmp5_demorgan_i = or i1 %tmp_i1, %tmp_i1_19
+
+ST_19: sel_tmp6_i1 (83)  [1/1] 0.12ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:146->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (out node of the LUT)
+:29  %sel_tmp6_i1 = select i1 %sel_tmp5_demorgan_i, double %sel_tmp2_i, double %ret_i_i_i
+
+
+ <State 20>: 3.73ns
+ST_20: sel_tmp7_i (84)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:146->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (grouped into LUT with out node p_i)
+:30  %sel_tmp7_i = xor i1 %tmp_i1, true
+
+ST_20: sel_tmp8_i1 (85)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:152->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (grouped into LUT with out node p_i)
+:31  %sel_tmp8_i1 = and i1 %tmp_i1_19, %sel_tmp7_i
+
+ST_20: p_i (86)  [1/1] 0.12ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:152->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82 (out node of the LUT)
+:32  %p_i = select i1 %sel_tmp8_i1, double %x_assign_9, double %sel_tmp6_i1
+
+ST_20: r (87)  [1/1] 3.61ns  loc: md.cpp:82
+:33  %r = fptrunc double %p_i to float
+
+
+ <State 21>: 4.33ns
+ST_21: r_to_int (88)  [1/1] 0.00ns  loc: md.cpp:82
+:34  %r_to_int = bitcast float %r to i32
+
+ST_21: tmp_37 (89)  [1/1] 0.00ns  loc: md.cpp:82
+:35  %tmp_37 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %r_to_int, i32 23, i32 30)
+
+ST_21: tmp_46 (90)  [1/1] 0.00ns  loc: md.cpp:82
+:36  %tmp_46 = trunc i32 %r_to_int to i23
+
+ST_21: notlhs8 (91)  [1/1] 0.78ns  loc: md.cpp:82
+:37  %notlhs8 = icmp ne i8 %tmp_37, -1
+
+ST_21: notrhs8 (92)  [1/1] 1.02ns  loc: md.cpp:82
+:38  %notrhs8 = icmp eq i23 %tmp_46, 0
+
+ST_21: tmp_39 (93)  [1/1] 0.00ns  loc: md.cpp:82 (grouped into LUT with out node tmp_42)
+:39  %tmp_39 = or i1 %notrhs8, %notlhs8
+
+ST_21: tmp_40 (94)  [1/1] 0.00ns  loc: md.cpp:82 (grouped into LUT with out node tmp_42)
+:40  %tmp_40 = and i1 %tmp_39, %tmp_2
+
+ST_21: tmp_41 (95)  [1/1] 3.48ns  loc: md.cpp:83
+:41  %tmp_41 = fcmp oeq float %r, %x_assign
+
+ST_21: tmp_42 (96)  [1/1] 0.07ns  loc: md.cpp:83 (out node of the LUT)
+:42  %tmp_42 = and i1 %tmp_40, %tmp_41
+
+ST_21: StgValue_184 (97)  [1/1] 0.79ns  loc: md.cpp:83
+:43  br i1 %tmp_42, label %10, label %._crit_edge
+
+ST_21: x_assign_s (99)  [8/8] 4.06ns  loc: md.cpp:85
+:0  %x_assign_s = fmul double %x_assign_9, 5.000000e-01
+
+
+ <State 22>: 4.06ns
+ST_22: x_assign_s (99)  [7/8] 4.06ns  loc: md.cpp:85
+:0  %x_assign_s = fmul double %x_assign_9, 5.000000e-01
+
+
+ <State 23>: 4.06ns
+ST_23: x_assign_s (99)  [6/8] 4.06ns  loc: md.cpp:85
+:0  %x_assign_s = fmul double %x_assign_9, 5.000000e-01
+
+
+ <State 24>: 4.06ns
+ST_24: x_assign_s (99)  [5/8] 4.06ns  loc: md.cpp:85
+:0  %x_assign_s = fmul double %x_assign_9, 5.000000e-01
+
+
+ <State 25>: 4.06ns
+ST_25: x_assign_s (99)  [4/8] 4.06ns  loc: md.cpp:85
+:0  %x_assign_s = fmul double %x_assign_9, 5.000000e-01
+
+
+ <State 26>: 4.06ns
+ST_26: x_assign_s (99)  [3/8] 4.06ns  loc: md.cpp:85
+:0  %x_assign_s = fmul double %x_assign_9, 5.000000e-01
+
+
+ <State 27>: 4.06ns
+ST_27: x_assign_s (99)  [2/8] 4.06ns  loc: md.cpp:85
+:0  %x_assign_s = fmul double %x_assign_9, 5.000000e-01
+
+
+ <State 28>: 4.06ns
+ST_28: x_assign_s (99)  [1/8] 4.06ns  loc: md.cpp:85
+:0  %x_assign_s = fmul double %x_assign_9, 5.000000e-01
+
+
+ <State 29>: 1.77ns
+ST_29: p_Val2_23 (100)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:475->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:144->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85
+:1  %p_Val2_23 = bitcast double %x_assign_s to i64
+
+ST_29: p_Result_42 (101)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:144->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85
+:2  %p_Result_42 = call i1 @_ssdm_op_BitSelect.i1.i64.i32(i64 %p_Val2_23, i32 63)
+
+ST_29: loc_V_14 (102)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:477->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:144->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85
+:3  %loc_V_14 = call i11 @_ssdm_op_PartSelect.i11.i64.i32.i32(i64 %p_Val2_23, i32 52, i32 62) nounwind
+
+ST_29: loc_V_15 (103)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:478->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:144->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85
+:4  %loc_V_15 = trunc i64 %p_Val2_23 to i52
+
+ST_29: index_V_2 (109)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:159->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85
+:10  %index_V_2 = call i6 @_ssdm_op_PartSelect.i6.i64.i32.i32(i64 %p_Val2_23, i32 52, i32 57) nounwind
+
+ST_29: tmp_24_i1 (110)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:160->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85
+:11  %tmp_24_i1 = zext i6 %index_V_2 to i64
+
+ST_29: mask_table1_addr_1 (111)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:160->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85
+:12  %mask_table1_addr_1 = getelementptr [64 x i52]* @mask_table1, i64 0, i64 %tmp_24_i1
+
+ST_29: mask_2 (112)  [2/2] 1.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:160->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85
+:13  %mask_2 = load i52* %mask_table1_addr_1, align 8
+
+ST_29: tmp_61 (116)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:495->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:164->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85
+:17  %tmp_61 = trunc i64 %p_Val2_23 to i63
+
+
+ <State 30>: 3.81ns
+ST_30: tmp_i2 (104)  [1/1] 0.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:146->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85
+:5  %tmp_i2 = icmp ult i11 %loc_V_14, 1023
+
+ST_30: tmp_i2_20 (105)  [1/1] 0.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:152->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85
+:6  %tmp_i2_20 = icmp ugt i11 %loc_V_14, -973
+
+ST_30: tmp_22_i1 (106)  [1/1] 1.06ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:147->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85
+:7  %tmp_22_i1 = icmp eq i52 %loc_V_15, 0
+
+ST_30: tmp_23_i1 (107)  [1/1] 0.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:147->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85
+:8  %tmp_23_i1 = icmp eq i11 %loc_V_14, 0
+
+ST_30: or_cond_i1 (108)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:147->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (grouped into LUT with out node sel_tmp2_i1)
+:9  %or_cond_i1 = and i1 %tmp_22_i1, %tmp_23_i1
+
+ST_30: mask_2 (112)  [1/2] 1.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:160->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85
+:13  %mask_2 = load i52* %mask_table1_addr_1, align 8
+
+ST_30: mask_i62_cast (113)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:160->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85
+:14  %mask_i62_cast = zext i52 %mask_2 to i64
+
+ST_30: p_Result_81 (114)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:495->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_basic_math.h:337->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:150->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (grouped into LUT with out node sel_tmp2_i1)
+:15  %p_Result_81 = call i64 @_ssdm_op_BitConcatenate.i64.i1.i63(i1 %p_Result_42, i63 0) nounwind
+
+ST_30: ret_i_i_i_i1 (115)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_basic_math.h:337->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:150->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (grouped into LUT with out node sel_tmp2_i1)
+:16  %ret_i_i_i_i1 = bitcast i64 %p_Result_81 to double
+
+ST_30: p_Result_82 (117)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:495->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:164->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85
+:18  %p_Result_82 = call i64 @_ssdm_op_BitConcatenate.i64.i1.i63(i1 false, i63 %tmp_61) nounwind
+
+ST_30: p_Val2_27 (118)  [1/1] 1.69ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:164->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85
+:19  %p_Val2_27 = add i64 %p_Result_82, %mask_i62_cast
+
+ST_30: p_Result_83 (119)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:481->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:484->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:164->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (grouped into LUT with out node ret_i_i_i1)
+:20  %p_Result_83 = call i1 @_ssdm_op_BitSelect.i1.i64.i32(i64 %p_Val2_27, i32 63)
+
+ST_30: loc_V_16 (120)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:482->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:484->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:164->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (grouped into LUT with out node ret_i_i_i1)
+:21  %loc_V_16 = call i11 @_ssdm_op_PartSelect.i11.i64.i32.i32(i64 %p_Val2_27, i32 52, i32 62) nounwind
+
+ST_30: loc_V_17 (121)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:483->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:484->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:164->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (grouped into LUT with out node ret_i_i_i1)
+:22  %loc_V_17 = trunc i64 %p_Val2_27 to i52
+
+ST_30: xs_exp_V (122)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:494->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:168->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (grouped into LUT with out node ret_i_i_i1)
+:23  %xs_exp_V = select i1 %p_Result_42, i11 %loc_V_14, i11 %loc_V_16
+
+ST_30: xs_sign_V (123)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:493->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:168->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (grouped into LUT with out node ret_i_i_i1)
+:24  %xs_sign_V = or i1 %p_Result_42, %p_Result_83
+
+ST_30: xs_sig_V_8 (124)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:144->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (grouped into LUT with out node ret_i_i_i1)
+:25  %xs_sig_V_8 = select i1 %p_Result_42, i52 %loc_V_15, i52 %loc_V_17
+
+ST_30: tmp_26_i1 (125)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:167->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (grouped into LUT with out node ret_i_i_i1)
+:26  %tmp_26_i1 = xor i52 %mask_2, -1
+
+ST_30: xs_sig_V (126)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:167->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (grouped into LUT with out node ret_i_i_i1)
+:27  %xs_sig_V = and i52 %xs_sig_V_8, %tmp_26_i1
+
+ST_30: p_Result_84 (127)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:495->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:168->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (grouped into LUT with out node ret_i_i_i1)
+:28  %p_Result_84 = call i64 @_ssdm_op_BitConcatenate.i64.i1.i11.i52(i1 %xs_sign_V, i11 %xs_exp_V, i52 %xs_sig_V) nounwind
+
+ST_30: ret_i_i_i1 (128)  [1/1] 0.12ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:168->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (out node of the LUT)
+:29  %ret_i_i_i1 = bitcast i64 %p_Result_84 to double
+
+ST_30: sel_tmp_i1 (129)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:144->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (grouped into LUT with out node sel_tmp2_i1)
+:30  %sel_tmp_i1 = or i1 %p_Result_42, %or_cond_i1
+
+ST_30: sel_tmp1_i1 (130)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:144->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (grouped into LUT with out node sel_tmp2_i1)
+:31  %sel_tmp1_i1 = and i1 %sel_tmp_i1, %tmp_i2
+
+ST_30: sel_tmp2_i1 (131)  [1/1] 0.12ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:144->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (out node of the LUT)
+:32  %sel_tmp2_i1 = select i1 %sel_tmp1_i1, double %ret_i_i_i_i1, double 1.000000e+00
+
+ST_30: sel_tmp5_demorgan_i1 (132)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:146->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (grouped into LUT with out node sel_tmp6_i2)
+:33  %sel_tmp5_demorgan_i1 = or i1 %tmp_i2, %tmp_i2_20
+
+ST_30: sel_tmp6_i2 (133)  [1/1] 0.12ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:146->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (out node of the LUT)
+:34  %sel_tmp6_i2 = select i1 %sel_tmp5_demorgan_i1, double %sel_tmp2_i1, double %ret_i_i_i1
+
+ST_30: sel_tmp7_i1 (134)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:146->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (grouped into LUT with out node p_i1)
+:35  %sel_tmp7_i1 = xor i1 %tmp_i2, true
+
+ST_30: sel_tmp8_i2 (135)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:152->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (grouped into LUT with out node p_i1)
+:36  %sel_tmp8_i2 = and i1 %tmp_i2_20, %sel_tmp7_i1
+
+ST_30: p_i1 (136)  [1/1] 0.12ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:152->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85 (out node of the LUT)
+:37  %p_i1 = select i1 %sel_tmp8_i2, double %x_assign_s, double %sel_tmp6_i2
+
+
+ <State 31>: 4.06ns
+ST_31: tmp_s (137)  [8/8] 4.06ns  loc: md.cpp:85
+:38  %tmp_s = fmul double %p_i1, 2.000000e+00
+
+
+ <State 32>: 4.06ns
+ST_32: tmp_s (137)  [7/8] 4.06ns  loc: md.cpp:85
+:38  %tmp_s = fmul double %p_i1, 2.000000e+00
+
+
+ <State 33>: 4.06ns
+ST_33: tmp_s (137)  [6/8] 4.06ns  loc: md.cpp:85
+:38  %tmp_s = fmul double %p_i1, 2.000000e+00
+
+
+ <State 34>: 4.06ns
+ST_34: tmp_s (137)  [5/8] 4.06ns  loc: md.cpp:85
+:38  %tmp_s = fmul double %p_i1, 2.000000e+00
+
+
+ <State 35>: 4.06ns
+ST_35: tmp_s (137)  [4/8] 4.06ns  loc: md.cpp:85
+:38  %tmp_s = fmul double %p_i1, 2.000000e+00
+
+
+ <State 36>: 4.06ns
+ST_36: tmp_s (137)  [3/8] 4.06ns  loc: md.cpp:85
+:38  %tmp_s = fmul double %p_i1, 2.000000e+00
+
+
+ <State 37>: 4.06ns
+ST_37: tmp_s (137)  [2/8] 4.06ns  loc: md.cpp:85
+:38  %tmp_s = fmul double %p_i1, 2.000000e+00
+
+
+ <State 38>: 4.06ns
+ST_38: tmp_s (137)  [1/8] 4.06ns  loc: md.cpp:85
+:38  %tmp_s = fmul double %p_i1, 2.000000e+00
+
+
+ <State 39>: 3.61ns
+ST_39: tmp_11 (138)  [1/1] 3.61ns  loc: md.cpp:85
+:39  %tmp_11 = fptrunc double %tmp_s to float
+
+
+ <State 40>: 0.79ns
+ST_40: StgValue_240 (139)  [1/1] 0.79ns  loc: md.cpp:85
+:40  br label %._crit_edge
+
+ST_40: StgValue_241 (258)  [1/1] 0.79ns  loc: md.cpp:72
+:39  br label %._crit_edge
+
+ST_40: p_0 (260)  [1/1] 0.00ns
+._crit_edge:0  %p_0 = phi float [ %tmp_12, %6 ], [ %tmp_11, %10 ], [ %x_read, %0 ], [ %x_read, %2 ], [ -0.000000e+00, %3 ], [ %x_read, %4 ], [ %r_1, %5 ], [ 0.000000e+00, %7 ], [ %x_read, %8 ], [ %r, %9 ]
+
+ST_40: StgValue_243 (261)  [1/1] 0.00ns  loc: md.cpp:87
+._crit_edge:1  ret float %p_0
+
+
+ <State 41>: 4.09ns
+ST_41: x_assign_1 (144)  [6/7] 4.09ns  loc: md.cpp:61
+:0  %x_assign_1 = fadd float %x_read, 5.000000e-01
+
+
+ <State 42>: 4.09ns
+ST_42: x_assign_1 (144)  [5/7] 4.09ns  loc: md.cpp:61
+:0  %x_assign_1 = fadd float %x_read, 5.000000e-01
+
+
+ <State 43>: 4.09ns
+ST_43: x_assign_1 (144)  [4/7] 4.09ns  loc: md.cpp:61
+:0  %x_assign_1 = fadd float %x_read, 5.000000e-01
+
+
+ <State 44>: 4.09ns
+ST_44: x_assign_1 (144)  [3/7] 4.09ns  loc: md.cpp:61
+:0  %x_assign_1 = fadd float %x_read, 5.000000e-01
+
+
+ <State 45>: 4.09ns
+ST_45: x_assign_1 (144)  [2/7] 4.09ns  loc: md.cpp:61
+:0  %x_assign_1 = fadd float %x_read, 5.000000e-01
+
+
+ <State 46>: 4.09ns
+ST_46: x_assign_1 (144)  [1/7] 4.09ns  loc: md.cpp:61
+:0  %x_assign_1 = fadd float %x_read, 5.000000e-01
+
+
+ <State 47>: 4.33ns
+ST_47: x_assign_1_to_int (145)  [1/1] 0.00ns  loc: md.cpp:61
+:1  %x_assign_1_to_int = bitcast float %x_assign_1 to i32
+
+ST_47: tmp_15 (146)  [1/1] 0.00ns  loc: md.cpp:61
+:2  %tmp_15 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %x_assign_1_to_int, i32 23, i32 30)
+
+ST_47: tmp_21 (147)  [1/1] 0.00ns  loc: md.cpp:61
+:3  %tmp_21 = trunc i32 %x_assign_1_to_int to i23
+
+ST_47: notlhs3 (148)  [1/1] 0.78ns  loc: md.cpp:61
+:4  %notlhs3 = icmp ne i8 %tmp_15, -1
+
+ST_47: notrhs3 (149)  [1/1] 1.02ns  loc: md.cpp:61
+:5  %notrhs3 = icmp eq i23 %tmp_21, 0
+
+ST_47: tmp_16 (150)  [1/1] 0.07ns  loc: md.cpp:61
+:6  %tmp_16 = or i1 %notrhs3, %notlhs3
+
+ST_47: tmp_18 (151)  [1/1] 3.48ns  loc: md.cpp:63
+:7  %tmp_18 = fcmp oge float %x_assign_1, 0.000000e+00
+
+ST_47: tmp_19 (152)  [1/1] 0.07ns  loc: md.cpp:63
+:8  %tmp_19 = and i1 %tmp_16, %tmp_18
+
+ST_47: StgValue_258 (153)  [1/1] 0.79ns  loc: md.cpp:63
+:9  br i1 %tmp_19, label %._crit_edge, label %4
+
+ST_47: tmp_7 (156)  [8/8] 3.71ns  loc: md.cpp:66
+:1  %tmp_7 = fadd double %t_in_assign, 1.000000e+00
+
+
+ <State 48>: 3.71ns
+ST_48: tmp_7 (156)  [7/8] 3.71ns  loc: md.cpp:66
+:1  %tmp_7 = fadd double %t_in_assign, 1.000000e+00
+
+
+ <State 49>: 3.71ns
+ST_49: tmp_7 (156)  [6/8] 3.71ns  loc: md.cpp:66
+:1  %tmp_7 = fadd double %t_in_assign, 1.000000e+00
+
+
+ <State 50>: 3.71ns
+ST_50: tmp_7 (156)  [5/8] 3.71ns  loc: md.cpp:66
+:1  %tmp_7 = fadd double %t_in_assign, 1.000000e+00
+
+
+ <State 51>: 3.71ns
+ST_51: tmp_7 (156)  [4/8] 3.71ns  loc: md.cpp:66
+:1  %tmp_7 = fadd double %t_in_assign, 1.000000e+00
+
+
+ <State 52>: 3.71ns
+ST_52: tmp_7 (156)  [3/8] 3.71ns  loc: md.cpp:66
+:1  %tmp_7 = fadd double %t_in_assign, 1.000000e+00
+
+
+ <State 53>: 3.71ns
+ST_53: tmp_7 (156)  [2/8] 3.71ns  loc: md.cpp:66
+:1  %tmp_7 = fadd double %t_in_assign, 1.000000e+00
+
+
+ <State 54>: 3.71ns
+ST_54: x_assign_7 (155)  [1/1] 2.88ns  loc: md.cpp:66
+:0  %x_assign_7 = fpext float %x_assign_1 to double
+
+ST_54: tmp_7 (156)  [1/8] 3.71ns  loc: md.cpp:66
+:1  %tmp_7 = fadd double %t_in_assign, 1.000000e+00
+
+
+ <State 55>: 3.52ns
+ST_55: tmp_7_to_int (160)  [1/1] 0.00ns  loc: md.cpp:66
+:5  %tmp_7_to_int = bitcast double %tmp_7 to i64
+
+ST_55: tmp_30 (161)  [1/1] 0.00ns  loc: md.cpp:66
+:6  %tmp_30 = call i11 @_ssdm_op_PartSelect.i11.i64.i32.i32(i64 %tmp_7_to_int, i32 52, i32 62)
+
+ST_55: tmp_31 (162)  [1/1] 0.00ns  loc: md.cpp:66
+:7  %tmp_31 = trunc i64 %tmp_7_to_int to i52
+
+ST_55: notlhs7 (166)  [1/1] 0.77ns  loc: md.cpp:66
+:11  %notlhs7 = icmp ne i11 %tmp_30, -1
+
+ST_55: notrhs7 (167)  [1/1] 1.06ns  loc: md.cpp:66
+:12  %notrhs7 = icmp eq i52 %tmp_31, 0
+
+ST_55: tmp_35 (170)  [1/1] 3.52ns  loc: md.cpp:66
+:15  %tmp_35 = fcmp oeq double %x_assign_7, %tmp_7
+
+
+ <State 56>: 1.92ns
+ST_56: p_Val2_12 (157)  [1/1] 0.00ns  loc: md.cpp:66
+:2  %p_Val2_12 = bitcast double %x_assign_7 to i64
+
+ST_56: loc_V_2 (158)  [1/1] 0.00ns  loc: md.cpp:66
+:3  %loc_V_2 = call i11 @_ssdm_op_PartSelect.i11.i64.i32.i32(i64 %p_Val2_12, i32 52, i32 62)
+
+ST_56: loc_V_3 (159)  [1/1] 0.00ns  loc: md.cpp:66
+:4  %loc_V_3 = trunc i64 %p_Val2_12 to i52
+
+ST_56: notlhs6 (163)  [1/1] 0.77ns  loc: md.cpp:66
+:8  %notlhs6 = icmp ne i11 %loc_V_2, -1
+
+ST_56: notrhs6 (164)  [1/1] 1.06ns  loc: md.cpp:66
+:9  %notrhs6 = icmp eq i52 %loc_V_3, 0
+
+ST_56: tmp_32 (165)  [1/1] 0.00ns  loc: md.cpp:66 (grouped into LUT with out node tmp_36)
+:10  %tmp_32 = or i1 %notrhs6, %notlhs6
+
+ST_56: tmp_33 (168)  [1/1] 0.00ns  loc: md.cpp:66 (grouped into LUT with out node tmp_36)
+:13  %tmp_33 = or i1 %notrhs7, %notlhs7
+
+ST_56: tmp_34 (169)  [1/1] 0.00ns  loc: md.cpp:66 (grouped into LUT with out node tmp_36)
+:14  %tmp_34 = and i1 %tmp_32, %tmp_33
+
+ST_56: tmp_36 (171)  [1/1] 0.07ns  loc: md.cpp:66 (out node of the LUT)
+:16  %tmp_36 = and i1 %tmp_34, %tmp_35
+
+ST_56: StgValue_283 (172)  [1/1] 0.79ns  loc: md.cpp:66
+:17  br i1 %tmp_36, label %._crit_edge, label %5
+
+ST_56: index_V_1 (178)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:95->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68
+:4  %index_V_1 = call i6 @_ssdm_op_PartSelect.i6.i64.i32.i32(i64 %p_Val2_12, i32 52, i32 57) nounwind
+
+ST_56: tmp_19_i (179)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:96->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68
+:5  %tmp_19_i = zext i6 %index_V_1 to i64
+
+ST_56: mask_table3_addr (180)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:96->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68
+:6  %mask_table3_addr = getelementptr [64 x i52]* @mask_table3, i64 0, i64 %tmp_19_i
+
+ST_56: mask (181)  [2/2] 1.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:96->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68
+:7  %mask = load i52* %mask_table3_addr, align 8
+
+
+ <State 57>: 3.58ns
+ST_57: p_Result_25 (174)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:81->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68
+:0  %p_Result_25 = call i1 @_ssdm_op_BitSelect.i1.i64.i32(i64 %p_Val2_12, i32 63)
+
+ST_57: tmp_i (175)  [1/1] 0.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:82->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68
+:1  %tmp_i = icmp ult i11 %loc_V_2, 1023
+
+ST_57: tmp_i_18 (176)  [1/1] 0.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:88->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68
+:2  %tmp_i_18 = icmp ugt i11 %loc_V_2, -973
+
+ST_57: mask (181)  [1/2] 1.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:96->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68
+:7  %mask = load i52* %mask_table3_addr, align 8
+
+ST_57: mask_i_cast (182)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:96->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68
+:8  %mask_i_cast = zext i52 %mask to i64
+
+ST_57: tmp_54 (183)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:495->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:100->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68
+:9  %tmp_54 = trunc i64 %p_Val2_12 to i63
+
+ST_57: p_Result_70 (184)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:495->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:100->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68
+:10  %p_Result_70 = call i64 @_ssdm_op_BitConcatenate.i64.i1.i63(i1 true, i63 %tmp_54) nounwind
+
+ST_57: p_Val2_17 (185)  [1/1] 1.69ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:100->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68
+:11  %p_Val2_17 = add i64 %mask_i_cast, %p_Result_70
+
+ST_57: p_Result_71 (186)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:481->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:484->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:100->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (grouped into LUT with out node p_Result_72)
+:12  %p_Result_71 = call i1 @_ssdm_op_BitSelect.i1.i64.i32(i64 %p_Val2_17, i32 63)
+
+ST_57: loc_V_4 (187)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:482->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:484->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:100->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (grouped into LUT with out node p_Result_72)
+:13  %loc_V_4 = call i11 @_ssdm_op_PartSelect.i11.i64.i32.i32(i64 %p_Val2_17, i32 52, i32 62) nounwind
+
+ST_57: loc_V_5 (188)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:483->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:484->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:100->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (grouped into LUT with out node p_Result_72)
+:14  %loc_V_5 = trunc i64 %p_Val2_17 to i52
+
+ST_57: xs_exp_V_10 (189)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:494->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:104->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (grouped into LUT with out node p_Result_72)
+:15  %xs_exp_V_10 = select i1 %p_Result_25, i11 %loc_V_4, i11 %loc_V_2
+
+ST_57: xs_sign_V_13 (190)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:493->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:104->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (grouped into LUT with out node p_Result_72)
+:16  %xs_sign_V_13 = and i1 %p_Result_25, %p_Result_71
+
+ST_57: xs_sig_V_4 (191)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:81->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (grouped into LUT with out node p_Result_72)
+:17  %xs_sig_V_4 = select i1 %p_Result_25, i52 %loc_V_5, i52 %loc_V_3
+
+ST_57: tmp_21_i (192)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:103->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (grouped into LUT with out node p_Result_72)
+:18  %tmp_21_i = xor i52 %mask, -1
+
+ST_57: xs_sig_V_14 (193)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:103->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (grouped into LUT with out node p_Result_72)
+:19  %xs_sig_V_14 = and i52 %xs_sig_V_4, %tmp_21_i
+
+ST_57: p_Result_72 (194)  [1/1] 0.12ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:495->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:104->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (out node of the LUT)
+:20  %p_Result_72 = call i64 @_ssdm_op_BitConcatenate.i64.i1.i11.i52(i1 %xs_sign_V_13, i11 %xs_exp_V_10, i52 %xs_sig_V_14) nounwind
+
+ST_57: notlhs_i (201)  [1/1] 1.06ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:83->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68
+:27  %notlhs_i = icmp ne i52 %loc_V_3, 0
+
+ST_57: notrhs_i (202)  [1/1] 0.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:83->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68
+:28  %notrhs_i = icmp ne i11 %loc_V_2, 0
+
+
+ <State 58>: 3.84ns
+ST_58: p_Result_s (177)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:495->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_basic_math.h:337->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:86->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (grouped into LUT with out node sel_tmp3_i)
+:3  %p_Result_s = call i64 @_ssdm_op_BitConcatenate.i64.i1.i63(i1 %p_Result_25, i63 0) nounwind
+
+ST_58: sel_tmp2_demorgan_i (195)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:82->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (grouped into LUT with out node sel_tmp3_i)
+:21  %sel_tmp2_demorgan_i = or i1 %tmp_i, %tmp_i_18
+
+ST_58: sel_tmp3_v_i (196)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:82->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (grouped into LUT with out node sel_tmp3_i)
+:22  %sel_tmp3_v_i = select i1 %sel_tmp2_demorgan_i, i64 %p_Result_s, i64 %p_Result_72
+
+ST_58: sel_tmp3_i (197)  [1/1] 0.12ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:82->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (out node of the LUT)
+:23  %sel_tmp3_i = bitcast i64 %sel_tmp3_v_i to double
+
+ST_58: sel_tmp4_i (198)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:82->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (grouped into LUT with out node tmp_43)
+:24  %sel_tmp4_i = xor i1 %tmp_i, true
+
+ST_58: sel_tmp5_i (199)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:88->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (grouped into LUT with out node tmp_43)
+:25  %sel_tmp5_i = and i1 %tmp_i_18, %sel_tmp4_i
+
+ST_58: sel_tmp6_i (200)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:88->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (grouped into LUT with out node tmp_43)
+:26  %sel_tmp6_i = select i1 %sel_tmp5_i, double %x_assign_7, double %sel_tmp3_i
+
+ST_58: sel_tmp8_i (203)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:83->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (grouped into LUT with out node r_1)
+:29  %sel_tmp8_i = or i1 %notrhs_i, %notlhs_i
+
+ST_58: tmp (204)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:81->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (grouped into LUT with out node r_1)
+:30  %tmp = and i1 %p_Result_25, %sel_tmp8_i
+
+ST_58: sel_tmp9_i (205)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:81->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68 (grouped into LUT with out node r_1)
+:31  %sel_tmp9_i = and i1 %tmp, %tmp_i
+
+ST_58: tmp_43 (206)  [1/1] 3.61ns  loc: md.cpp:68 (out node of the LUT)
+:32  %tmp_43 = fptrunc double %sel_tmp6_i to float
+
+ST_58: r_1 (207)  [1/1] 0.12ns  loc: md.cpp:68 (out node of the LUT)
+:33  %r_1 = select i1 %sel_tmp9_i, float -1.000000e+00, float %tmp_43
+
+
+ <State 59>: 4.33ns
+ST_59: r_1_to_int (208)  [1/1] 0.00ns  loc: md.cpp:68
+:34  %r_1_to_int = bitcast float %r_1 to i32
+
+ST_59: tmp_44 (209)  [1/1] 0.00ns  loc: md.cpp:68
+:35  %tmp_44 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %r_1_to_int, i32 23, i32 30)
+
+ST_59: tmp_58 (210)  [1/1] 0.00ns  loc: md.cpp:68
+:36  %tmp_58 = trunc i32 %r_1_to_int to i23
+
+ST_59: notlhs1 (211)  [1/1] 0.78ns  loc: md.cpp:68
+:37  %notlhs1 = icmp ne i8 %tmp_44, -1
+
+ST_59: notrhs1 (212)  [1/1] 1.02ns  loc: md.cpp:68
+:38  %notrhs1 = icmp eq i23 %tmp_58, 0
+
+ST_59: tmp_45 (213)  [1/1] 0.00ns  loc: md.cpp:68 (grouped into LUT with out node tmp_49)
+:39  %tmp_45 = or i1 %notrhs1, %notlhs1
+
+ST_59: tmp_47 (214)  [1/1] 0.00ns  loc: md.cpp:68 (grouped into LUT with out node tmp_49)
+:40  %tmp_47 = and i1 %tmp_45, %tmp_16
+
+ST_59: tmp_48 (215)  [1/1] 3.48ns  loc: md.cpp:69
+:41  %tmp_48 = fcmp oeq float %r_1, %x_assign_1
+
+ST_59: tmp_49 (216)  [1/1] 0.07ns  loc: md.cpp:69 (out node of the LUT)
+:42  %tmp_49 = and i1 %tmp_47, %tmp_48
+
+ST_59: StgValue_328 (217)  [1/1] 0.79ns  loc: md.cpp:69
+:43  br i1 %tmp_49, label %6, label %._crit_edge
+
+ST_59: x_assign_8 (219)  [8/8] 4.06ns  loc: md.cpp:72
+:0  %x_assign_8 = fmul double %x_assign_7, 5.000000e-01
+
+
+ <State 60>: 4.06ns
+ST_60: x_assign_8 (219)  [7/8] 4.06ns  loc: md.cpp:72
+:0  %x_assign_8 = fmul double %x_assign_7, 5.000000e-01
+
+
+ <State 61>: 4.06ns
+ST_61: x_assign_8 (219)  [6/8] 4.06ns  loc: md.cpp:72
+:0  %x_assign_8 = fmul double %x_assign_7, 5.000000e-01
+
+
+ <State 62>: 4.06ns
+ST_62: x_assign_8 (219)  [5/8] 4.06ns  loc: md.cpp:72
+:0  %x_assign_8 = fmul double %x_assign_7, 5.000000e-01
+
+
+ <State 63>: 4.06ns
+ST_63: x_assign_8 (219)  [4/8] 4.06ns  loc: md.cpp:72
+:0  %x_assign_8 = fmul double %x_assign_7, 5.000000e-01
+
+
+ <State 64>: 4.06ns
+ST_64: x_assign_8 (219)  [3/8] 4.06ns  loc: md.cpp:72
+:0  %x_assign_8 = fmul double %x_assign_7, 5.000000e-01
+
+
+ <State 65>: 4.06ns
+ST_65: x_assign_8 (219)  [2/8] 4.06ns  loc: md.cpp:72
+:0  %x_assign_8 = fmul double %x_assign_7, 5.000000e-01
+
+
+ <State 66>: 4.06ns
+ST_66: x_assign_8 (219)  [1/8] 4.06ns  loc: md.cpp:72
+:0  %x_assign_8 = fmul double %x_assign_7, 5.000000e-01
+
+
+ <State 67>: 1.77ns
+ST_67: p_Val2_32 (220)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:475->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:81->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72
+:1  %p_Val2_32 = bitcast double %x_assign_8 to i64
+
+ST_67: p_Result_59 (221)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:81->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72
+:2  %p_Result_59 = call i1 @_ssdm_op_BitSelect.i1.i64.i32(i64 %p_Val2_32, i32 63)
+
+ST_67: loc_V_6 (222)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:477->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:81->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72
+:3  %loc_V_6 = call i11 @_ssdm_op_PartSelect.i11.i64.i32.i32(i64 %p_Val2_32, i32 52, i32 62) nounwind
+
+ST_67: loc_V_7 (223)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:478->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:81->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72
+:4  %loc_V_7 = trunc i64 %p_Val2_32 to i52
+
+ST_67: index_V_3 (227)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:95->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72
+:8  %index_V_3 = call i6 @_ssdm_op_PartSelect.i6.i64.i32.i32(i64 %p_Val2_32, i32 52, i32 57) nounwind
+
+ST_67: tmp_19_i9 (228)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:96->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72
+:9  %tmp_19_i9 = zext i6 %index_V_3 to i64
+
+ST_67: mask_table3_addr_1 (229)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:96->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72
+:10  %mask_table3_addr_1 = getelementptr [64 x i52]* @mask_table3, i64 0, i64 %tmp_19_i9
+
+ST_67: mask_3 (230)  [2/2] 1.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:96->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72
+:11  %mask_3 = load i52* %mask_table3_addr_1, align 8
+
+ST_67: tmp_66 (232)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:495->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:100->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72
+:13  %tmp_66 = trunc i64 %p_Val2_32 to i63
+
+
+ <State 68>: 3.81ns
+ST_68: tmp_i5 (224)  [1/1] 0.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:82->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72
+:5  %tmp_i5 = icmp ult i11 %loc_V_6, 1023
+
+ST_68: tmp_i6 (225)  [1/1] 0.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:88->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72
+:6  %tmp_i6 = icmp ugt i11 %loc_V_6, -973
+
+ST_68: p_Result_73 (226)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:495->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_basic_math.h:337->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:86->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (grouped into LUT with out node sel_tmp3_i1)
+:7  %p_Result_73 = call i64 @_ssdm_op_BitConcatenate.i64.i1.i63(i1 %p_Result_59, i63 0) nounwind
+
+ST_68: mask_3 (230)  [1/2] 1.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:96->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72
+:11  %mask_3 = load i52* %mask_table3_addr_1, align 8
+
+ST_68: mask_i11_cast (231)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:96->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72
+:12  %mask_i11_cast = zext i52 %mask_3 to i64
+
+ST_68: p_Result_74 (233)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:495->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:100->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72
+:14  %p_Result_74 = call i64 @_ssdm_op_BitConcatenate.i64.i1.i63(i1 true, i63 %tmp_66) nounwind
+
+ST_68: p_Val2_37 (234)  [1/1] 1.69ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:100->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72
+:15  %p_Val2_37 = add i64 %p_Result_74, %mask_i11_cast
+
+ST_68: p_Result_75 (235)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:481->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:484->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:100->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (grouped into LUT with out node p_Result_76)
+:16  %p_Result_75 = call i1 @_ssdm_op_BitSelect.i1.i64.i32(i64 %p_Val2_37, i32 63)
+
+ST_68: loc_V_8 (236)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:482->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:484->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:100->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (grouped into LUT with out node p_Result_76)
+:17  %loc_V_8 = call i11 @_ssdm_op_PartSelect.i11.i64.i32.i32(i64 %p_Val2_37, i32 52, i32 62) nounwind
+
+ST_68: loc_V_9 (237)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:483->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:484->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:100->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (grouped into LUT with out node p_Result_76)
+:18  %loc_V_9 = trunc i64 %p_Val2_37 to i52
+
+ST_68: xs_exp_V_11 (238)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:494->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:104->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (grouped into LUT with out node p_Result_76)
+:19  %xs_exp_V_11 = select i1 %p_Result_59, i11 %loc_V_8, i11 %loc_V_6
+
+ST_68: xs_sign_V_14 (239)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:493->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:104->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (grouped into LUT with out node p_Result_76)
+:20  %xs_sign_V_14 = and i1 %p_Result_59, %p_Result_75
+
+ST_68: xs_sig_V_12 (240)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:81->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (grouped into LUT with out node p_Result_76)
+:21  %xs_sig_V_12 = select i1 %p_Result_59, i52 %loc_V_9, i52 %loc_V_7
+
+ST_68: tmp_21_i1 (241)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:103->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (grouped into LUT with out node p_Result_76)
+:22  %tmp_21_i1 = xor i52 %mask_3, -1
+
+ST_68: xs_sig_V_15 (242)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:103->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (grouped into LUT with out node p_Result_76)
+:23  %xs_sig_V_15 = and i52 %xs_sig_V_12, %tmp_21_i1
+
+ST_68: p_Result_76 (243)  [1/1] 0.12ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:495->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:104->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (out node of the LUT)
+:24  %p_Result_76 = call i64 @_ssdm_op_BitConcatenate.i64.i1.i11.i52(i1 %xs_sign_V_14, i11 %xs_exp_V_11, i52 %xs_sig_V_15) nounwind
+
+ST_68: sel_tmp2_demorgan_i1 (244)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:82->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (grouped into LUT with out node sel_tmp3_i1)
+:25  %sel_tmp2_demorgan_i1 = or i1 %tmp_i5, %tmp_i6
+
+ST_68: sel_tmp3_v_i1 (245)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:82->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (grouped into LUT with out node sel_tmp3_i1)
+:26  %sel_tmp3_v_i1 = select i1 %sel_tmp2_demorgan_i1, i64 %p_Result_73, i64 %p_Result_76
+
+ST_68: sel_tmp3_i1 (246)  [1/1] 0.12ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:82->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (out node of the LUT)
+:27  %sel_tmp3_i1 = bitcast i64 %sel_tmp3_v_i1 to double
+
+ST_68: sel_tmp4_i1 (247)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:82->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (grouped into LUT with out node sel_tmp6_i3)
+:28  %sel_tmp4_i1 = xor i1 %tmp_i5, true
+
+ST_68: sel_tmp5_i1 (248)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:88->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (grouped into LUT with out node sel_tmp6_i3)
+:29  %sel_tmp5_i1 = and i1 %tmp_i6, %sel_tmp4_i1
+
+ST_68: sel_tmp6_i3 (249)  [1/1] 0.12ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:88->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (out node of the LUT)
+:30  %sel_tmp6_i3 = select i1 %sel_tmp5_i1, double %x_assign_8, double %sel_tmp3_i1
+
+ST_68: notlhs_i1 (250)  [1/1] 1.06ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:83->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72
+:31  %notlhs_i1 = icmp ne i52 %loc_V_7, 0
+
+ST_68: notrhs_i1 (251)  [1/1] 0.77ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:83->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72
+:32  %notrhs_i1 = icmp ne i11 %loc_V_6, 0
+
+
+ <State 69>: 4.06ns
+ST_69: sel_tmp6_i29_op (255)  [8/8] 4.06ns  loc: md.cpp:72
+:36  %sel_tmp6_i29_op = fmul double %sel_tmp6_i3, 2.000000e+00
+
+
+ <State 70>: 4.06ns
+ST_70: sel_tmp6_i29_op (255)  [7/8] 4.06ns  loc: md.cpp:72
+:36  %sel_tmp6_i29_op = fmul double %sel_tmp6_i3, 2.000000e+00
+
+
+ <State 71>: 4.06ns
+ST_71: sel_tmp6_i29_op (255)  [6/8] 4.06ns  loc: md.cpp:72
+:36  %sel_tmp6_i29_op = fmul double %sel_tmp6_i3, 2.000000e+00
+
+
+ <State 72>: 4.06ns
+ST_72: sel_tmp6_i29_op (255)  [5/8] 4.06ns  loc: md.cpp:72
+:36  %sel_tmp6_i29_op = fmul double %sel_tmp6_i3, 2.000000e+00
+
+
+ <State 73>: 4.06ns
+ST_73: sel_tmp6_i29_op (255)  [4/8] 4.06ns  loc: md.cpp:72
+:36  %sel_tmp6_i29_op = fmul double %sel_tmp6_i3, 2.000000e+00
+
+
+ <State 74>: 4.06ns
+ST_74: sel_tmp6_i29_op (255)  [3/8] 4.06ns  loc: md.cpp:72
+:36  %sel_tmp6_i29_op = fmul double %sel_tmp6_i3, 2.000000e+00
+
+
+ <State 75>: 4.06ns
+ST_75: sel_tmp6_i29_op (255)  [2/8] 4.06ns  loc: md.cpp:72
+:36  %sel_tmp6_i29_op = fmul double %sel_tmp6_i3, 2.000000e+00
+
+
+ <State 76>: 4.06ns
+ST_76: sel_tmp6_i29_op (255)  [1/8] 4.06ns  loc: md.cpp:72
+:36  %sel_tmp6_i29_op = fmul double %sel_tmp6_i3, 2.000000e+00
+
+
+ <State 77>: 3.61ns
+ST_77: sel_tmp8_i3 (252)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:83->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (grouped into LUT with out node tmp_12)
+:33  %sel_tmp8_i3 = or i1 %notrhs_i1, %notlhs_i1
+
+ST_77: tmp1 (253)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:81->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (grouped into LUT with out node tmp_12)
+:34  %tmp1 = and i1 %p_Result_59, %sel_tmp8_i3
+
+ST_77: sel_tmp9_i1 (254)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:81->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72 (grouped into LUT with out node tmp_12)
+:35  %sel_tmp9_i1 = and i1 %tmp1, %tmp_i5
+
+ST_77: tmp_50 (256)  [1/1] 0.00ns  loc: md.cpp:72 (grouped into LUT with out node tmp_12)
+:37  %tmp_50 = fptrunc double %sel_tmp6_i29_op to float
+
+ST_77: tmp_12 (257)  [1/1] 3.61ns  loc: md.cpp:72 (out node of the LUT)
+:38  %tmp_12 = select i1 %sel_tmp9_i1, float -2.000000e+00, float %tmp_50
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 2.88ns
+The critical path consists of the following:
+	wire read on port 'x' [4]  (0 ns)
+	'fpext' operation ('t_in', /opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/cmath:764->md.cpp:52) [5]  (2.88 ns)
+
+ <State 2>: 4.26ns
+The critical path consists of the following:
+	'fcmp' operation ('tmp_6', md.cpp:57) [141]  (3.48 ns)
+	multiplexor before 'phi' operation ('r') with incoming values : ('x') ('r', md.cpp:82) ('tmp_11', md.cpp:85) ('r', md.cpp:68) ('tmp_12', md.cpp:72) [260]  (0.786 ns)
+
+ <State 3>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('x', md.cpp:77) [24]  (4.09 ns)
+
+ <State 4>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('x', md.cpp:77) [24]  (4.09 ns)
+
+ <State 5>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('x', md.cpp:77) [24]  (4.09 ns)
+
+ <State 6>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('x', md.cpp:77) [24]  (4.09 ns)
+
+ <State 7>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('x', md.cpp:77) [24]  (4.09 ns)
+
+ <State 8>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('x', md.cpp:77) [24]  (4.09 ns)
+
+ <State 9>: 4.33ns
+The critical path consists of the following:
+	'fcmp' operation ('tmp_13', md.cpp:78) [31]  (3.48 ns)
+	'and' operation ('tmp_14', md.cpp:78) [32]  (0.071 ns)
+	multiplexor before 'phi' operation ('r') with incoming values : ('x') ('r', md.cpp:82) ('tmp_11', md.cpp:85) ('r', md.cpp:68) ('tmp_12', md.cpp:72) [260]  (0.786 ns)
+
+ <State 10>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_9', md.cpp:80) [36]  (3.71 ns)
+
+ <State 11>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_9', md.cpp:80) [36]  (3.71 ns)
+
+ <State 12>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_9', md.cpp:80) [36]  (3.71 ns)
+
+ <State 13>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_9', md.cpp:80) [36]  (3.71 ns)
+
+ <State 14>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_9', md.cpp:80) [36]  (3.71 ns)
+
+ <State 15>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_9', md.cpp:80) [36]  (3.71 ns)
+
+ <State 16>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_9', md.cpp:80) [36]  (3.71 ns)
+
+ <State 17>: 3.52ns
+The critical path consists of the following:
+	'dcmp' operation ('tmp_27', md.cpp:80) [50]  (3.52 ns)
+
+ <State 18>: 1.92ns
+The critical path consists of the following:
+	'icmp' operation ('notrhs4', md.cpp:80) [44]  (1.06 ns)
+	'or' operation ('tmp_24', md.cpp:80) [45]  (0 ns)
+	'and' operation ('tmp_26', md.cpp:80) [49]  (0 ns)
+	'and' operation ('tmp_28', md.cpp:80) [51]  (0.071 ns)
+	multiplexor before 'phi' operation ('r') with incoming values : ('x') ('r', md.cpp:82) ('tmp_11', md.cpp:85) ('r', md.cpp:68) ('tmp_12', md.cpp:72) [260]  (0.786 ns)
+
+ <State 19>: 3.7ns
+The critical path consists of the following:
+	'load' operation ('mask', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:160->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82) on array 'mask_table1' [62]  (1.77 ns)
+	'add' operation ('__Val2__', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:164->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82) [68]  (1.69 ns)
+	'select' operation ('xs.exp.V', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:494->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:168->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82) [72]  (0 ns)
+	'select' operation ('sel_tmp6_i1', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:146->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82) [83]  (0.115 ns)
+
+ <State 20>: 3.73ns
+The critical path consists of the following:
+	'xor' operation ('sel_tmp7_i', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:146->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82) [84]  (0 ns)
+	'and' operation ('sel_tmp8_i1', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:152->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82) [85]  (0 ns)
+	'select' operation ('p_i', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:152->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:82) [86]  (0.115 ns)
+	'fptrunc' operation ('r', md.cpp:82) [87]  (3.61 ns)
+
+ <State 21>: 4.33ns
+The critical path consists of the following:
+	'fcmp' operation ('tmp_41', md.cpp:83) [95]  (3.48 ns)
+	'and' operation ('tmp_42', md.cpp:83) [96]  (0.071 ns)
+	multiplexor before 'phi' operation ('r') with incoming values : ('x') ('r', md.cpp:82) ('tmp_11', md.cpp:85) ('r', md.cpp:68) ('tmp_12', md.cpp:72) [260]  (0.786 ns)
+
+ <State 22>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('x', md.cpp:85) [99]  (4.06 ns)
+
+ <State 23>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('x', md.cpp:85) [99]  (4.06 ns)
+
+ <State 24>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('x', md.cpp:85) [99]  (4.06 ns)
+
+ <State 25>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('x', md.cpp:85) [99]  (4.06 ns)
+
+ <State 26>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('x', md.cpp:85) [99]  (4.06 ns)
+
+ <State 27>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('x', md.cpp:85) [99]  (4.06 ns)
+
+ <State 28>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('x', md.cpp:85) [99]  (4.06 ns)
+
+ <State 29>: 1.77ns
+The critical path consists of the following:
+	'getelementptr' operation ('mask_table1_addr_1', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:160->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85) [111]  (0 ns)
+	'load' operation ('mask', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:160->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85) on array 'mask_table1' [112]  (1.77 ns)
+
+ <State 30>: 3.81ns
+The critical path consists of the following:
+	'load' operation ('mask', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:160->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85) on array 'mask_table1' [112]  (1.77 ns)
+	'add' operation ('__Val2__', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:164->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85) [118]  (1.69 ns)
+	'select' operation ('xs.exp.V', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:494->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:168->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85) [122]  (0 ns)
+	'select' operation ('sel_tmp6_i2', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:146->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85) [133]  (0.115 ns)
+	'select' operation ('p_i1', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:152->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:175->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:122->md.cpp:85) [136]  (0.115 ns)
+
+ <State 31>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', md.cpp:85) [137]  (4.06 ns)
+
+ <State 32>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', md.cpp:85) [137]  (4.06 ns)
+
+ <State 33>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', md.cpp:85) [137]  (4.06 ns)
+
+ <State 34>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', md.cpp:85) [137]  (4.06 ns)
+
+ <State 35>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', md.cpp:85) [137]  (4.06 ns)
+
+ <State 36>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', md.cpp:85) [137]  (4.06 ns)
+
+ <State 37>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', md.cpp:85) [137]  (4.06 ns)
+
+ <State 38>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', md.cpp:85) [137]  (4.06 ns)
+
+ <State 39>: 3.61ns
+The critical path consists of the following:
+	'fptrunc' operation ('tmp_11', md.cpp:85) [138]  (3.61 ns)
+
+ <State 40>: 0.786ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('r') with incoming values : ('x') ('r', md.cpp:82) ('tmp_11', md.cpp:85) ('r', md.cpp:68) ('tmp_12', md.cpp:72) [260]  (0.786 ns)
+
+ <State 41>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('x', md.cpp:61) [144]  (4.09 ns)
+
+ <State 42>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('x', md.cpp:61) [144]  (4.09 ns)
+
+ <State 43>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('x', md.cpp:61) [144]  (4.09 ns)
+
+ <State 44>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('x', md.cpp:61) [144]  (4.09 ns)
+
+ <State 45>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('x', md.cpp:61) [144]  (4.09 ns)
+
+ <State 46>: 4.09ns
+The critical path consists of the following:
+	'fadd' operation ('x', md.cpp:61) [144]  (4.09 ns)
+
+ <State 47>: 4.33ns
+The critical path consists of the following:
+	'fcmp' operation ('tmp_18', md.cpp:63) [151]  (3.48 ns)
+	'and' operation ('tmp_19', md.cpp:63) [152]  (0.071 ns)
+	multiplexor before 'phi' operation ('r') with incoming values : ('x') ('r', md.cpp:82) ('tmp_11', md.cpp:85) ('r', md.cpp:68) ('tmp_12', md.cpp:72) [260]  (0.786 ns)
+
+ <State 48>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_7', md.cpp:66) [156]  (3.71 ns)
+
+ <State 49>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_7', md.cpp:66) [156]  (3.71 ns)
+
+ <State 50>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_7', md.cpp:66) [156]  (3.71 ns)
+
+ <State 51>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_7', md.cpp:66) [156]  (3.71 ns)
+
+ <State 52>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_7', md.cpp:66) [156]  (3.71 ns)
+
+ <State 53>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_7', md.cpp:66) [156]  (3.71 ns)
+
+ <State 54>: 3.71ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_7', md.cpp:66) [156]  (3.71 ns)
+
+ <State 55>: 3.52ns
+The critical path consists of the following:
+	'dcmp' operation ('tmp_35', md.cpp:66) [170]  (3.52 ns)
+
+ <State 56>: 1.92ns
+The critical path consists of the following:
+	'icmp' operation ('notrhs6', md.cpp:66) [164]  (1.06 ns)
+	'or' operation ('tmp_32', md.cpp:66) [165]  (0 ns)
+	'and' operation ('tmp_34', md.cpp:66) [169]  (0 ns)
+	'and' operation ('tmp_36', md.cpp:66) [171]  (0.071 ns)
+	multiplexor before 'phi' operation ('r') with incoming values : ('x') ('r', md.cpp:82) ('tmp_11', md.cpp:85) ('r', md.cpp:68) ('tmp_12', md.cpp:72) [260]  (0.786 ns)
+
+ <State 57>: 3.58ns
+The critical path consists of the following:
+	'load' operation ('mask', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:96->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68) on array 'mask_table3' [181]  (1.77 ns)
+	'add' operation ('__Val2__', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:100->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68) [185]  (1.69 ns)
+	'select' operation ('xs.exp.V', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:494->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:104->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68) [189]  (0 ns)
+
+ <State 58>: 3.84ns
+The critical path consists of the following:
+	'select' operation ('sel_tmp3_v_i', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:82->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68) [196]  (0 ns)
+	'select' operation ('sel_tmp6_i', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:88->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:68) [200]  (0 ns)
+	'fptrunc' operation ('tmp_43', md.cpp:68) [206]  (3.61 ns)
+	'select' operation ('r', md.cpp:68) [207]  (0.115 ns)
+
+ <State 59>: 4.33ns
+The critical path consists of the following:
+	'fcmp' operation ('tmp_48', md.cpp:69) [215]  (3.48 ns)
+	'and' operation ('tmp_49', md.cpp:69) [216]  (0.071 ns)
+	multiplexor before 'phi' operation ('r') with incoming values : ('x') ('r', md.cpp:82) ('tmp_11', md.cpp:85) ('r', md.cpp:68) ('tmp_12', md.cpp:72) [260]  (0.786 ns)
+
+ <State 60>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('x', md.cpp:72) [219]  (4.06 ns)
+
+ <State 61>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('x', md.cpp:72) [219]  (4.06 ns)
+
+ <State 62>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('x', md.cpp:72) [219]  (4.06 ns)
+
+ <State 63>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('x', md.cpp:72) [219]  (4.06 ns)
+
+ <State 64>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('x', md.cpp:72) [219]  (4.06 ns)
+
+ <State 65>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('x', md.cpp:72) [219]  (4.06 ns)
+
+ <State 66>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('x', md.cpp:72) [219]  (4.06 ns)
+
+ <State 67>: 1.77ns
+The critical path consists of the following:
+	'getelementptr' operation ('mask_table3_addr_1', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:96->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72) [229]  (0 ns)
+	'load' operation ('mask', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:96->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72) on array 'mask_table3' [230]  (1.77 ns)
+
+ <State 68>: 3.81ns
+The critical path consists of the following:
+	'load' operation ('mask', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:96->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72) on array 'mask_table3' [230]  (1.77 ns)
+	'add' operation ('__Val2__', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:100->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72) [234]  (1.69 ns)
+	'select' operation ('xs.exp.V', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:494->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:512->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:526->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:104->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72) [238]  (0 ns)
+	'select' operation ('sel_tmp3_v_i1', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:82->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72) [245]  (0 ns)
+	'select' operation ('sel_tmp6_i3', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:88->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72) [249]  (0.115 ns)
+
+ <State 69>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('sel_tmp6_i29_op', md.cpp:72) [255]  (4.06 ns)
+
+ <State 70>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('sel_tmp6_i29_op', md.cpp:72) [255]  (4.06 ns)
+
+ <State 71>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('sel_tmp6_i29_op', md.cpp:72) [255]  (4.06 ns)
+
+ <State 72>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('sel_tmp6_i29_op', md.cpp:72) [255]  (4.06 ns)
+
+ <State 73>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('sel_tmp6_i29_op', md.cpp:72) [255]  (4.06 ns)
+
+ <State 74>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('sel_tmp6_i29_op', md.cpp:72) [255]  (4.06 ns)
+
+ <State 75>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('sel_tmp6_i29_op', md.cpp:72) [255]  (4.06 ns)
+
+ <State 76>: 4.06ns
+The critical path consists of the following:
+	'dmul' operation ('sel_tmp6_i29_op', md.cpp:72) [255]  (4.06 ns)
+
+ <State 77>: 3.61ns
+The critical path consists of the following:
+	'or' operation ('sel_tmp8_i3', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:83->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72) [252]  (0 ns)
+	'and' operation ('tmp1', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:81->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72) [253]  (0 ns)
+	'and' operation ('sel_tmp9_i1', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:476->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:479->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:81->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:111->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_hlsm.cpp:119->md.cpp:72) [254]  (0 ns)
+	'select' operation ('tmp_12', md.cpp:72) [257]  (3.61 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+	State 72
+	State 73
+	State 74
+	State 75
+	State 76
+	State 77
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
