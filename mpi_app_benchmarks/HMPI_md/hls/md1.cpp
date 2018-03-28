@@ -1,5 +1,3 @@
-#define MODULE_RANK 1
-
 /*
  * Program to compute Molecular Dynamics and determine the potential energy of a collection 
  * of atoms as a function of the physical properties and positions of all atoms in the simulation.
@@ -31,8 +29,10 @@
 #define BOLTZMAN 0.001987191
 #define RAND_MAX 2048
 
-int world_rank = MODULE_RANK;
-int processorCount = MPI_SIZE;
+int world_rank;
+int processorCount;
+
+ap_uint<16> id_in;
 
 clock_t start_time,end_time;
 
@@ -111,58 +111,60 @@ doMD(int atomCount, int stepCount)
 
     //float *pos = (float*) malloc(atomCount * 3 * sizeof(float));
     float pos[atomCount * 3 ];
+//#pragma HLS ARRAY_PARTITION variable=pos complete dim=1
 
     //float *force = (float*) malloc(atomCount * 3 * sizeof(float));
     float force[atomCount * 3 ];
+//#pragma HLS ARRAY_PARTITION variable=force complete factor=72 dim=1
 
     //forceSum = (float*) malloc(atomCount * 3 * sizeof(float));
-    float forceSum[atomCount * 3 ];
+    //float forceSum[atomCount * 3 ];
 
     //vel = (float*) malloc(atomCount * 3 * sizeof(float));
-    float vel[atomCount * 3 ];
+    //sfloat vel[atomCount * 3 ];
 
 
-    if (!world_rank)
-    {
+    // if (!world_rank)
+    // {
 
-        float boltzmanTemp = 298. * BOLTZMAN;
-        float tempOverMass = sqrt(boltzmanTemp / 40.0);
+    //     float boltzmanTemp = 298. * BOLTZMAN
+    //     float tempOverMass = sqrt(boltzmanTemp / 40.0);
 
 
-        for (i=0; i != atomCount; ++i)
-        {
-            pos[i * 3] = (float)rand() / (float)RAND_MAX * CUBELENGTH;
-            pos[i * 3 + 1] = (float)rand() / (float)RAND_MAX * CUBELENGTH;
-            pos[i * 3 + 2] = (float)rand() / (float)RAND_MAX * CUBELENGTH;
+    //     for (i=0; i != atomCount; ++i)
+    //     {
+    //         pos[i * 3] = (float)rand() / (float)RAND_MAX * CUBELENGTH;
+    //         pos[i * 3 + 1] = (float)rand() / (float)RAND_MAX * CUBELENGTH;
+    //         pos[i * 3 + 2] = (float)rand() / (float)RAND_MAX * CUBELENGTH;
 
-            float rnd = (float)rand() / (float)RAND_MAX;
+    //         float rnd = (float)rand() / (float)RAND_MAX;
 
-            rnd *= 12.;
-            rnd -= 6.;
-            vel[i * 3] = (rnd * tempOverMass); // 1000;
+    //         rnd *= 12.;
+    //         rnd -= 6.;
+    //         vel[i * 3] = (rnd * tempOverMass); // 1000;
 
-            rnd = (float)rand() / (float)RAND_MAX;
-            rnd *= 12.;
-            rnd -= 6.;
-            vel[i * 3 + 1] = (rnd * tempOverMass); // 1000;
+    //         rnd = (float)rand() / (float)RAND_MAX;
+    //         rnd *= 12.;
+    //         rnd -= 6.;
+    //         vel[i * 3 + 1] = (rnd * tempOverMass); // 1000;
 
-            rnd = (float)rand() / (float)RAND_MAX;
-            rnd *= 12.;
-            rnd -= 6.;
-            vel[i * 3 + 2] = (rnd * tempOverMass); // 1000;
+    //         rnd = (float)rand() / (float)RAND_MAX;
+    //         rnd *= 12.;
+    //         rnd -= 6.;
+    //         vel[i * 3 + 2] = (rnd * tempOverMass); // 1000;
             
-            #ifdef VERBOSE
-            PRINT("%3d) V: %8.3f %8.3f %8.3f\n", i, vel[i * 3], vel[i * 3 + 1], vel[i * 3 + 2]);
-            #endif
-        }
+    //         #ifdef VERBOSE
+    //         PRINT("%3d) V: %8.3f %8.3f %8.3f\n", i, vel[i * 3], vel[i * 3 + 1], vel[i * 3 + 2]);
+    //         #endif
+    //     }
     
-        #ifdef VERBOSE
-        for (i=0; i != atomCount; ++i)
-        {
-            PRINT("%8.3f %8.3f %8.3f\n", pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2]);
-        }
-        #endif
-    }
+    //     #ifdef VERBOSE
+    //     for (i=0; i != atomCount; ++i)
+    //     {
+    //         PRINT("%8.3f %8.3f %8.3f\n", pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2]);
+    //     }
+    //     #endif
+    // }
 
     int localAtomCount = atomCount / processorCount;
     float vdw = 0.5;
@@ -171,17 +173,17 @@ doMD(int atomCount, int stepCount)
         printf("stepIndex: %d\n",stepIndex);
         // Distribute atoms using broadcast.
         //MPI_Bcast(pos, atomCount * 3, MPI_FLOAT, 0, MPI_COMM_WORLD);
-        if(world_rank == 0){
-            for(r = 1; r < processorCount ;r++)
-                while(!MPI_Send(pos,atomCount * 3, MPI_FLOAT,r,0,MPI_COMM_WORLD));
-            for(q = 0; q < atomCount*3 ; q++){
-                printf("pos: %f\n",pos[q]);
-            }
-        }
-        else{
+        // if(world_rank == 0){
+        //     for(r = 1; r < processorCount ;r++)
+        //         while(!MPI_Send(pos,atomCount * 3, MPI_FLOAT,r,0,MPI_COMM_WORLD));
+        //     for(q = 0; q < atomCount*3 ; q++){
+        //         printf("pos: %f\n",pos[q]);
+        //     }
+        // }
+        // else{
             while(!MPI_Recv(pos, atomCount * 3, MPI_FLOAT,0,0,MPI_COMM_WORLD));
 
-        }
+        //}
 
         
         //memset(force, 0, sizeof(float) * 3 * atomCount);
@@ -193,6 +195,7 @@ doMD(int atomCount, int stepCount)
         {
             for (j = 0; j != atomCount; ++j)
             {
+                #pragma HLS PIPELINE
                 // Don't do self-self calculations.
                 if (i == j) continue;
                 // Primitive load balancing.
@@ -226,35 +229,35 @@ doMD(int atomCount, int stepCount)
 
         // Reduce forces on root.
         //MPI_Reduce(force, forceSum, atomCount * 3, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
-        if(world_rank == 0){
-            for(r = 0 ; r < atomCount*3 ;r++){
-                forceSum[r] = force[r];
-            }
-            for(r = 1; r < processorCount ;r++){
-                while(!MPI_Recv(force, atomCount * 3, MPI_FLOAT,r,0,MPI_COMM_WORLD));
-                for(q = 0; q < atomCount * 3; q++){
-                    forceSum[q] += force[q];
-                }
-            }
-        }
-        else{
+        // if(world_rank == 0){
+        //     for(r = 0 ; r < atomCount*3 ;r++){
+        //         forceSum[r] = force[r];
+        //     }
+        //     for(r = 1; r < processorCount ;r++){
+        //         while(!MPI_Recv(force, atomCount * 3, MPI_FLOAT,r,0,MPI_COMM_WORLD));
+        //         for(q = 0; q < atomCount * 3; q++){
+        //             forceSum[q] += force[q];
+        //         }
+        //     }
+        // }
+        // else{
             while(!MPI_Send(force, atomCount * 3, MPI_FLOAT,0,0,MPI_COMM_WORLD));
-        }
+        //}
 
         // Integrate.
-        if (!world_rank)
-        {
-            // Add force to velocity and velocity to position.
-            for (i = world_rank * localAtomCount; i != world_rank * localAtomCount + localAtomCount; ++i)
-            {
-                vel[i * 3] += forceSum[i * 3] * DT * INVMASS;
-                pos[i * 3] += floatMod(vel[i * 3] * DT, CUBELENGTH);
-                vel[i * 3 + 1] += forceSum[i * 3 + 1] * DT * INVMASS;
-                pos[i * 3 + 1] += floatMod(vel[i * 3 + 1] * DT, CUBELENGTH);
-                vel[i * 3 + 2] += forceSum[i * 3 + 2] * DT * INVMASS;
-                pos[i * 3 + 2] += floatMod(vel[i * 3 + 2] * DT, CUBELENGTH);
-            }
-        }
+        // if (!world_rank)
+        // {
+        //     // Add force to velocity and velocity to position.
+        //     for (i = world_rank * localAtomCount; i != world_rank * localAtomCount + localAtomCount; ++i)
+        //     {
+        //         vel[i * 3] += forceSum[i * 3] * DT * INVMASS;
+        //         pos[i * 3] += floatMod(vel[i * 3] * DT, CUBELENGTH);
+        //         vel[i * 3 + 1] += forceSum[i * 3 + 1] * DT * INVMASS;
+        //         pos[i * 3 + 1] += floatMod(vel[i * 3 + 1] * DT, CUBELENGTH);
+        //         vel[i * 3 + 2] += forceSum[i * 3 + 2] * DT * INVMASS;
+        //         pos[i * 3 + 2] += floatMod(vel[i * 3 + 2] * DT, CUBELENGTH);
+        //     }
+        // }
     }
 
     //MPI_Barrier(MPI_COMM_WORLD);
@@ -270,7 +273,7 @@ doMD(int atomCount, int stepCount)
 
 
 //------------------------------
-void md1()
+void md1(ap_uint<16> id)
 {
 #pragma HLS INTERFACE ap_ctrl_none port=return
 #pragma HLS resource core=AXI4Stream variable=stream_out
@@ -280,7 +283,9 @@ void md1()
     // PRINT( "%c[2J%c[H", 27, 27);
     // PRINT("File: %s\r\n",__FILE__);
     // PRINT("Compiled %s %s\r\n",__DATE__,__TIME__);
-    
+    id_in = id;
+    world_rank = id_in;
+    processorCount = MPI_SIZE;
 
     // Setup network.
     MPI_Init();
