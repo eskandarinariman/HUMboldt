@@ -29,6 +29,8 @@
 #define BOLTZMAN 0.001987191
 #define RAND_MAX 2048
 
+#define MAIN_RANK 32;
+
 int world_rank;
 int processorCount;
 
@@ -181,7 +183,7 @@ doMD(int atomCount, int stepCount)
         //     }
         // }
         // else{
-            while(!MPI_Recv(pos, atomCount * 3, MPI_FLOAT,0,0,MPI_COMM_WORLD));
+            while(!MPI_Recv(pos, atomCount * 3, MPI_FLOAT,MAIN_RANK,0,MPI_COMM_WORLD));
 
         //}
 
@@ -241,7 +243,7 @@ doMD(int atomCount, int stepCount)
         //     }
         // }
         // else{
-            while(!MPI_Send(force, atomCount * 3, MPI_FLOAT,0,0,MPI_COMM_WORLD));
+            while(!MPI_Send(force, atomCount * 3, MPI_FLOAT,MAIN_RANK,0,MPI_COMM_WORLD));
         //}
 
         // Integrate.
