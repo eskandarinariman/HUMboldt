@@ -29,7 +29,7 @@
 #define BOLTZMAN 0.001987191
 #define RAND_MAX 2048
 
-#define MAIN_RANK 16;
+#define MAIN_RANK 0;
 
 int world_rank;
 int processorCount;
