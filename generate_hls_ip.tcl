@@ -89,34 +89,34 @@ cd userIP
 
 # if MPI is enabled, following IPs will be generated
 
-# open_project NFR
-# set_top NFR
-# add_files ../HMPI/HLS_lib/NFR.cpp
-# open_solution "solution1"
-# set_part {xcku115-flva1517-2-e}
-# create_clock -period 5 -name default
-# config_rtl -encoding onehot
-# #source "../hlsSources/directives/roundRobin.tcl"
-# #csim_design
-# csynth_design
-# #cosim_design
-# export_design -rtl verilog -format ip_catalog
-# close_project
+open_project NFR
+set_top NFR
+add_files ../HMPI/HLS_lib/NFR.cpp
+open_solution "solution1"
+set_part {xcku115-flva1517-2-e}
+create_clock -period 5 -name default
+config_rtl -encoding onehot
+#source "../hlsSources/directives/roundRobin.tcl"
+#csim_design
+csynth_design
+#cosim_design
+export_design -rtl verilog -format ip_catalog
+close_project
 
 
-# open_project FNR
-# set_top FNR
-# add_files ../HMPI/HLS_lib/FNR.cpp
-# open_solution "solution1"
-# set_part {xcku115-flva1517-2-e}
-# create_clock -period 5 -name default
-# config_rtl -encoding onehot
-# #source "../hlsSources/directives/roundRobin.tcl"
-# #csim_design
-# csynth_design
-# #cosim_design
-# export_design -rtl verilog -format ip_catalog
-# close_project
+open_project FNR
+set_top FNR
+add_files ../HMPI/HLS_lib/FNR.cpp
+open_solution "solution1"
+set_part {xcku115-flva1517-2-e}
+create_clock -period 5 -name default
+config_rtl -encoding onehot
+#source "../hlsSources/directives/roundRobin.tcl"
+#csim_design
+csynth_design
+#cosim_design
+export_design -rtl verilog -format ip_catalog
+close_project
 
 
 # #userIP
