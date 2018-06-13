@@ -6,8 +6,8 @@
 #include "hls_stream.h"
 #include "ap_utils.h"
 
-#define MPI_size 16
-#define MPI_rank MODULE_RANK
+
+extern ap_uint<16> id_in;
 
 #define NVECTORS 600
 #define NDIMS 10
@@ -24,6 +24,8 @@
 
 #define DATA 1
 #define ENVLP 0
+
+extern ap_uint<16> id_in;
 
 struct stream_packet{
 
@@ -115,7 +117,8 @@ int MPI_Send(
 		int tag,
 		int MPI_Comm)
 {
-
+//#pragma HLS INLINE
+	
 
 	static enum State {IDLE = 0,CLR2SND_WAIT, DATA_SEND_LOOP} state;
 
@@ -131,7 +134,7 @@ int MPI_Send(
 	switch(state){
 	case IDLE:{
 		//send the envelope
-		envlp.SRC = MODULE_RANK;
+		envlp.SRC = id_in;
 		envlp.DEST = dest;
 		if(dataType == MPI_INT || dataType == MPI_FLOAT){
 			envlp.MSG_SIZE = count;
@@ -152,7 +155,7 @@ int MPI_Send(
 		pkt_out.dest = dest;
 		pkt_out.user(3,0) = INT;
 		pkt_out.user(7,4) = ENVLP;
-		pkt_out.id = MODULE_RANK;
+		pkt_out.id = id_in;
 		stream_out.write(pkt_out);
 		state = CLR2SND_WAIT;
 		// timer for timeout
@@ -163,7 +166,7 @@ int MPI_Send(
 		// search for clr2snd in buffer because it could be already received
 		for(int i = 0 ; i < int_clr_num ;i++){
 			if(int_clr2snd_array[i].PKT_TYPE == C_CLR2SND_PACKET
-			&& int_clr2snd_array[i].DEST == MODULE_RANK
+			&& int_clr2snd_array[i].DEST == id_in
 			&& int_clr2snd_array[i].SRC == dest){
 				envlp = int_clr2snd_array[i];
 				state = DATA_SEND_LOOP;
@@ -191,7 +194,7 @@ int MPI_Send(
 			// if it is the desired clr2snd we good to go and send data
 			envelope temp;
 			packet_to_envelope(&recv_pkt,&temp);
-			if(temp.PKT_TYPE == C_CLR2SND_PACKET && temp.DEST == MODULE_RANK && temp.SRC == dest){
+			if(temp.PKT_TYPE == C_CLR2SND_PACKET && temp.DEST == id_in && temp.SRC == dest){
 				state = DATA_SEND_LOOP;
 				time = 0;
 				return 0;
@@ -404,7 +407,7 @@ send:
 				error_is_seen = 0;
 				garbage.data = 0;
 				to_send_data.last = 1;
-				to_send_data.id = MODULE_RANK;
+				to_send_data.id = id_in;
 				to_send_data.user(3,0) = FLOAT;
 				to_send_data.user(7,4) = DATA;
 				to_send_data.user(39,8) = old_seq_num;
@@ -435,7 +438,7 @@ send:
 			to_send_data.user(7,4) = DATA;
 			to_send_data.user(39,8) = seq_num;
 
-			to_send_data.id = MODULE_RANK;
+			to_send_data.id = id_in;
 			if(seq_num == 2 && test){
 				test = 1;
 			}
@@ -571,7 +574,7 @@ int MPI_Send(
 		int tag,
 		int MPI_Comm)
 {
-
+//#pragma HLS INLINE
 
 	static enum State {IDLE = 0,CLR2SND_WAIT, DATA_SEND_LOOP,SEND_DATA_FAILURE} state;
 	static ap_uint<64> time = 0;  
@@ -583,7 +586,7 @@ int MPI_Send(
 	switch(state){
 	case IDLE:{
 		// send envelope 
-		envlp.SRC = MODULE_RANK;
+		envlp.SRC = id_in;
 		envlp.DEST = dest;
 		if(dataType == MPI_INT || dataType == MPI_FLOAT){
 			envlp.MSG_SIZE = count;
@@ -604,7 +607,7 @@ int MPI_Send(
 		pkt_out.dest = dest; // problem solver
 		pkt_out.user(3,0) = FLOAT;
 		pkt_out.user(7,4) = ENVLP;
-		pkt_out.id = MODULE_RANK;
+		pkt_out.id = id_in;
 		if(envlp_lost_test){
 			envlp_lost_test = 0;
 		}
@@ -618,7 +621,7 @@ int MPI_Send(
 		// search for the clr2snd in buffers it could be already received
 		for(int i = 0 ; i < float_clr_num ;i++){
 			if(float_clr2snd_array[i].PKT_TYPE == C_CLR2SND_PACKET
-			&& float_clr2snd_array[i].DEST == MODULE_RANK
+			&& float_clr2snd_array[i].DEST == id_in
 			&& float_clr2snd_array[i].SRC == dest){
 				envlp = float_clr2snd_array[i];
 				state = DATA_SEND_LOOP;
@@ -647,7 +650,7 @@ int MPI_Send(
 			// if rthe received packet is clr2snd we good to send data
 			envelope temp;
 			packet_to_envelope(&recv_pkt,&temp);
-			if(temp.PKT_TYPE == C_CLR2SND_PACKET && temp.DEST == MODULE_RANK && temp.SRC == dest){
+			if(temp.PKT_TYPE == C_CLR2SND_PACKET && temp.DEST == id_in && temp.SRC == dest){
 				state = DATA_SEND_LOOP;
 				time = 0;
 				return 0;
@@ -739,7 +742,7 @@ int MPI_Send(
 		bool transmission_done = 0;
 		bool failed = 0;
 		//state_out = 9;
-		bool for_finished= 0;
+		volatile bool for_finished = 0;
 		bool error_is_seen = 0;
 		
 		//state_out = 0;
@@ -750,6 +753,10 @@ send:
 			stream_packet to_send_data;
 			stream_packet recv_data,useless;
 			//state_out = 10;
+			if(count == 0){
+				for_finished =1;
+				goto sfdone;
+			}
 			if(!stream_in.empty()){
 				recv_data = stream_in.read();
 				last = recv_data.last;
@@ -773,7 +780,9 @@ send:
 					//return 0;
 				}
 				else if(temp.PKT_TYPE == C_DATA_TRANSMISSION_DONE && recv_data.id == dest){
-					transmission_done = 1;
+					//for_finished = 0;
+					state = IDLE;
+					return 1;
 					//state_out = 1;
 				}
 				else if(recv_data.user(7,4) == ENVLP){
@@ -868,7 +877,7 @@ send:
 				error_is_seen = 0;
 				garbage.data = 0;
 				to_send_data.last = 1;
-				to_send_data.id = MODULE_RANK;
+				to_send_data.id = id_in;
 				to_send_data.user(3,0) = FLOAT;
 				to_send_data.user(7,4) = DATA;
 				to_send_data.user(39,8) = old_seq_num;
@@ -880,7 +889,7 @@ send:
 			//state_out = 13;
 			if(((i-1)*2) >= count){
 				for_finished = 1;
-				break;
+				goto sfdone;
 			}
 
 			float temp1= buf[((i-1)*2)+0];
@@ -893,13 +902,14 @@ send:
 			if(((i-1)*2)+1 >= count){
 				to_send_data.data(((1+1)*32)-1,1*32) = 0;
 				to_send_data.last = 1;
-				to_send_data.id = MODULE_RANK;
+				to_send_data.id = id_in;
 				to_send_data.user(3,0) = FLOAT;
 				to_send_data.user(7,4) = DATA;
-				to_send_data.id = MODULE_RANK;
+				to_send_data.dest = dest;
 				to_send_data.user(39,8) = seq_num;
 				stream_out.write(to_send_data);
-				break;
+				for_finished = 1;
+				goto sfdone;
 			}
 			float temp2= buf[((i-1)*2)+1];
 			void * vtemp2_p= &temp2;
@@ -919,10 +929,10 @@ send:
 			else
 				to_send_data.last = 0;
 
-			to_send_data.id = MODULE_RANK;
+			to_send_data.id = id_in;
 			to_send_data.user(3,0) = FLOAT;
 			to_send_data.user(7,4) = DATA;
-			to_send_data.id = MODULE_RANK;
+			to_send_data.id = id_in;
 			to_send_data.user(39,8) = seq_num;
 			
 			if(seq_num == 2 && test){
@@ -941,6 +951,7 @@ send:
 				seq_inc = 0;
 			}
 		}
+sfdone:
 		while(for_finished){
 			stream_packet recv_data,useless;
 			ap_uint <1> last = 0;
@@ -964,6 +975,7 @@ send:
 			}
 			else if(temp.PKT_TYPE == C_DATA_TRANSMISSION_DONE && recv_data.id == dest){
 				state = IDLE;
+				//for_finished = 0;
 				return 1;
 				//state_out = 1;
 			}
@@ -1081,7 +1093,7 @@ int MPI_Recv(
 		//state_out = state;
 		for(int i = 0 ; i < int_req_num ;i++){
 			if(int_request_array[i].PKT_TYPE == C_SYNC_ENV_PACKET
-			&& int_request_array[i].DEST == MODULE_RANK
+			&& int_request_array[i].DEST == id_in
 			&& int_request_array[i].SRC == source){
 				envlp = int_request_array[i];
 				state = CLR2SND_SEND;
@@ -1151,11 +1163,11 @@ int MPI_Recv(
 		
 		packet_to_envelope(&recv_pkt,&envlp);
 		if(envlp.PKT_TYPE == C_SYNC_ENV_PACKET
-		&& envlp.DEST == MODULE_RANK
+		&& envlp.DEST == id_in
 		&& envlp.SRC == source){
 			state = CLR2SND_SEND;
 		}
-		//module_rank = MODULE_RANK && recv_pkt.dest;
+		//id_in = id_in && recv_pkt.dest;
 		//packet_type = envlp.PKT_TYPE;
 
 		//}
@@ -1174,7 +1186,7 @@ int MPI_Recv(
 			pkt_out.dest = envlp.SRC;
 			pkt_out.user(3,0) = INT;
 			pkt_out.user(7,4) = ENVLP;
-			pkt_out.id = MODULE_RANK;
+			pkt_out.id = id_in;
 			stream_out.write(pkt_out);
 			state = DATA_RECV_LOOP;
 			time = 0;
@@ -1209,7 +1221,7 @@ int MPI_Recv(
 					pkt_out.user(7,4) = ENVLP;
 					pkt_out.user(39,8) = 0;
 					pkt_out.last = 1;
-					pkt_out.id = MODULE_RANK;
+					pkt_out.id = id_in;
 					if(!is_error_sent){
 						is_error_sent = 1;
 						stream_out.write(pkt_out);
@@ -1338,7 +1350,7 @@ int MPI_Recv(
 		pkt_out.user(7,4) = ENVLP;
 		pkt_out.user(39,8) = 0;
 		pkt_out.last = 1;
-		pkt_out.id = MODULE_RANK;
+		pkt_out.id = id_in;
 		stream_out.write(pkt_out);
 		return 1;
 	}
@@ -1389,7 +1401,7 @@ int MPI_Recv(
 //	}
 
 
-	static bool clr2snd_error = 1;
+	static bool clr2snd_error = 0;
 
 	static envelope envlp;
 
@@ -1400,7 +1412,7 @@ int MPI_Recv(
 		//state_out = state;
 		for(int i = 0 ; i < float_req_num ;i++){
 			if(float_request_array[i].PKT_TYPE == C_SYNC_ENV_PACKET
-			&& float_request_array[i].DEST == MODULE_RANK
+			&& float_request_array[i].DEST == id_in
 			&& float_request_array[i].SRC == source){
 				envlp = float_request_array[i];
 				state = CLR2SND_SEND;
@@ -1427,7 +1439,7 @@ int MPI_Recv(
 		// if the received packet is desired envelope we go to next step 
 		packet_to_envelope(&recv_pkt,&envlp);
 		if(envlp.PKT_TYPE == C_SYNC_ENV_PACKET
-		&& envlp.DEST == MODULE_RANK
+		&& envlp.DEST == id_in
 		&& envlp.SRC == source){
 			state = CLR2SND_SEND;
 		}
@@ -1516,7 +1528,7 @@ int MPI_Recv(
 			pkt_out.user(7,4) = ENVLP;
 			//not sure
 			pkt_out.last = 1;
-			pkt_out.id = MODULE_RANK;
+			pkt_out.id = id_in;
 			if(clr2snd_error)
 				clr2snd_error = 0;
 			else
@@ -1537,6 +1549,8 @@ int MPI_Recv(
 		ap_uint<1> is_error_sent = 0;
 		ap_uint<1> first_seen_error = 1;
 		ap_uint<1> data_is_seen = 0;
+		if(count == 0)
+			goto rfdone;
 		for(int i = 1 ; i <= (count/2)+1 ; i++ ){
 			//state_out =  state;
 			//req_out = i;
@@ -1560,7 +1574,7 @@ int MPI_Recv(
 				pkt_out.user(7,4) = ENVLP;
 				pkt_out.user(39,8) = 0;
 				pkt_out.last = 1;
-				pkt_out.id = MODULE_RANK;
+				pkt_out.id = id_in;
 				stream_out.write(pkt_out);
 				return 1;	
 			}
@@ -1587,7 +1601,7 @@ int MPI_Recv(
 					pkt_out.user(7,4) = ENVLP;
 					pkt_out.user(39,8) = 0;
 					pkt_out.last = 1;
-					pkt_out.id = MODULE_RANK;
+					pkt_out.id = id_in;
 					if(!is_error_sent){
 						stream_out.write(pkt_out);
 						is_error_sent = 1;
@@ -1713,11 +1727,12 @@ int MPI_Recv(
 			useless = stream_in.read();
 			last = useless.last;
 		}
+rfdone:
 		state = IDLE;
 		time = 0;
 		envelope error;
 		error.DEST = envlp.SRC;
-		error.SRC = envlp.DEST;
+		error.SRC = id_in;
 		error.PKT_TYPE = C_DATA_TRANSMISSION_DONE;
 		error.MSG_SIZE = seq_num;
 		stream_packet pkt_out;
@@ -1727,20 +1742,23 @@ int MPI_Recv(
 		pkt_out.user(7,4) = ENVLP;
 		pkt_out.user(39,8) = 0;
 		pkt_out.last = 1;
-		pkt_out.id = MODULE_RANK;
+		pkt_out.id = id_in;
 		stream_out.write(pkt_out);
 		return 1;
 	}
 	break;
 	}
 	//ap_wait();
-	//module_rank = 0;
+	//id_in = 0;
 	//state_out = state;
 	return 0;
 //}
 }
 
 int MPI_Init(){
+	return 1;
+}
+int MPI_Init(int){
 	return 1;
 }
 

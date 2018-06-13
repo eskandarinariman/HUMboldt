@@ -6,7 +6,6 @@
 #include "hls_stream.h"
 #include "ap_utils.h"
 
-#define MPI_SIZE 8
 #define MPI_rank id_in
 
 #define NVECTORS 600

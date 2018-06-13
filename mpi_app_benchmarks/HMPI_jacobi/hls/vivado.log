@@ -1,0 +1,676 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:10 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Wed Apr  4 00:04:38 2018
+# Process ID: 13073
+# Current directory: /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls
+# Command line: vivado
+# Log file: /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/vivado.log
+# Journal file: /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_hw
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2017.2/data/ip'.
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2017.2
+  **** Build date : Jun 15 2017-18:45:18
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210308A1CA32
+current_hw_device [get_hw_devices xcku115_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-2302] Device xcku115 (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+INFO: [Labtools 27-2302] Device xcku115 (JTAG device index = 0) is programmed with a design that has 1 VIO core(s).
+close_hw_target {localhost:3121/xilinx_tcf/Digilent/210308A1CA32}
+INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Digilent/210308A1CA32
+open_hw_target {localhost:3121/xilinx_tcf/Digilent/210308A11BB4}
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210308A11BB4
+current_hw_device [get_hw_devices xcku115_0_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xcku115_0_1] 0]
+INFO: [Labtools 27-2302] Device xcku115 (JTAG device index = 0) is programmed with a design that has 2 MIG core(s).
+close_hw_target {localhost:3121/xilinx_tcf/Digilent/210308A11BB4}
+INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Digilent/210308A11BB4
+open_hw_target {localhost:3121/xilinx_tcf/Digilent/210308A11BB5}
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210308A11BB5
+current_hw_device [get_hw_devices xcku115_0_2]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xcku115_0_2] 0]
+INFO: [Labtools 27-2302] Device xcku115 (JTAG device index = 0) is programmed with a design that has 2 MIG core(s).
+close_hw_target {localhost:3121/xilinx_tcf/Digilent/210308A11BB5}
+INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Digilent/210308A11BB5
+open_hw_target {localhost:3121/xilinx_tcf/Digilent/210308A11CAA}
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210308A11CAA
+current_hw_device [get_hw_devices xcku115_0_3]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xcku115_0_3] 0]
+INFO: [Labtools 27-2302] Device xcku115 (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+boot_hw_device  [lindex [get_hw_devices xcku115_0_3] 0]
+INFO: [Labtools 27-32] Done pin status: HIGH
+close_hw_target {localhost:3121/xilinx_tcf/Digilent/210308A11CAA}
+INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Digilent/210308A11CAA
+open_hw_target {localhost:3121/xilinx_tcf/Digilent/210308A1CA32}
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210308A1CA32
+current_hw_device [get_hw_devices xcku115_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-2302] Device xcku115 (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+INFO: [Labtools 27-2302] Device xcku115 (JTAG device index = 0) is programmed with a design that has 1 VIO core(s).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/projects/md_fix_test/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 6373.156 ; gain = 0.000 ; free physical = 12475 ; free virtual = 119328
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw
+****** Webtalk v2017.2 (64-bit)
+  **** SW Build 1909853 on Thu Jun 15 18:39:10 MDT 2017
+  **** IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source /home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/.Xil/Vivado-13073-agent-2/webtalk/labtool_webtalk.tcl -notrace
+INFO: [Common 17-186] '/home/eskand38/HMPI/mpi_app_benchmarks/HMPI_jacobi/hls/.Xil/Vivado-13073-agent-2/webtalk/usage_statistics_ext_labtool.xml' has been successfully sent to Xilinx on Wed Apr  4 01:12:32 2018. For additional details about this file, please refer to the WebTalk help file at /opt/Xilinx/Vivado/2017.2/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Wed Apr  4 01:12:32 2018...
+open_hw
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2017.2/data/ip'.
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210308A1CA32
+current_hw_device [get_hw_devices xcku115_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-2302] Device xcku115 (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+INFO: [Labtools 27-2302] Device xcku115 (JTAG device index = 0) is programmed with a design that has 1 VIO core(s).
+close_hw_target {localhost:3121/xilinx_tcf/Digilent/210308A1CA32}
+INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Digilent/210308A1CA32
+open_hw_target {localhost:3121/xilinx_tcf/Digilent/210308A11CAA}
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210308A11CAA
+current_hw_device [get_hw_devices xcku115_0_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xcku115_0_1] 0]
+INFO: [Labtools 27-2302] Device xcku115 (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+INFO: [Labtools 27-2302] Device xcku115 (JTAG device index = 0) is programmed with a design that has 1 VIO core(s).
+boot_hw_device  [lindex [get_hw_devices xcku115_0_1] 0]
+INFO: [Labtools 27-32] Done pin status: HIGH
+close_hw_target {localhost:3121/xilinx_tcf/Digilent/210308A11CAA}
+INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Digilent/210308A11CAA
+open_hw_target {localhost:3121/xilinx_tcf/Digilent/210308A1CA32}
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210308A1CA32
+current_hw_device [get_hw_devices xcku115_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-2302] Device xcku115 (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+INFO: [Labtools 27-2302] Device xcku115 (JTAG device index = 0) is programmed with a design that has 1 VIO core(s).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6425.582 ; gain = 0.000 ; free physical = 9884 ; free virtual = 117562
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6425.582 ; gain = 0.000 ; free physical = 9872 ; free virtual = 117551
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6425.582 ; gain = 0.000 ; free physical = 9876 ; free virtual = 117555
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6425.582 ; gain = 0.000 ; free physical = 9881 ; free virtual = 117560
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6425.582 ; gain = 0.000 ; free physical = 9874 ; free virtual = 117554
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6425.582 ; gain = 0.000 ; free physical = 9870 ; free virtual = 117549
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6425.582 ; gain = 0.000 ; free physical = 9874 ; free virtual = 117554
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6425.582 ; gain = 0.000 ; free physical = 9864 ; free virtual = 117544
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6425.582 ; gain = 0.000 ; free physical = 9872 ; free virtual = 117553
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6425.582 ; gain = 0.000 ; free physical = 9871 ; free virtual = 117551
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/projects/jacobi_test2/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 6425.582 ; gain = 0.000 ; free physical = 9865 ; free virtual = 117545
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/projects/jacobi_test2/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 6425.582 ; gain = 0.000 ; free physical = 9868 ; free virtual = 117549
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/projects/jacobi_test2/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 6425.582 ; gain = 0.000 ; free physical = 9868 ; free virtual = 117549
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6425.582 ; gain = 0.000 ; free physical = 9869 ; free virtual = 117550
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/projects/jacobi_test2/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 6425.582 ; gain = 0.000 ; free physical = 9872 ; free virtual = 117553
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6425.582 ; gain = 0.000 ; free physical = 9859 ; free virtual = 117542
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:18 ; elapsed = 00:00:12 . Memory (MB): peak = 6430.055 ; gain = 4.473 ; free physical = 9868 ; free virtual = 117550
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6430.055 ; gain = 0.000 ; free physical = 9864 ; free virtual = 117547
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6430.055 ; gain = 0.000 ; free physical = 9860 ; free virtual = 117543
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6430.055 ; gain = 0.000 ; free physical = 9857 ; free virtual = 117541
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6430.055 ; gain = 0.000 ; free physical = 9864 ; free virtual = 117549
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/projects/jacobi_test2/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 6430.586 ; gain = 0.000 ; free physical = 9862 ; free virtual = 117548
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6430.586 ; gain = 0.000 ; free physical = 9853 ; free virtual = 117539
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi16/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 6430.586 ; gain = 0.000 ; free physical = 9856 ; free virtual = 117543
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi16/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 6430.586 ; gain = 0.000 ; free physical = 9855 ; free virtual = 117538
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi16/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 6430.586 ; gain = 0.000 ; free physical = 9853 ; free virtual = 117537
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi16/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 6430.586 ; gain = 0.000 ; free physical = 9788 ; free virtual = 117472
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi16/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 6430.586 ; gain = 0.000 ; free physical = 9785 ; free virtual = 117469
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi16/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 6430.586 ; gain = 0.000 ; free physical = 9796 ; free virtual = 117480
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6430.586 ; gain = 0.000 ; free physical = 9790 ; free virtual = 117474
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6430.586 ; gain = 0.000 ; free physical = 9781 ; free virtual = 117465
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6430.586 ; gain = 0.000 ; free physical = 9795 ; free virtual = 117479
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6430.586 ; gain = 0.000 ; free physical = 9795 ; free virtual = 117480
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6430.586 ; gain = 0.000 ; free physical = 9798 ; free virtual = 117483
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6430.586 ; gain = 0.000 ; free physical = 9808 ; free virtual = 117494
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6430.586 ; gain = 0.000 ; free physical = 9802 ; free virtual = 117487
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi4/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 6430.586 ; gain = 0.000 ; free physical = 9806 ; free virtual = 117492
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi31/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 6430.586 ; gain = 0.000 ; free physical = 9807 ; free virtual = 117493
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw_target {localhost:3121/xilinx_tcf/Digilent/210308A1CA32}
+INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Digilent/210308A1CA32
+open_hw_target {localhost:3121/xilinx_tcf/Digilent/210308A11CAA}
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210308A11CAA
+current_hw_device [get_hw_devices xcku115_0_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xcku115_0_1] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0_1]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi31/1/top.bit} [get_hw_devices xcku115_0_1]
+program_hw_devices [get_hw_devices xcku115_0_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 6432.055 ; gain = 0.000 ; free physical = 9797 ; free virtual = 117483
+refresh_hw_device [lindex [get_hw_devices xcku115_0_1] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0_1]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi31/1/top.bit} [get_hw_devices xcku115_0_1]
+program_hw_devices [get_hw_devices xcku115_0_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 6432.055 ; gain = 0.000 ; free physical = 9797 ; free virtual = 117483
+refresh_hw_device [lindex [get_hw_devices xcku115_0_1] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw_target {localhost:3121/xilinx_tcf/Digilent/210308A11CAA}
+INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Digilent/210308A11CAA
+open_hw_target {localhost:3121/xilinx_tcf/Digilent/210308A1CA32}
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210308A1CA32
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi31/0/top.bit} [get_hw_devices xcku115_0]
+current_hw_device [get_hw_devices xcku115_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xcku115_0]
+set_property PROGRAM.FILE {/home/eskand38/fpl/eval2_scale/galapagos/jacobiBitstreams/jacobi31/0/top.bit} [get_hw_devices xcku115_0]
+program_hw_devices [get_hw_devices xcku115_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 6432.055 ; gain = 0.000 ; free physical = 9800 ; free virtual = 117486
+refresh_hw_device [lindex [get_hw_devices xcku115_0] 0]
+INFO: [Labtools 27-1434] Device xcku115 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Apr  5 04:17:16 2018...

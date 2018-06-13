@@ -26,6 +26,7 @@ struct ap_axis{
 struct ap_axis_dest{
 	ap_uint<64> data;
 	ap_uint <8> dest;
+	ap_uint <8> keep;
 	ap_uint<1> last;
 	ap_uint<8> id;
 	ap_uint<40> user;
@@ -96,9 +97,10 @@ void  FNR(
 	else if(currPayloadIn.user(7,4) == DATA){
 		extraPayload.data = 0;
 		extraPayload.dest = currPayloadIn.dest;
-		extraPayload.data(7,0) = currPayloadIn.id;
-		extraPayload.data(15,8) = C_DATA_PACKET;
-		extraPayload.data(47,16) = currPayloadIn.user(39,8); 
+		extraPayload.data(15,0) = currPayloadIn.dest;
+		extraPayload.data(23,16) = currPayloadIn.id;
+		extraPayload.data(31,24) = C_DATA_PACKET;
+		extraPayload.data(47,32) = currPayloadIn.user(23,8); 
 		extraPayload.data(63,56) = currPayloadIn.user(3,0);
 		extraPayload.last = 0;
 		extraPayload.keep = 0xff;
@@ -106,9 +108,9 @@ void  FNR(
 	}
 
 
-	currPayloadOut.data = reverseEndian64(currPayloadIn.data);
+	currPayloadOut.data = currPayloadIn.data;
 	//currPayloadOut.data = currPayloadIn.data;
-	currPayloadOut.keep = 0xff;
+	currPayloadOut.keep = currPayloadIn.keep;
 	currPayloadOut.dest = currPayloadIn.dest;
 //	Nariman: I think it has a bug whatif payload be only one packet, then last signal never goes high!
 	currPayloadOut.last = currPayloadIn.last;
@@ -116,10 +118,10 @@ void  FNR(
 
 
 
-	extraPayload.data = reverseEndian64(extraPayload.data);
+	extraPayload.data = extraPayload.data;
 	if(currPayloadIn.user(7,4) == DATA){
 		stream_out.write(extraPayload);
-		currPayloadOut.data = reverseEndian64(currPayloadIn.data);
+		currPayloadOut.data = currPayloadIn.data;
 		stream_out.write(currPayloadOut);
 	}else{	
 		stream_out.write(currPayloadOut);
@@ -127,15 +129,17 @@ void  FNR(
 
 
 	while(!last){
-
-		currPayloadIn = stream_in.read();
-		currPayloadOut.data = reverseEndian64(currPayloadIn.data);
-		//currPayloadOut.data = currPayloadIn.data;
-		currPayloadOut.last = currPayloadIn.last;
-		currPayloadOut.keep = 0xff;
-		currPayloadOut.dest = currPayloadIn.dest;
-		stream_out.write(currPayloadOut);
-		last = currPayloadOut.last;
+		#pragma HLS PIPELINE
+		if(!stream_in.empty()){
+			currPayloadIn = stream_in.read();
+			currPayloadOut.data = currPayloadIn.data;
+			//currPayloadOut.data = currPayloadIn.data;
+			currPayloadOut.last = currPayloadIn.last;
+			currPayloadOut.keep = currPayloadIn.keep;
+			currPayloadOut.dest = currPayloadIn.dest;
+			stream_out.write(currPayloadOut);
+			last = currPayloadOut.last;
+		}
 
 	}
 

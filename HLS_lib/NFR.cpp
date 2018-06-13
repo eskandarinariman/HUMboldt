@@ -19,6 +19,7 @@ struct ap_axis_in{
 
 	ap_int <64> data;
 	ap_uint <8> dest;
+	ap_uint <8> keep;
 	ap_uint<1> last;
 };
 
@@ -27,6 +28,7 @@ struct ap_axis_out{
 	ap_uint<64> data;
 	ap_uint <8> dest;
 	ap_uint<1> last;
+	ap_uint <8> keep;
 	ap_uint<8> id;
 	ap_uint<40> user;
 };
@@ -56,6 +58,7 @@ void NFR(
 #pragma HLS resource core=AXI4Stream variable=stream_in
 #pragma HLS DATA_PACK variable  = stream_out
 #pragma HLS DATA_PACK variable  = stream_in
+
 	//ap_uint <48> eth_address = 0x010203040506;
 
 	ap_int <64> header[1];
@@ -124,42 +127,64 @@ void NFR(
 
 		//ap_int<64> envlp_packet_data = reverseEndian64(header[0]);
 		ap_int<64> envlp_packet_data = header[0];
+		int expected_bytes;
 
-		if(envlp_packet_data(15,8) == C_SYNC_ENV_PACKET || envlp_packet_data(15,8) == C_CLR2SND_PACKET
-			|| envlp_packet_data(15,8) == C_DATA_TRANSMISSION_DONE || envlp_packet_data(15,8) == C_RECV_ERROR){
+		if(envlp_packet_data(31,24) == C_SYNC_ENV_PACKET || envlp_packet_data(31,24) == C_CLR2SND_PACKET
+			|| envlp_packet_data(31,24) == C_DATA_TRANSMISSION_DONE || envlp_packet_data(31,24) == C_RECV_ERROR){
 			ap_axis_out envlp_out;
 			envlp_out.data = envlp_packet_data;
 			envlp_out.dest = packetIn.dest;
 			envlp_out.last = header_last;
-			id = envlp_packet_data(7,0);
+			id = envlp_packet_data(23,16);
 			envlp_out.id = id;
 			user(3,0) = envlp_packet_data(59,56);
 			user(7,4) = ENVLP;
 			user(39,8) = 0;
 			envlp_out.user = user;
+			envlp_out.keep = 0xff;
 			stream_out.write(envlp_out);
+			expected_bytes = -1;
 
-		}else if(envlp_packet_data(15,8) == C_DATA_PACKET){
-			id = envlp_packet_data(7,0);
+		}else if(envlp_packet_data(31,24) == C_DATA_PACKET){
+			id = envlp_packet_data(23,16);
 			user(3,0) = envlp_packet_data(59,56);
 			user(7,4) = DATA;
-			user(39,8) = envlp_packet_data(47,16); 
+			user(39,8) = 0;
+			expected_bytes = envlp_packet_data(47,32);
+			dest = envlp_packet_data(15,0); 
 		}
-
-
-		last = 0;
-		while(!last ){
-			packetIn = stream_in.read();
-			packetOut.last = packetIn.last;
-			//packetOut.data = reverseEndian64(packetIn.data);
-			packetOut.data = packetIn.data;
-			packetOut.dest = packetIn.dest;
-			packetOut.id = id;
-			packetOut.user = user;
-			last = packetIn.last;
+		else{
+			packetOut.data = 0xffffffffffffffff;
 			stream_out.write(packetOut);
-
 		}
 
+
+		last = packetIn.last;
+		while(expected_bytes > 0){
+			#pragma HLS PIPELINE
+			if(!stream_in.empty()){
+				packetIn = stream_in.read();
+				if(expected_bytes - 8 <= 0)
+					packetOut.last = 1;
+				else
+					packetOut.last = 0;
+	
+				ap_uint<8> keep_temp = packetIn.keep;
+				packetOut.keep = packetIn.keep;
+	
+				for(int i = 0 ; i < 8 ;i++){
+					if(keep_temp[i] == 1)
+						expected_bytes -= 1;
+				}
+	
+				//packetOut.data = reverseEndian64(packetIn.data);
+				packetOut.data = packetIn.data;
+				packetOut.dest = dest;
+				packetOut.id = id;
+				packetOut.user = user;
+				last = packetIn.last;
+				stream_out.write(packetOut);
+			}
+		}
 	}
 }
