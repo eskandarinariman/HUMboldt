@@ -25,7 +25,7 @@
 #include <mutex>
 #include <time.h>
 
-#include "tinyxml.h"
+#include "../tinyxml_lib/tinyxml.h"
 
 using namespace std;
 
@@ -64,7 +64,7 @@ enum MPI_DATA_TYPE{MPI_INT = 3,MPI_FLOAT=4,MPI_SHORT=2,MPI_CHAR=1};
 
 enum MPI_COMM{MPI_COMM_WORLD = 0};
 
-#define RANK 0
+#define RANK 4
 
 
 
@@ -77,10 +77,11 @@ struct thread_data {
 
 union envelope{
 	struct{
+		short DEST_temp;
 		short DEST;
 		unsigned char SRC;
 		unsigned char PKT_TYPE; // [2:0] : pkt_type ; [31:10] : MSG_SIZE
-		unsigned int MSG_SIZE;
+		unsigned short MSG_SIZE;
 		char TAG;
 		char DATA_TYPE;
 	}field;
@@ -102,7 +103,7 @@ struct data_packet
 	char buffer[ETH_FRAME_LEN];
 };
 
-int MPI_Init(int world_size);
+int MPI_Init();
 string find_mac_address (int dest);
 bool check_packet_for_me(string mac_address, struct ether_header * eh);
 int send_packet(char* iface, unsigned short proto,const char* dest,

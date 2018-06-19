@@ -7,19 +7,15 @@ list<envelope> error_list;
 list<envelope> done_list;
 
 clock_t time_begin,time_end;
-clock_t microb_time_start_,microb_time_end_;
-
-std::vector<string> mac_addresses_hex;
-
 
 int req_num = 0;
 int clr_num = 0;
 
-bool running = 1;
-
 pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 mutex myMutex;
 thread t;
+
+bool is_receiving = 1;
 
 //pthread_t threads[NUM_THREADS];
 //struct thread_data td[NUM_THREADS];
@@ -32,7 +28,7 @@ int receiving_size;
 	unsigned char source[ETH_ALEN];
 
 int MPI_Finalize(){
-	running = 0;
+	is_receiving = 0;
 	t.join();
 	cout << "Finished ..." <<endl;
 	//pthread_exit(NULL);
@@ -49,7 +45,7 @@ void eth_receiver_func() {
 
 	int numbytes;
 
-   	while(running){
+   	while(is_receiving){
    		//cout << "#"<<endl;
   //  		for(int i = 0; i < ENVELOPE_SIZE; i++){
 		// 	cout << hex << (int)envlp.buffer[i] <<endl;
@@ -181,7 +177,7 @@ void eth_receiver_func() {
    	}
 }
 
-int MPI_Init(int world_size){
+int MPI_Init(){
 
 	if ((s = socket(AF_PACKET, SOCK_RAW, htons(ETH_PROTO))) < 0) {
 		printf("Error: could not open socket\n");
@@ -203,14 +199,6 @@ int MPI_Init(int world_size){
 	}
 	memcpy((void*)source, (void*)(buffer.ifr_hwaddr.sa_data),
 		ETH_ALEN);
-
-
-	for(int i = 0 ; i < world_size ;i++){
-		string mac_address;
-		mac_address = find_mac_address(i);
-		string mac_address_hex = mac_str_to_hex(mac_address);
-		mac_addresses_hex.push_back(mac_address_hex);
-	}
 
 	
 	// int i,rc;
@@ -235,23 +223,33 @@ string find_mac_address (int dest){
 	ifstream myfile;
 	vector<string> mac_addresses;
 	string line;
-	myfile.open ("mpiMacAddresses");
-	while ( getline (myfile,line) )
-	{
-		//cout << line << '\n';
-		mac_addresses.push_back(line);
-	}
-	myfile.close();
+	// myfile.open ("mpiMacAddresses");
+	// while ( getline (myfile,line) )
+	// {
+	// 	//cout << line << '\n';
+	// 	mac_addresses.push_back(line);
+	// }
+	// myfile.close();
 
-	TiXmlDocument doc( "mpiMap.xml" );
+	TiXmlDocument doc( "./configuration_files/mpiMap.xml" );
 	doc.LoadFile();
 	TiXmlHandle docHandle( &doc );
-	TiXmlElement * fpga = docHandle.FirstChild( "cluster" ).FirstChild("fpga").ToElement();
+	TiXmlElement * fpga = docHandle.FirstChild( "cluster" ).FirstChild("node").ToElement();
+	TiXmlElement * fpga2 = fpga;
 	vector<string *> kernel_to_mac_ptrs(256);
 
-	int i = 0;
 	for(fpga;fpga;fpga = fpga->NextSiblingElement()){
-		TiXmlElement * kernel = fpga->FirstChild("kernel")->ToElement();
+		TiXmlElement * mac_addr = fpga->FirstChild("mac_addr")->ToElement();
+		string temp_str =  mac_addr->GetText();
+		//cout << temp_str <<endl;
+		mac_addresses.push_back(temp_str);
+	}
+
+
+
+	int i = 0;
+	for(fpga2;fpga2;fpga2 = fpga2->NextSiblingElement()){
+		TiXmlElement * kernel = fpga2->FirstChild("kernel")->ToElement();
 		for(kernel;kernel;kernel = kernel->NextSiblingElement()){
 			const char * temp = kernel->GetText();
 			int int_temp = atoi(temp);
@@ -361,6 +359,7 @@ string mac_str_to_hex(string mac_address_str){
 int send_envelope(unsigned int dest, unsigned int count,MPI_DATA_TYPE dataType,int tag){
 	union envelope envlp;
 	envlp.field.SRC = RANK;
+	envlp.field.DEST_temp = dest;
 	envlp.field.DEST = dest;
 	if(dataType == MPI_INT || dataType == MPI_FLOAT){
 		envlp.field.MSG_SIZE = count;
@@ -384,13 +383,13 @@ int send_envelope(unsigned int dest, unsigned int count,MPI_DATA_TYPE dataType,i
 
 	// find the mac address of the FPGA which contains the rank
 
-	// string mac_address;
-	// mac_address = find_mac_address(dest);
-	// string mac_address_hex = mac_str_to_hex(mac_address);
+	string mac_address;
+	mac_address = find_mac_address(dest);
+	string mac_address_hex = mac_str_to_hex(mac_address);
 
 	//cout <<"sending to : "<< mac_address_hex <<endl;
 
-	send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_addresses_hex[dest].c_str(),envlp.buffer,sizeof(envlp.buffer));
+	send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_address_hex.c_str(),envlp.buffer,sizeof(envlp.buffer));
 	time_begin = clock();
 	//cout<< sizeof(envlp.buffer) <<endl;
 }
@@ -433,12 +432,12 @@ int recv_packet(char* iface, unsigned short proto, unsigned char * buffer, int b
 
 	//cout << hex << (int) eh->ether_dhost[0] << endl;
 
-	// string my_mac_address;
-	// my_mac_address = find_mac_address(RANK);
-	// //cout << my_mac_address <<endl;
-	// string my_mac_address_hex = mac_str_to_hex(my_mac_address);
+	string my_mac_address;
+	my_mac_address = find_mac_address(RANK);
+	//cout << my_mac_address <<endl;
+	string my_mac_address_hex = mac_str_to_hex(my_mac_address);
 
-	if(check_packet_for_me(mac_addresses_hex[RANK],eh)){
+	if(check_packet_for_me(my_mac_address_hex,eh)){
 		return numbytes;
 	}
 	else
@@ -550,6 +549,7 @@ int send_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int de
 	union envelope envlp;
 	envlp.field.SRC = RANK;
 	envlp.field.DEST = dest;
+	envlp.field.DEST_temp = dest;
 	envlp.field.PKT_TYPE = C_DATA_PACKET;
 	envlp.field.TAG = tag;
 	if(dataType == MPI_FLOAT){
@@ -584,9 +584,9 @@ int send_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int de
 		// 	envlp.buffer[j] = buff_char_ptr[i+j];
 		// }
 
-		// string mac_address;
-		// mac_address = find_mac_address(dest);
-		// string mac_address_hex = mac_str_to_hex(mac_address);
+		string mac_address;
+		mac_address = find_mac_address(dest);
+		string mac_address_hex = mac_str_to_hex(mac_address);
 
 		//cout << "befor send: " <<sizeof(envlp.buffer)<<endl;
 
@@ -595,7 +595,7 @@ int send_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int de
 		// }
 
 		//send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_address_hex.c_str(),envlp.buffer,sizeof(envlp.buffer));
-		send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_addresses_hex[dest].c_str(),to_send_buffer,(count*data_size)+ENVELOPE_SIZE);
+		send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_address_hex.c_str(),to_send_buffer,(count*data_size)+ENVELOPE_SIZE);
 
 	}
 	else{
@@ -640,12 +640,12 @@ send_seq:
  			}
  			//k++;
 			//cout<<seq_num << "after for " <<k<<endl;
-			// string mac_address;
-			// mac_address = find_mac_address(dest);
-			// //cout<<seq_num << "after find_mac_address " <<k<<endl;
-			// string mac_address_hex = mac_str_to_hex(mac_address);
+			string mac_address;
+			mac_address = find_mac_address(dest);
+			//cout<<seq_num << "after find_mac_address " <<k<<endl;
+			string mac_address_hex = mac_str_to_hex(mac_address);
 			//cout << "seq "<<seq_num <<" j:"<<k<<endl;
-			send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_addresses_hex[dest].c_str(),to_send_buffer,k); // ??? 
+			send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_address_hex.c_str(),to_send_buffer,k); // ??? 
 		}
 		while(1){
 			std::lock_guard<std::mutex> guard(myMutex);
@@ -758,6 +758,7 @@ int send_clr2snd(int dest, MPI_DATA_TYPE dataType){
 	union envelope envlp;
 	envlp.field.SRC = RANK;
 	envlp.field.DEST = dest;
+	envlp.field.DEST_temp = dest;
 	envlp.field.MSG_SIZE = receiving_size;
 
 	envlp.field.PKT_TYPE = C_CLR2SND_PACKET;
@@ -773,19 +774,18 @@ int send_clr2snd(int dest, MPI_DATA_TYPE dataType){
 
 	// find the mac address of the FPGA which contains the rank
 
-	// string mac_address;
-	// mac_address = find_mac_address(dest);
-	// string mac_address_hex = mac_str_to_hex(mac_address);
+	string mac_address;
+	mac_address = find_mac_address(dest);
+	string mac_address_hex = mac_str_to_hex(mac_address);
 
 	//cout <<"sending to : "<< mac_address_hex <<endl;
 
-	send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_addresses_hex[dest].c_str(),envlp.buffer,sizeof(envlp.buffer));
+	send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_address_hex.c_str(),envlp.buffer,sizeof(envlp.buffer));
 	time_begin = clock();
 }
 
 int receive_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int source){
 
-	
 	int seq_num = 0;
 	bool is_error_sent = 0;
 	int data_size;
@@ -802,8 +802,7 @@ int receive_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int
 	unsigned char * temp_buffer_char = (unsigned char *) temp_buffer_void;
 
 	std::vector<list<data_packet>::iterator> to_delete;
-	if(count == 0)
-		goto done;
+
 	while(1){
 		//cout << ".";
 		//while(lock);
@@ -875,6 +874,7 @@ int receive_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int
 								union envelope envlp;
 								envlp.field.SRC = RANK;
 								envlp.field.DEST = source;
+								envlp.field.DEST_temp = source;
 								envlp.field.MSG_SIZE = seq_num;
 							
 								envlp.field.PKT_TYPE = C_RECV_ERROR;
@@ -886,13 +886,13 @@ int receive_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int
 							
 								// find the mac address of the FPGA which contains the rank
 							
-								// string mac_address;
-								// mac_address = find_mac_address(source);
-								// string mac_address_hex = mac_str_to_hex(mac_address);
+								string mac_address;
+								mac_address = find_mac_address(source);
+								string mac_address_hex = mac_str_to_hex(mac_address);
 							
 								//cout <<"sending to : "<< mac_address_hex <<endl;
 							
-								send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_addresses_hex[source].c_str(),envlp.buffer,sizeof(envlp.buffer));
+								send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_address_hex.c_str(),envlp.buffer,sizeof(envlp.buffer));
 								is_error_sent = 1;
 								//it = data_list.erase(it);
 							}
@@ -921,6 +921,7 @@ done:
 		union envelope envlp;
 		envlp.field.SRC = RANK;
 		envlp.field.DEST = source;
+		envlp.field.DEST_temp = source;
 		envlp.field.MSG_SIZE = seq_num;
 		
 		envlp.field.PKT_TYPE = C_DATA_TRANSMISSION_DONE;
@@ -932,13 +933,13 @@ done:
 		
 		// find the mac address of the FPGA which contains the rank
 		
-		// string mac_address;
-		// mac_address = find_mac_address(source);
-		// string mac_address_hex = mac_str_to_hex(mac_address);
+		string mac_address;
+		mac_address = find_mac_address(source);
+		string mac_address_hex = mac_str_to_hex(mac_address);
 		
-		//cout <<"sending to : "<< mac_addresses_hex[source] <<endl;
+		//cout <<"sending to : "<< mac_address_hex <<endl;
 		
-		send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_addresses_hex[source].c_str(),envlp.buffer,sizeof(envlp.buffer));
+		send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_address_hex.c_str(),envlp.buffer,sizeof(envlp.buffer));
 		return 1;
 }
 
@@ -959,39 +960,15 @@ int MPI_Recv(void * buff,unsigned int count,MPI_DATA_TYPE dataType,
 int MPI_Send(void * buff,unsigned int count,MPI_DATA_TYPE dataType,
 	unsigned int dest,int tag,MPI_COMM comm){
 	//cout << "send envelope to " <<dest<<endl;
-	microb_time_start_ = clock();
 	send_envelope(dest,count,dataType,tag);
 	//cout << "wait for clr2snd from " <<dest<<endl;
 	wait_for_clr2snd(dest,count,dataType,tag);
-	
-	
 	//cout << "send data to " <<dest<<endl;
 	send_data(buff,count,dataType,dest,tag);
-	microb_time_end_ = clock();
-	//cout << ((double)(microb_time_end_ - microb_time_start_) / CLOCKS_PER_SEC*1000000) <<endl;
 	//cout << "send done " <<dest<<endl;
 
 	return 1;
 }
 
-// int main(int argc, char const *argv[])
-// {
-// 	MPI_Init();
-// 	cout <<"data length: " <<ETH_DATA_LEN << "    frame_length: " <<ETH_FRAME_LEN <<endl;
-// 	int to_send_array[10];
-// 	for(int i = 0 ; i < 10 ;i++)
-// 		to_send_array[i] = i;
-// 	MPI_Send(to_send_array,10,MPI_INT,1,-1,COMM);
-// 	return 0;
-
-// 	// unsigned char buffer[1024];
-// 	// recv_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,buffer,1024);
-
-// 	// for(int i = 0; i < 60 ;i++){
-// 	// 	printf("%x\t", buffer[i]);
-// 	// }
-
-// 	//send_data(to_send_array,10,MPI_INT,2);
-// }
 
 
