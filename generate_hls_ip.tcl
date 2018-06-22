@@ -139,7 +139,7 @@ set MPI_HEADERS_DIR "./HLS_lib/"
 
 open_project kmeans5
 set_top kmeans5
-add_files ../HMPI/mpi_app_benchmarks/HMPI_kmeans/hls/kmean5.cpp -cflags "-I ${MPI_HEADERS_DIR} "
+add_files ../HMPI/mpi_app_benchmarks/HMPI_kmeans/hls/kmeans5.cpp -cflags "-I ${MPI_HEADERS_DIR} "
 open_solution "solution1"
 set_part {xcku115-flva1517-2-e}
 create_clock -period 5 -name default
