@@ -869,7 +869,7 @@ int receive_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int
 						}
 						else{
 							if(!is_error_sent){
-								cout << "Error" <<endl;
+								cout << "Error " << seq_num<< endl;
 								cin.get();
 								union envelope envlp;
 								envlp.field.SRC = RANK;

@@ -89,34 +89,34 @@ cd userIP
 
 # if MPI is enabled, following IPs will be generated
 
-open_project NFR
-set_top NFR
-add_files ../HMPI/HLS_lib/NFR.cpp
-open_solution "solution1"
-set_part {xcku115-flva1517-2-e}
-create_clock -period 5 -name default
-config_rtl -encoding onehot
-#source "../hlsSources/directives/roundRobin.tcl"
-#csim_design
-csynth_design
-#cosim_design
-export_design -rtl verilog -format ip_catalog
-close_project
+# open_project NFR
+# set_top NFR
+# add_files ../HMPI/HLS_lib/NFR.cpp
+# open_solution "solution1"
+# set_part {xcku115-flva1517-2-e}
+# create_clock -period 5 -name default
+# config_rtl -encoding onehot
+# #source "../hlsSources/directives/roundRobin.tcl"
+# #csim_design
+# csynth_design
+# #cosim_design
+# export_design -rtl verilog -format ip_catalog
+# close_project
 
 
-open_project FNR
-set_top FNR
-add_files ../HMPI/HLS_lib/FNR.cpp
-open_solution "solution1"
-set_part {xcku115-flva1517-2-e}
-create_clock -period 5 -name default
-config_rtl -encoding onehot
-#source "../hlsSources/directives/roundRobin.tcl"
-#csim_design
-csynth_design
-#cosim_design
-export_design -rtl verilog -format ip_catalog
-close_project
+# open_project FNR
+# set_top FNR
+# add_files ../HMPI/HLS_lib/FNR.cpp
+# open_solution "solution1"
+# set_part {xcku115-flva1517-2-e}
+# create_clock -period 5 -name default
+# config_rtl -encoding onehot
+# #source "../hlsSources/directives/roundRobin.tcl"
+# #csim_design
+# csynth_design
+# #cosim_design
+# export_design -rtl verilog -format ip_catalog
+# close_project
 
 
 
@@ -137,9 +137,24 @@ export_design -format ip_catalog -display_name "Application Bridge"
 # #userIP
 set MPI_HEADERS_DIR "./HLS_lib/"
 
-open_project md1
-set_top md1
-add_files ../HMPI/mpi_app_benchmarks/HMPI_md/hls/md1.cpp -cflags "-I ${MPI_HEADERS_DIR} "
+open_project kmeans5
+set_top kmeans5
+add_files ../HMPI/mpi_app_benchmarks/HMPI_kmeans/hls/kmean5.cpp -cflags "-I ${MPI_HEADERS_DIR} "
+open_solution "solution1"
+set_part {xcku115-flva1517-2-e}
+create_clock -period 5 -name default
+config_rtl -encoding onehot
+#source "../hlsSources/directives/roundRobin.tcl"
+#csim_design
+csynth_design
+#cosim_design
+export_design -rtl verilog -format ip_catalog
+close_project
+
+
+open_project kmeans5_0
+set_top kmeans5_0
+add_files ../HMPI/mpi_app_benchmarks/HMPI_kmeans/hls/kmeans5_0.cpp -cflags "-I ${MPI_HEADERS_DIR} "
 open_solution "solution1"
 set_part {xcku115-flva1517-2-e}
 create_clock -period 5 -name default
