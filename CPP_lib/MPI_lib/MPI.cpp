@@ -17,6 +17,8 @@ thread t;
 
 bool is_receiving = 1;
 
+vector<string> mac_addresses_lookup_table(256);
+
 //pthread_t threads[NUM_THREADS];
 //struct thread_data td[NUM_THREADS];
 
@@ -130,6 +132,7 @@ void eth_receiver_func() {
 				// 	cout << "\tbyte " << i << " : " <<hex << (int)buffer_temp[i] <<endl;
 
 				//cin.get();
+				// /cout << data.envlp.field.MSG_SIZE <<endl;
 
 				data_list.push_back(data);
 				// if(envlp.field.DATA_TYPE == INT)
@@ -178,7 +181,7 @@ void eth_receiver_func() {
 }
 
 int MPI_Init(){
-
+	find_mac_address(0);
 	if ((s = socket(AF_PACKET, SOCK_RAW, htons(ETH_PROTO))) < 0) {
 		printf("Error: could not open socket\n");
 		return -1;
@@ -199,6 +202,8 @@ int MPI_Init(){
 	}
 	memcpy((void*)source, (void*)(buffer.ifr_hwaddr.sa_data),
 		ETH_ALEN);
+
+	
 
 	
 	// int i,rc;
@@ -236,7 +241,7 @@ string find_mac_address (int dest){
 	TiXmlHandle docHandle( &doc );
 	TiXmlElement * fpga = docHandle.FirstChild( "cluster" ).FirstChild("node").ToElement();
 	TiXmlElement * fpga2 = fpga;
-	vector<string *> kernel_to_mac_ptrs(256);
+	vector<string> kernel_to_mac_ptrs(256);
 
 	for(fpga;fpga;fpga = fpga->NextSiblingElement()){
 		TiXmlElement * mac_addr = fpga->FirstChild("mac_addr")->ToElement();
@@ -246,20 +251,24 @@ string find_mac_address (int dest){
 	}
 
 
-
 	int i = 0;
 	for(fpga2;fpga2;fpga2 = fpga2->NextSiblingElement()){
 		TiXmlElement * kernel = fpga2->FirstChild("kernel")->ToElement();
-		for(kernel;kernel;kernel = kernel->NextSiblingElement()){
+		for(kernel;kernel;kernel = kernel->NextSiblingElement("kernel")){
 			const char * temp = kernel->GetText();
 			int int_temp = atoi(temp);
 			//cout << (int)(*temp - '0') << endl;
-			kernel_to_mac_ptrs[int_temp] = &(mac_addresses[i]);
+			kernel_to_mac_ptrs[int_temp] = mac_addresses[i];
 		}
 		i++;
 	}
 
-	// cout << "here" << endl;
+	for(int j = 0 ; j < kernel_to_mac_ptrs.size();  j++){
+		mac_addresses_lookup_table[j] = (mac_str_to_hex(kernel_to_mac_ptrs[j]));
+		//cout << mac_addresses_lookup_table[j] <<endl;
+	}
+
+	//cout << "here" << endl;
 	// for(int i = 0 ; i < kernel_to_mac_ptrs.size();i++)
 	// {
 	// 	if(kernel_to_mac_ptrs[i])
@@ -267,7 +276,7 @@ string find_mac_address (int dest){
 	// }
 
 	// ----------------------------------------------------
-	return (*(kernel_to_mac_ptrs[dest]));
+	return ((kernel_to_mac_ptrs[dest]));
 
 }
 
@@ -383,13 +392,13 @@ int send_envelope(unsigned int dest, unsigned int count,MPI_DATA_TYPE dataType,i
 
 	// find the mac address of the FPGA which contains the rank
 
-	string mac_address;
-	mac_address = find_mac_address(dest);
-	string mac_address_hex = mac_str_to_hex(mac_address);
+	// string mac_address;
+	// mac_address = find_mac_address(dest);
+	// string mac_address_hex = mac_str_to_hex(mac_address);
 
 	//cout <<"sending to : "<< mac_address_hex <<endl;
 
-	send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_address_hex.c_str(),envlp.buffer,sizeof(envlp.buffer));
+	send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_addresses_lookup_table[dest].c_str(),envlp.buffer,sizeof(envlp.buffer));
 	time_begin = clock();
 	//cout<< sizeof(envlp.buffer) <<endl;
 }
@@ -432,12 +441,13 @@ int recv_packet(char* iface, unsigned short proto, unsigned char * buffer, int b
 
 	//cout << hex << (int) eh->ether_dhost[0] << endl;
 
-	string my_mac_address;
-	my_mac_address = find_mac_address(RANK);
-	//cout << my_mac_address <<endl;
-	string my_mac_address_hex = mac_str_to_hex(my_mac_address);
+	// string my_mac_address;
+	// my_mac_address = find_mac_address(RANK);
+	//scin.get();
+	//cout << mac_addresses_lookup_table[3] <<endl;
+	// string my_mac_address_hex = mac_str_to_hex(my_mac_address);
 
-	if(check_packet_for_me(my_mac_address_hex,eh)){
+	if(check_packet_for_me(mac_addresses_lookup_table[RANK],eh)){
 		return numbytes;
 	}
 	else
@@ -584,9 +594,9 @@ int send_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int de
 		// 	envlp.buffer[j] = buff_char_ptr[i+j];
 		// }
 
-		string mac_address;
-		mac_address = find_mac_address(dest);
-		string mac_address_hex = mac_str_to_hex(mac_address);
+		// string mac_address;
+		// mac_address = find_mac_address(dest);
+		// string mac_address_hex = mac_str_to_hex(mac_address);
 
 		//cout << "befor send: " <<sizeof(envlp.buffer)<<endl;
 
@@ -595,7 +605,7 @@ int send_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int de
 		// }
 
 		//send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_address_hex.c_str(),envlp.buffer,sizeof(envlp.buffer));
-		send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_address_hex.c_str(),to_send_buffer,(count*data_size)+ENVELOPE_SIZE);
+		send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_addresses_lookup_table[dest].c_str(),to_send_buffer,(count*data_size)+ENVELOPE_SIZE);
 
 	}
 	else{
@@ -640,12 +650,12 @@ send_seq:
  			}
  			//k++;
 			//cout<<seq_num << "after for " <<k<<endl;
-			string mac_address;
-			mac_address = find_mac_address(dest);
-			//cout<<seq_num << "after find_mac_address " <<k<<endl;
-			string mac_address_hex = mac_str_to_hex(mac_address);
+			// string mac_address;
+			// mac_address = find_mac_address(dest);
+			// //cout<<seq_num << "after find_mac_address " <<k<<endl;
+			// string mac_address_hex = mac_str_to_hex(mac_address);
 			//cout << "seq "<<seq_num <<" j:"<<k<<endl;
-			send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_address_hex.c_str(),to_send_buffer,k); // ??? 
+			send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_addresses_lookup_table[dest].c_str(),to_send_buffer,k); // ??? 
 		}
 		while(1){
 			std::lock_guard<std::mutex> guard(myMutex);
@@ -774,13 +784,13 @@ int send_clr2snd(int dest, MPI_DATA_TYPE dataType){
 
 	// find the mac address of the FPGA which contains the rank
 
-	string mac_address;
-	mac_address = find_mac_address(dest);
-	string mac_address_hex = mac_str_to_hex(mac_address);
+	// string mac_address;
+	// mac_address = find_mac_address(dest);
+	// string mac_address_hex = mac_str_to_hex(mac_address);
 
 	//cout <<"sending to : "<< mac_address_hex <<endl;
 
-	send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_address_hex.c_str(),envlp.buffer,sizeof(envlp.buffer));
+	send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_addresses_lookup_table[dest].c_str(),envlp.buffer,sizeof(envlp.buffer));
 	time_begin = clock();
 }
 
@@ -808,14 +818,14 @@ int receive_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int
 		//while(lock);
 		//pthread_mutex_lock(&lock);
 		//mu.lock();
-		std::lock_guard<std::mutex> guard(myMutex);
 		//cout << "D";
 		time_end = clock();
 		if((double)(time_end - time_begin) / CLOCKS_PER_SEC >= TIMEOUT){
 			send_clr2snd(source, dataType);
-			cout << "fuck :D" <<endl;
+			//cout << "fuck :D" <<endl;
 		}
 		for(list<data_packet>::iterator it = data_list.begin(); it != data_list.end(); it++){
+			std::lock_guard<std::mutex> guard(myMutex);
 			//cout <<"1" <<endl;
 			if((*it).envlp.field.PKT_TYPE == C_DATA_PACKET	
 			&& (*it).envlp.field.DEST == RANK
@@ -865,6 +875,7 @@ int receive_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int
 							// }
 							seq_num++;
 							is_error_sent = 0;
+							it = data_list.erase(it);
 							//cin.get();
 						}
 						else{
@@ -886,20 +897,19 @@ int receive_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int
 							
 								// find the mac address of the FPGA which contains the rank
 							
-								string mac_address;
-								mac_address = find_mac_address(source);
-								string mac_address_hex = mac_str_to_hex(mac_address);
+								// string mac_address;
+								// mac_address = find_mac_address(source);
+								// string mac_address_hex = mac_str_to_hex(mac_address);
 							
 								//cout <<"sending to : "<< mac_address_hex <<endl;
 							
-								send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_address_hex.c_str(),envlp.buffer,sizeof(envlp.buffer));
+								send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_addresses_lookup_table[source].c_str(),envlp.buffer,sizeof(envlp.buffer));
 								is_error_sent = 1;
 								//it = data_list.erase(it);
 							}
 						}
 					}
 					//to_delete.push_back(it);
-					it = data_list.erase(it);
 					//return 1;
 				}
 			}
@@ -933,13 +943,13 @@ done:
 		
 		// find the mac address of the FPGA which contains the rank
 		
-		string mac_address;
-		mac_address = find_mac_address(source);
-		string mac_address_hex = mac_str_to_hex(mac_address);
+		// string mac_address;
+		// mac_address = find_mac_address(source);
+		// string mac_address_hex = mac_str_to_hex(mac_address);
 		
 		//cout <<"sending to : "<< mac_address_hex <<endl;
 		
-		send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_address_hex.c_str(),envlp.buffer,sizeof(envlp.buffer));
+		send_packet(ETHERNET_INTERFACE_NAME,ETH_PROTO,mac_addresses_lookup_table[source].c_str(),envlp.buffer,sizeof(envlp.buffer));
 		return 1;
 }
 
