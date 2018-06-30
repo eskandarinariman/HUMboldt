@@ -9,11 +9,12 @@
         <interface>
             <direction> in </direction>
             <name> stream_in_V </name>
+            <debug/>  
         </interface>
         <interface>
             <direction> out </direction>
             <name> stream_out_V </name>
-            <debug/>
+            <debug/>  
         </interface>
         <const>
             <name> mpi_size_V </name>
@@ -30,6 +31,7 @@
         <interface>
             <direction> in </direction>
             <name> stream_in_V </name>
+            <debug/>  
         </interface>
         <interface>
             <direction> out </direction>
