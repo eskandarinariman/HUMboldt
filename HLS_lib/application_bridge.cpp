@@ -61,6 +61,8 @@ void net_to_app(hls::stream <net_axis> & from_net,
 	static ap_uint <40> user;
 	static ap_uint <8> id;
 
+
+    static int expected_bytes = 0;
 	static int byte_counter = 0;
 
 	switch (nta_state)
@@ -98,6 +100,8 @@ void net_to_app(hls::stream <net_axis> & from_net,
 				user(7,4) = DATA;
 				user(39,8) = 0;
 
+                expected_bytes = net_packet_in.data(47,32)*4;
+
 				nta_state = 1;
 				last = net_packet_in.last;
 				byte_counter = 0;
@@ -118,17 +122,24 @@ void net_to_app(hls::stream <net_axis> & from_net,
 						byte_counter += 1;
 				}
 
+
 				
 				last = net_packet_in.last;
 				packetOut.last = last;
 			
+                if(byte_counter >= expected_bytes){
+                    nta_state = 2;
+                    packetOut.last = 1;
+                }
+                else{
+				    nta_state = 1;
+                }
 				//packetOut.data = reverseEndian64(packetIn.data);
 				packetOut.data = net_packet_in.data;
 				packetOut.dest = dest;
 				packetOut.id = id;
 				packetOut.user = user;
 				to_app.write(packetOut);
-				nta_state = 1;
 			}
 		}
 		else{

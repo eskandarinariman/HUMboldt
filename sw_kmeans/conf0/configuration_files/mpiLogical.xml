@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cluster>
-    <kernel> kmeans_0
+    <kernel> kmeans0_4
 		<num> 0 </num>
         <rep> 1 </rep>
         <clk> aclk </clk>
@@ -9,20 +9,15 @@
         <interface>
             <direction> in </direction>
             <name> stream_in_V </name>
-            <debug/>  
+            <debug/>
         </interface>
         <interface>
             <direction> out </direction>
             <name> stream_out_V </name>
-            <debug/>  
+            <debug/>
         </interface>
-        <const>
-            <name> mpi_size_V </name>
-            <width> 16 </width>
-            <val> 4 </val>
-        </const>
     </kernel>
-    <kernel> kmeans
+    <kernel> kmeans4
 		<num> 1 </num>
         <rep> 3 </rep>
         <clk> aclk </clk>
@@ -31,18 +26,13 @@
         <interface>
             <direction> in </direction>
             <name> stream_in_V </name>
-            <debug/>  
+            <debug/>
         </interface>
         <interface>
             <direction> out </direction>
             <name> stream_out_V </name>
             <debug/>
         </interface>
-        <const>
-            <name> mpi_size_V </name>
-            <width> 16 </width>
-            <val> 4 </val>
-        </const>
     </kernel>
 	<kernel> cpu
         <num> 4 </num>

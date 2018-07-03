@@ -14,7 +14,7 @@ ap_uint<16> id_in;
 
 
 void kmeans_0(
-	ap_uint<16> id,
+	const ap_uint<16> id,
     const ap_uint<16> mpi_size
 	){
 #pragma HLS INTERFACE ap_ctrl_none port=return
