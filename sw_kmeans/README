@@ -1,0 +1,7 @@
+Configuration 
+
+
+Conf 0 ...................... rank_0 rank_0-3 FPGA_0, rank 4 CPU eth
+Conf 1 ...................... rank_0 rank_0-3 FPGA_0, rank 4 CPU tcp 
+Conf 2 ...................... rank_0 rank_0-7 FPGA_0, rank 8 CPU eth
+Conf 3 ...................... rank_0 rank_0-7 FPGA_0, rank 8 CPU tcp 
