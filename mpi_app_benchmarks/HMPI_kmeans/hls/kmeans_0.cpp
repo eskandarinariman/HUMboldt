@@ -79,9 +79,9 @@ void kmeans_0(
 
 	    int h_clusters_global_members[nclusters];
 
-      float temp[1];
+      float temp[2];
       temp[0] = 1;
-      while(!MPI_Recv(temp,1, MPI_FLOAT,mpi_size,0,MPI_COMM_WORLD));
+      while(!MPI_Recv(temp,2, MPI_FLOAT,mpi_size,0,MPI_COMM_WORLD));
 
 
 
@@ -165,7 +165,7 @@ void kmeans_0(
 	}
 
   temp[0] = 0;
-  while(!MPI_Send(temp,1, MPI_FLOAT,mpi_size,0,MPI_COMM_WORLD));
+  while(!MPI_Send(temp,2, MPI_FLOAT,mpi_size,0,MPI_COMM_WORLD));
 
 
 }

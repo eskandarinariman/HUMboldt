@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cluster>
+    <kernel> kmeans_0
+		<num> 0 </num>
+        <rep> 1 </rep>
+        <clk> aclk </clk>
+        <aresetn> aresetn </aresetn>
+        <id_port> id_V </id_port>
+        <interface>
+            <direction> in </direction>
+            <name> stream_in_V </name>
+            <debug/>
+        </interface>
+        <interface>
+            <direction> out </direction>
+            <name> stream_out_V </name>
+            <debug/>
+        </interface>
+        <const>
+            <name> mpi_size_V </name>
+            <val> 80 </val>
+            <width> 16 </width>
+        </const>
+    </kernel>
+    <kernel> kmeans
+		<num> 1 </num>
+        <rep> 79 </rep>
+        <clk> aclk </clk>
+        <aresetn> aresetn </aresetn>
+        <id_port> id_V </id_port>
+        <interface>
+            <direction> in </direction>
+            <name> stream_in_V </name>
+        </interface>
+        <interface>
+            <direction> out </direction>
+            <name> stream_out_V </name>
+        </interface>
+        <const>
+            <name> mpi_size_V </name>
+            <val> 80 </val>
+            <width> 16 </width>
+        </const>
+    </kernel>
+	<kernel> cpu
+        <num> 80 </num>
+        <rep> 1 </rep>
+        <interface>
+            <direction> in </direction>
+            <name> stream_in </name>
+        </interface>
+        <interface>
+            <direction> out </direction>
+            <name> stream_out </name>
+        </interface>
+	</kernel>
+</cluster>

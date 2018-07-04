@@ -2,7 +2,7 @@
 <cluster>
     <node>
         <type> sw </type>
-        <kernel> 4 </kernel>
+        <kernel> 16 </kernel>
         <mac_addr>  0c:c4:7a:88:c0:47 </mac_addr>
         <ip_addr> 10.1.2.101 </ip_addr>
     </node>
@@ -21,6 +21,18 @@
         <kernel> 1 </kernel>
         <kernel> 2 </kernel>
         <kernel> 3 </kernel>
+        <kernel> 4 </kernel>
+        <kernel> 5 </kernel>
+        <kernel> 6 </kernel>
+        <kernel> 7 </kernel>
+        <kernel> 8 </kernel>
+        <kernel> 9 </kernel>
+        <kernel> 10 </kernel>
+        <kernel> 11 </kernel>
+        <kernel> 12 </kernel>
+        <kernel> 13 </kernel>
+        <kernel> 14 </kernel>
+        <kernel> 15 </kernel>
         <mac_addr>  fa:16:3e:55:ca:02 </mac_addr>
         <ip_addr> 10.1.2.102 </ip_addr>
     </node>

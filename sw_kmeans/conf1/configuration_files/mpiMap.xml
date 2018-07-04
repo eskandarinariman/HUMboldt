@@ -2,7 +2,7 @@
 <cluster>
     <node>
         <type> sw </type>
-        <kernel> 4 </kernel>
+        <kernel> 8 </kernel>
         <mac_addr>  0c:c4:7a:88:c0:47 </mac_addr>
         <ip_addr> 10.1.2.101 </ip_addr>
     </node>
@@ -15,12 +15,16 @@
             <from_net> from_net_V </from_net>
         </appBridge>
         <board> adm-8k5-debug </board>
-        <comm> tcp </comm>
+        <comm> eth </comm>
         <type> hw </type>
         <kernel> 0 </kernel>
         <kernel> 1 </kernel>
         <kernel> 2 </kernel>
         <kernel> 3 </kernel>
+        <kernel> 4 </kernel>
+        <kernel> 5 </kernel>
+        <kernel> 6 </kernel>
+        <kernel> 7 </kernel>
         <mac_addr>  fa:16:3e:55:ca:02 </mac_addr>
         <ip_addr> 10.1.2.102 </ip_addr>
     </node>

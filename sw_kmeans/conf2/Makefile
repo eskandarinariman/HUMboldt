@@ -91,9 +91,9 @@ all: ${OUTPUT}
 # Source files
 #****************************************************************************
 
-SRCS := ../CPP_lib/tinyxml_lib/tinyxml.cpp ../CPP_lib/tinyxml_lib/tinyxmlparser.cpp \
-../CPP_lib/tinyxml_lib/tinyxmlerror.cpp ../CPP_lib/tinyxml_lib/tinystr.cpp \
-../CPP_lib/MPI_lib/MPI.cpp example.c ../CPP_lib/tinyxml_lib/util.c
+SRCS := ../../CPP_lib/tinyxml_lib/tinyxml.cpp ../../CPP_lib/tinyxml_lib/tinyxmlparser.cpp \
+../../CPP_lib/tinyxml_lib/tinyxmlerror.cpp ../../CPP_lib/tinyxml_lib/tinystr.cpp \
+../../CPP_lib/MPI_lib/MPI.cpp example.c ../../CPP_lib/tinyxml_lib/util.c
 
 # Add on the sources for libraries
 SRCS := ${SRCS}

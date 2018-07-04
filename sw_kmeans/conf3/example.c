@@ -15,7 +15,7 @@
  */
 
 #include <math.h>
-#include "../CPP_lib/MPI_lib/MPI.h"
+#include "../../CPP_lib/MPI_lib/MPI.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -41,8 +41,6 @@ main(int argc, char* argv[])
  
     // change the RANK define in MPI.h to 5
     MPI_Init();
-
-    unsigned char * temp_char_ptr = (unsigned char *)temp;
 
     MPI_COMM comm;
 

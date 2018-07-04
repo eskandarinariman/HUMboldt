@@ -265,7 +265,7 @@ void app_to_net(hls::stream <app_axis> & from_app,
 }
 
 
-void application_bridge(
+void communication_bridge_eth_mpi(
 		hls::stream <app_axis> & from_app,
 		hls::stream <app_axis> & to_app,
 		hls::stream <net_axis> & from_net,
