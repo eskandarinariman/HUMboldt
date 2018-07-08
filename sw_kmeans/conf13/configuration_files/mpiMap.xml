@@ -4,7 +4,7 @@
         <type> sw </type>
         <kernel> 64 </kernel>
         <mac_addr>  0c:c4:7a:88:c0:47 </mac_addr>
-        <ip_addr> 10.1.2.101 </ip_addr>
+        <ip_addr> 10.1.2.152 </ip_addr>
     </node>
     <node>
         <appBridge> 
