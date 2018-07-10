@@ -127,7 +127,7 @@ for(j = 0 ; j < ndims ;j++)
 	int h_clusters_global_members[nclusters];
 
 
-
+	while(!MPI_Recv(h_data,20, MPI_FLOAT,0,0,MPI_COMM_WORLD));
 
 	MPI_Init();
 

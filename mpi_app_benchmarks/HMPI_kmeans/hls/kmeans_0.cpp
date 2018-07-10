@@ -79,8 +79,14 @@ void kmeans_0(
 
 	    int h_clusters_global_members[nclusters];
 
+      //dummy sends to make connections
+      for(i = 1; i < world_size ;i++){
+        while(!MPI_Send(h_data,20, MPI_FLOAT,i,i,MPI_COMM_WORLD));
+      }
+
       float temp[2];
       temp[0] = 1;
+      while(!MPI_Recv(temp,2, MPI_FLOAT,mpi_size,0,MPI_COMM_WORLD));
       while(!MPI_Recv(temp,2, MPI_FLOAT,mpi_size,0,MPI_COMM_WORLD));
 
 
