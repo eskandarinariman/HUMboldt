@@ -160,7 +160,7 @@ void kmeans_0(
     	}
    	 	else{
       		while(!MPI_Send(h_clusters_local_sums, nclusters * ndims, MPI_FLOAT,0,world_rank,MPI_COMM_WORLD));
-      		while(!MPI_Send(h_clusters_local_members, nclusters, MPI_INT,0,world_rank,MPI_COMM_WORLD));
+      		while(!MPI_Send(h_clusters_local_members, nclusters, MPI_FLOAT,0,world_rank,MPI_COMM_WORLD));
     	}
 	}
 

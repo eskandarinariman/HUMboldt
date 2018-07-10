@@ -102,28 +102,29 @@ void net_to_app(hls::stream <net_axis> & from_net,
 
 				nta_state = 1;
 				last = net_packet_in.last;
-				//expected_bytes = net_packet_in.data(47,32);
+				expected_bytes = net_packet_in.data(47,32);
 				byte_counter = 0;
 			}
 		}
 		break;
 	case 1:
-		if(!last){
+		if(byte_counter < expected_bytes){
 			if(!from_net.empty()){
 				net_packet_in = from_net.read();
 				app_axis packetOut;
 
 				packetOut.keep = net_packet_in.keep;
-				// ap_uint<8> keep_temp = net_packet_in.keep;
+				ap_uint<8> keep_temp = net_packet_in.keep;
 
-				// for(int i = 0 ; i < 8 ;i++){
-				// 	if(keep_temp[i] == 1)
-				// 		byte_counter += 1;
-				// }
+				for(int i = 0 ; i < 8 ;i++){
+					if(keep_temp[i] == 1)
+						byte_counter += 1;
+				}
 
-				
-				last = net_packet_in.last;
-				packetOut.last = last;
+				if(byte_counter >= expected_bytes)
+					packetOut.last = 1;
+				else
+					packetOut.last = 0;
 			
 				//packetOut.data = reverseEndian64(packetIn.data);
 				packetOut.data = net_packet_in.data;
