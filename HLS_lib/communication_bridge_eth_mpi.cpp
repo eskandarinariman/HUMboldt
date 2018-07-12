@@ -99,6 +99,7 @@ void net_to_app(hls::stream <net_axis> & from_net,
 				user(3,0) = net_packet_in.data(59,56);
 				user(7,4) = DATA;
 				user(39,8) = 0;
+				last = 0;
 
                 expected_bytes = net_packet_in.data(47,32)*4;
 
