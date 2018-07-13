@@ -2,9 +2,9 @@
 cd userIP
 set MPI_HEADERS_DIR "../HMPI/HLS_lib/"
 
-open_project kmeans_0
-set_top kmeans_0
-add_files ../HMPI/mpi_app_benchmarks/HMPI_kmeans/hls/kmeans_0.cpp -cflags "-I ${MPI_HEADERS_DIR} "
+open_project kmeans_1
+set_top kmeans_1
+add_files ../HMPI/mpi_app_benchmarks/HMPI_kmeans/hls/kmeans_1.cpp -cflags "-I ${MPI_HEADERS_DIR} "
 open_solution "solution1"
 set_part {xcku115-flva1517-2-e}
 create_clock -period 5 -name default
