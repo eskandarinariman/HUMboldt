@@ -64,7 +64,7 @@ enum MPI_DATA_TYPE{MPI_INT = 3,MPI_FLOAT=4,MPI_SHORT=2,MPI_CHAR=1};
 
 enum MPI_COMM{MPI_COMM_WORLD = 0};
 
-#define RANK 3
+#define RANK 32
 
 
 

@@ -43,20 +43,22 @@ main(int argc, char* argv[])
     MPI_Init();
 
     MPI_COMM comm;
-
+    int max_itr = 10;
     float temp[1];
     temp[0] = 1;
 
-    MPI_Send(temp,1,MPI_FLOAT,0,0,comm);
+for(int i = 0 ; i < max_itr ;i++){
+    MPI_Send(temp,2,MPI_FLOAT,0,0,comm);
 
     start_time = get_wall_time();
+    MPI_Send(temp,2,MPI_FLOAT,0,0,comm);
 
-    MPI_Recv(temp,1,MPI_FLOAT,0,0,comm);
+    MPI_Recv(temp,2,MPI_FLOAT,0,0,comm);
 
     end_time = get_wall_time();
 
     cout << "time : " << end_time - start_time <<endl;
-
+}
     MPI_Finalize();
 
     return 0;
