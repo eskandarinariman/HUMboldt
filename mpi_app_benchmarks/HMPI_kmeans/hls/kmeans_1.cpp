@@ -13,7 +13,7 @@ ap_uint<16> id_in;
 
 
 
-void kmeans_0(
+void kmeans_1(
 	const ap_uint<16> id,
     const ap_uint<16> mpi_size
 	){
@@ -80,43 +80,43 @@ void kmeans_0(
 	    int h_clusters_global_members[nclusters];
 
       //dummy sends to make connections
-      for(i = 1; i < world_size ;i++){
+      for(i = 2; i <= world_size ;i++){
         while(!MPI_Send(h_data,20, MPI_FLOAT,i,i,MPI_COMM_WORLD));
       }
 
       float temp[2];
       temp[0] = 1;
-      while(!MPI_Recv(temp,2, MPI_FLOAT,mpi_size,0,MPI_COMM_WORLD));
-      while(!MPI_Recv(temp,2, MPI_FLOAT,mpi_size,0,MPI_COMM_WORLD));
+      while(!MPI_Recv(temp,2, MPI_FLOAT,0,0,MPI_COMM_WORLD));
+      while(!MPI_Recv(temp,2, MPI_FLOAT,0,0,MPI_COMM_WORLD));
 
 
 
       MPI_Init();
 
-	    for(i = 1; i < world_size ;i++){
+	    for(i = 2; i <= world_size ;i++){
 	    	printf("send data to rank %d\n",i);
 	    	while(!MPI_Send(h_data,nvectors * ndims , MPI_FLOAT,i,i,MPI_COMM_WORLD));
 	    }
 
 
 	    for(int itr = 0 ; itr < niters ;itr++){
-    		if(world_rank == 0){
-      			for(int s = 1 ; s < world_size ;s++){
+    		if(world_rank == 1){
+      			for(int s = 2 ; s <= world_size ;s++){
         			while(!MPI_Send(h_clusters,nclusters*ndims, MPI_FLOAT,s,world_rank,MPI_COMM_WORLD));
       			}
     		}
     		else{
-        		while(!MPI_Recv(h_clusters,nclusters*ndims, MPI_FLOAT,0,world_rank,MPI_COMM_WORLD));
+        		while(!MPI_Recv(h_clusters,nclusters*ndims, MPI_FLOAT,1,world_rank,MPI_COMM_WORLD));
     		}
 
 
     		for (int i = 0; i < nclusters; i++){
     		  	h_clusters_local_members[i] = 0;
-    		  	if(world_rank == 0)
+    		  	if(world_rank == 1)
     		    	h_clusters_global_members[i] = 0;
     		 	for (int j = 0; j < ndims; j++){
     		    	h_clusters_local_sums[i*ndims+j] = 0;
-    		    	if(world_rank == 0)
+    		    	if(world_rank == 1)
     		      	h_clusters_global_sums[i*ndims+j] = 0;
     		  	}
     		}
@@ -126,7 +126,7 @@ void kmeans_0(
 				// nvectors, ndims, nclusters, niters);
 
  
-    		if(world_rank == 0){
+    		if(world_rank == 1){
 
     	 // for(int m = 0; m < nclusters ;m++){ 
        //    			for(int n = 0; n < ndims ;n++){
@@ -140,7 +140,7 @@ void kmeans_0(
        //    			h_clusters_local_members[m] = -1;
        //  		}
 
-      			for(int i = 1; i < world_size; i++){
+      			for(int i = 2; i <= world_size; i++){
         			while(!MPI_Recv(h_clusters_local_sums, nclusters * ndims, MPI_FLOAT,i,world_rank,MPI_COMM_WORLD));
 
        	 			for(int m = 0; m < nclusters ;m++){ 
@@ -151,7 +151,7 @@ void kmeans_0(
         			}
       			}
   
-      			for(int i = 1; i < world_size; i++){
+      			for(int i = 2; i <= world_size; i++){
         			while(!MPI_Recv(h_clusters_local_members, nclusters, MPI_FLOAT,i,world_rank,MPI_COMM_WORLD));
         			for(int m = 0; m < nclusters ;m++){
           				h_clusters_global_members[m] += h_clusters_local_members[m];
@@ -165,13 +165,13 @@ void kmeans_0(
 
     	}
    	 	else{
-      		while(!MPI_Send(h_clusters_local_sums, nclusters * ndims, MPI_FLOAT,0,world_rank,MPI_COMM_WORLD));
-      		while(!MPI_Send(h_clusters_local_members, nclusters, MPI_FLOAT,0,world_rank,MPI_COMM_WORLD));
+      		while(!MPI_Send(h_clusters_local_sums, nclusters * ndims, MPI_FLOAT,1,world_rank,MPI_COMM_WORLD));
+      		while(!MPI_Send(h_clusters_local_members, nclusters, MPI_FLOAT,1,world_rank,MPI_COMM_WORLD));
     	}
 	}
 
   temp[0] = 0;
-  while(!MPI_Send(temp,2, MPI_FLOAT,mpi_size,0,MPI_COMM_WORLD));
+  while(!MPI_Send(temp,2, MPI_FLOAT,0,0,MPI_COMM_WORLD));
 
 
 }

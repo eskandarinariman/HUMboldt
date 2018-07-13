@@ -127,12 +127,12 @@ for(j = 0 ; j < ndims ;j++)
 	int h_clusters_global_members[nclusters];
 
 
-	while(!MPI_Recv(h_data,20, MPI_FLOAT,0,0,MPI_COMM_WORLD));
+	while(!MPI_Recv(h_data,20, MPI_FLOAT,1,0,MPI_COMM_WORLD));
 
 	MPI_Init();
 
 
-	while(!MPI_Recv(h_data, nvectors * ndims, MPI_FLOAT,0,world_rank,MPI_COMM_WORLD))
+	while(!MPI_Recv(h_data, nvectors * ndims, MPI_FLOAT,1,world_rank,MPI_COMM_WORLD))
 #pragma HLS LOOP_TRIPCOUNT max=1
 ;
 
@@ -140,7 +140,7 @@ for(j = 0 ; j < ndims ;j++)
 #pragma HLS LOOP_TRIPCOUNT max=100
 
 
-		while(!MPI_Recv(h_clusters,nclusters*ndims, MPI_FLOAT,0,world_rank,MPI_COMM_WORLD))
+		while(!MPI_Recv(h_clusters,nclusters*ndims, MPI_FLOAT,1,world_rank,MPI_COMM_WORLD))
 #pragma HLS LOOP_TRIPCOUNT max=1
 ;
 		//MPI_Bcast(h_clusters, nclusters *ndims, MPI_FLOAT, 0, MPI_COMM_WORLD);
@@ -150,12 +150,12 @@ for(j = 0 ; j < ndims ;j++)
 		for (int i = 0; i < nclusters; i++){
 #pragma HLS LOOP_TRIPCOUNT max=10
 			h_clusters_local_members[i] = 0;
-			if(world_rank == 0)
+			if(world_rank == 1)
 				h_clusters_global_members[i] = 0;
 			for (int j = 0; j < ndims; j++){
 #pragma HLS LOOP_TRIPCOUNT max=4
 				h_clusters_local_sums[i*ndims+j] = 0;
-				if(world_rank == 0)
+				if(world_rank == 1)
 					h_clusters_global_sums[i*ndims+j] = 0;
 			}
 		}
@@ -166,10 +166,10 @@ for(j = 0 ; j < ndims ;j++)
 
 
 		
-		while(!MPI_Send(h_clusters_local_sums, nclusters * ndims, MPI_FLOAT,0,world_rank,MPI_COMM_WORLD))
+		while(!MPI_Send(h_clusters_local_sums, nclusters * ndims, MPI_FLOAT,1,world_rank,MPI_COMM_WORLD))
 #pragma HLS LOOP_TRIPCOUNT max=1
 ;
-		while(!MPI_Send(h_clusters_local_members, nclusters, MPI_FLOAT,0,world_rank,MPI_COMM_WORLD))
+		while(!MPI_Send(h_clusters_local_members, nclusters, MPI_FLOAT,1,world_rank,MPI_COMM_WORLD))
 #pragma HLS LOOP_TRIPCOUNT max=1
 ;
 	}
