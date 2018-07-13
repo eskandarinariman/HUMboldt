@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cluster>
-    <kernel> kmeans_0
-		<num> 0 </num>
+    <kernel> kmeans_1
+		<num> 1 </num>
         <rep> 1 </rep>
         <clk> aclk </clk>
         <aresetn> aresetn </aresetn>
@@ -23,7 +23,7 @@
         </const>
     </kernel>
     <kernel> kmeans
-		<num> 1 </num>
+		<num> 2 </num>
         <rep> 3 </rep>
         <clk> aclk </clk>
         <aresetn> aresetn </aresetn>
@@ -45,7 +45,7 @@
         </const>
     </kernel>
 	<kernel> cpu
-        <num> 4 </num>
+        <num> 0 </num>
         <rep> 1 </rep>
         <interface>
             <direction> in </direction>
