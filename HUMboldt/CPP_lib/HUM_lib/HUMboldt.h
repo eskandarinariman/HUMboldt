@@ -88,7 +88,7 @@ union ETH_envelope{
 		char TAG;
 		char DATA_TYPE;
 	}field;
-	unsigned char buffer[ETH_ETH_DATA_FRAM_SIZE];
+	unsigned char buffer[ETH_ENVELOPE_SIZE];
 };
 
 union TCP_envelope{
@@ -177,8 +177,8 @@ int TCP_MPI_Finalize();
 
 
 
-int HUM_Init(int *argc, char ***argv );
-int HUM_Finalize();
+int HUM_MPI_Init(int *argc, char ***argv );
+int HUM_MPI_Finalize();
 int HUM_MPI_Send(void * buff,unsigned int count,HUM_MPI_DATA_TYPE dataType,
 	unsigned int dest,int tag,HUM_MPI_COMM comm);
 int HUM_MPI_Recv(void * buff,unsigned int count,HUM_MPI_DATA_TYPE dataType,

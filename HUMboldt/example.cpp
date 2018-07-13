@@ -15,73 +15,43 @@
 #include <time.h>
 #include <sys/time.h>
 
-
 double get_wall_time(){
     struct timeval time;
     if (gettimeofday(&time,NULL)){
-        //  Handle error
+        cout << "time error" <<endl;
         return 0;
     }
-    return (double)time.tv_sec*1000000000 + (double)time.tv_usec;
+    return (double)time.tv_sec * 1000000 + (double)time.tv_usec;
 }
 
 double start_time,end_time;
 
-int main(int argc, char** argv)
+//------------------------------
+int 
+main(int argc, char* argv[])
 {
-    int         rank, size, i, j, itcnt, q;
-    float       diffnorm, gdiffnorm;
-    float       **xlocal, **xnew;
-    int         nrows;
-    MPI_Status  status;
-    double      t0, t1;
-    long long time = 0;
+ 
+    // change the RANK define in MPI.h to 5
+    HUM_MPI_Init(&argc,&argv);
 
-    HUM_Init( &argc, &argv );
+    HUM_MPI_COMM comm;
 
+    float temp[2];
+    temp[0] = 1;
+    temp[1] = 1;
 
-    MPI_Comm_rank( MPI_COMM_WORLD, &rank );
-    MPI_Comm_size( MPI_COMM_WORLD, &size );
-
-    int max_itr = 10000;
-
-    int data_size = atoi(argv[1]);
-
-    float temp[1000000] = {1};
-    float temp2[1000000] = {1};
-    for(int i = 0 ; i < 1000000 ;i++)
-        temp[i] = (float)i;
-
-    struct timespec tps, tpe;
-
-    //ETH_MPI_Send(temp,data_size,HUM_MPI_FLOAT,1,0,HUM_MPI_COMM_WORLD);
-    if(rank == 0)
-        HUM_MPI_Send(temp,data_size,HUM_MPI_FLOAT,1,0,HUM_MPI_COMM_WORLD);
-
+    HUM_MPI_Send(temp,2,HUM_MPI_FLOAT,1,0,comm);
+    HUM_MPI_Send(temp,2,HUM_MPI_FLOAT,1,0,comm);
     
+    start_time = get_wall_time();
 
-    // for(int i = 0 ; i < max_itr ; i++){
-    //     //printf("%d\n",i);
-    //     if(rank == 0){
-    //         clock_gettime(CLOCK_REALTIME, &tps);
-    //         MPI_Send(temp,data_size,MPI_FLOAT,1,0,MPI_COMM_WORLD);
-    //         clock_gettime(CLOCK_REALTIME, &tpe);
-    //         //printf("t: %lu", (tpe.tv_sec-tps.tv_sec)*1000000+(tpe.tv_nsec-tps.tv_nsec)/1000);
-    //         time+= (tpe.tv_sec-tps.tv_sec)*1000000000+(tpe.tv_nsec-tps.tv_nsec);
+    HUM_MPI_Recv(temp,1,HUM_MPI_FLOAT,1,0,comm);
 
+    end_time = get_wall_time();
 
-    //     } else{
-    //         MPI_Recv(temp2,data_size,MPI_FLOAT,0,0,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
-    //     }
-    // }
+    cout << "time : " << end_time - start_time <<endl;
 
-    // printf("%f\n",((double)time/max_itr)/1000);
-
-
-    // MPI_Finalize( );
-
-    while(1);
+    HUM_MPI_Finalize();
 
     return 0;
 }
-

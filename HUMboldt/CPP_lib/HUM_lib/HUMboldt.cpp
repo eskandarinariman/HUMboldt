@@ -378,7 +378,7 @@ int xml_parser(){
 	// ----------------------------------------------------
 }
 
-int HUM_Init(int *argc, char ***argv ){
+int HUM_MPI_Init(int *argc, char ***argv ){
 	MPI_Init(argc,argv);
     MPI_Comm_rank( MPI_COMM_WORLD, &RANK );
     cout <<"rank: "<<RANK <<endl;
@@ -1517,7 +1517,7 @@ int ETH_MPI_Finalize(){
 	return 0;
 }
 
-int HUM_Finalize(){
+int HUM_MPI_Finalize(){
 	is_receiving = 0;
 	ETH_MPI_Finalize();
 	TCP_MPI_Finalize();
