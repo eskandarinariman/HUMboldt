@@ -125,7 +125,7 @@ void eth_receiver_func() {
 				unsigned char buffer_temp[ETH_FRAME_LEN];
 				for(int i = 0; i < numbytes ;i++){
 					data.buffer[i] = buffer[i]; 
-					//cout << "byte " << i << " : " <<hex << (int)data.buffer[i] <<endl;
+					cout << "byte " << i << " : " <<hex << (int)data.buffer[i] <<endl;
 				}
 
 				// for(int i = 0 ; i < ETH_DATA_FRAM_SIZE- (ENVELOPE_SIZE-2);i++)
@@ -830,7 +830,7 @@ int receive_data(void * buff,unsigned count, MPI_DATA_TYPE dataType,unsigned int
 			if((*it).envlp.field.PKT_TYPE == C_DATA_PACKET	
 			&& (*it).envlp.field.DEST == RANK
 			&& (*it).envlp.field.SRC == source){
-				//cout <<"2" <<endl;
+				cout <<"2" <<endl;
 				if((dataType == MPI_FLOAT && (*it).envlp.field.DATA_TYPE == FLOAT)
 					|| (dataType == MPI_INT && (*it).envlp.field.DATA_TYPE == INT)){
 					

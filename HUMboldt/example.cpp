@@ -45,11 +45,11 @@ main(int argc, char* argv[])
     
     start_time = get_wall_time();
 
-    HUM_MPI_Recv(temp,1,HUM_MPI_FLOAT,1,0,comm);
+    HUM_MPI_Recv(temp,2,HUM_MPI_FLOAT,1,0,comm);
 
     end_time = get_wall_time();
 
-    cout << "time : " << end_time - start_time <<endl;
+    cout << "time : " << (end_time - start_time)/1000000 <<endl;
 
     HUM_MPI_Finalize();
 
