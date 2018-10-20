@@ -58,7 +58,7 @@ void net_to_app(hls::stream <net_axis> & from_net,
 	static ap_uint<3> nta_state = 0;
 	static net_axis net_packet_in;
 	static ap_uint <1> last;
- 	static ap_uint <16> dest;
+ 	static ap_uint <8> dest;
 	static ap_uint <40> user;
 	static ap_uint <8> id;
 	static int expected_bytes = 0;
@@ -70,21 +70,21 @@ void net_to_app(hls::stream <net_axis> & from_net,
 	case 0:
 		if (!from_net.empty()){
 			net_packet_in = from_net.read();
-			if( net_packet_in.data(31,24) == C_SYNC_ENV_PACKET ||
-				net_packet_in.data(31,24) == C_CLR2SND_PACKET|| 
-				net_packet_in.data(31,24) == C_DATA_TRANSMISSION_DONE ||
-				net_packet_in.data(31,24) == C_RECV_ERROR){
+			if( net_packet_in.data(23,16) == C_SYNC_ENV_PACKET ||
+				net_packet_in.data(23,16) == C_CLR2SND_PACKET|| 
+				net_packet_in.data(23,16) == C_DATA_TRANSMISSION_DONE ||
+				net_packet_in.data(23,16) == C_RECV_ERROR){
 
 				app_axis envlp_out;
 				envlp_out.data = net_packet_in.data;
 				envlp_out.dest = net_packet_in.dest;
 				envlp_out.last = 1;
-				envlp_out.id   = net_packet_in.data(23,16);
+				envlp_out.id   = net_packet_in.data(15,8);
 
 				ap_uint <40> user;
 				user(3,0) =net_packet_in.data(59,56);
 				user(7,4) = ENVLP;
-				user(39,8) = 0;
+				user(39,8) = net_packet_in.data(47,24);
 				envlp_out.user = user;
 
 				envlp_out.keep = 0xff;
@@ -92,17 +92,17 @@ void net_to_app(hls::stream <net_axis> & from_net,
 				last = 0;
 				nta_state = 0;				
 			}
-			else if(net_packet_in.data(31,24) == C_DATA_PACKET){
-				dest = net_packet_in.data(15,0);
-				id = net_packet_in.data(23,16);
+			else if(net_packet_in.data(23,16) == C_DATA_PACKET){
+				dest = net_packet_in.data(7,0);
+				id = net_packet_in.data(15,8);
 
 				user(3,0) = net_packet_in.data(59,56);
 				user(7,4) = DATA;
-				user(39,8) = 0;
+				user(39,8) = net_packet_in.data(47,24);
 
 				nta_state = 1;
 				last = net_packet_in.last;
-				expected_bytes = net_packet_in.data(47,32);
+				expected_bytes = net_packet_in.data(47,24);
 				byte_counter = 0;
 			}
 		}
@@ -184,18 +184,18 @@ void app_to_net(hls::stream <app_axis> & from_app,
 
 				extraPayload.data = 0;
 				extraPayload.dest = app_packet_in.dest;
-				extraPayload.data(15,0) = app_packet_in.dest;
-				extraPayload.data(23,16) = app_packet_in.id;
-				extraPayload.data(31,24) = C_DATA_PACKET;
+				extraPayload.data(7,0) = app_packet_in.dest;
+				extraPayload.data(15,8) = app_packet_in.id;
+				extraPayload.data(23,16) = C_DATA_PACKET;
 
 				remaining_size = app_packet_in.user(39,8);
 
 				if(remaining_size + EXTREA_DATA_PACKET_BYTES >= MAX_ETH_FRAME_BYTES){
-					extraPayload.data(47,32) = MAX_ETH_FRAME_BYTES-EXTREA_DATA_PACKET_BYTES;
+					extraPayload.data(47,24) = MAX_ETH_FRAME_BYTES-EXTREA_DATA_PACKET_BYTES;
 					remaining_size -= MAX_ETH_FRAME_BYTES-EXTREA_DATA_PACKET_BYTES;
 				}
 				else{
-					extraPayload.data(47,32) = remaining_size;
+					extraPayload.data(47,24) = remaining_size;
 				}
  
 				extraPayload.data(63,56) = app_packet_in.user(3,0);
@@ -308,11 +308,11 @@ void app_to_net(hls::stream <app_axis> & from_app,
 		break;
 	case 3:{
 			if(remaining_size + EXTREA_DATA_PACKET_BYTES >= MAX_ETH_FRAME_BYTES){
-				extraPayload.data(47,32) = MAX_ETH_FRAME_BYTES-EXTREA_DATA_PACKET_BYTES;
+				extraPayload.data(47,24) = MAX_ETH_FRAME_BYTES-EXTREA_DATA_PACKET_BYTES;
 				remaining_size -= MAX_ETH_FRAME_BYTES-EXTREA_DATA_PACKET_BYTES; 
 			}
 			else{
-				extraPayload.data(47,32) = remaining_size;
+				extraPayload.data(47,24) = remaining_size;
 			}
 			to_net.write(extraPayload);
 			if(has_from_prev)
@@ -340,7 +340,6 @@ void app_to_net(hls::stream <app_axis> & from_app,
 		break;
 	}
 }
-
 
 void communication_bridge_tcp_mpi(
 		hls::stream <app_axis> & from_app,
