@@ -146,7 +146,7 @@ void eth_receiver_func() {
    		if(numbytes != -1){
    			std::lock_guard<std::mutex> guard(ETH_Mutex);
    			//cout << "l = 1"<<endl;
-   			cout <<numbytes<<endl;
+   			//cout <<numbytes<<endl;
 			envlp.buffer[0] = buffer[HEADER_OFFSET];
 			envlp.buffer[1] = buffer[1+HEADER_OFFSET];
 			for(int i = 2; i < ETH_ENVELOPE_SIZE; i++){
@@ -859,9 +859,9 @@ int eth_receive_data(void * buff,unsigned count, HUM_MPI_DATA_TYPE dataType,unsi
 		// 	send_clr2snd(source, dataType);
 		// 	//cout << "fuck :D" <<endl;
 		// }
+		std::lock_guard<std::mutex> guard(ETH_Mutex);
 		for(list<ETH_data_packet>::iterator it = ETH_data_list.begin(); it != ETH_data_list.end(); it++){
-			std::lock_guard<std::mutex> guard(ETH_Mutex);
-			//cout <<"1" <<endl;
+			//cout <<"1 dest:" << (*it).ETH_envlp.field.DEST << " src:" << (*it).ETH_envlp.field.SRC << endl;
 			if((*it).ETH_envlp.field.PKT_TYPE == C_DATA_PACKET	
 			&& (*it).ETH_envlp.field.DEST == RANK
 			&& (*it).ETH_envlp.field.SRC == source){

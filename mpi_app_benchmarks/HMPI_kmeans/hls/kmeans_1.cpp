@@ -1,9 +1,9 @@
 
 #include "MPI.h"
 
-#define MPI_MIN 4
-#define NDIMS 4
-#define NCLUSTERS 10
+#define MPI_MIN 16
+#define NDIMS 64
+#define NCLUSTERS 32
 #define NITERS 100
 #define FLT_MAX 3.40282347e+38
 
@@ -29,8 +29,8 @@ void kmeans_1(
     //start = 0;
 		int i,j,itr;
 	  // need to be careful with large sizes nvectors * ndims can overflow a signed int
-        long nvectors_total = 2700/MPI_MIN;
-	    long nvectors  = 2700/mpi_size;
+      long nvectors_total = 384/MPI_MIN;
+	    long nvectors  = 384/mpi_size;
 	    int  ndims     = NDIMS;
 	    int  nclusters = NCLUSTERS;
 	    int  niters    = NITERS;

@@ -49,10 +49,10 @@ enum MPI_COMM{MPI_COMM_WORLD = 0};
 using namespace hls;
 
 struct envelope{
-	ap_uint<16> DEST;
+	ap_uint<8> DEST;
 	ap_uint<8> SRC;
 	ap_uint<8> PKT_TYPE;
-	ap_uint<16> MSG_SIZE;
+	ap_uint<24> MSG_SIZE;
 	ap_uint<8> TAG;
 	ap_uint<4> DATA_TYPE;
 	ap_uint<4> DATA_OR_ENVLP;
@@ -60,10 +60,10 @@ struct envelope{
 
 
 void envelope_to_packet(envelope * envlp, stream_packet * packet){
-	packet->data(15,0) = envlp->DEST;
-	packet->data(23,16) = envlp->SRC;
-	packet->data(31,24) = envlp->PKT_TYPE;
-	packet->data(47,32) = envlp->MSG_SIZE;
+	packet->data(7,0) = envlp->DEST;
+	packet->data(15,8) = envlp->SRC;
+	packet->data(23,16) = envlp->PKT_TYPE;
+	packet->data(47,24) = envlp->MSG_SIZE;
 	packet->data(55,48) = envlp->TAG;
 	packet->data(59,56) = envlp->DATA_TYPE;
 	packet->data(63,60) = envlp->DATA_OR_ENVLP;
@@ -74,9 +74,9 @@ void envelope_to_packet(envelope * envlp, stream_packet * packet){
 
 void packet_to_envelope( stream_packet * packet, envelope * envlp){
 	envlp->DEST=packet->dest;
-	envlp->SRC=packet->data(23,16) ;
-	envlp->PKT_TYPE=packet->data(31,24);
-	envlp->MSG_SIZE=packet->data(47,32);
+	envlp->SRC=packet->data(15,8) ;
+	envlp->PKT_TYPE=packet->data(23,16);
+	envlp->MSG_SIZE=packet->data(47,24);
 	envlp->TAG = packet->data(55,48);
 	envlp->DATA_TYPE = packet->data(59,56);
 	envlp->DATA_TYPE = packet->data(63,60);

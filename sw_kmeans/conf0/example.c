@@ -39,19 +39,20 @@ int
 main(int argc, char* argv[])
 {
  
-    // change the RANK define in MPI.h to 5
     MPI_Init();
 
     MPI_COMM comm;
 
-    float temp[1];
+    float temp[2];
     temp[0] = 1;
+    temp[1] = 1;
 
-    MPI_Send(temp,1,MPI_FLOAT,0,0,comm);
+    MPI_Send(temp,2,MPI_FLOAT,1,0,comm);
+    MPI_Send(temp,2,MPI_FLOAT,1,0,comm);
 
     start_time = get_wall_time();
 
-    MPI_Recv(temp,1,MPI_FLOAT,0,0,comm);
+    MPI_Recv(temp,2,MPI_FLOAT,1,0,comm);
 
     end_time = get_wall_time();
 
